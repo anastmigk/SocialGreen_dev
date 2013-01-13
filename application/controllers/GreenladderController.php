@@ -6,7 +6,7 @@ class GreenladderController extends Zend_Controller_Action
     public function init()
     {
         /* Initialize action controller here */
-    	$title = "Green Ladder";
+    	$title = "Green Ladder ASDf";
     	$this->view->title = $title;    	
     	
     	$Ladder = new Application_Model_Ladder();
