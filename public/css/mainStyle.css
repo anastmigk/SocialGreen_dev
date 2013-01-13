@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+section#header, section#footer {
+	border: thin solid black;
+}
+
+nav ul {
+	list-style:none;
+}
+
+nav ul li {
+	display:inline;
+}

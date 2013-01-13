@@ -1,0 +1,19 @@
+<?php    
+if (count($this->messages) > 0) {
+	echo "<div id='flashe'>". $this->messages[0]."</div>";
+}
+    $accounts = $this->accounts;
+    echo "<table>";
+    foreach ($accounts as $account) {
+        echo "<tr>";
+        echo "<td>".$account->username."</td>";
+        echo "<td>".$account->created."</td>";
+        //echo "<td>".$account->description."</td>";
+        echo "<td><a href='".$this->Fullurl("/sg-alpha/public/account/profile/")."usr/".$account->username."'>View</a></td>";
+        echo "<td>Edit</td>";
+        echo "<td>Mail</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+
+?>
