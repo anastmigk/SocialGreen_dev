@@ -1,11 +1,7 @@
 @CHARSET "UTF-8";
 
-img#logo {
-	width: 15%;
-}
-
 section#header, section#footer {
-	border: thin solid grey;
+	border: thin solid black;
 }
 
 nav ul {
@@ -14,4 +10,18 @@ nav ul {
 
 nav ul li {
 	display:inline;
+}
+.body-container {
+	padding: 10px 10px 10px 10px; /*30px 50px 100px 30px;*/
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #3a4a54;
+	background-color: #fff;
+}
+.body-photo{
+	position:absolute;
+	left:1px;
+	top:1px;
+	z-index:1;
+	border: 6px solid #3a4a54;
 }
