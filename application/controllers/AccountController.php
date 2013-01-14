@@ -61,8 +61,7 @@ class AccountController extends Zend_Controller_Action
     public function profileAction()
     {
         // action body
-    	$this->view->title = "Profile";
-    	$username = $this->_getParam('usr');
+        $username = $this->_getParam('usr');
         $accounts = new Application_Model_DbTable_Accounts();
         $select = $accounts->select();
         $select->where("username = ?", $username);
