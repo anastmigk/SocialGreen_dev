@@ -5,7 +5,10 @@ class Application_Model_FormRegister extends Zend_Form {
         
         $this->setName('register');
         $this->setMethod('post');
-        $this->setAction('/sg-alpha/public/account/register/');
+        $this->setAction('/SocialGreen_dev/public/account/register/');
+        //$this->setAction($this->url(array('controller'=>'account','action'=>'register'), null, true));
+        
+        
         
         $username = new Zend_Form_Element_Text('username');
         $username->setAttrib('size',35);

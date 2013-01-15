@@ -9,8 +9,7 @@ if (count($this->messages) > 0) {
         echo "<td>".$account->username."</td>";
         echo "<td>".$account->created."</td>";
         /*echo "<td>".$account->description."</td>";*/
-        /*echo "<td><a href='".$this->Fullurl("/SocialGreen_dev/public/account/profile/")."usr/".$account->username."'>View</a></td>";*/
-        echo "<td><a href=".$this->url(array('controller'=>'account','action'=>'profile', 'usr'=>$account->username)).">View2</a></td>";
+        echo "<td><a href=".$this->url(array('controller'=>'account','action'=>'profile', 'usr'=>$account->username)).">View</a></td>";
         echo "<td>Edit</td>";
         echo "<td>Mail</td>";
         echo "</tr>";

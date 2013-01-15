@@ -19,6 +19,13 @@
     		<li><a href="<?php echo $this->url(array('controller'=>'account', 'action'=>'register'), null, TRUE); ?>">Register</a></li>
     	</ul>
     </nav>
+    
+    <div id="header"> <div id="logged-in-as">
+
+		<?php echo $this->loggedInAs(); ?> </div>
+
+	</div>
+	
     </section>
     <h3><?php echo $this->title; ?></h3>
     
