@@ -1,5 +1,5 @@
 <?php
-
+date_default_timezone_set('Europe/Athens');
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
     protected function _initViewHelpers()

@@ -2,9 +2,8 @@
 
 class Application_Model_FormLogin extends Zend_Form
 {
-    	public function init()
-
-    	{
+	public function init()
+    {
         $this->setName("login");
         $this->setMethod('post');
         $this->addElement('text', 'username', array(
@@ -27,7 +26,8 @@ class Application_Model_FormLogin extends Zend_Form
             'required' => false,
             'ignore'   => true,
             'label'    => 'Login',
-        ));        
+        ));      
     }
+
 }
 

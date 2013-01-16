@@ -25,44 +25,45 @@ class AccountController extends Zend_Controller_Action
     	$title = "User Registration";
     	$this->view->title = $title;
     	
-       $form = new Application_Model_FormRegister();
+		$form = new Application_Model_FormRegister();
        
-         if ($this->getRequest()->isPost()) {
-         	
-             if ($form->isValid($this->_request->getPost()))
-             {
-                     $account = new Application_Model_DbTable_Accounts();
-                     
-                     $data = array(
+        if ($this->getRequest()->isPost())
+        { 	
+			if ($form->isValid($this->_request->getPost()))
+			{
+				$account = new Application_Model_DbTable_Accounts();
+
+				$data = array(
                          'email'=>$form->getValue('email'),
                          'description'=>$form->getValue('description'),
                          'username'=>$form->getValue('username'),
                          'password'=>$form->getValue('pswd'),
                          'created'=>date('Y-m-d H:i:s'),
                          'updated'=>date('Y-m-d H:i:s')
-                         );
-                        
-                		TRY {
-                			$account->insert($data);
-                			$this->_helper->flashMessenger->addMessage("You have successfully registered at Social Green Project!");
-                			$this->_helper->redirector("index", 'account');
-                		} catch (Zend_Db_Exception $e) {
-                			echo $e->getMessage();	
-                		}
-             }else {
-                $this->view->errors = $form->getErrors();
-             }
-
-         }
+                         );       
+				TRY {
+					$account->insert($data);
+					$this->_helper->flashMessenger->addMessage("You have successfully registered at Social Green Project!");
+					$this->_helper->redirector("index", 'account');
+                }
+                catch (Zend_Db_Exception $e) {
+					echo $e->getMessage();	
+                }
+			}
+            else
+            {
+				$this->view->errors = $form->getErrors();
+            }
+        }
         $this->view->title = "New registration";
         $this->view->form = $form;        
-    }
+	}
 
     public function profileAction()
     {
         // action body
-    	$this->view->title = "Profile";
     	$username = $this->_getParam('usr');
+    	$this->view->title = "Profile";
         $accounts = new Application_Model_DbTable_Accounts();
         $select = $accounts->select();
         $select->where("username = ?", $username);
