@@ -3,6 +3,8 @@
         <?php //echo $this->headTitle(); ?>
         <?php echo $this->headLink()->appendStylesheet($this->baseUrl('css/mainStyle.css')); ?>
          <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+         <!-- <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> -->
+         <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed&subset=latin,greek' rel='stylesheet' type='text/css'>
          <?php $this->headTitle()->append($this->title); echo $this->headTitle(); ?>
     </head>
     <body>
@@ -20,10 +22,11 @@
     	</ul>
     </nav>
 	<div id="header">
-	<div id="logged-in-as">
+	<div class="logged-in-as" id="logged-in-as">
 		<?php echo $this->loggedInAs(); ?>
 	</div>
 	</div>
+	
     
     </section>
     <h3><?php echo $this->title; ?></h3>

@@ -1,11 +1,15 @@
 @CHARSET "UTF-8";
-
+body
+{
+	/*font-family: 'Lato', sans-serif;*/
+	font-family: 'Roboto Condensed', sans-serif;
+}
 img#logo {
 	width: 15%;
 }
 section#header, section#footer {
 	/*border: thin solid black;*/
-	
+	clear: both;
 }
 
 nav ul {
@@ -22,6 +26,16 @@ nav ul li {
 nav ul li a{
 	text-decoration:none;
 }
+
+.logged-in-as a {
+	float:right;
+	text-decoration:none;
+	border: 1px solid #888888;
+	border-radius: 5px;
+	padding: 3px 3px 3px 3px;
+	box-shadow: -1px -1px 5px #888888;
+}
+
 .profile-container {
 	margin-left:auto;
 	margin-right:auto;
@@ -31,29 +45,49 @@ nav ul li a{
 	padding: 10px 10px 10px 10px; /*30px 50px 100px 30px;*/
 	margin-bottom: 10px;
 	/*border: 1px solid #65B524;*/
+	/*border-radius: 1px;*/
 	box-shadow: 1px 1px 5px #888888;
 	background-color: #fff;
-	border-radius: 1px;
+}
+
+.profile-container p {
+	width:60%;
+}
+.profile-posts {
+	border-top: 1px solid #DDDDDD; /* A faint grey line below the text */
+}
+
+.profile-Badges {
+	float:right;
+	width:10%;
+	height:auto;
+	text-align:center;
+	padding: 10px 3px 3px 3px; /*30px 50px 100px 30px;*/
+	border: 1px solid #6fbf4d;
+	border-radius: 5px;
+	
+}
+.register {
+	
 }
 .profile-points {
-	padding: 3px 3px 3px 3px;
+	text-align:center;
+	width:10%;
+	height:auto;
+	padding: 5px 5px 3px 5px;
 	float:right;
 	box-shadow: 1px 1px 1px #888888;
-}
-.center
-{
-	text-align:center;	
+	background-color: #6fbf4d;
+	/*background-color: #E9C2A6;*/
 }
 
 .profile-photo {
-	/*overflow:hidden;*/
 	position:relative;
 	box-shadow: 1px 1px 1px #888888;
-	top:0px;
 	z-index:2;
 	background-color: #fff;
 	border: 1px solid #888888;
 	border-radius: 2px;
-	height: auto;
 	width: 160px;
+	height: auto;
 }

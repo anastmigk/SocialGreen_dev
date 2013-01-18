@@ -7,7 +7,7 @@
 <div class="profile-container">
 
 <img class="profile-photo" src="<?php echo $this->baseUrl('images/profile-picture-default.jpg') ?> ">
-<div class="profile-points">Total Points<br><h2 class="center" ><?php echo $account->points; ?></h2></div>
+<div class="profile-points">Total Points<br><h2><?php echo $account->points; ?></h2></div>
 <h2><?php echo $account->username; ?></h2>
 <!--<table>
     <tr><th>Username</th><td><?php echo $account->username; ?></td></tr>
@@ -15,8 +15,14 @@
     <tr><th>E-mail</th><td><?php echo $account->email; ?></td></tr>
     <tr><th>Created at</th><td><?php echo $account->created; ?></td></tr>
 </table> -->
+<div class="profile-Badges">
+<b>Badges</b><br>
 
+</div>
 
 <p><?php echo $account->description; ?></p>
+
+<!-- Blocking the Badges to overflow -->
+<div style="clear: both;"> </div>
 
 </div>

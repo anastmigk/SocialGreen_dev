@@ -40,7 +40,7 @@ class Application_Model_FormRegister extends Zend_Form {
         $pswd2->addErrorMessage("Password re-type is not correct");
         $pswd2->addValidator('Identical', false, array('token' => 'pswd'));
         
-        $file = new Zend_Form_Element_File('file');
+        /*$file = new Zend_Form_Element_File('file');
         //$file->setLabel('File to Upload:');
         //$file->setDestination('/images');
         $file->addValidator('IsImage');
@@ -50,7 +50,7 @@ class Application_Model_FormRegister extends Zend_Form {
         $file->addValidator('Extension', false, array('jpg', 'jpeg', 'png', 'gif'));
         $file->removeDecorator('label');
         $file->removeDecorator('htmlTag');
-        $file->addErrorMessage("Profile Photo");
+        $file->addErrorMessage("Profile Photo");*/
         
         $description = new Zend_Form_Element_Textarea('description');
         $description->removeDecorator('label');
@@ -62,7 +62,7 @@ class Application_Model_FormRegister extends Zend_Form {
         
         $this->setDecorators( array( array('ViewScript', array('viewScript' => '_form_register.phtml'))));
         
-        $this->addElements(array($username, $email, $pswd, $pswd2, $file, $description, $submit));
+        $this->addElements(array($username, $email, $pswd, $pswd2, $description, $submit));
     }
 }
 

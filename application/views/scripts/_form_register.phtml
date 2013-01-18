@@ -1,15 +1,15 @@
 <form id="register" action="<?= $this->element->getAction(); ?>"
 method="<?= $this->element->getMethod(); ?>">
     <p>
-        Username<br>
+        Username:<br>
         <?= $this->element->username; ?>
     </p>
 <p>
-E-mail Address<br />
+E-mail Address:<br />
 <?= $this->element->email; ?>
 </p>
 <p>
-Password<br />
+Password:<br />
 <?= $this->element->pswd; ?>
 </p>
 <p>
@@ -17,13 +17,14 @@ Password retype:<br />
 <?= $this->element->pswd2; ?>
 </p>
 
+<?php /*
 <p>
 Profile Photo:<br />
 <?= $this->element->file; ?>
 </p>
-
+*/?>
 <p>
-Description<br />
+Description:<br />
 <?= $this->element->description; ?>
 </p>
 
