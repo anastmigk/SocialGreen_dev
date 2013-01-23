@@ -1,41 +1,141 @@
 <html>
     <head>
+    	<meta charset="utf-8" />
+  		<!-- Set the viewport width to device width for mobile -->
+		<meta name="viewport" content="width=device-width" />
+        
         <?php //echo $this->headTitle(); ?>
-        <?php echo $this->headLink()->appendStylesheet($this->baseUrl('css/mainStyle.css')); ?>
-         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-         <!-- <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> -->
-         <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed&subset=latin,greek' rel='stylesheet' type='text/css'>
-         <?php $this->headTitle()->append($this->title); echo $this->headTitle(); ?>
+        <?php //echo $this->headLink()->appendStylesheet($this->baseUrl('css/mainStyle.css')); ?>
+        
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        
+        <!-- <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> -->
+        
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed&subset=latin,greek' rel='stylesheet' type='text/css'>
+        <?php $this->headTitle()->append($this->title); echo $this->headTitle(); ?>
+        
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/foundation.min.css')); ?>
+  		<?php echo $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/app.css')); ?>
+  		<?php echo $this->headScript()->appendFile('/javascripts/modernizr.foundation.js'); ?>
+		
+    
     </head>
     <body>
-    <section id="header">
-    	<header>
-    		<h1>Social Green Project</h1>
-    		<img id="logo" src="<?php echo $this->baseUrl('images/social.png') ?>">
-    	</header>
-    <nav>
-    	<ul>
-    		<li><a href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>">Home</a></li>
+    
+      <!-- Header and Nav -->
+  
+	  <div class="row">
+	    <div class="three columns">
+	      <h1><img src="<?php echo $this->baseUrl('images/social.png') ?>" /></h1>
+	    </div>
+	    <div class="nine columns">
+	      <ul class="nav-bar right">
+	        <li><a href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>">Home</a></li>
     		<li><a href="<?php echo $this->url(array('controller'=>'greenladder'), null, TRUE); ?>">Game</a></li>
     		<li><a href="<?php echo $this->url(array('controller'=>'account'), null, TRUE); ?>">Users</a></li>
     		<li><a href="<?php echo $this->url(array('controller'=>'account', 'action'=>'register'), null, TRUE); ?>">Register</a></li>
-    	</ul>
-    </nav>
-	<div id="header">
-	<div class="logged-in-as" id="logged-in-as">
-		<?php echo $this->loggedInAs(); ?>
-	</div>
-	</div>
+    		<?php echo $this->loggedInAs(); ?>
+	      </ul>
+	    </div>
+	  </div>
+	  
+	  <!-- End Header and Nav -->
+    
+  
+	  <!-- First Band (Slider) -->
+	  <!-- The Orbit slider is initialized at the bottom of the page by calling .orbit() on #slider -->
+	    
+	  <div class="row">
+	    <div class="twelve columns">
+	      <div id="slider">
+	        <img src="http://placehold.it/1000x400&text=[img 1]" />
+	        <img src="http://placehold.it/1000x400&text=[img 2]" />
+	        <img src="http://placehold.it/1000x400&text=[img 3]" />
+	        <img src="http://placehold.it/1000x400&text=[img 4]" />
+	      </div>
+	      
+	      <hr />
+	    </div>
+	  </div>
 	
+  <!-- Three-up Content Blocks -->
+  
+  <div class="row">
+  
+    <div class="twelve columns">
+      <h4><?php echo $this->title; ?></h4>
+      <?php echo $this->layout()->content; ?>
+    </div>
     
-    </section>
-    <h3><?php echo $this->title; ?></h3>
-    
-        <?php echo $this->layout()->content; ?>
+  </div>
         
-        <section id="footer" style="text-align:right;">
-        <?php echo date("d-m-Y");	?>
-        </section>
-        
-    </body>
+<!-- Footer -->
+  
+  <footer class="row">
+    <div class="twelve columns">
+      <hr />
+      <div class="row">
+        <div class="six columns">
+          <p>&copy; Copyright &copy; 2013 Social Green Project</p>
+        </div>
+        <div class="six columns">
+          <ul class="link-list right">
+            <li><a href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>">Home</a></li>
+    		<li><a href="<?php echo $this->url(array('controller'=>'greenladder'), null, TRUE); ?>">Game</a></li>
+    		<li><a href="<?php echo $this->url(array('controller'=>'account'), null, TRUE); ?>">Users</a></li>
+    		<li><a href="<?php echo $this->url(array('controller'=>'account', 'action'=>'register'), null, TRUE); ?>">Register</a></li>
+          </ul>
+        </div>
+      </div>
+    </div> 
+  </footer>
+  
+  <!-- Included JS Files (Uncompressed) -->
+  <!--
+  
+  <script src="javascripts/jquery.js"></script>
+  
+  <script src="javascripts/jquery.foundation.mediaQueryToggle.js"></script>
+  
+  <script src="javascripts/jquery.foundation.forms.js"></script>
+  
+  <script src="javascripts/jquery.event.move.js"></script>
+  
+  <script src="javascripts/jquery.event.swipe.js"></script>
+  
+  <script src="javascripts/jquery.foundation.orbit.js"></script>
+  
+  <script src="javascripts/jquery.foundation.navigation.js"></script>
+  
+  <script src="javascripts/jquery.foundation.buttons.js"></script>
+  
+  <script src="javascripts/jquery.foundation.tabs.js"></script>
+  
+  <script src="javascripts/jquery.foundation.tooltips.js"></script>
+  
+  <script src="javascripts/jquery.foundation.accordion.js"></script>
+  
+  <script src="javascripts/jquery.placeholder.js"></script>
+  
+  <script src="javascripts/jquery.foundation.alerts.js"></script>
+  
+  <script src="javascripts/jquery.foundation.topbar.js"></script>
+  
+  -->
+  
+  <!-- Included JS Files (Compressed) -->
+  <script src="javascripts/jquery.js"></script>
+  <script src="javascripts/foundation.min.js"></script>
+  
+  <!-- Initialize JS Plugins -->
+  <script src="javascripts/app.js"></script>
+
+  <script type="text/javascript">
+     $(window).load(function() {
+         $('#slider').orbit();
+     });
+  </script>
+  
+</body>
 </html>
+        >

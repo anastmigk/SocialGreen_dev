@@ -17,7 +17,7 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
             
             $editUrl = $this->view->url(array('controller'=>'account', 'action'=>'edit'),null, true);
 
-            return 'Welcome ' . $username .  '. <a href="'.$logoutUrl.'">Logout</a> - <a href="'.$editUrl.'">Profile Edit</a>';
+            return '<li><a href="'.$logoutUrl.'">Logout</a></li><li><a href="'.$editUrl.'">Profile Edit</a></li>';
 
         } 
 
@@ -37,7 +37,8 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
 
         $loginUrl = $this->view->url(array('controller'=>'auth', 'action'=>'index'));
 
-        return '<a href="'.$loginUrl.'">Login</a>';
+        return '<li><a href="'.$loginUrl.'">Login</a></li>';
+       
 
     }
 

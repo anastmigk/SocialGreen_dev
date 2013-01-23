@@ -11,9 +11,9 @@ $db = Zend_db::factory('Mysqli',
 
 $data = $db->fetchAll("SELECT * FROM activity");
 
-echo "<p>Temp table</p><table border=1>";
+//echo "<p>Temp table</p><table border=1>";
 foreach ($data as $row){
-	echo "<tr><td>Record id: ".$row['id']."</td><td>User ID: ".$row['userid']."</td><td>Quantity: ".$row['quantity']."</td><td>Date: ".$row['date']."</td></tr>";
+	//echo "<tr><td>Record id: ".$row['id']."</td><td>User ID: ".$row['userid']."</td><td>Quantity: ".$row['quantity']."</td><td>Date: ".$row['date']."</td></tr>";
 }
-echo "</table>";
+//echo "</table>";
 ?>
