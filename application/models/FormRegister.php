@@ -2,10 +2,16 @@
 class Application_Model_FormRegister extends Zend_Form {
     public function __construct($options=NULL) {
         parent::__construct($options);
+        $path;
+        if ($options=="edit"){
+        	$path="/SocialGreen_dev/public/account/edit/";
+        } else {
+        	$path="/SocialGreen_dev/public/account/register/";
+        }
         
         $this->setName('register');
         $this->setMethod('post');
-        $this->setAction('/SocialGreen_dev/public/account/register/');
+        $this->setAction($path);
         //$this->setAction($this->url(array('controller'=>'account','action'=>'register'), null, true));
         
         $username = new Zend_Form_Element_Text('username');

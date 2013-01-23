@@ -73,6 +73,54 @@ class AccountController extends Zend_Controller_Action
     public function editAction()
     {
         // action body
+    	$auth = Zend_Auth::getInstance();
+    	if ($auth->hasIdentity()) {
+    	
+    		$username = $auth->getIdentity()->username;
+    		
+    		$accounts = new Application_Model_DbTable_Accounts();
+    		$select = $accounts->select();
+    		$select->from($accounts)->where('username = ?', $username);
+    		
+    		$userAccount = $accounts->fetchAll($select);
+    		$form = new Application_Model_FormRegister("edit");
+    		$form->populate($userAccount->current()->toArray());
+    		
+    		$this->view->form = $form;
+    		
+    		
+    		if ($this->getRequest()->isPost()) {
+    		
+    			if ($form->isValid($this->_request->getPost()))
+    			{
+    				$account = new Application_Model_DbTable_Accounts();
+    				 
+    				$data2 = array(
+    						'email'=>$form->getValue('email'),
+    						'description'=>$form->getValue('description'),
+    						'username'=>$form->getValue('username'),
+    						'password'=>$form->getValue('pswd'),
+    						'created'=>date('Y-m-d H:i:s'),
+    						'updated'=>date('Y-m-d H:i:s')
+    				);
+    				
+    				$where = array('username = ?' =>$form->getValue('username')); 
+    		
+    				TRY {
+    					$account->update( $data2, $where);
+    					$this->_helper->flashMessenger->addMessage("You have successfully updated your profile!");
+    					$this->_helper->redirector("index", 'account');
+    				} catch (Zend_Db_Exception $e) {
+    					echo $e->getMessage();
+    				}
+    			}else {
+    				$this->view->errors = $form->getErrors();
+    			}
+    		
+    		}
+    		
+    		
+    	}
     }
 
 

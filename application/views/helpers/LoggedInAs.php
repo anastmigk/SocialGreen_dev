@@ -13,11 +13,11 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
 
             $username = $auth->getIdentity()->username;
 
-            $logoutUrl = $this->view->url(array('controller'=>'auth',
+            $logoutUrl = $this->view->url(array('controller'=>'auth','action'=>'logout'), null, true);
+            
+            $editUrl = $this->view->url(array('controller'=>'account', 'action'=>'edit'),null, true);
 
-                'action'=>'logout'), null, true);
-
-            return 'Welcome ' . $username .  '. <a href="'.$logoutUrl.'">Logout</a>';
+            return 'Welcome ' . $username .  '. <a href="'.$logoutUrl.'">Logout</a> - <a href="'.$editUrl.'">Profile Edit</a>';
 
         } 
 
