@@ -3,6 +3,7 @@ body
 {
 	/*font-family: 'Lato', sans-serif;*/
 	font-family: 'Roboto Condensed', sans-serif;
+	
 }
 img#logo {
 	width: 15%;
@@ -90,4 +91,23 @@ nav ul li a{
 	border-radius: 2px;
 	width: 160px;
 	height: auto;
+}
+
+div#mainContent{
+	background-color: #E1F5A9;
+	border-radius: 4px;
+	padding:3px;
+	box-shadow: 5px 5px 5px grey;
+}
+
+.nav-bar li, .nav-bar, .right {
+	border:none;
+}
+
+.nav-bar li:hover { 
+	/*background-color:red;*/
+}
+
+div#errors ul {
+	list-style:none;
 }

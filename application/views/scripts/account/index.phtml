@@ -1,19 +1,45 @@
+<div class='row'>
+	<div class="twelve columns">
+		<?php if (count($this->messages) > 0) {
+			echo "<div id='flash'>". $this->messages[0]."</div>";
+		}?>
+		<h2>Check out Social Green players</h2>
+	</div>
+
+</div>
+
 <?php    
-if (count($this->messages) > 0) {
-	echo "<div id='flashe'>". $this->messages[0]."</div>";
-}
+
     $accounts = $this->accounts;
-    echo "<table>";
+    echo "<div class='six columns offset-by-three'>";
+	echo "<div class='row'>";
     foreach ($accounts as $account) {
+    	
+    	$item ='
+    	<div class="six mobile-two columns">
+    		<img src="http://placehold.it/1000x1000&text=Thumbnail">
+    		<div class="panel">
+    			<h5>'.$account->username.'</h5>
+    			<h6 class="subheader">Contact - <a href='.$this->url(array('controller'=>'account','action'=>'profile', 'usr'=>$account->username)).'>More</a></h6>
+    			<p>'.substr($account->description, 0, 50).'...</p>
+    				
+    		</div>
+    	</div>';
+    	echo $item;
+    	/*
         echo "<tr>";
         echo "<td>".$account->username."</td>";
         echo "<td>".$account->created."</td>";
         /*echo "<td>".$account->description."</td>";*/
-        echo "<td><a href=".$this->url(array('controller'=>'account','action'=>'profile', 'usr'=>$account->username)).">View</a></td>";
-        echo "<td>Edit</td>";
-        echo "<td>Mail</td>";
+        /*echo "<td><a href=".$this->url(array('controller'=>'account','action'=>'profile', 'usr'=>$account->username)).">View</a></td>";
+        //echo "<td>Edit</td>";
+        //echo "<td>Mail</td>";
         echo "</tr>";
+        */
     }
-    echo "</table>";
+    echo "</div>";
+    echo "</div>";
 
 ?>
+
+ 

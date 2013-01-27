@@ -5,8 +5,10 @@ class Application_Model_FormRegister extends Zend_Form {
         $path;
         if ($options=="edit"){
         	$path="/SocialGreen_dev/public/account/edit/";
+        	$label="Save";
         } else {
         	$path="/SocialGreen_dev/public/account/register/";
+        	$label="Sign up!";
         }
         
         $this->setName('register');
@@ -63,8 +65,9 @@ class Application_Model_FormRegister extends Zend_Form {
         $description->removeDecorator('htmlTag');
         
         $submit = new Zend_Form_Element_Submit('submit');
-        $submit->setLabel("Register");
+        $submit->setLabel($label);
         $submit->removeDecorator('DtDdWrapper');
+        $submit->class = 'button';
         
         $this->setDecorators( array( array('ViewScript', array('viewScript' => '_form_register.phtml'))));
         

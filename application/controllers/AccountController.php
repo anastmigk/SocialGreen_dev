@@ -2,6 +2,7 @@
 
 class AccountController extends Zend_Controller_Action
 {
+
     public function init()
     {
         /* Initialize action controller here */
@@ -26,6 +27,11 @@ class AccountController extends Zend_Controller_Action
     	$this->view->title = $title;
     	
 		$form = new Application_Model_FormRegister();
+		
+		$elements = $form->getElements();
+		foreach($elements as $element) {
+			$element->removeDecorator('Errors');
+		}
        
         if ($this->getRequest()->isPost())
         { 	
@@ -45,6 +51,14 @@ class AccountController extends Zend_Controller_Action
 					$account->insert($data);
 					$this->_helper->flashMessenger->addMessage("You have successfully registered at Social Green Project!");
 					$this->_helper->redirector("index", 'account');
+					
+					$mail = new Zend_Mail();
+					$mail->setBodyText('This is the text of the mail.')
+					->setFrom('no-reply@socialgreenproject.com', 'Social Green Project')
+					->addTo($form->getValue('email'), $form->getValue('username'))
+					->setSubject('SocialGreen Project Registration')
+					->send();
+					
                 }
                 catch (Zend_Db_Exception $e) {
 					echo $e->getMessage();	
@@ -57,7 +71,7 @@ class AccountController extends Zend_Controller_Action
         }
         $this->view->title = "New registration";
         $this->view->form = $form;        
-	}
+    }
 
     public function profileAction()
     {
@@ -84,6 +98,12 @@ class AccountController extends Zend_Controller_Action
     		
     		$userAccount = $accounts->fetchAll($select);
     		$form = new Application_Model_FormRegister("edit");
+    		
+    		$elements = $form->getElements();
+    		foreach($elements as $element) {
+    			$element->removeDecorator('Errors');
+    		}
+    		
     		$form->populate($userAccount->current()->toArray());
     		
     		$this->view->form = $form;
@@ -123,8 +143,25 @@ class AccountController extends Zend_Controller_Action
     	}
     }
 
-
+    public function deleteAction()
+    {
+        // action body
+    	$auth = Zend_Auth::getInstance();
+    	if ($auth->hasIdentity()) {
+    		$username = $auth->getIdentity()->username;
+    		$accounts = new Application_Model_DbTable_Accounts();
+    		//$accounts->delete("username = ?", $username);
+    		$where = $accounts->getAdapter()->quoteInto("username = ?", $username);
+    		$accounts->delete($where);
+    		$auth->clearIdentity();
+    		$this->_redirect('/');
+    	} else {
+    		$this->_redirect('/');
+    	}
+    }
 }
+
+
 
 
 

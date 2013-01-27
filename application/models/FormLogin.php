@@ -12,7 +12,7 @@ class Application_Model_FormLogin extends Zend_Form
                 array('StringLength', false, array(0, 50)),
             ),
             'required'   => true,
-            'label'      => 'Username:',
+            'label'      => 'Username:'
         ));
         $this->addElement('password', 'password', array(
             'filters'    => array('StringTrim'),
@@ -20,13 +20,23 @@ class Application_Model_FormLogin extends Zend_Form
                 array('StringLength', false, array(0, 50)),
             ),
             'required'   => true,
-            'label'      => 'Password:',
+            'label'      => 'Password:'
         ));
         $this->addElement('submit', 'login', array(
             'required' => false,
             'ignore'   => true,
             'label'    => 'Login',
-        ));      
+        		'class'=> 'button'
+        ));
+		
+        $elements = $this->getElements();
+        foreach($elements as $element) {
+        	$element->removeDecorator('Errors');
+        }
+        
+        $this->getElement('username')->addErrorMessage('Username is empty dude!');
+        $this->getElement('password')->addErrorMessage('Gief a pass!');
+        $this->setDecorators( array( array('ViewScript', array('viewScript' => '_form_login.phtml'))));
     }
 
 }

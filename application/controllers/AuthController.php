@@ -20,16 +20,19 @@ class AuthController extends Zend_Controller_Action
     	
     		if ($form->isValid($request->getPost())) {
     	
-    			// do something here to log in+
+    			// do 	something here to log in+
     			if ($this->_process($form->getValues())) {
     			
     				// We're authenticated! Redirect to the home page
     			
     				$this->_helper->redirector('index', 'index');
-    			
+    			} else {
+    				
+    				$this->view->errors = array( array("Wrong username and password combination dude!"));
     			}
-    			 
-    	
+    			
+    		} else {
+    			$this->view->errors = $form->getErrors();
     		}
     	
     	}
@@ -95,7 +98,7 @@ class AuthController extends Zend_Controller_Action
         // action body
     	Zend_Auth::getInstance()->clearIdentity();
     	
-    	$this->_helper->redirector('index'); // back to login page
+    	$this->_helper->redirector('index', 'index'); // back to login page
     }
 
 

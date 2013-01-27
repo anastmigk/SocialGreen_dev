@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width" />
         
         <?php //echo $this->headTitle(); ?>
-        <?php //echo $this->headLink()->appendStylesheet($this->baseUrl('css/mainStyle.css')); ?>
+      
         
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
         
@@ -16,9 +16,9 @@
         
         <?php echo $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/foundation.min.css')); ?>
   		<?php echo $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/app.css')); ?>
-  		<?php echo $this->headScript()->appendFile('/javascripts/modernizr.foundation.js'); ?>
-		
-    
+  		<?php echo $this->headScript()->appendFile($this->baseUrl('javascripts/modernizr.foundation.js')); ?>
+  		
+  		<?php echo $this->headLink()->appendStylesheet($this->baseUrl('css/mainStyle.css')); ?>
     </head>
     <body>
     
@@ -28,42 +28,45 @@
 	    <div class="three columns">
 	      <h1><img src="<?php echo $this->baseUrl('images/social.png') ?>" /></h1>
 	    </div>
-	    <div class="nine columns">
-	      <ul class="nav-bar right">
-	        <li><a href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>">Home</a></li>
-    		<li><a href="<?php echo $this->url(array('controller'=>'greenladder'), null, TRUE); ?>">Game</a></li>
-    		<li><a href="<?php echo $this->url(array('controller'=>'account'), null, TRUE); ?>">Users</a></li>
-    		<li><a href="<?php echo $this->url(array('controller'=>'account', 'action'=>'register'), null, TRUE); ?>">Register</a></li>
-    		<?php echo $this->loggedInAs(); ?>
-	      </ul>
+	    
+	  <div class="nine columns">
+	    <div class='row'>
+	      	<div class='twelve columns'>
+	      		<ul class="nav-bar right">
+	      			<li><a href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>">Home</a></li>
+    				<li><a href="<?php echo $this->url(array('controller'=>'greenladder'), null, TRUE); ?>">Game</a></li>
+    				<li><a href="<?php echo $this->url(array('controller'=>'account'), null, TRUE); ?>">Users</a></li>
+    				<!-- <li><a href="<?php //echo $this->url(array('controller'=>'account', 'action'=>'register'), null, TRUE); ?>">Register</a></li>-->
+    				<?php echo $this->loggedInAs(); ?>
+	      		</ul>
+	    	</div>
 	    </div>
+	    
+	    
+	    
+	  <?php 
+	    $auth = Zend_Auth::getInstance();
+        if ($auth->hasIdentity()) {
+        	/*?>
+				<div class='row'>
+	    			<div class="three columns offset-by-nine">
+	    				<div class="panel">Logged in as <?php $username = $auth->getIdentity()->username; echo $username; ?>!</div>
+	    			</div>
+	    		</div>        	
+        	<?php */
+        }
+	    ?>
+	  </div>
 	  </div>
 	  
 	  <!-- End Header and Nav -->
-    
-  
-	  <!-- First Band (Slider) -->
-	  <!-- The Orbit slider is initialized at the bottom of the page by calling .orbit() on #slider -->
-	    
-	  <div class="row">
-	    <div class="twelve columns">
-	      <div id="slider">
-	        <img src="http://placehold.it/1000x400&text=[img 1]" />
-	        <img src="http://placehold.it/1000x400&text=[img 2]" />
-	        <img src="http://placehold.it/1000x400&text=[img 3]" />
-	        <img src="http://placehold.it/1000x400&text=[img 4]" />
-	      </div>
-	      
-	      <hr />
-	    </div>
-	  </div>
-	
+
   <!-- Three-up Content Blocks -->
   
-  <div class="row">
+  <div id="mainContent" class="row">
   
     <div class="twelve columns">
-      <h4><?php echo $this->title; ?></h4>
+      <!-- <h4><?php echo $this->title; ?></h4> -->
       <?php echo $this->layout()->content; ?>
     </div>
     
@@ -76,12 +79,12 @@
       <hr />
       <div class="row">
         <div class="six columns">
-          <p>&copy; Copyright &copy; 2013 Social Green Project</p>
+          <p>&copy; Copyright 2013 Social Green Project</p>
         </div>
         <div class="six columns">
           <ul class="link-list right">
             <li><a href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>">Home</a></li>
-    		<li><a href="<?php echo $this->url(array('controller'=>'greenladder'), null, TRUE); ?>">Game</a></li>
+    		<li><a href="<?php echo $this->url(array('controller'=>'greenladder'), null, TRUE); ?>">Ladder</a></li>
     		<li><a href="<?php echo $this->url(array('controller'=>'account'), null, TRUE); ?>">Users</a></li>
     		<li><a href="<?php echo $this->url(array('controller'=>'account', 'action'=>'register'), null, TRUE); ?>">Register</a></li>
           </ul>
@@ -123,19 +126,10 @@
   
   -->
   
-  <!-- Included JS Files (Compressed) -->
-  <script src="javascripts/jquery.js"></script>
-  <script src="javascripts/foundation.min.js"></script>
-  
-  <!-- Initialize JS Plugins -->
-  <script src="javascripts/app.js"></script>
-
-  <script type="text/javascript">
-     $(window).load(function() {
-         $('#slider').orbit();
-     });
-  </script>
-  
+  	<!-- Included JS Files (Compressed) -->
+  	<?php echo $this->headScript()->appendFile($this->baseUrl('javascripts/jquery.js')); ?>
+	<?php echo $this->headScript()->appendFile($this->baseUrl('javascripts/foundation.min.js')); ?>
+  	<!-- Initialize JS Plugins -->
+  	<?php echo $this->headScript()->appendFile($this->baseUrl('javascripts/app.js')); ?>
 </body>
 </html>
-        >
