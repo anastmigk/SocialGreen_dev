@@ -24,6 +24,7 @@ class Application_Model_FormRegister extends Zend_Form {
         $username->removeDecorator('label');
         $username->removeDecorator('htmlTag');
         
+        
         $email = new Zend_Form_Element_Text('email');
         $email->setAttrib('size',35);
         $email->setRequired(true);

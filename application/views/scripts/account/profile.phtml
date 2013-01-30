@@ -45,23 +45,23 @@
 	<div class="ten columns"  >
 		<div class="row">
 			<div class="two columns"><h2 class="subheader"><?php echo $account->username; ?></h2></div>
-			<div class="two columns"><div class="profile-points" ><h2 class="subheader" ><?php echo $account->points; ?></h2>Total Points</div></div>
+			<div class="two columns"><div class="profile-points" ><h2 class="subheader" ><?php echo $account->points; ?></h2>Points</div></div>
 			
 		</div>
 		<!-- blocking points to overflow on tabs -->
 		<p></p>
 		<dl class="tabs">
-  			<dd class="active"><a href="#simple1">About</a></dd>
-  			<dd><a href="#simple2">Posts</a></dd>
-  			<dd><a href="#simple3">Badges</a></dd>
+  			<dd class="active"><a href="#about">About</a></dd>
+  			<dd><a href="#posts">Posts</a></dd>
+  			<dd><a href="#badges">Badges</a></dd>
 		</dl>
 		<ul class="tabs-content">
-  			<li class="active" id="simple1Tab">
+  			<li class="active" id="aboutTab">
   				<p><?php echo $account->description; ?></p>
   				<p>Member Since : <?php echo $account->created; ?></p>
   			</li>
-  			<li id="simple2Tab" >This is simple tab 2s content. Now you see it!</li>
-  			<li id="simple3Tab" >This is simple tab 3s content.</li>
+  			<li id="postsTab" >This is simple tab 2s content. Now you see it!</li>
+  			<li id="badgesTab" >This is simple tab 3s content.</li>
 		</ul>
 	</div>
 </div>
