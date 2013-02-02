@@ -25,18 +25,17 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
            					<li><a href="'.$logoutUrl.'">Logout</a></li>
             			</ul>
            			</li>';
+            
+            
 
             //return '<li><a href="'.$logoutUrl.'">Logout</a></li><li><a href="'.$editUrl.'">Profile</a></li>';
             //return $edit;
       
-            return '<li class="has-flyout">
-					    <a href="'.$editUrl.'">'.$username.'</a>
-					    <a href="#" class="flyout-toggle"><span> </span></a>
-					    <ul class="flyout right">
-					      	<li><a href='.$this->view->url(array('controller'=>'account','action'=>'profile', 'usr'=>$username)).'>More info</a></li>
-           					<li><a href='.$this->view->url(array('controller'=>'account','action'=>'edit')).'>Edit</a></li>
-           					<li><a href="'.$logoutUrl.'">Logout</a></li>
-					    </ul>
+            return '<li><a href='. $this->view->url(array('controller'=>'greenladder'), null, TRUE).'>Game</a></li>
+    				<li><a href='. $this->view->url(array('controller'=>'account'), null, TRUE).'>Users</a></li>
+            		<li><a href='.$this->view->url(array('controller'=>'account','action'=>'profile', 'usr'=>$username)).'>More info</a></li>
+           			<li><a href='.$this->view->url(array('controller'=>'account','action'=>'edit')).'>Edit</a></li>
+           			<li><a href="'.$logoutUrl.'">Logout</a></li>
 					  </li>';
         } 
 

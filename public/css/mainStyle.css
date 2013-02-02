@@ -16,7 +16,7 @@ section#header, section#footer {
 nav ul {
 	list-style:none;
 }
-
+/*
 nav ul li {
 	display:inline;
 	border: 1px solid #888888;
@@ -35,7 +35,7 @@ nav ul li a{
 	border-radius: 5px;
 	padding: 3px 3px 3px 3px;
 	box-shadow: -1px -1px 5px #888888;
-}
+}*/
 
 .profile-container {
 	margin-left:auto;
@@ -97,9 +97,10 @@ nav ul li a{
 
 div#mainContent{
 	background-color: #E1F5A9;
-	border-radius: 4px;
+	/*border-radius: 4px;
+	box-shadow: 5px 5px 5px grey; */
 	padding:3px;
-	box-shadow: 5px 5px 5px grey;
+	
 }
 
 .nav-bar li, .nav-bar, .right {
@@ -112,4 +113,8 @@ div#mainContent{
 
 div#errors ul {
 	list-style:none;
+}
+
+img.social {
+	margin-top:20%;
 }

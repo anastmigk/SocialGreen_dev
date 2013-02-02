@@ -13,31 +13,53 @@
         
         <?php echo $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/foundation.min.css')); ?>
   		<?php echo $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/app.css')); ?>
+  		<?php echo $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/fc-webicons.css')); ?>
+  		<?php echo $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/ie.css')); ?>
   		<?php echo $this->headScript()->appendFile($this->baseUrl('javascripts/modernizr.foundation.js')); ?>
   		
   		<?php echo $this->headLink()->appendStylesheet($this->baseUrl('css/mainStyle.css')); ?>
     </head>
     <body>
     
+
+    
+    
+<!-- Positioning the Top Bar -->
+<div class="fixed contain-to-grid">
+  <!-- <nav> goes here -->
+  
+  <nav class="top-bar">
+  <ul>
+    <li class="name"><h1><a href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>">Social Green Project</a></h1></li>
+    <li class="toggle-topbar"><a href="#"></a></li>
+    <li><a href="https://www.facebook.com/SGreenProject"><img class='social' src="<?php echo $this->baseUrl('images/fairhead-icons/fc-webicon-facebook-m.png') ?>"></a></li>
+    <li><a href="https://twitter.com/SGreen_Project"><img class='social' src="<?php echo $this->baseUrl('images/fairhead-icons/fc-webicon-twitter-m.png') ?>"></a></li>  
+  </ul>
+  
+  <section>
+	
+  <ul class="right">
+    <!-- <li><a href="<?php //echo $this->url(array('controller'=>'account', 'action'=>'register'), null, TRUE); ?>">Register</a></li>-->
+    <?php echo $this->loggedInAs(); ?>
+  </ul>
+</section>
+</nav>
+</div>
       <!-- Header and Nav -->
   
 	  <div class="row">
-	    <div class="three columns">
-	      <h1><a href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>"><img src="<?php echo $this->baseUrl('images/social.png') ?>" /></a></h1>
-	    </div>
 	    
-	  <div class="nine columns">
+	    
+	 <!-- <div class="nine columns">
 	    <div class='row'>
 	      	<div class='twelve columns'>
 	      		<ul class="nav-bar right">
 	      			<li><a href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>">Home</a></li>
-    				<li><a href="<?php echo $this->url(array('controller'=>'greenladder'), null, TRUE); ?>">Game</a></li>
-    				<li><a href="<?php echo $this->url(array('controller'=>'account'), null, TRUE); ?>">Users</a></li>
     				<!-- <li><a href="<?php //echo $this->url(array('controller'=>'account', 'action'=>'register'), null, TRUE); ?>">Register</a></li>-->
-    				<?php echo $this->loggedInAs(); ?>
+    		<!-- <?php echo $this->loggedInAs(); ?>
 	      		</ul>
 	    	</div>
-	    </div>
+	    </div> -->
 	    
 	    
 	    
@@ -68,7 +90,6 @@
     </div>
     
   </div>
-        
 <!-- Footer -->
   
   <footer class="row">
@@ -81,8 +102,7 @@
         <div class="six columns">
           <ul class="link-list right">
             <li><a href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>">Home</a></li>
-    		<li><a href="<?php echo $this->url(array('controller'=>'greenladder'), null, TRUE); ?>">Ladder</a></li>
-    		<li><a href="<?php echo $this->url(array('controller'=>'account'), null, TRUE); ?>">Users</a></li>
+            <li><a href="<?php echo $this->url(array('controller'=>'account', 'action'=>'login'), null, TRUE); ?>">Login</a></li>
     		<li><a href="<?php echo $this->url(array('controller'=>'account', 'action'=>'register'), null, TRUE); ?>">Register</a></li>
           </ul>
         </div>
