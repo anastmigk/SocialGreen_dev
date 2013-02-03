@@ -6,7 +6,8 @@ body
 	
 }
 img#logo {
-	width: 15%;
+	height: 200%;
+	margin-top:1%;
 }
 section#header, section#footer {
 	/*border: thin solid black;*/
@@ -97,9 +98,10 @@ nav ul li a{
 
 div#mainContent{
 	background-color: #E1F5A9;
-	/*border-radius: 4px;
-	box-shadow: 5px 5px 5px grey; */
-	padding:3px;
+	/*border-radius: 2px;
+	box-shadow: 5px 5px 5px grey;*/
+	padding:5px;
+	margin-top:3%;
 	
 }
 
@@ -117,4 +119,15 @@ div#errors ul {
 
 img.social {
 	margin-top:20%;
+}
+
+div#nav {
+	min-height: 12%;
+}
+div#nav, div#nav * {
+	background-color:#BAD8C1;
+}
+
+.hidden {
+	display:none;
 }

@@ -1,11 +1,22 @@
 <br>
+  
+ 
+<ol class='hidden' id="chooseID">
+  <li data-id="step1" data-button="Let's Start!">What's this?! &nbsp;</li>
+  <li data-id="step2" data-button="Go on">Whats next? &nbsp;</li>
+  <li data-id="step3" data-button="Final Stage">So what?! &nbsp;</li>
+  <li data-id="step4" data-button="Watch the demo!">Thats great isn't it?! &nbsp;</li>
+  <li data-id="step5" data-button="Welcome! :)" data-options="tipLocation:bottom;tipAnimation:fade">Enjoy! &nbsp;</li>
+</ol>
+
+<!-- 
 <dl class="tabs">
   <dd class="active"><a href="#simple1">What is Social Green?</a></dd>
   <dd><a href="#simple2">Demonstration</a></dd>
 </dl>
 <ul class="tabs-content">
   <li class="active" id="simple1Tab">
-  
+ --> 
 <div class='row'>
 <div class='seven columns'>
 <div id="description">
@@ -14,7 +25,7 @@
   		<div class="four columns">
   			<img src="images/home/bin.png" />
   		</div>
-  		<div class="eight columns panel">
+  		<div id='step1' class="eight columns panel">
   			<h2>Smart Bins</h2>
   			<p>Thats where the game starts! Throw your cans in here. Let the bin to count the quantity and use the...</p>
   		</div>
@@ -24,7 +35,7 @@
 		<div class="four columns">
   			<img src="images/home/mobile.png" />
   		</div>
-  		<div class="eight columns panel">
+  		<div id='step2' class="eight columns panel">
   			<h2>Mobile Apps</h2>
   			<p>...in order to scan the QR code or locate the nearest bins within the green network. The app will upload your score to...</p>
   		</div>  		
@@ -34,7 +45,7 @@
   		<div class="four columns">
   			<img src="images/home/web.png" />
   		</div>
-  		<div class="eight columns panel">
+  		<div id='step3' class="eight columns panel">
   			<h2>Social Green Web Platform</h2>
   			<p>Thats the game platform where you can build your network in order to cooperate or compete in the name of the planet. Moreover...</p>
   		</div>
@@ -44,7 +55,7 @@
   		<div class="four columns">
   			<img src="images/home/social.png" />
   		</div>
-  		<div class="eight columns panel">
+  		<div id='step4' class="eight columns panel">
   			<h2>Social Networks</h2>
   			<p>Share your recycling actions into mass power social media. Let your friends see your progression and invite them to recycle with you!</p>
   		</div>
@@ -52,25 +63,32 @@
 </div> <!-- End of div#description -->
 </div>
 <div class='five columns'>
-	<a href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>"><img src="<?php echo $this->baseUrl('images/social.png') ?>" /></a>
-	
 	<p>SocialGreen project is a social aware recycling system which combines the strength of social networks and the high smartphone penetration. The project provides a total free service to the users motivating them in recycling contribution. Taking advantage the rapid growth of the smartphone and Internet users, SocialGreen offers to our customers a tremendous marketing potential.Specifically it combines three of the most popular advertising channels; outdoor-web-mobile advertisement. Additionally our system could be used as a city-branding element, in any municipality or urban region, worldwide in order to elevate its echo-friendly profile.The system is comprised of 3 main components; smart-recycling terminals, mobile applications and web application. It is specially developed in order to be user-friendly by providing a simple and clear use case. Using many of the most popular technologies as a solid foundation, it provides high technological viability. SocialGreen tries to dominate recycling market, using smart ICT solutions. The whole system will be offered as a service to targeted users and customers. The core revenue for our project results from the advertising (physical or digital) space that we offer. The eco-friendly, rewarding and ICT-based nature which characterizes SocialGreen can easily outbalance the existing competitors. It is quite rare to see such a system of this category that offers so many services to both users and customers.</p>
 </div>
 
 </div>  
 
-
+<!-- 
   </li>
-  <li id="simple2Tab">
+  <li id="simple2Tab">  -->
   	<div class="row">
     	<div class="twelve columns flex-video widescreen vimeo">
       		<iframe src="http://player.vimeo.com/video/55985914" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
     	</div>
   	</div>
-  </li>
+  	<div id='step5'></div>
+ <!--   </li>
 </ul>
+-->
 
-
+<script>
+  $(window).load(function() {
+    $("#chooseID").joyride({
+      /* Options will go here */
+   	 'tipLocation': 'top', 
+    });
+  });
+</script>
 
   
 

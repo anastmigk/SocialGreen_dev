@@ -18,6 +18,14 @@
   		<?php echo $this->headScript()->appendFile($this->baseUrl('javascripts/modernizr.foundation.js')); ?>
   		
   		<?php echo $this->headLink()->appendStylesheet($this->baseUrl('css/mainStyle.css')); ?>
+  		
+  		
+  		<!-- Included JS Files (Compressed) -->
+	  	<?php echo $this->headScript()->appendFile($this->baseUrl('javascripts/jquery.js')); ?>
+		<?php echo $this->headScript()->appendFile($this->baseUrl('javascripts/foundation.min.js')); ?>
+		<?php echo $this->headScript()->appendFile($this->baseUrl('javascripts/jquery.foundation.joyride.js')); ?>
+	  	<!-- Initialize JS Plugins -->
+	  	<?php echo $this->headScript()->appendFile($this->baseUrl('javascripts/app.js')); ?>
     </head>
     <body>
     
@@ -25,12 +33,12 @@
     
     
 <!-- Positioning the Top Bar -->
-<div class="fixed contain-to-grid">
+<div id='nav' class="fixed contain-to-grid">
   <!-- <nav> goes here -->
   
   <nav class="top-bar">
   <ul>
-    <li class="name"><h1><a href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>">Social Green Project</a></h1></li>
+    <li class="name"><h1><a href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>"><img id='logo' src='<?php echo $this->baseUrl('images/social.png') ?>'></a></h1></li>
     <li class="toggle-topbar"><a href="#"></a></li>
     <li><a href="https://www.facebook.com/SGreenProject"><img class='social' src="<?php echo $this->baseUrl('images/fairhead-icons/fc-webicon-facebook-m.png') ?>"></a></li>
     <li><a href="https://twitter.com/SGreen_Project"><img class='social' src="<?php echo $this->baseUrl('images/fairhead-icons/fc-webicon-twitter-m.png') ?>"></a></li>  
@@ -76,7 +84,7 @@
         }
 	    ?>
 	  </div>
-	  </div>
+	
 	  
 	  <!-- End Header and Nav -->
 
@@ -143,10 +151,6 @@
   
   -->
   
-  	<!-- Included JS Files (Compressed) -->
-  	<?php echo $this->headScript()->appendFile($this->baseUrl('javascripts/jquery.js')); ?>
-	<?php echo $this->headScript()->appendFile($this->baseUrl('javascripts/foundation.min.js')); ?>
-  	<!-- Initialize JS Plugins -->
-  	<?php echo $this->headScript()->appendFile($this->baseUrl('javascripts/app.js')); ?>
+  	
 </body>
 </html>
