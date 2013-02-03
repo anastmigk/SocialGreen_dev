@@ -6,7 +6,9 @@ body
 	
 }
 img#logo {
-	height: 200%;
+	/*height: 10%;*/
+	float: left;
+	width:10%;
 	margin-top:1%;
 }
 section#header, section#footer {
@@ -125,6 +127,7 @@ div#nav {
 	min-height: 12%;
 }
 div#nav, div#nav * {
+	font-size:large;
 	background-color:#BAD8C1;
 }
 
