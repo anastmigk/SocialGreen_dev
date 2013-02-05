@@ -15,7 +15,7 @@
   		<?php echo $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/app.css')); ?>
   		<?php echo $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/fc-webicons.css')); ?>
   		<?php echo $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/ie.css')); ?>
-  		<?php //echo $this->headScript()->appendFile($this->baseUrl('javascripts/modernizr.foundation.js')); ?>
+  		<?php echo $this->headScript()->appendFile($this->baseUrl('javascripts/modernizr.foundation.js')); ?>
   		
   		<?php echo $this->headLink()->appendStylesheet($this->baseUrl('css/mainStyle.css')); ?>
   		
@@ -34,19 +34,16 @@
     
 <!-- Positioning the Top Bar -->
 <div id='nav' class="fixed contain-to-grid">
-  <!-- <nav> goes here -->
-  <nav class="top-bar">
-  <?php /*
-   <ul>
-    <li class="name"><h1><a href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>"><img id='logo' src='<?php echo $this->baseUrl('images/social.png') ?>'></a></h1></li>
-    <li class="toggle-topbar"><a href="#"></a></li>
-      
-  </ul> */
-  ?>
-  
-  <a href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>"><img id='logo' src='<?php echo $this->baseUrl('images/social.png') ?>'></a>
-  
-  <section>
+	<!-- <nav> goes here -->
+	<nav class="top-bar">
+		<?php /*
+		<ul>
+    		<li class="name"><h1><a href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>"><img id='logo' src='<?php echo $this->baseUrl('images/social.png') ?>'></a></h1></li>
+    		<li class="toggle-topbar"><a href="#"></a></li>
+		</ul>
+  		*/ ?>
+	<a href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>"><img id='logo' src='<?php echo $this->baseUrl('images/social.png') ?>'></a>
+	<section>
 	
 	<ul class="right">
     	<!-- <li><a href="<?php //echo $this->url(array('controller'=>'account', 'action'=>'register'), null, TRUE); ?>">Register</a></li>-->
@@ -56,8 +53,8 @@
 	</nav>
 </div>
  
-      <!-- Header and Nav -->
- <div class="row">
+<!-- Header and Nav -->
+ <?php /* <div class="row">
 	    
 	    
 	 <!-- <div class="nine columns">
@@ -82,27 +79,26 @@
 	    				<div class="panel">Logged in as <?php $username = $auth->getIdentity()->username; echo $username; ?>!</div>
 	    			</div>
 	    		</div>        	
-        	<?php */
+        	<?php 
         }
-	    ?>
-	  </div>
-	
-	  
-	  <!-- End Header and Nav -->
+        ?>	    
+</div> */ ?>
+<!-- End Header and Nav -->
 
-  <!-- Three-up Content Blocks -->
-  
-  <div id="mainContent" class="row">
-  
-    <div class="twelve columns">
-      <!-- <h4><?php echo $this->title; ?></h4> -->
-      <?php echo $this->layout()->content; ?>
-    </div>
-    
-  </div>
+
+<!-- Three-up Content Blocks -->
+
+ <div id="mainContent" class="row">
+	<div class="twelve columns">
+		<!-- <h4><?php echo $this->title; ?></h4> -->
+		<?php echo $this->layout()->content; ?>
+	</div>
+
+</div>
+
 <!-- Footer -->
-  
-  <footer class="row">
+
+<footer class="row">
     <div class="twelve columns">
       <hr />
       <div class="row">
@@ -124,7 +120,7 @@
         </div>
       </div>
     </div> 
-  </footer>
+</footer>
   
   <!-- Included JS Files (Uncompressed) -->
   <!--

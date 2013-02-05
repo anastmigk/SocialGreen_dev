@@ -9,7 +9,6 @@ img#logo {
 	/*height: 10%;*/
 	float: left;
 	width:10%;
-	margin-top:1%;
 }
 section#header, section#footer {
 	/*border: thin solid black;*/
@@ -100,11 +99,10 @@ nav ul li a{
 
 div#mainContent{
 	background-color: #E1F5A9;
-	/*border-radius: 2px;
-	box-shadow: 5px 5px 5px grey;*/
+	border-radius: 5px;
+	/*box-shadow: 5px 5px 5px grey;*/
 	padding:5px;
-	margin-top:3%;
-	
+	margin-top:4%;
 }
 
 .nav-bar li, .nav-bar, .right {
@@ -124,7 +122,11 @@ img.social {
 }
 
 div#nav {
-	min-height: 12%;
+	min-height: 78px;
+	box-shadow: 5px 5px 5px #DDDDDD;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	margin-bottom: 4%;
 }
 div#nav, div#nav * {
 	font-size:large;
