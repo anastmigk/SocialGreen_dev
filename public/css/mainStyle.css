@@ -8,7 +8,7 @@ body
 img#logo {
 	/*height: 10%;*/
 	float: left;
-	width:10%;
+	/*width:10%;*/
 }
 section#header, section#footer {
 	/*border: thin solid black;*/
@@ -97,8 +97,16 @@ nav ul li a{
 	height: auto;
 }
 
+.MainTitles {
+	/*transform:scaleX(1.2);*/
+	font-size:300%;
+	color:#911762;
+	text-align:center;
+}
+
 div#mainContent{
-	background-color: #E1F5A9;
+	/*background-color: #E1F5A9;*/
+	background-image:url('pattern.png');
 	border-radius: 5px;
 	/*box-shadow: 5px 5px 5px grey;*/
 	padding:5px;
@@ -123,14 +131,15 @@ img.social {
 
 div#nav {
 	min-height: 78px;
-	box-shadow: 5px 5px 5px #DDDDDD;
+	box-shadow: 0px 0px 10px 10px #DDDDDD;
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
 	margin-bottom: 4%;
 }
 div#nav, div#nav * {
 	font-size:large;
-	background-color:#BAD8C1;
+	background-color:#911762;
+	/*background-color:#BAD8C1;*/
 }
 
 .hidden {
