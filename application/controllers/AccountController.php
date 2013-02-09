@@ -18,7 +18,6 @@ class AccountController extends Zend_Controller_Action
         // action body
         $accounts = new Application_Model_DbTable_Accounts();
         $this->view->accounts = $accounts->fetchAll();
-       
     }
 
     public function registerAction()
@@ -49,16 +48,12 @@ class AccountController extends Zend_Controller_Action
                          );       
 				TRY {
 					$account->insert($data);
-					$this->_helper->flashMessenger->addMessage("You have successfully registered at Social Green Project!");
-					$this->_helper->redirector("index", 'account');
+					//$this->_helper->flashMessenger->addMessage("You have successfully registered at Social Green Project!");
+					//$this->_helper->redirector("index", 'index');
+					//$this->_helper->redirector("index","index",array("register"));// _redirector->gotoUrl('/my-controller/my-action/param1/test/param2/test2');
 					
-					$mail = new Zend_Mail();
-					$mail->setBodyText('This is the text of the mail.')
-					->setFrom('no-reply@socialgreenproject.com', 'Social Green Project')
-					->addTo($form->getValue('email'), $form->getValue('username'))
-					->setSubject('SocialGreen Project Registration')
-					->send();
-					
+					//$this->_helper->_redirector("index", 'index', array("register","true"));
+					$this->_helper->_redirector('index','index',null,array('register'=>'true'));
                 }
                 catch (Zend_Db_Exception $e) {
 					echo $e->getMessage();	
@@ -69,6 +64,7 @@ class AccountController extends Zend_Controller_Action
 				$this->view->errors = $form->getErrors();
             }
         }
+        $this->view->messages = $this->_helper->flashMessenger->getMessages();
         $this->view->title = "New registration";
         $this->view->form = $form;        
     }
@@ -91,10 +87,12 @@ class AccountController extends Zend_Controller_Action
     	if ($auth->hasIdentity()) {
     	
     		$username = $auth->getIdentity()->username;
+    		$userId = $auth->getStorage()->read()->id;
+    		
     		
     		$accounts = new Application_Model_DbTable_Accounts();
     		$select = $accounts->select();
-    		$select->from($accounts)->where('username = ?', $username);
+    		$select->from($accounts)->where('id = ?', $userId);
     		
     		$userAccount = $accounts->fetchAll($select);
     		$form = new Application_Model_FormRegister("edit");
@@ -124,7 +122,7 @@ class AccountController extends Zend_Controller_Action
     						'updated'=>date('Y-m-d H:i:s')
     				);
     				
-    				$where = array('username = ?' =>$form->getValue('username')); 
+    				$where = array('id = ?' => $userId); 
     		
     				TRY {
     					$account->update( $data2, $where);

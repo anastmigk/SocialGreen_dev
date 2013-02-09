@@ -4,10 +4,10 @@ class Application_Model_FormRegister extends Zend_Form {
         parent::__construct($options);
         $path;
         if ($options=="edit"){
-        	$path="/SocialGreen_dev/public/account/edit/";
+        	$path="/account/edit/";
         	$label="Save";
         } else {
-        	$path="/SocialGreen_dev/public/account/register/";
+        	$path="/account/register/";
         	$label="Sign up!";
         }
         

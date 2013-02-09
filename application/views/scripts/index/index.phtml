@@ -10,18 +10,37 @@
  -->
  
  <!-- Main Content -->
+ <?php 
+ $registered = Zend_Controller_Front::getInstance()->getRequest()->getParam('register');// $this->_request->getParam('register');
+    	if ($registered == "true")
+    	{
+    		//$this->_helper->flashMessenger->addMessage("You have successfully registered at Social Green Project!");
+    		//$this->messages =$aMessages = $this->_helper->FlashMessenger->getMessages();
+    		echo "<div class='seven columns'>";
+    		echo '<div class="alert-box">You have successfully registered at Social Green Project!<a href="" class="close">&times;</a></div>';
+    		echo "</div>";
+    	}
+ 
+ ?>
+<?php if (count($this->messages) > 0) {
+			echo "<div class='seven columns'>";
+			echo "<div class='alert-box'>". $this->messages[0].'<a href="" class="close">&times;</a></div>';
+			echo "</div>";
+}?>
+
+
 <div class="row">
 	<div class="twelve columns">
 	<div id="description">
 		<div class="row">
 	  		<div id="MainTitles" class="four columns MainTitles" >
-	  			web platform
+	  			Web Platform
 	  		</div>
 	 	</div>
  	
 	 	<div class='row'>
 	  		<div  class="twelve columns">
-	  			<img style="width: 100%;" src="images/social-grid.png" />
+	  			<img style="width: 100%;" src="<?php echo $this->baseUrl("images/social-grid.png")?>"/>
 	  		</div>
 		</div>
 		
