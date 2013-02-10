@@ -5,6 +5,7 @@ class Application_Model_FormLogin extends Zend_Form
 	public function init()
     {
         $this->setName("login");
+        
         $this->setMethod('post');
         $this->addElement('text', 'username', array(
             'filters'    => array('StringTrim', 'StringToLower'),
@@ -29,6 +30,18 @@ class Application_Model_FormLogin extends Zend_Form
         		'class'=> 'button'
         ));
 		
+        // Add a captcha
+        /*$this->addElement('captcha', 'captcha', array(
+        		'label'      => 'Please enter the 5 letters displayed below:',
+        		'required'   => true,
+        		'captcha'    => array(
+        				'captcha' => 'Figlet',
+        				'wordLen' => 5,
+        				'timeout' => 300
+        		)
+        ));*/
+        
+        
         $elements = $this->getElements();
         foreach($elements as $element) {
         	$element->removeDecorator('Errors');

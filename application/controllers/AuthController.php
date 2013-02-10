@@ -6,6 +6,8 @@ class AuthController extends Zend_Controller_Action
     public function init()
     {
         /* Initialize action controller here */
+    	$title = "Login";
+    	$this->view->title = $title;
     	
     }
 
@@ -36,7 +38,6 @@ class AuthController extends Zend_Controller_Action
     		}
     	
     	}
-    	
     	$this->view->form = $form;
     	 
     }
@@ -83,9 +84,9 @@ class AuthController extends Zend_Controller_Action
     
     	->setIdentityColumn('username')
     
-    	->setCredentialColumn('password');
+    	->setCredentialColumn('password')
     
-    	//->setCredentialTreatment('SHA1(CONCAT(?,salt))');
+    	->setCredentialTreatment('SHA1(CONCAT(?,salt))');
         
     	return $authAdapter;
     
@@ -114,8 +115,65 @@ class AuthController extends Zend_Controller_Action
     	return false;
     }
 
+    public function recoverAction()
+    {
+        // action body
+    	$form = new Application_Form_RecoverAccount();
+    	
+    	$request = $this->getRequest();
+    	 
+    	if ($request->isPost()) {
+    		 
+    		if ($form->isValid($request->getPost())) {
+    			 
+    			// do 	something here to log in+
+    			$token = uniqid();
+    			$htmlMail = "<!DOCTYPE html>
+						<html>
+						<head>
+						<meta charset='UTF-8'>
+						<title></title>
+							<style>
+							body
+							{
+							max-width:600px;
+							}
+							* {
+								font-family:Georgia;
+								color: #911762;
+							}
+							</style>
+						</head>
+						<body>
+						<img style='max-width:400px' src='http://socialgreenproject.com/images/social.png'>
+						<h1>Social Green Project</h1>
+						<p>This is a recovery mail to get back your account. <br>
+							Click the following link to reset your password.</p>
+						<a href='http://socialgreenproject.com/account/confirm/token/".$token."/usr/".$form->getValue('username')."'>http://socialgreenproject.com/account/confirm/token/".$token."/usr/".$form->getValue('username')."</a>
+						</body>
+						</html>";
+    				
+    			$mail = new Zend_Mail();
+    			$mail->setBodyHtml($htmlMail)
+    			->setFrom('no-reply@socialgreenproject.com', 'Social Green Project Team')
+    			->addTo($form->getValue('email'))
+    			->setSubject('Confirmation Mail')
+    			->send();
+    			
+    			$this->_helper->_redirector('index','index');
+    			 
+    		} else {
+    			$this->view->errors = $form->getErrors();
+    		}
+    		 
+    	}
+    	$this->view->form = $form;
+    }
+
 
 }
+
+
 
 
 

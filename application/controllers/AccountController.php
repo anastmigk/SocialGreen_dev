@@ -37,6 +37,9 @@ class AccountController extends Zend_Controller_Action
 			if ($form->isValid($this->_request->getPost()))
 			{
 				$account = new Application_Model_DbTable_Accounts();
+				$salt = substr(md5(rand()), 0, 32);
+				$hashedPass = sha1($form->getValue('pswd').$salt);
+				
 				$token = uniqid();
 				$data = array(
                          'email'=>$form->getValue('email'),
@@ -45,7 +48,9 @@ class AccountController extends Zend_Controller_Action
                          'password'=>$form->getValue('pswd'),
                          'created'=>date('Y-m-d H:i:s'),
                          'updated'=>date('Y-m-d H:i:s'),
-						 'recovery'=>$token
+						 'recovery'=>$token,
+  						 'password'=>$hashedPass,
+						 'salt'=> $salt
                          );       
 				TRY {
 					$account->insert($data);
@@ -145,12 +150,14 @@ class AccountController extends Zend_Controller_Action
     			if ($form->isValid($this->_request->getPost()))
     			{
     				$account = new Application_Model_DbTable_Accounts();
-    				 
+    				$salt = substr(md5(rand()), 0, 32);  
+    				$hashedPass = sha1($form->getValue('pswd').$salt);
     				$data2 = array(
     						'email'=>$form->getValue('email'),
     						'description'=>$form->getValue('description'),
     						'username'=>$form->getValue('username'),
-    						'password'=>$form->getValue('pswd'),
+    						'password'=>$hashedPass,
+    						'salt'=> $salt,
     						'created'=>date('Y-m-d H:i:s'),
     						'updated'=>date('Y-m-d H:i:s')
     				);
