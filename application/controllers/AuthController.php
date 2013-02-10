@@ -119,15 +119,27 @@ class AuthController extends Zend_Controller_Action
     {
         // action body
     	$form = new Application_Form_RecoverAccount();
-    	
     	$request = $this->getRequest();
     	 
     	if ($request->isPost()) {
     		 
     		if ($form->isValid($request->getPost())) {
     			 
-    			// do 	something here to log in+
+    			//Create record to recover later the account
+    			$queue = new Application_Model_DbTable_RecoveryQueue();
     			$token = uniqid();
+    			$data = array(
+    					'email'=>$form->getValue("email"),
+    					'token'=>$token,
+    					'validUntil'=>date("Y-m-d H:i:s",strtotime("+2 minutes"))
+    			);
+    			$queue->insert($data);
+    			try {
+    				
+    			
+    			
+    			//Send recovery mail
+    			
     			$htmlMail = "<!DOCTYPE html>
 						<html>
 						<head>
@@ -149,7 +161,7 @@ class AuthController extends Zend_Controller_Action
 						<h1>Social Green Project</h1>
 						<p>This is a recovery mail to get back your account. <br>
 							Click the following link to reset your password.</p>
-						<a href='http://socialgreenproject.com/account/confirm/token/".$token."/usr/".$form->getValue('username')."'>http://socialgreenproject.com/account/confirm/token/".$token."/usr/".$form->getValue('username')."</a>
+						<a href='http://socialgreenproject.com/account/reset/token/".$token."/'>http://socialgreenproject.com/account/reset/token/".$token."/</a>
 						</body>
 						</html>";
     				
@@ -161,6 +173,9 @@ class AuthController extends Zend_Controller_Action
     			->send();
     			
     			$this->_helper->_redirector('index','index');
+    			} catch (Exception $e){
+    			
+    			}
     			 
     		} else {
     			$this->view->errors = $form->getErrors();

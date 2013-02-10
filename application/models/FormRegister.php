@@ -49,6 +49,23 @@ class Application_Model_FormRegister extends Zend_Form {
         $pswd2->addErrorMessage("Password re-type is not correct");
         $pswd2->addValidator('Identical', false, array('token' => 'pswd'));
         
+        
+        // Add a captcha
+        $captcha = new Zend_Form_Element_Captcha("captcha",array(
+        		/*'label'      => 'Are you human?!:',*/
+        		'required'   => true,
+        		'captcha'    => array(
+        				'captcha' => 'Figlet',
+        				'wordLen' => 5,
+        				'timeout' => 300
+        		),
+        		'messages' => array(
+        				'badCaptcha' => 'You have entered an invalid value for the captcha'
+        		)
+        ));
+       //$captcha->addErrorMessage("Security word is not correct!");
+        $pswd2->removeDecorator('label');
+        $pswd2->removeDecorator('htmlTag');
         /*$file = new Zend_Form_Element_File('file');
         //$file->setLabel('File to Upload:');
         //$file->setDestination('/images');
@@ -72,7 +89,7 @@ class Application_Model_FormRegister extends Zend_Form {
         
         $this->setDecorators( array( array('ViewScript', array('viewScript' => '_form_register.phtml'))));
         
-        $this->addElements(array($username, $email, $pswd, $pswd2, $description, $submit));
+        $this->addElements(array($username, $email, $pswd, $pswd2, $captcha, $description, $submit));
     }
 }
 

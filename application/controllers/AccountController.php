@@ -209,7 +209,6 @@ class AccountController extends Zend_Controller_Action
 		$select->from($userDB)->where('username = ?', $user)->where('recovery = ?', $token);
 		$accountRowset = $userDB->fetchRow($select);
 		if (count($accountRowset) > 0) {
-			
 			$this->view->user = $user;			
 			$data = array(
 					'recovery'=>'',
@@ -222,8 +221,27 @@ class AccountController extends Zend_Controller_Action
 		}
     }
 
+    public function resetAction()
+    {
+        // action body
+    	$token = $this->_getParam('token');
+    	$now = date("Y-m-d H:i:s");
+    	//$user = $this->_getParam('check');
+    	$queue = new Application_Model_DbTable_RecoveryQueue();
+    	$select = $queue->select();
+    	$select->where("token = ?", $token)->where("validUntil > ?", $now);
+    	$rowset = $queue->fetchRow($select);
+    	if (count($rowset) > 0) {
+    		echo "Token is valid.. We may or may not reset your password..!";
+    		$where = $queue->getAdapter()->quoteInto('token = ?', $token);
+ 			$queue->delete($where);
+    	}
+    }
+
 
 }
+
+
 
 
 

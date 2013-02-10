@@ -18,6 +18,7 @@
           <actionMethod actionName="edit"/>
           <actionMethod actionName="delete"/>
           <actionMethod actionName="confirm"/>
+          <actionMethod actionName="reset"/>
         </controllerFile>
         <controllerFile controllerName="Greenladder">
           <actionMethod actionName="index"/>
@@ -45,6 +46,7 @@
         <dbTableDirectory>
           <dbTableFile dbTableName="Accounts"/>
           <dbTableFile dbTableName="Ladder"/>
+          <dbTableFile dbTableName="RecoveryQueue"/>
         </dbTableDirectory>
         <modelFile modelName="DailyLadder"/>
         <modelFile modelName="Ladder"/>
@@ -94,6 +96,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Auth">
             <viewScriptFile forActionName="recover"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Account">
+            <viewScriptFile forActionName="reset"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
