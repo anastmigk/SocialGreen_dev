@@ -17,7 +17,8 @@
     		//$this->_helper->flashMessenger->addMessage("You have successfully registered at Social Green Project!");
     		//$this->messages =$aMessages = $this->_helper->FlashMessenger->getMessages();
     		echo "<div class='seven columns'>";
-    		echo '<div class="alert-box">You have successfully registered at Social Green Project!<a href="" class="close">&times;</a></div>';
+    		echo '<div class="alert-box">You have successfully registered at Social Green Project!<br>
+  					Check your inbox in order to verify your account!<a href="" class="close">&times;</a></div>';
     		echo "</div>";
     	}
  
@@ -47,7 +48,7 @@
 		<div class="row">
 			<div class="four columns"></div>
 			<div class="four columns MainTitles">
-	  			smart bins
+	  			Smart Bins
 	  		</div>
 	  	</div>
 	</div> 
@@ -66,33 +67,29 @@
 	</div>
 </div>
 <div id='step5'></div>
-  	
-<!-- JoyRide code --> 
-<!--  <script>	style="border:5px solid gray;border-radius: 2px;"
-  $(window).load(function() {
-    $("#chooseID").joyride({
-      /* Options will go here */
-   	 'tipLocation': 'top', 
+
+<div id="loginModal" class="reveal-modal [expand, xlarge, large, medium, small]">
+   		<h1>Login</h1>
+		<?php echo $this->loginForm->setAction($this->url(array('controller'=>'auth'), null, TRUE)); ?>
+		<?= $this->Errors($this->errors); ?>
+  		<a class="close-reveal-modal">&#215;</a>
+</div>
+
+<div id="registerModal" class="reveal-modal [expand, xlarge, large, medium, small]">
+   		<h1>Register</h1>
+		<?php echo $this->registerForm->setAction($this->url(array('controller'=>'account', 'action'=>'register'), null, TRUE)); ?>
+		<?= $this->Errors($this->errors); ?>
+  		<a class="close-reveal-modal">&#215;</a>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#buttonModalLogin").click(function() {
+      $("#loginModal").reveal();
     });
+
+    $("#buttonModalRegister").click(function() {
+        $("#registerModal").reveal();
+      });
   });
 </script>
- -->
-  
-
-<?php /* 
-$db = Zend_db::factory('Mysqli',
-		array(
-				"host"=>"db6.papaki.gr",
-				"dbname"=>"sg-alpha",
-				"username"=>"terminaluser",
-				"password"=>"hamburger"
-				));
-
-$data = $db->fetchAll("SELECT * FROM activity");
-
-//echo "<p>Temp table</p><table border=1>";
-foreach ($data as $row){
-	//echo "<tr><td>Record id: ".$row['id']."</td><td>User ID: ".$row['userid']."</td><td>Quantity: ".$row['quantity']."</td><td>Date: ".$row['date']."</td></tr>";
-}
-//echo "</table>";
-*/?>

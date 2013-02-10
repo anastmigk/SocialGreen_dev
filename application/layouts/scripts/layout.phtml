@@ -11,19 +11,19 @@
         <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed&subset=latin,greek' rel='stylesheet' type='text/css'>
         <?php $this->headTitle()->append($this->title); echo $this->headTitle(); ?>
         
-        <?php echo $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/foundation.min.css')); ?>
-  		<?php echo $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/app.css')); ?>
-  		<?php echo $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/fc-webicons.css')); ?>
-  		<?php echo $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/ie.css')); ?>
-  		<?php echo $this->headScript()->appendFile($this->baseUrl('javascripts/modernizr.foundation.js')); ?>
+        <?php  $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/foundation.min.css')); ?>
+  		<?php  $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/app.css')); ?>
+  		<?php  $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/fc-webicons.css')); ?>
+  		<?php  $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/ie.css')); ?>
+  		<?php  $this->headScript()->appendFile($this->baseUrl('javascripts/modernizr.foundation.js')); ?>
   		
   		<?php echo $this->headLink()->appendStylesheet($this->baseUrl('css/mainStyle.css')); ?>
   		
   		
   		<!-- Included JS Files (Compressed) -->
-	  	<?php echo $this->headScript()->appendFile($this->baseUrl('javascripts/jquery.js')); ?>
-		<?php echo $this->headScript()->appendFile($this->baseUrl('javascripts/foundation.min.js')); ?>
-		<?php echo $this->headScript()->appendFile($this->baseUrl('javascripts/jquery.foundation.joyride.js')); ?>
+	  	<?php  $this->headScript()->appendFile($this->baseUrl('javascripts/jquery.js')); ?>
+		<?php  $this->headScript()->appendFile($this->baseUrl('javascripts/foundation.min.js')); ?>
+		<?php  $this->headScript()->appendFile($this->baseUrl('javascripts/jquery.foundation.joyride.js')); ?>
 	  	<!-- Initialize JS Plugins -->
 	  	<?php echo $this->headScript()->appendFile($this->baseUrl('javascripts/app.js')); ?>
     </head>

@@ -6,7 +6,7 @@ class AccountController extends Zend_Controller_Action
     public function init()
     {
         /* Initialize action controller here */
-    	$title = "User Accounts";
+    	$title = "Accounts Management";
     	$this->view->title = $title;
     	if ($this->_helper->FlashMessenger->hasMessages()) {
     		$this->view->messages = $this->_helper->FlashMessenger->getMessages();
@@ -37,20 +37,53 @@ class AccountController extends Zend_Controller_Action
 			if ($form->isValid($this->_request->getPost()))
 			{
 				$account = new Application_Model_DbTable_Accounts();
-
+				$token = uniqid();
 				$data = array(
                          'email'=>$form->getValue('email'),
                          'description'=>$form->getValue('description'),
                          'username'=>$form->getValue('username'),
                          'password'=>$form->getValue('pswd'),
                          'created'=>date('Y-m-d H:i:s'),
-                         'updated'=>date('Y-m-d H:i:s')
+                         'updated'=>date('Y-m-d H:i:s'),
+						 'recovery'=>$token
                          );       
 				TRY {
 					$account->insert($data);
 					//$this->_helper->flashMessenger->addMessage("You have successfully registered at Social Green Project!");
 					//$this->_helper->redirector("index", 'index');
 					//$this->_helper->redirector("index","index",array("register"));// _redirector->gotoUrl('/my-controller/my-action/param1/test/param2/test2');
+					
+					$htmlMail = "<!DOCTYPE html>
+						<html>
+						<head>
+						<meta charset='UTF-8'>
+						<title></title>
+							<style>
+							body
+							{
+							max-width:600px;
+							}
+							* {
+								font-family:Georgia;
+								color: #911762;
+							}
+							</style>	
+						</head>
+						<body>
+						<img style='max-width:400px' src='http://socialgreenproject.com/images/social.png'>
+						<h1>Welcome at Social Green Project</h1>
+						<p>This is a confirmation mail for registering at our community. <br>
+							Click the following link to confirm your registration.</p>
+						<a href='http://socialgreenproject.com/account/confirm/token/".$token."/usr/".$form->getValue('username')."'>http://socialgreenproject.com/account/confirm/token/".$token."/usr/".$form->getValue('username')."</a>
+						</body>
+						</html>";
+					
+					$mail = new Zend_Mail();
+					$mail->setBodyHtml($htmlMail)
+					->setFrom('no-reply@socialgreenproject.com', 'Social Green Project Team')
+					->addTo($form->getValue('email'))
+					->setSubject('Confirmation Mail')
+					->send();
 					
 					//$this->_helper->_redirector("index", 'index', array("register","true"));
 					$this->_helper->_redirector('index','index',null,array('register'=>'true'));
@@ -157,7 +190,35 @@ class AccountController extends Zend_Controller_Action
     		$this->_redirect('/');
     	}
     }
+
+    public function confirmAction()
+    {
+        // action body
+    	$token = $this->_getParam('token');
+    	$user = $this->_getParam('usr');
+    	
+    	$userDB = new Application_Model_DbTable_Accounts();
+    	$select = $userDB->select();
+		$select->from($userDB)->where('username = ?', $user)->where('recovery = ?', $token);
+		$accountRowset = $userDB->fetchRow($select);
+		if (count($accountRowset) > 0) {
+			
+			$this->view->user = $user;			
+			$data = array(
+					'recovery'=>'',
+					'confirmed'=>1
+			);
+			$where = array('id = ?' => $accountRowset->id);
+			$userDB->update( $data, $where);
+		} else {
+			$this->_helper->redirector("index","index");
+		}
+    }
+
+
 }
+
+
 
 
 

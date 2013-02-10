@@ -17,6 +17,7 @@
           <actionMethod actionName="profile"/>
           <actionMethod actionName="edit"/>
           <actionMethod actionName="delete"/>
+          <actionMethod actionName="confirm"/>
         </controllerFile>
         <controllerFile controllerName="Greenladder">
           <actionMethod actionName="index"/>
@@ -24,6 +25,7 @@
         <controllerFile controllerName="Auth">
           <actionMethod actionName="index"/>
           <actionMethod actionName="logout"/>
+          <actionMethod actionName="isConfirmed"/>
         </controllerFile>
         <controllerFile controllerName="Delete">
           <actionMethod actionName="index"/>
@@ -80,6 +82,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Account">
             <viewScriptFile forActionName="delete"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Account">
+            <viewScriptFile forActionName="confirm"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Auth">
+            <viewScriptFile forActionName="isConfirmed"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

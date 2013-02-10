@@ -56,7 +56,7 @@ class AuthController extends Zend_Controller_Action
     
     	$result = $auth->authenticate($adapter);
     
-    	if ($result->isValid()) {
+    	if ($result->isValid() && $this->isConfirmedAction($values['username'])) {
     
     		$user = $adapter->getResultRowObject();
     
@@ -78,9 +78,7 @@ class AuthController extends Zend_Controller_Action
     	$dbAdapter = Zend_Db_Table::getDefaultAdapter();
     
     	$authAdapter = new Zend_Auth_Adapter_DbTable($dbAdapter);
-    
-    
-    
+
     	$authAdapter->setTableName('accounts')
     
     	->setIdentityColumn('username')
@@ -101,8 +99,25 @@ class AuthController extends Zend_Controller_Action
     	$this->_helper->redirector('index', 'index'); // back to login page
     }
 
+    protected function isConfirmedAction($username)
+    {
+        // action body
+    	$account = new Application_Model_DbTable_Accounts();
+    	$select = $account->select();
+    	$select->from($account)->where('username = ?', $username);
+    	$row = $account->fetchRow($select);
+    	if (count($row)>0){
+    		if ($row->confirmed ==1){
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+
 
 }
+
+
 
 
 
