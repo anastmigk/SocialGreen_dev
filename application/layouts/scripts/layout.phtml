@@ -15,17 +15,26 @@
   		<?php  $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/app.css')); ?>
   		<?php  $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/fc-webicons.css')); ?>
   		<?php  $this->headLink()->appendStylesheet($this->baseUrl('stylesheets/ie.css')); ?>
+  		<?php  $this->headLink()->appendStylesheet($this->baseUrl('responsive-tables.css')); ?>
+  		
   		<?php  $this->headScript()->appendFile($this->baseUrl('javascripts/modernizr.foundation.js')); ?>
+  		<?php  $this->headScript()->appendFile($this->baseUrl('responsive-tables.js')); ?>
   		
   		<?php echo $this->headLink()->appendStylesheet($this->baseUrl('css/mainStyle.css')); ?>
   		
   		
   		<!-- Included JS Files (Compressed) -->
 	  	<?php  $this->headScript()->appendFile($this->baseUrl('javascripts/jquery.js')); ?>
-		<?php  $this->headScript()->appendFile($this->baseUrl('javascripts/foundation.min.js')); ?>
+	  	
+	  	<?php  $this->headScript()->appendFile($this->baseUrl('javascripts/foundation.min.js')); ?>
 		<?php  $this->headScript()->appendFile($this->baseUrl('javascripts/jquery.foundation.joyride.js')); ?>
 	  	<!-- Initialize JS Plugins -->
 	  	<?php echo $this->headScript()->appendFile($this->baseUrl('javascripts/app.js')); ?>
+	  	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+  		<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+  		<script>
+ 		 	$( document ).tooltip({ position: { my: "center center", at: "center bottom+20" }});
+  		</script>
     </head>
     <body>
     
@@ -42,7 +51,7 @@
     		<li class="toggle-topbar"><a href="#"></a></li>
 		</ul>
   		*/ ?>
-	<a href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>"><img id='logo' src='<?php echo $this->baseUrl('images/white-logo.png') ?>'></a>
+	<a href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>"><img  title="Back to home"  id='logo' src='<?php echo $this->baseUrl('images/white-logo.png') ?>'></a>
 	<section>
 	
 	<ul class="right">

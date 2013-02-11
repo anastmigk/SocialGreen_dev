@@ -67,30 +67,3 @@
 	</div>
 </div>
 <div id='step5'></div>
-
-<!-- Code for dynamic presentation of login and register forms -->
-<div id="loginModal" class="reveal-modal [expand, xlarge, large, medium, small]">
-   		<h1>Login</h1>
-		<?php //echo $this->loginForm->setAction($this->url(array('controller'=>'auth'), null, TRUE)); ?>
-		<?php //$this->Errors($this->errors); ?>
-  		<a class="close-reveal-modal">&#215;</a>
-</div>
-
-<div id="registerModal" class="reveal-modal [expand, xlarge, large, medium, small]">
-   		<h1>Register</h1>
-		<?php ///echo $this->registerForm->setAction($this->url(array('controller'=>'account', 'action'=>'register'), null, TRUE)); ?>
-		<?php //$this->Errors($this->errors); ?>
-  		<a class="close-reveal-modal">&#215;</a>
-</div>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    $("#buttonModalLogin").click(function() {
-      $("#loginModal").reveal();
-    });
-
-    $("#buttonModalRegister").click(function() {
-        $("#registerModal").reveal();
-      });
-  });
-</script>
