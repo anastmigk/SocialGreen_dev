@@ -32,6 +32,12 @@
         <controllerFile controllerName="Delete">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="About">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="bin"/>
+          <actionMethod actionName="ourteam"/>
+          <actionMethod actionName="contact"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="RecoverAccount"/>
@@ -99,6 +105,18 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Account">
             <viewScriptFile forActionName="reset"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="About">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="About">
+            <viewScriptFile forActionName="bin"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="About">
+            <viewScriptFile forActionName="ourteam"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="About">
+            <viewScriptFile forActionName="contact"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
