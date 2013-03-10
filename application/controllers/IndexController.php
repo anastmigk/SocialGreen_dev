@@ -8,6 +8,7 @@ class IndexController extends Zend_Controller_Action
         /* Initialize action controller here */
     	$title = "Welcome";
     	$this->view->title = $title;
+    	
     }
 
     public function indexAction()
@@ -18,8 +19,34 @@ class IndexController extends Zend_Controller_Action
 
     	//$form2 = new Application_Model_FormRegister();
     	//$this->view->registerForm = $form2;
+    	
+    	$contactForm = new Application_Form_ContactForm();
+    	$this->view->contactForm = $contactForm;
+    }
+
+    public function submitContactFormAction()
+    {
+        //$this->_helper->viewRenderer->setNoRender();
+        //$this->_helper->getHelper("layout")->disableLayout();
+    	
+        $f = new Application_Form_ContactForm();
+        $f->isValid($this->_getAllParams());
+        $json = $f->getMessages();
+        
+        header("Content-type: application/json");
+        //echo Zend_Json::encode($json);
+        echo "TEST";
+    }
+
+    public function submitContactAction()
+    {
+        // action body
     }
 
 
 }
+
+
+
+
 

@@ -9,6 +9,8 @@
       <controllersDirectory>
         <controllerFile controllerName="Index">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="submitContactForm"/>
+          <actionMethod actionName="submitContact"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="Account">
@@ -37,10 +39,14 @@
           <actionMethod actionName="bin"/>
           <actionMethod actionName="ourteam"/>
           <actionMethod actionName="contact"/>
+          <actionMethod actionName="team"/>
+          <actionMethod actionName="howItWorks"/>
+          <actionMethod actionName="getInvolved"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="RecoverAccount"/>
+        <formFile formName="ContactForm"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -117,6 +123,21 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="About">
             <viewScriptFile forActionName="contact"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="submitContactForm"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="submitContact"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="About">
+            <viewScriptFile forActionName="team"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="About">
+            <viewScriptFile forActionName="howItWorks"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="About">
+            <viewScriptFile forActionName="getInvolved"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
