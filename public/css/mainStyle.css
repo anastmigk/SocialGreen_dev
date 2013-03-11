@@ -2,7 +2,7 @@
 body
 {
 	/*font-family: 'Lato', sans-serif;*/
-	font-family: 'Roboto Condensed', sans-serif;
+	/*font-family: 'Roboto Condensed', sans-serif;*/
 	
 }
 img#logo {
@@ -165,15 +165,13 @@ img.social {
 	display: inline-block;
 	width: 22px;
 	height: 22px;
-	opacity: 0.6;
-	filter:alpha(opacity=60);
+	opacity: 1.0;
+	filter:alpha(opacity=100);
 }
 
 img.social:hover {
-	width: 22px;
-	height: 22px;
-	opacity: 1.0;
-	filter:alpha(opacity=100);
+	opacity: 0.6;
+	filter:alpha(opacity=60);
 }
 
 div#nav {
@@ -192,3 +190,4 @@ div#nav, div#nav * {
 .hidden {
 	display:none;
 }
+

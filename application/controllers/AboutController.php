@@ -40,7 +40,7 @@ class AboutController extends Zend_Controller_Action
         	$mail = new Zend_Mail();
         	$mail->setBodyText($htmlMail)
         	->setFrom($f->getValue('email'), 'Social Green Project Team')
-        	->addTo($f->getValue('email'))
+        	->addTo($f->getValue('email')) //pou stelnei to mail? se auton p egrapse?
         	->setSubject('Mail')
         	->send();
         	
