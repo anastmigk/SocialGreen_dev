@@ -143,6 +143,7 @@ ul.mylist li{
 div#mainContent{
 	/*background-color: #E1F5A9;*/
 	background-image:url('pattern.png');
+	background-attachment: fixed;
 	border-radius: 5px;
 	/*box-shadow: 5px 5px 5px grey;*/
 	padding:5px;
