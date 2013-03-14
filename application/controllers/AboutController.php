@@ -38,12 +38,12 @@ class AboutController extends Zend_Controller_Action
         	$htmlMail = $f->getValue('description');
         
         	$mail = new Zend_Mail();
-        	/*$mail->setBodyText($htmlMail)
+        	$mail->setBodyText($htmlMail)
         	->setFrom($f->getValue('email'), 'Social Green Project Team')
         	->addTo($f->getValue('email')) //akoma den einai etoimo
         	->setSubject('Mail')
         	->send();
-        	*/
+        	
         	
         } else {
         	//echo '<div class="alert alert-error">'.Zend_Json::encode($json).'</div>'; 
