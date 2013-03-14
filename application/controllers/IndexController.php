@@ -20,8 +20,6 @@ class IndexController extends Zend_Controller_Action
     	//$form2 = new Application_Model_FormRegister();
     	//$this->view->registerForm = $form2;
     	
-    	$contactForm = new Application_Form_ContactForm();
-    	$this->view->contactForm = $contactForm;
     }
 
     public function submitContactFormAction()
@@ -40,7 +38,9 @@ class IndexController extends Zend_Controller_Action
 
     public function submitContactAction()
     {
-        // action body
+        //Action that just displays the Contact form.. this is used to display form in each page..
+    	$contactForm = new Application_Form_ContactForm();
+    	$this->view->contactForm = $contactForm;
     }
 
 

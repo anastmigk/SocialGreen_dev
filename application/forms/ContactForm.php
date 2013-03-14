@@ -15,8 +15,9 @@ class Application_Form_ContactForm extends Zend_Form
     	$name->setAttrib ('class', "input-block-level");
     	$name->setAttrib('size',35);
     	$name->setRequired(true);
+    	//$name->setAttrib("required", true);
     	$name->addValidator('alnum');
-    	$name->addErrorMessage("Please use only alphanumeric characters!");
+    	$name->addErrorMessage("Are you sure about your name?");
     	$name->removeDecorator('label');
     	$name->removeDecorator('htmlTag');
     	
@@ -25,10 +26,11 @@ class Application_Form_ContactForm extends Zend_Form
     	$email->setAttrib ('class', "input-block-level");
     	$email->setAttrib('size',35);
     	$email->setRequired(true);
+    	//$email->setAttrib("required", true);
     	$email->addValidator('emailAddress');
     	$email->removeDecorator('label');
     	$email->removeDecorator('htmlTag');
-    	$email->addErrorMessage('Wrong e-mail format');
+    	$email->addErrorMessage('Something is wrong with your mail!');
     	
     	// Add a captcha
     	$captcha = new Zend_Form_Element_Captcha("captcha",array(
@@ -53,6 +55,9 @@ class Application_Form_ContactForm extends Zend_Form
     	$description->setAttrib ( 'class', "input-block-level");
     	$description->setAttrib('rows', '4');
     	$description->setAttrib('cols', '8');
+    	//$description->setAttrib("required", true);
+    	$description->setRequired(true);
+    	$description->addErrorMessage("Why don't you tell us what it is about?");
     	
     	$submit = new Zend_Form_Element_Submit('submit');
     	$submit->setLabel("Send!");

@@ -25,7 +25,7 @@ class AboutController extends Zend_Controller_Action
 
     public function contactAction()
     {
-        
+        //Function to submit form and send mail
         $this->_helper->viewRenderer->setNoRender();
         $this->_helper->getHelper("layout")->disableLayout();
     	
@@ -38,15 +38,23 @@ class AboutController extends Zend_Controller_Action
         	$htmlMail = $f->getValue('description');
         
         	$mail = new Zend_Mail();
-        	$mail->setBodyText($htmlMail)
+        	/*$mail->setBodyText($htmlMail)
         	->setFrom($f->getValue('email'), 'Social Green Project Team')
-        	->addTo($f->getValue('email')) //pou stelnei to mail? se auton p egrapse?
+        	->addTo($f->getValue('email')) //akoma den einai etoimo
         	->setSubject('Mail')
         	->send();
-        	
+        	*/
         	
         } else {
-        	echo '<div class="alert alert-error">'.Zend_Json::encode($json).'</div>';        
+        	//echo '<div class="alert alert-error">'.Zend_Json::encode($json).'</div>'; 
+        $arrMessages = $json;
+        //$output = Zend_Json::encode($json);
+		$output="<ol>";
+		foreach($json as $field => $arrErrors) {
+		    $output.= "<li>".$json[$field][0]."</li>";//rrErrors[$field];
+		}
+		$output.="</ol>";
+        	echo '<div class="alert alert-error">'.$output.'</div>';
         }
     }
 

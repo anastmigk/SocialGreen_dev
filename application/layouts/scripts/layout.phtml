@@ -4,7 +4,7 @@
   		
         <title>Social Green Project - Welcome</title>        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     	<!-- Bootstrap -->
     	<?php  $this->headLink()->appendStylesheet($this->baseUrl('bootstrap/css/bootstrap.min.css')); ?>
     	<?php  $this->headLink()->appendStylesheet($this->baseUrl('css/mainStyle.css')); ?>
@@ -67,7 +67,6 @@
 </div>
 <div class="container" style="margin-top: 50px;"  >
 	<?php echo $this->layout()->content; ?>
-	
 </div>
 <!-- End of container -->
 	
@@ -174,10 +173,20 @@
 	</script>
 -->
     
+   <!-- Contact Form -->
+<div id="contactModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+    <h3 id="myModalLabel">Contact Form</h3>
+  </div>
+  <div class="modal-body">
+    <?php echo $this->action("submit-contact", "index");// contactForm; ?>
+  </div>
+</div>  
+    
  <!-- BootStrap & Jquery Script 
      ================================================== -->
  <script src="http://code.jquery.com/jquery.js"></script>
  <script src="<?php echo $this->baseUrl("bootstrap/js/bootstrap.min.js"); ?>"></script>
- 
 </body>
 </html>
