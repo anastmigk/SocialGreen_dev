@@ -42,6 +42,7 @@
           <actionMethod actionName="team"/>
           <actionMethod actionName="howItWorks"/>
           <actionMethod actionName="getInvolved"/>
+          <actionMethod actionName="quiz"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -62,6 +63,8 @@
         </dbTableDirectory>
         <modelFile modelName="DailyLadder"/>
         <modelFile modelName="Ladder"/>
+        <modelFile modelName="Quiz"/>
+        <modelFile modelName="Questions"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
@@ -138,6 +141,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="About">
             <viewScriptFile forActionName="getInvolved"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="About">
+            <viewScriptFile forActionName="quiz"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

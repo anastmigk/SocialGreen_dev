@@ -1,8 +1,7 @@
 <html>
     <head>
     	<meta charset="utf-8" />
-  		
-        <title>Social Green Project - Welcome</title>        
+  		<?php echo $this->headTitle($this->title); ?>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     	<!-- Bootstrap -->
@@ -65,8 +64,10 @@
 		</div>
 	</div>
 </div>
-<div class="container" style="margin-top: 50px;"  >
+<div class="container">
+	<div id="mainContent" >
 	<?php echo $this->layout()->content; ?>
+	</div>
 </div>
 <!-- End of container -->
 	
@@ -92,7 +93,7 @@
 				<ul class="mylist">
 					<li class="FooterTitles">Activities</li>
 					
-					<li><a title="Under Construction" style="text-decoration:line-through;" >Get the quiz</a></li>
+					<li><a title="Contribute!" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'quiz'), null, TRUE); ?>">Get the quiz</a></li>
 					<li><a title="Under Construction" style="text-decoration:line-through;" >Get Involved</a></li>
 					<li><a title="We need your feedback" href="#contactModal" data-toggle="modal">Contact us</a></li>
 					<!-- href="/underdevelopment/public/auth"  -->

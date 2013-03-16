@@ -51,7 +51,7 @@ class AboutController extends Zend_Controller_Action
         //$output = Zend_Json::encode($json);
 		$output="<ol>";
 		foreach($json as $field => $arrErrors) {
-		    $output.= "<li>".$json[$field][0]."</li>";//rrErrors[$field];
+		    $output.= "<li>".$json[$field][0]."</li>";
 		}
 		$output.="</ol>";
         	echo '<div class="alert alert-error">'.$output.'</div>';
@@ -73,8 +73,16 @@ class AboutController extends Zend_Controller_Action
         // action body
     }
 
+    public function quizAction()
+    {
+        // action body
+        $this->view->title = "Quiz";
+    }
+
 
 }
+
+
 
 
 

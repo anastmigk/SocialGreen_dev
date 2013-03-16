@@ -192,3 +192,15 @@ div#nav, div#nav * {
 	display:none;
 }
 
+img.faces {
+	width: 30%;
+	float:left;
+	margin-right:3%;
+}
+
+img.faces2 {
+	width: 100%;
+	float:left;
+	margin-right:3%;
+}
+
