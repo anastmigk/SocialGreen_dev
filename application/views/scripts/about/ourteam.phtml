@@ -1,3 +1,32 @@
+<?php $team = $this->team; ?>
+<?php foreach ($team as $member) {
+	?>
+	<div class="row-fluid">
+	<!-- Personal Space -->
+	<div class="row span12">
+	<div class="span2">
+	<!-- <div class="row"> -->
+	<img class="faces img-polaroid-circle visible-desktop" src="<?php echo $this->baseUrl("images/teamPhotos/".$member[2]); ?>">
+			<!-- </div> -->
+			</div>
+			<div class="span2">
+					<!-- <div class="row"> -->
+					<h3><?php echo $member[0]; ?></h3>
+					<!-- </div> -->
+					</div>
+					<div class="span8">
+					<h4><?php echo $member[1]; ?></h4>
+					<p><?php echo $member[3]; ?></p>
+					</div>
+					</div>
+					<!--  End of personal space -->
+					</div>
+	
+	<?php 
+} ?>
+
+
+<!-- 
 <div class="accordion" id="accordion2">
   <div class="accordion-group">
     <div class="accordion-heading">
@@ -110,7 +139,7 @@
     </div>
     <div id="collapseFive" class="accordion-body collapse in">
       <div class="accordion-inner">
-      		<<p>Born in Thessaloniki, he is about to graduate from the department of Graphic Design, Technological Educational Institute of Athens. 
+      		<p>Born in Thessaloniki, he is about to graduate from the department of Graphic Design, Technological Educational Institute of Athens. 
 				His working experience contains printing and graphic design positions. 
 				In his free time, Antonis enjoys photo shooting and animation. 
 				He is the Art Director of Social Green where he handles both digital and printed design projects.</p>
@@ -118,3 +147,4 @@
     </div>
   </div>
 </div>
+ -->

@@ -193,9 +193,8 @@ div#nav, div#nav * {
 }
 
 img.faces {
-	width: 30%;
-	float:left;
-	margin-right:3%;
+	width: 80%;
+	margin: 3%;
 }
 
 img.faces2 {
