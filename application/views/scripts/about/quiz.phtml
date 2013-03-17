@@ -1,4 +1,10 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>About</b> and script/action name <b>quiz</b></p>
-</div>
+<?php foreach ($this->qa as $qa){ ?> 
+	<?php echo $qa[1] ;?>
+		<?php foreach ($qa[2] as $validAnswer){ ?>
+			<label class="radio">
+		  		<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+		  		<?php echo $validAnswer; ?>	
+			</label>
+		<?php } ?>
+<?php } ?>
+

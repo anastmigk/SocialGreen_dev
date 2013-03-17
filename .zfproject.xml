@@ -60,6 +60,9 @@
           <dbTableFile dbTableName="Accounts"/>
           <dbTableFile dbTableName="Ladder"/>
           <dbTableFile dbTableName="RecoveryQueue"/>
+          <dbTableFile dbTableName="Questions"/>
+          <dbTableFile dbTableName="AnswersTemplate"/>
+          <dbTableFile dbTableName="Answers"/>
         </dbTableDirectory>
         <modelFile modelName="DailyLadder"/>
         <modelFile modelName="Ladder"/>

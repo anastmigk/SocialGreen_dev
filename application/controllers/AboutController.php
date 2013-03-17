@@ -105,9 +105,16 @@ class AboutController extends Zend_Controller_Action
     {
         // action body
         $this->view->title = "Quiz";
+        
+        $quizModel = new Application_Model_Quiz();
+        $questions = $quizModel->getQuestions();
+        $validAnswers = $quizModel->getValidAnswers();
+        
+        $this->view->questions = $questions;
+        $this->view->validAnswers = $validAnswers;
+        
+        $this->view->qa = $quizModel->getQsAs();
     }
-
-
 }
 
 
