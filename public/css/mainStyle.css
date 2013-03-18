@@ -203,3 +203,18 @@ img.faces2 {
 	margin-right:3%;
 }
 
+div.personalSpace {
+	background-color: white;
+	border:thin gray solid;
+	border-radius: 5px;
+	padding:1%;
+	margin-bottom:1%;
+	
+	-moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000;
+}
+
+div.staffnames {
+
+}

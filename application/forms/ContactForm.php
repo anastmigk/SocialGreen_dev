@@ -15,7 +15,7 @@ class Application_Form_ContactForm extends Zend_Form
     	$name->setAttrib ('class', "input-block-level");
     	$name->setAttrib('size',35);
     	$name->setRequired(true);
-    	//$name->setAttrib("required", true);
+    	$name->setAttrib("required", true);
     	$name->addValidator('alnum');
     	$name->addErrorMessage("Are you sure about your name?");
     	$name->removeDecorator('label');
@@ -26,7 +26,7 @@ class Application_Form_ContactForm extends Zend_Form
     	$email->setAttrib ('class', "input-block-level");
     	$email->setAttrib('size',35);
     	$email->setRequired(true);
-    	//$email->setAttrib("required", true);
+    	$email->setAttrib("required", true);
     	$email->addValidator('emailAddress');
     	$email->removeDecorator('label');
     	$email->removeDecorator('htmlTag');
@@ -55,7 +55,7 @@ class Application_Form_ContactForm extends Zend_Form
     	$description->setAttrib ( 'class', "input-block-level");
     	$description->setAttrib('rows', '4');
     	$description->setAttrib('cols', '8');
-    	//$description->setAttrib("required", true);
+    	$description->setAttrib("required", true);
     	$description->setRequired(true);
     	$description->addErrorMessage("Why don't you tell us what it is about?");
     	
@@ -63,6 +63,7 @@ class Application_Form_ContactForm extends Zend_Form
     	$submit->setLabel("Send!");
     	$submit->removeDecorator('DtDdWrapper');
     	$submit->setAttrib ( 'class', "btn btn-success");
+    	//$submit->setAttrib("data-loading-text","Sending...");
     	
     	$this->setDecorators( array( array('ViewScript', array('viewScript' => '_form_contact.phtml'))));
     	//$this->addElements(array($name, $email, $captcha, $description, $submit));

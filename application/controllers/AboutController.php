@@ -61,16 +61,27 @@ class AboutController extends Zend_Controller_Action
         $flag = $f->isValid($this->_getAllParams());
         $json = $f->getMessages();
         if ($flag){
-        	echo '<div class="alert alert-success">Your message has been sent! We will get back to you ASAP!</div>';
+        	echo '<div class="alert alert-success">Your message has been sent! We will get back to you!</div>';
+        	
+        	$smtpServer = 'socialgreenproject.com';
+        	$username = 'info@socialgreenproject.com';
+        	$password = 'sgadmin12!';
+        	
+        	$config = array(
+        			'auth' => 'login',
+        			'username' => $username,
+        			'password' => $password);
+        	
+        	$transport = new Zend_Mail_Transport_Smtp($smtpServer, $config);
         	
         	$htmlMail = $f->getValue('description');
         
         	$mail = new Zend_Mail();
         	$mail->setBodyText($htmlMail)
-        	->setFrom($f->getValue('email'), 'Social Green Project Team')
-        	->addTo($f->getValue('email')) //akoma den einai etoimo
-        	->setSubject('Mail')
-        	->send();
+        	->setFrom($f->getValue('email'), $f->getValue('name'))
+        	->addTo("info@socialgreenproject.com") //akoma den einai etoimo
+        	->setSubject('User Mail sent on '.date("F j, Y, g:i a").'!')
+        	->send($transport);
         	
         	
         } else {

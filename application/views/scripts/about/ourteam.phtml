@@ -1,29 +1,27 @@
 <?php $team = $this->team; ?>
 <?php foreach ($team as $member) {
 	?>
-	<div class="row-fluid">
+<div class="row-fluid">
 	<!-- Personal Space -->
-	<div class="row span12">
-	<div class="span2">
-	<!-- <div class="row"> -->
-	<img class="faces img-polaroid-circle visible-desktop" src="<?php echo $this->baseUrl("images/teamPhotos/".$member[2]); ?>">
+	<div class="row span12 personalSpace">
+		<div class="span2 visible-desktop">
+		<!-- <div class="row"> -->
+			<img class="faces img-polaroid-circle" src="<?php echo $this->baseUrl("images/teamPhotos/".$member[2]); ?>">
+		<!-- </div> -->
+		</div>
+		<div class="span2">
+			<!-- <div class="row"> -->
+			<h4><?php echo $member[0]; ?></h4>
 			<!-- </div> -->
-			</div>
-			<div class="span2">
-					<!-- <div class="row"> -->
-					<h3><?php echo $member[0]; ?></h3>
-					<!-- </div> -->
-					</div>
-					<div class="span8">
-					<h4><?php echo $member[1]; ?></h4>
-					<p><?php echo $member[3]; ?></p>
-					</div>
-					</div>
-					<!--  End of personal space -->
-					</div>
-	
-	<?php 
-} ?>
+		</div>
+		<div class="span8">
+			<h5><?php echo $member[1]; ?></h5>
+			<p><?php echo $member[3]; ?></p>
+		</div>
+	</div>
+	<!--  End of personal space -->
+</div>
+<?php } ?>
 
 
 <!-- 

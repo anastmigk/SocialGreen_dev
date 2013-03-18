@@ -1,10 +1,16 @@
-<?php foreach ($this->qa as $qa){ ?> 
-	<?php echo $qa[1] ;?>
-		<?php foreach ($qa[2] as $validAnswer){ ?>
+<?php 
+$groupid = 1; //Question id to group answers
+foreach ($this->qa as $qa){  
+	 echo $qa[1] ;
+	 $answerid=1; //specific answers id for each question
+	 foreach ($qa[2] as $validAnswer){
+			 $answerid++; ?>
 			<label class="radio">
-		  		<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+		  		<input type="radio" name="optionsRadios<?php echo $groupid; ?>" id="optionsRadios<?php echo $answerid; ?>" value="option<?php echo $answerid;?>">
 		  		<?php echo $validAnswer; ?>	
-			</label>
-		<?php } ?>
-<?php } ?>
+			</label><?php 
+	 }
+	 $groupid++; 
+} 
+?>
 
