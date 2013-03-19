@@ -21,30 +21,15 @@ class AboutController extends Zend_Controller_Action
     public function ourteamAction()
     {
         // action body
-        $ntempos = array("Dimitrios Ntempos", "Business Development Manager, Founder", "ntempos.jpg", 'He has graduated from the Department of Economics of Aristotle university. 
-				During those years he attended student exchange programmes in Sweden and France gaining multicultural experiences. 
-				By October 2012 he holds an MSc at "Informatics and Management" from the Computer Science Departement of Aristotle. 
-				His working experience include traineeships at Greek ministry of foreign affairs, Hellenic post bank and a Consulting company. 
-				He is a co-founder of SocialGreen where he works on the Business Development of the project.');
+        $ntempos = array("Dimitrios Ntempos", "Co-founder", "ntempos.jpg", 'Dimitrios has studied economy and the computer science at Aristotle university of thessaloniki. His working experience contains positions at public and the private sector. he strongly believes that starting up is the absolute next step after education.');
         
-        $kuze = array("Evangelos Almpanidis","Electronic engineer, Co-Founder","almpanidis.jpg", "Born and raised in Thessaloniki. He is a graduate of the department of electronics, Alexandreio Technological Education Institute of Thessaloniki and has the capabilities to carry out the procedures of both digital and analog electronics design. 
-				His main interests contain embedded software and hardware issues, using FPGA's and microcontrollers.
-				 He is the electronic engineer of Social Green having developed the project's prototype bin. 
-				Furthermore he has worked as an embedded developer in elevator industry and as technical personnel at A.T.E.I(digital labs I&amp;II). 
-				In his free time he is getting involved with graphic design.");
+        $kuze = array("Evangelos Almpanidis","Electronic engineer,<br>Co-Founder","almpanidis.jpg", "Born in Thessaloniki, vangelis deals with the hardware component of Social-Green. He has worked as an embeded system developer as well as academic assistante in A.T.E.I (digital labs I&II) lab. He is a paok fc fun and former graffiti artist.");
         
-        $konos = array("Konstantinos Papadopoulos","IT Manager, Co-Founder","papadopoulos.jpg","Born and raised in Thessaloniki. He is a graduate of the department of electronics, Alexandreio Technological Education Institute of Thessaloniki and has the capabilities to carry out the procedures of both digital and analog electronics design. 
-				His main interests contain embedded software and hardware issues, using FPGA's and microcontrollers.
-				 He is the electronic engineer of Social Green having developed the project’s prototype bin. 
-				Furthermore he has worked as an embedded developer in elevator industry and as technical personnel at A.T.E.I(digital labs I&II). 
-				Én his free time he is getting involved with graphic design.");
-        $laps = array("George Lapatas","Lead Software Developer","lapatas.png","Born and raised in Thessaloniki, George always show passion for technology, sports and travels. 
-				He attends the University of Peloponnese where he complete his studies at the Department of Computer Science and Technology and currently involving with the SocialGreen as a Web programmer. 
-					In the mean time he is a swimmer and participate in swimming competitions. He has traveled to Italy, New York and many greek islands, his next big trip will be London." );
-		$antonis = array("Antonis Karanaftis","Lead Designer","karanaftis.jpg","Born in Thessaloniki, he is about to graduate from the department of Graphic Design, Technological Educational Institute of Athens. 
-				His working experience contains printing and graphic design positions. 
-				In his free time, Antonis enjoys photo shooting and animation. 
-				He is the Art Director of Social Green where he handles both digital and printed design projects.");
+        $konos = array("Konstantinos Papadopoulos","Technical Officer,<br>Co-founder","papadopoulos.jpg","Konstantinos works as a jr. IT Auditor while the same time leads the technical part of Social-Green. At his free time he enjoys Web & iOS and studing about Information Security. He Holds an MSc degree in ICT Systems.");
+        
+        $laps = array("George Lapatas","Web Developer","lapatas.png","Born in thessaloniki, george is about to graduate from the dept computer science and technology, university of Peloponnese. At social-green he delivers cut-edge code and clear cut user interfaces . He loves travelling and swimming." );
+		
+		$antonis = array("Antonis Karanaftis","Designer<br>& Artist","karanaftis.jpg","He is the Art Director of Social Green where he handles every design related issue. His working experience contains printing and graphic design positions. In his free time, Antonis enjoys photo shooting and animation.");
         
         $team = array($ntempos,$kuze,$konos,$laps,$antonis);
         //var_dump($team);

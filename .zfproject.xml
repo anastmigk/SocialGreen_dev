@@ -48,6 +48,7 @@
       <formsDirectory>
         <formFile formName="RecoverAccount"/>
         <formFile formName="ContactForm"/>
+        <formFile formName="QuizForm"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>

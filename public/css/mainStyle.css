@@ -1,41 +1,15 @@
 @CHARSET "UTF-8";
-body
-{
-	/*font-family: 'Lato', sans-serif;*/
-	/*font-family: 'Roboto Condensed', sans-serif;*/
-	
-}
+
 img#logo {
 	margin-left:3%;
+	margin-bottom:-6px;
+	margin-top:-6px;
+	height:40px;
 }
 section#header, section#footer {
 	/*border: thin solid black;*/
 	clear: both;
 }
-
-nav ul {
-	list-style:none;
-}
-/*
-nav ul li {
-	display:inline;
-	border: 1px solid #888888;
-	border-radius: 5px;
-	padding: 3px 3px 3px 3px;
-	box-shadow: -1px -1px 5px #888888;
-}
-nav ul li a{
-	text-decoration:none;
-}
-
-.logged-in-as a {
-	float:right;
-	text-decoration:none;
-	border: 1px solid #888888;
-	border-radius: 5px;
-	padding: 3px 3px 3px 3px;
-	box-shadow: -1px -1px 5px #888888;
-}*/
 
 .profile-container {
 	margin-left:auto;
@@ -108,23 +82,7 @@ nav ul li a{
 	text-align:center;
 	text-decoration: underline;
 }
-.boxer {
-	display: block;
-	text-align:center;
-	/* Firefox
-	display:-moz-box;
-	-moz-box-pack:center;
-	-moz-box-align:center;
-	
-	
-	display:-webkit-box;
-	-webkit-box-pack:center;
-	-webkit-box-align:center;
 
-	display:box;
-	box-pack:center;
-	box-align:center;*/
-}
 ul.mylist {
 	display:block;
 	list-style:none;
@@ -138,14 +96,22 @@ ul.mylist li{
 }
 
 
+body {
+  padding-top: 60px;
+}
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}
+
 div#mainContent{
 	/*background-color: #E1F5A9;*/
 	background-image:url('pattern.png');
 	background-attachment: fixed;
 	border-radius: 5px;
 	/*box-shadow: 5px 5px 5px grey;*/
-	padding:5px;
-	margin-top:4%;
+	padding:1%;
 }
 
 .nav-bar li, .nav-bar, .right {
@@ -201,16 +167,18 @@ img.faces2 {
 	margin-right:3%;
 }
 
-div.personalSpace {
-	background-color: white;
+.frame {
+	padding:1%;
+	-moz-box-shadow:    inset 0 0 10px #000000;
+   	-webkit-box-shadow: inset 0 0 10px #000000;
+   	box-shadow:         inset 0 0 10px #000000;
 	border:thin gray solid;
 	border-radius: 5px;
-	padding:1%;
+	background-color: white;
+}
+
+div.personalSpace {
 	margin-bottom:1%;
-	
-	-moz-box-shadow:    inset 0 0 10px #000000;
-   -webkit-box-shadow: inset 0 0 10px #000000;
-   box-shadow:         inset 0 0 10px #000000;
 }
 
 div.staffnames {

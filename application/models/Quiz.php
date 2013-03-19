@@ -42,5 +42,10 @@ class Application_Model_Quiz
 		
 		return $questionaire;
 	}
+	
+	public function getQuizForm(){
+		$form = new Application_Form_QuizForm($this->getQsAs());
+		return $form;
+	}
 }
 
