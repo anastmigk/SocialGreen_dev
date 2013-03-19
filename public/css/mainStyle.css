@@ -6,9 +6,7 @@ body
 	
 }
 img#logo {
-	/*height: 10%;*/
-	float: left;
-	/*width:10%;*/
+	margin-left:3%;
 }
 section#header, section#footer {
 	/*border: thin solid black;*/

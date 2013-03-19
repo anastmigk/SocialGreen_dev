@@ -21,29 +21,22 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="brand" href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>">Social Green</a>
+			<a class="brand" title="Back to home" href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>"><img id="logo" src="<?php echo $this->baseUrl("images/logo20.png"); ?>"></a>
 			<div class="nav-collapse collapse">
 				<ul class="nav pull-right">
 				<?php
 				$uri = Zend_Controller_Front::getInstance()->getRequest()->getRequestUri(); 
+				$howItworks=""; $getInvolved="";
 				if ($uri == $this->url(array('controller'=>'about', 'action'=>'how-it-works'), null, TRUE) )
-				{?>
-					<li class="active" ><a href="<?php echo $this->url(array('controller'=>'about', 'action'=>'how-it-works'), null, TRUE); ?>">How It Works</a></li>
-					<li><a href="<?php echo $this->url(array('controller'=>'about', 'action'=>'get-involved'), null, TRUE); ?>">Get Involved</a></li>
-				<?php
+				{
+					$howItworks= "class='active'";
 				}else if ($uri == $this->url(array('controller'=>'about', 'action'=>'get-involved'), null, TRUE) )
-				{?>
-					<li ><a href="<?php echo $this->url(array('controller'=>'about', 'action'=>'how-it-works'), null, TRUE); ?>">How It Works</a></li>
-					<li class="active" ><a href="<?php echo $this->url(array('controller'=>'about', 'action'=>'get-involved'), null, TRUE); ?>">Get Involved</a></li>
-				<?php
-				}
-				else
-				{?>
-					<li ><a href="<?php echo $this->url(array('controller'=>'about', 'action'=>'how-it-works'), null, TRUE); ?>">How It Works</a></li>
-					<li ><a href="<?php echo $this->url(array('controller'=>'about', 'action'=>'get-involved'), null, TRUE); ?>">Get Involved</a></li>
-				<?php 
-				}
-				?>
+				{
+					$getInvolved= "class='active'";
+				}?>
+				
+					<li <?= $howItworks ?> ><a title="Learn more!" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'how-it-works'), null, TRUE); ?>">How It Works</a></li>
+					<li <?= $getInvolved ?>><a title="Participate!" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'get-involved'), null, TRUE); ?>">Get Involved</a></li>
 				</ul>
 				<!-- POP UP menu for later.. 
 				<ul class="nav pull-right">  
@@ -81,10 +74,9 @@
 	      	<div class="span2">
 	      		<ul class="mylist">
 		        	<li class="FooterTitles">About</li>
-		        	
-					<li ><a title="Under Construction" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'ourteam'), null, TRUE); ?>" >Team</a></li>
-					<li ><a title="Under Construction" style="text-decoration:line-through;" >How it works</a></li>
-					<li ><a title="Under Construction" style="text-decoration:line-through;" >Terms &amp; Privacy</a></li>
+					<li ><a title="Learn about us!" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'ourteam'), null, TRUE); ?>" >Team</a></li>
+					<li ><a title="Dig in our project!" style="text-decoration:line-through;" >How it works</a></li>
+					<li ><a title="Legal staff!" style="text-decoration:line-through;" >Terms &amp; Privacy</a></li>
 				</ul>
 	       	</div>
 	        
@@ -94,8 +86,8 @@
 					<li class="FooterTitles">Activities</li>
 					
 					<li><a title="Contribute!" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'quiz'), null, TRUE); ?>">Get the quiz</a></li>
-					<li><a title="Under Construction" style="text-decoration:line-through;" >Get Involved</a></li>
-					<li><a title="We need your feedback" href="#contactModal" data-toggle="modal">Contact us</a></li>
+					<li><a title="Participate!" style="text-decoration:line-through;" >Get Involved</a></li>
+					<li><a title="Feedback!" href="#contactModal" data-toggle="modal">Contact us</a></li>
 					<!-- href="/underdevelopment/public/auth"  -->
 				</ul>
 	        </div>
@@ -189,5 +181,10 @@
      ================================================== -->
  <script src="http://code.jquery.com/jquery.js"></script>
  <script src="<?php echo $this->baseUrl("bootstrap/js/bootstrap.min.js"); ?>"></script>
+ <script type="text/javascript">
+ 			$(document).ready(function () {
+    			$("a").tooltip();
+  			});
+		</script>
 </body>
 </html>
