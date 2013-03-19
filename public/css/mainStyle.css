@@ -216,5 +216,5 @@ div.personalSpace {
 }
 
 div.staffnames {
-
+	display:table-cell; vertical-align:middle
 }
