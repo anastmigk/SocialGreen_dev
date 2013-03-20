@@ -9,7 +9,7 @@
     	<?php  $this->headLink()->appendStylesheet($this->baseUrl('css/mainStyle.css')); ?>
     	<?php echo $this->headLink(); ?>
     </head>
-<body>
+<body >
 
 <!-- Navbar
     ================================================== -->
@@ -57,10 +57,13 @@
 		</div>
 	</div>
 </div>
-<div class="container">
-	<div id="mainContent" >
+
+<!-- View content
+    ================================================== -->
+<div class="container" id="mainContent">
+	
 	<?php echo $this->layout()->content; ?>
-	</div>
+	
 </div>
 <!-- End of container -->
 	
