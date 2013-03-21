@@ -113,6 +113,40 @@ div#mainContent{
 	/*box-shadow: 5px 5px 5px grey;*/
 	padding:1%;
 }
+/* Under Construction
+ =========================*/
+.UnderConstructionBackground {
+	margin-top:60px;
+	margin-bottom:30px;
+	background-image:url('tampela.png');
+	background-repeat:no-repeat;
+	background-attachment:scroll; 
+	background-position: center center;
+	height : 250;
+}
+.UnderContructionText {
+	padding:30px 60px 30px 60px;
+	text-align:center;
+}
+/* End Under Construction
+ =========================*/
+
+/* Sketch
+ =========================*/
+img.sketch {
+	width:450px;
+	height:450px;
+	-webkit-box-shadow:0 1px 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:0 1px 3px rgba(0, 0, 0, 0.2);
+	box-shadow:0 1px 3px rgba(0, 0, 0, 0.2);
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	border-radius:6px;
+}
+p.sketch {
+	
+}
+
 
 .nav-bar li, .nav-bar, .right {
 	border:none;
@@ -374,7 +408,7 @@ hr.soften {
 /* Landscape phones
 ------------------------- */
 @media (max-width: 480px) {
-  /* Remove padding above jumbotron */
+  /* Remove padding above sections*/
   body {
     padding-top: 0;
   }

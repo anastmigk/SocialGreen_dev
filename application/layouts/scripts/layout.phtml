@@ -35,8 +35,11 @@
 					//$getInvolved= "class='active'";
 				}?>
 				
-					<li <?= $howItworks ?> ><a title="Learn more!" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'how-it-works'), null, TRUE); ?>">How It Works</a></li>
-					<li <?= $getInvolved ?>><a title="Participate!" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'get-involved'), null, TRUE); ?>">Get Involved</a></li>
+					<?php /*<li <?= $howItworks ?> ><a title="Learn more!" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'how-it-works'), null, TRUE); ?>">How It Works</a></li>
+					<li <?= $getInvolved ?>><a title="Participate!" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'get-involved'), null, TRUE); ?>">Get Involved</a></li> */ ?> 
+					<li <?= $howItworks ?> ><a title="Learn more!" style="text-decoration:line-through;" >How It Works</a></li>
+					<li <?= $getInvolved ?>><a title="Participate!" style="text-decoration:line-through;" >Get Involved</a></li>
+					
 				</ul>
 				<!-- POP UP menu for later.. 
 				<ul class="nav pull-right">  
@@ -57,15 +60,16 @@
 		</div>
 	</div>
 </div>
+<!-- End of Navbar -->
 
-<!-- View content
+<!-- View Content
     ================================================== -->
 <div class="container" id="mainContent">
 	
 	<?php echo $this->layout()->content; ?>
 	
 </div>
-<!-- End of container -->
+<!-- End of View Content -->
 	
 <!-- Footer 
     ================================================== -->
@@ -77,7 +81,8 @@
 	      	<div class="span2">
 	      		<ul class="mylist">
 		        	<li class="FooterTitles">Info</li>
-					<li ><a title="Learn about us!" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'ourteam'), null, TRUE); ?>" >About</a></li>
+					<?php /* <li ><a title="Learn about us!"  href="<?php echo $this->url(array('controller'=>'about', 'action'=>'ourteam'), null, TRUE); ?>" >About</a></li> */ ?>
+					<li ><a title="Learn about us!"  style="text-decoration:line-through;" >About</a></li>
 					<li ><a title="Dig in our project!" style="text-decoration:line-through;" >How it works</a></li>
 					<li ><a title="Legal staff!" style="text-decoration:line-through;" >Terms &amp; Privacy</a></li>
 				</ul>
@@ -88,9 +93,11 @@
 				<ul class="mylist">
 					<li class="FooterTitles">Activities</li>
 					
-					<li><a title="Contribute!" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'quiz'), null, TRUE); ?>">Get the quiz</a></li>
+					<?php /*<li><a title="Contribute!" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'quiz'), null, TRUE); ?>">Get the quiz</a></li> */ ?>
+					<li><a title="Contribute!" style="text-decoration:line-through;" >Get the quiz</a></li>
 					<li><a title="Participate!" style="text-decoration:line-through;" >Get Involved</a></li>
-					<li><a title="Feedback!" href="#contactModal" data-toggle="modal">Contact us</a></li>
+					<?php /*<li><a title="Feedback!" href="#contactModal" data-toggle="modal">Contact us</a></li>*/ ?>
+					<li><a title="Feedback!" style="text-decoration:line-through;">Contact us</a></li>
 					<!-- href="/underdevelopment/public/auth"  -->
 				</ul>
 	        </div>
@@ -126,7 +133,7 @@
       	
 </div>
 </div>
-
+<!-- End of Footer -->
 
 <!-- Google Analytics 
     ================================================== -->
