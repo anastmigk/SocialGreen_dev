@@ -228,8 +228,13 @@ img.faces2 {
 	height: 400px;
 }
 
-div#quizContainer {
+div.radio label {
+	padding-bottom:0;
+	margin:0;
+}
 
+div.radio label input {
+	margin-top:0;
 }
 
 div.personalSpace {
