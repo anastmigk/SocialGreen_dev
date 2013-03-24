@@ -24,16 +24,14 @@ class IndexController extends Zend_Controller_Action
 
     public function submitContactFormAction()
     {
-        //$this->_helper->viewRenderer->setNoRender();
-        //$this->_helper->getHelper("layout")->disableLayout();
-    	
-        $f = new Application_Form_ContactForm();
-        $f->isValid($this->_getAllParams());
-        $json = $f->getMessages();
-        
-        header("Content-type: application/json");
-        //echo Zend_Json::encode($json);
-        echo "TEST";
+        $this->_helper->viewRenderer->setNoRender();
+	    $this->_helper->layout->disableLayout();
+	    $form = new Application_Form_QuizForm();
+	    	
+	    $form->isValidPartial($this->_getAllParams());
+	    $json = $form->processAjax($this->getRequest()->getPost());
+	    //header('Content-type: application/json');
+	    echo var_dump($this->_getAllParams());
     }
 
     public function submitContactAction()

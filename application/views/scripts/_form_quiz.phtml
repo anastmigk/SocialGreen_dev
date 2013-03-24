@@ -1,11 +1,15 @@
-<form id="register" action="<?= $this->element->getAction(); ?>" method="<?= $this->element->getMethod(); ?>">
+<div class="row-fluid span8 offset2">
+<form id="quiz" action="<?= $this->element->getAction(); ?>" method="<?= $this->element->getMethod(); ?>">
    <div id="q_1_container">
+   		<h2>Question 1</h2>
    		<?= $this->element->q_1; ?>
    </div>
    <div id="q_2_container" class="hidden">
+   		Question 2
    		<?= $this->element->q_2; ?>
    </div>
    <div id="q_3_container" class="hidden">
+   		Question 3
    		<?= $this->element->q_3; ?>
    </div>
    <div id="q_4_container" class="hidden">
@@ -15,15 +19,39 @@
    		<?= $this->element->q_5; ?>
    </div>
    <div id="submit_container" class="hidden">
+   <p>Thank you for your time!</p>
    		<?= $this->element->submit;?>
+   		<hr>
+   		<p>You can also provide an e-mail so as to inform you about future updates!</p>
+   		<p><a title="Feedback!" class="btn btn-info" href="#contactModal" data-toggle="modal">Complete the form!</a></p>
    </div>
 </form>
+</div>
 <script>
 	$("input.radio").change(function(){
 			var question = $(this).attr("name");
 			var container = question+"_container";
 			$("#"+container).hide("slow", function(){
-					alert("TEST");
+					var name = question;
+					var toRemove = 'q_';
+					var id = name.replace(toRemove,'');
+					var toShow = "#"+"q_"+(parseInt(id)+1)+"_container";
+					if (id=="5") { toShow="#submit_container";};
+					$(toShow).show("slow").toggleClass("hidden");//show("slow");
 				});
 		});
+	$("form#quiz").submit(function(){
+			var data = $(this).serialize();
+			var url = '<?php echo $this->baseUrl("/index/submit-Contact-Form/"); ?>';
+			//alert(url);
+			$.ajax({
+			  type: "POST",
+			  url: url,
+			  data: data,
+			  success: function(resp){
+				alert(resp);
+			  }
+			});
+			return false;
+	});
 </script>

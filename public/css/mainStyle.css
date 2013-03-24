@@ -42,9 +42,7 @@ section#header, section#footer {
 	border-radius: 5px;
 	
 }
-.register {
-	
-}
+
 .profile-points {
 	text-align:center;
 	/*box-shadow: 1px 1px 5px #ddd;
@@ -122,6 +120,7 @@ div#mainContent{
 }
 /* Under Construction
  =========================*/
+
 .UnderConstructionBackground {
 	margin-top:60px;
 	margin-bottom:30px;
@@ -131,6 +130,7 @@ div#mainContent{
 	background-position: center center;
 	height : 250;
 }
+
 .UnderContructionText {
 	padding:30px 60px 30px 60px;
 	text-align:center;
@@ -216,6 +216,7 @@ img.faces2 {
 	border:thin gray solid;
 	border-radius: 5px;
 	background-color: white;
+	padding:3%;
 }
 
 div.personalSpace {
