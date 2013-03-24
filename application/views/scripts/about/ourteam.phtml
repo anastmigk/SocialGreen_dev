@@ -37,15 +37,15 @@ $counter = 0;
 	<!--  End of personal space -->
 </div>
 <?php */
-if ($counter==3){echo "</div><div class='row-fluid'>";};?>
+if ($counter==3){echo "</div><hr><div class='row-fluid'>";};?>
  	<div class="span4 pagination-centered <?php if ($counter==3){echo "offset2";}; ?>">
 	 	<div class="row">
 	 		<h4><?php echo $member[1]; ?></h4>
 	 	</div>
 	 	<div class="row">
-	 		<img class="img-polaroid-circle" src="<?php echo $this->baseUrl("images/fairhead-icons/fc-webicon-linkedin.png"); ?>">
+	 		<img class="img-polaroid-circle links" src="<?php echo $this->baseUrl("images/fairhead-icons/fc-webicon-linkedin.png"); ?>">
 	 		<img class="img-polaroid-circle faces" src="<?php echo $this->baseUrl("images/teamPhotos/".$member[2]); ?>">
-	 		<img class="img-polaroid-circle" src="<?php echo $this->baseUrl("images/fairhead-icons/fc-webicon-mail.png"); ?>">
+	 		<img class="img-polaroid-circle links" src="<?php echo $this->baseUrl("images/fairhead-icons/fc-webicon-twitter.png"); ?>">
 	 	</div>
 	 	<div class="row">
 	 		<p><?php echo $member[0]; ?></p>

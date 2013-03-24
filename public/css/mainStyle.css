@@ -100,9 +100,16 @@ body {
   padding-top: 60px;
 }
 @media (max-width: 979px) {
-  body {
-    padding-top: 0px;
-  }
+  	body {
+    	padding-top: 0px;
+  	}
+	img.faces {
+	width: 80px;
+	margin: 1%;
+	}
+	img.links {
+	width: 30px;
+	}
 }
 
 div#mainContent{

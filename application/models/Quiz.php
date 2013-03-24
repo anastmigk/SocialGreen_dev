@@ -30,12 +30,14 @@ class Application_Model_Quiz
 		$i=0;
 		foreach($this->questions as $q){
 			$curAnswer = array();
+			$nextQ = array();
 			foreach ($this->validAnswers as $a){
 				//$answers[$a->question_id] = array($a->valid_answer);
 				if ($a->question_id==$q->id){
-					$curAnswer[$a->id]=$a->valid_answer;
+					$curAnswer[$a->id]= $a->valid_answer;
+					$nextQ [$a->id]= $a->next_question; 
 				}
-				$questionaire[$i] = array($q->title,$q->question, $curAnswer, $q->id);
+				$questionaire[$i] = array($q->title,$q->question, $curAnswer, $q->id, $nextQ);
 			}
 			$i++;
 		}
