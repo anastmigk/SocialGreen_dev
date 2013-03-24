@@ -1,9 +1,24 @@
 <?php $team = $this->team; ?>
-<?php foreach ($team as $member) {
-	?>
 <div class="row-fluid">
+	<div class="span8 offset2">
+	<h1 style="margin-left:7%">The team</h1>
+	<p style="margin-left:7%;margin-right:7%">"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."</p>
+	</div>	
+</div>
+
+<div class="row-fluid">
+	<div class="span8 offset2">
+		<h2 style="margin-left:7%">Members</h2>
+	</div>	
+</div>
+<div class="row-fluid">
+<?php
+$counter = 0;
+ foreach ($team as $member) {
+	/*?>
+ <div class="row-fluid">
 	<!-- Personal Space -->
-	<div class="row span12 personalSpace frame">
+	 <div class="row span12 personalSpace frame">
 		<div class="span2 visible-desktop">
 		<!-- <div class="row"> -->
 			<img class="faces img-polaroid-circle" src="<?php echo $this->baseUrl("images/teamPhotos/".$member[2]); ?>">
@@ -21,9 +36,27 @@
 	</div>
 	<!--  End of personal space -->
 </div>
-<?php } ?>
+<?php */
+if ($counter==3){echo "</div><div class='row-fluid'>";};?>
+ 	<div class="span4 pagination-centered <?php if ($counter==3){echo "offset2";}; ?>">
+	 	<div class="row">
+	 		<h4><?php echo $member[1]; ?></h4>
+	 	</div>
+	 	<div class="row">
+	 		<img class="img-polaroid-circle" src="<?php echo $this->baseUrl("images/fairhead-icons/fc-webicon-linkedin.png"); ?>">
+	 		<img class="img-polaroid-circle faces" src="<?php echo $this->baseUrl("images/teamPhotos/".$member[2]); ?>">
+	 		<img class="img-polaroid-circle" src="<?php echo $this->baseUrl("images/fairhead-icons/fc-webicon-mail.png"); ?>">
+	 	</div>
+	 	<div class="row">
+	 		<p><?php echo $member[0]; ?></p>
+	 	</div>
+ 	</div>	
+<?php 
 
+$counter++;
 
+} ?>
+</div>
 <!-- 
 <div class="accordion" id="accordion2">
   <div class="accordion-group">

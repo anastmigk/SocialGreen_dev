@@ -11,7 +11,7 @@ class Application_Model_Quiz
 		$valid_answers = new Application_Model_DbTable_AnswersTemplate();
 		$this->validAnswers = $valid_answers->fetchAll();
 		$select = $questions->select();
-		$this->questions = $questions->fetchAll();
+		$this->questions = $questions->fetchAll(null, "id ASC");
 	}
 	
 	public function getQuestions (){
@@ -35,7 +35,7 @@ class Application_Model_Quiz
 				if ($a->question_id==$q->id){
 					$curAnswer[$a->id]=$a->valid_answer;
 				}
-				$questionaire[$i] = array($q->title,$q->question, $curAnswer);
+				$questionaire[$i] = array($q->title,$q->question, $curAnswer, $q->id);
 			}
 			$i++;
 		}
@@ -44,7 +44,8 @@ class Application_Model_Quiz
 	}
 	
 	public function getQuizForm(){
-		$form = new Application_Form_QuizForm($this->getQsAs());
+		$form = new Application_Form_QuizForm();
+		$form->setQuestionaire($this->getQsAs());
 		return $form;
 	}
 }

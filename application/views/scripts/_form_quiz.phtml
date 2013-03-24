@@ -1,31 +1,7 @@
 <form id="register" action="<?= $this->element->getAction(); ?>" method="<?= $this->element->getMethod(); ?>">
-    <p>
-        Username:<br>
-        <?= $this->element->username; ?>
-    </p>
-<p>
-E-mail Address:<br />
-<?= $this->element->email; ?>
-</p>
-<p>
-Password:<br />
-<?= $this->element->pswd; ?>
-</p>
-<p>
-Password retype:<br />
-<?= $this->element->pswd2; ?>
-</p>
-
-<p>
-Please type the word:<br />
-<?= $this->element->captcha; ?>
-</p>
-<p>
-Description:<br />
-<?= $this->element->description; ?>
-</p>
-
-<p>
-<?= $this->element->submit; ?>
-</p>
+   <?= $this->element->q_1; ?>
+   <?= $this->element->q_2; ?>
+   <?= $this->element->q_3; ?>
+   <?= $this->element->q_4; ?>
+   <?= $this->element->q_5; ?>
 </form>
