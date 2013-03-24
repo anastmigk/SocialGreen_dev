@@ -21,15 +21,50 @@ class AboutController extends Zend_Controller_Action
     public function ourteamAction()
     {
         // action body
-        $ntempos = array("Dimitrios Ntempos", "Business Development, Co-founder", "ntempos.jpg", 'Dimitrios has studied economy and the computer science at Aristotle university of thessaloniki. His working experience contains positions at public and the private sector. he strongly believes that starting up is the absolute next step after education.');
+        $ntempos = array(
+        		"Dimitrios Ntempos", 
+        		"Business Development, Co-founder", 
+        		"ntempos.jpg", 
+        		'Dimitrios has studied economy and the computer science at Aristotle university of thessaloniki. His working experience contains positions at public and the private sector. he strongly believes that starting up is the absolute next step after education.',
+        		"http://gr.linkedin.com/pub/dimitrios-ntempos/33/407/4b1/",
+        		"aboutme",
+        		"http://about.me/di.ntempos");
         
-        $kuze = array("Evangelos Almpanidis","Electronic engineer, Co-Founder","almpanidis.jpg", "Born in Thessaloniki, vangelis deals with the hardware component of Social-Green. He has worked as an embeded system developer as well as academic assistante in A.T.E.I (digital labs I&II) lab. He is a paok fc fun and former graffiti artist.");
+        $kuze = array(
+        		"Evangelos Almpanidis",
+        		"Electronic engineer, Co-Founder",
+        		"vaggel.jpg", 
+        		"Born in Thessaloniki, vangelis deals with the hardware component of Social-Green. He has worked as an embeded system developer as well as academic assistante in A.T.E.I (digital labs I&II) lab. He is a paok fc fun and former graffiti artist.",
+        		'http://gr.linkedin.com/pub/almpanidis-evangelos/5a/43b/194/',
+        		"aboutme",
+        		'http://about.me/evangelos.almpanidis');
         
-        $konos = array("Konstantinos Papadopoulos","Head of IT & S/W, Co-founder","konos2.jpg","Konstantinos works as a jr. IT Auditor while the same time leads the technical part of Social-Green. At his free time he enjoys Web & iOS and studing about Information Security. He Holds an MSc degree in ICT Systems.");
+        $konos = array(
+        		"Konstantinos Papadopoulos",
+        		"Head of IT & S/W, Co-founder",
+        		"esu.jpg",
+        		"Konstantinos works as a jr. IT Auditor while the same time leads the technical part of Social-Green. At his free time he enjoys Web & iOS and studing about Information Security. He Holds an MSc degree in ICT Systems.",
+        		'http://www.linkedin.com/in/papadopoulosk',
+        		'twitter',
+        		'https://twitter.com/papadopoulospk');
         
-        $laps = array("George Lapatas","Web Developer","lapatas.jpg","Born in thessaloniki, george is about to graduate from the dept computer science and technology, university of Peloponnese. At social-green he delivers cut-edge code and clear cut user interfaces . He loves travelling and swimming." );
+        $laps = array(
+        		"George Lapatas",
+        		"Web Developer",
+        		"giwrgos.jpg",
+        		"Born in thessaloniki, george is about to graduate from the dept computer science and technology, university of Peloponnese. At social-green he delivers cut-edge code and clear cut user interfaces . He loves travelling and swimming.",
+        		'http://gr.linkedin.com/pub/giorgos-lapatas/3b/621/324/',
+        		'mail',
+        		'#');
 		
-		$antonis = array("Antonis Karanaftis","Designer & Artist","karanaftis.jpg","He is the Art Director of Social Green where he handles every design related issue. His working experience contains printing and graphic design positions. In his free time, Antonis enjoys photo shooting and animation.");
+		$antonis = array(
+				"Antonis Karanaftis",
+				"Designer & Artist",
+				"antw.jpg",
+				"He is the Art Director of Social Green where he handles every design related issue. His working experience contains printing and graphic design positions. In his free time, Antonis enjoys photo shooting and animation.",
+				'http://gr.linkedin.com/pub/antonis-karanaftis/65/3a1/19b',
+				'mail',
+				'#');
         
         $team = array($ntempos,$kuze,$konos,$laps,$antonis);
         //var_dump($team);

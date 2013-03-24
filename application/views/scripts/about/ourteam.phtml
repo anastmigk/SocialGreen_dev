@@ -43,9 +43,16 @@ if ($counter==3){echo "</div><hr><div class='row-fluid'>";};?>
 	 		<h4><?php echo $member[1]; ?></h4>
 	 	</div>
 	 	<div class="row">
-	 		<img class="img-polaroid-circle links" src="<?php echo $this->baseUrl("images/fairhead-icons/fc-webicon-linkedin.png"); ?>">
-	 		<img class="img-polaroid-circle faces" src="<?php echo $this->baseUrl("images/teamPhotos/".$member[2]); ?>">
-	 		<img class="img-polaroid-circle links" src="<?php echo $this->baseUrl("images/fairhead-icons/fc-webicon-twitter.png"); ?>">
+	 		<a href='<?= $member[4] ?>' target='_blank'><img class="img-polaroid-circle links" src="<?php echo $this->baseUrl("images/fairhead-icons/fc-webicon-linkedin.png"); ?>"></a>
+	 		<img class="img-polaroid-circle faces" src="<?php echo $this->baseUrl("images/teamPhotos/photos/".$member[2]); ?>">
+	 		<a href='<?= $member[6] ?>' target='_blank'><img class="img-polaroid-circle links" src="
+	 		<?php if  ($member[5]=="aboutme"){ 
+	 			echo $this->baseUrl("images/teamphotos/me1.png");
+	 		} elseif ($member[5]=="twitter"){
+	 			echo $this->baseUrl("images/fairhead-icons/fc-webicon-twitter.png");
+	 		} elseif($member[5]=="mail") {
+	 			echo $this->baseUrl("images/fairhead-icons/fc-webicon-mail.png");
+	 		} ?>"></a>
 	 	</div>
 	 	<div class="row">
 	 		<p><?php echo $member[0]; ?></p>
