@@ -1,5 +1,16 @@
 <div class="row-fluid span8 offset2">
 <form id="quiz" action="<?= $this->element->getAction(); ?>" method="<?= $this->element->getMethod(); ?>">
+   <div id="Quizfooter" class="row">
+   		<div class="progress progress-success">
+	  		<div id="questionBar" class="bar" style="width:0%"></div>
+		</div>
+   		<ul class="pager">
+  			<li><a href="#">Previous</a></li>
+  			<li><a href="#">Next</a></li>
+		</ul>
+		
+   	</div>
+   
    <div id="q_1_container">
    		<h2>Question 1</h2>
    		<?= $this->element->q_1; ?>
@@ -38,6 +49,8 @@
 					var toShow = "#"+"q_"+(parseInt(id)+1)+"_container";
 					if (id=="5") { toShow="#submit_container";};
 					$(toShow).show("slow").toggleClass("hidden");//show("slow");
+					//alert("width:"+2*parseInt(id)+"0%");
+					$("#questionBar").css("width",2*parseInt(id)+"0%");
 				});
 		});
 	$("form#quiz").submit(function(){

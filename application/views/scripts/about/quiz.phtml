@@ -1,5 +1,6 @@
 <div class="row-fluid">
 <div class="span8 offset2 frame">
+<?php echo $this->navigation()->breadcrumbs()->render(); ?>
 <?php /*
 $groupid = 1; //Question id to group answers
 foreach ($this->qa as $qa){  
@@ -15,7 +16,6 @@ foreach ($this->qa as $qa){
 	 $groupid++; 
 } */
 ?>
-
 <?php echo $this->quizForm;?>
 </div>
 </div>
