@@ -3,7 +3,7 @@
 <div class="row-fluid">
 	<div class="span8 offset2">
 	<h1 style="margin-left:7%">The team</h1>
-	<p style="margin-left:7%;margin-right:7%">"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."</p>
+	<p style="margin-left:7%;margin-right:7%;margin-bottom:7%;">"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."</p>
 	</div>	
 </div>
 
@@ -40,12 +40,10 @@ $counter = 0;
 <?php */
 if ($counter==3){echo "</div><hr><div class='row-fluid'>";};?>
  	<div class="span4 pagination-centered <?php if ($counter==3){echo "offset2";}; ?>">
-	 	<div class="row">
-	 		<h4><?php echo $member[1]; ?></h4>
-	 	</div>
+	 	
 	 	<div class="row">
 	 		<a href='<?= $member[4] ?>' target='_blank'><img class="img-polaroid-circle links" src="<?php echo $this->baseUrl("images/fairhead-icons/fc-webicon-linkedin.png"); ?>"></a>
-	 		<img class="img-polaroid-circle faces" src="<?php echo $this->baseUrl("images/teamPhotos/photos/".$member[2]); ?>">
+	 		<img class="img-polaroid-circle faces" src="<?php echo $this->baseUrl("images/teamPhotos/photos/mikres/".$member[2]); ?>">
 	 		<a href='<?= $member[6] ?>' target='_blank'><img class="img-polaroid-circle links" src="
 	 		<?php if  ($member[5]=="aboutme"){ 
 	 			echo $this->baseUrl("images/teamphotos/me1.png");
@@ -55,8 +53,9 @@ if ($counter==3){echo "</div><hr><div class='row-fluid'>";};?>
 	 			echo $this->baseUrl("images/fairhead-icons/fc-webicon-mail.png");
 	 		} ?>"></a>
 	 	</div>
-	 	<div class="row">
-	 		<p><?php echo $member[0]; ?></p>
+	 	<div class="row" >
+	 		<p><?php echo $member[0]; ?><br>
+	 		<small><?php echo $member[1]; ?></small></p>
 	 	</div>
  	</div>	
 <?php 

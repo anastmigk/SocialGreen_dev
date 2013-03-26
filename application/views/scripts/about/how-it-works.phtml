@@ -6,90 +6,115 @@
 
 <div class="row" >
 	<div class="span3 bs-docs-sidebar">
-		<ul class="nav nav-list bs-docs-sidenav affix" >
-			<li class="">
-				<a href="#firstStep"><i class="icon-chevron-right"></i>First Step</a>
+		<ul class="nav nav-tabs nav-stacked " > 
+			<li>
+				<a href="#firstStep" data-toggle="tab" ><i class="icon-chevron-right"></i>Collect</a>
     		</li>
-    		<li class="">
-    			<a href="#secondStep"><i class="icon-chevron-right"></i>Second Step</a>
+    		<li>
+    			<a href="#secondStep" data-toggle="tab" ><i class="icon-chevron-right"></i>Dispose</a>
     		</li>
-    		<li class="">
-    			<a href="#thirdStep"><i class="icon-chevron-right"></i>Third Step</a>
+    		<li >
+    			<a href="#thirdStep" data-toggle="tab" ><i class="icon-chevron-right"></i>Scan</a>
     		</li>
-    		<li class="">
-    			<a href="#fourthStep"><i class="icon-chevron-right"></i>Fourth Step</a>
+    		<li>
+    			<a href="#fourthStep" data-toggle="tab" ><i class="icon-chevron-right"></i>Play</a>
+    		</li>
+    		<li>
+    			<a href="#fifthStep" data-toggle="tab" ><i class="icon-chevron-right"></i>Play</a>
     		</li>
     	</ul>
     </div>
-    
-	<div class="span9">
-    
-    	<!-- First Step
-        ================================================== -->
-    	<section id="firstStep">
-	    	<div class="page-header">
-	        	<h1>First Step</h1>
-	        </div>
-	          <div class="row">
-	        	<div class="span5">
-	    			<img class="sketch" src='<?php echo $this->baseUrl("images/sketch/pickup.png"); ?>'>
-	    	   	</div>
-	        	<div class="span3">
-	        		<h1 ><small >pick up your recyclables...</small></h1>
-	        	</div>
-	        </div>
-    	</section>
+    <div class="tab-content">
+    	
+	    <!-- First Step
+	    ================================================== -->
+	    <div class="span9 tab-pane active" id="firstStep" >
+	    	<section >
+		    	<div class="page-header">
+		        	<h1>First Step</h1>
+		        </div>
+		          <div class="row">
+		        	<div class="span5">
+		    			<img class="sketch" src='<?php echo $this->baseUrl("images/sketch/pickup.png"); ?>'>
+		    	   	</div>
+		        	<div class="span3">
+		        		<h1 ><small >Search your place for cans, glass and the plastic bottles...</small></h1>
+		        	</div>
+		        </div>
+	    	</section>
+	    </div>
     
     	<!-- Second Step
         ==================================================-->
-        
-        <section id="secondStep">
-	        <div class="page-header">
-	        	<h1>Second Step</h1>
-	        </div>
-	         <div class="row">
-	        	<div class="span5">
-	        		<img class="sketch" src='<?php echo $this->baseUrl("images/sketch/throw.png"); ?>'>
-	         	</div>
-	        	<div class="span3">
-	        		<h1 ><small >throw them in the bin...</small></h1>
-	        	</div>
-	        </div>
-        </section>
+    	<div class="span9 tab-pane" id="secondStep" >    
+	        <section >
+		        <div class="page-header">
+		        	<h1>Second Step</h1>
+		        </div>
+		         <div class="row">
+		        	<div class="span5">
+		        		<img class="sketch" src='<?php echo $this->baseUrl("images/sketch/throw.png"); ?>'>
+		         	</div>
+		        	<div class="span3">
+		        		<h1 ><small >Go to the nearest bin, wake him up and throw. He will count for you...</small></h1>
+		        	</div>
+		        </div>
+	        </section>
+        </div>
         
         <!-- Third Step
         ==================================================-->
-        
-        <section id="thirdStep">
-	        <div class="page-header">
-	        	<h1>Third Step</h1>
-	        </div>
-	        <div class="row">
-	        	<div class="span5">
-	        		<img class="sketch" src='<?php echo $this->baseUrl("images/sketch/qrscan.png"); ?>'>
-	        	</div>
-	        <div class="span3">
-	        		<h1 ><small >scan the code...</small></h1>
-	        </div>
-	        </div>
-        </section>
+        <div class="span9 tab-pane" id="thirdStep" > 
+	        <section >
+		        <div class="page-header">
+		        	<h1>Third Step</h1>
+		        </div>
+		        <div class="row">
+		        	<div class="span5">
+		        		<img class="sketch" src='<?php echo $this->baseUrl("images/sketch/qrscan.png"); ?>'>
+		        	</div>
+		        <div class="span3">
+		        	<h1 ><small >Use the social green app to scan the QR code which contains your score...</small></h1>
+		        </div>
+		        </div>
+	        </section>
+		</div>
         
         <!-- Fourth Step
         ==================================================-->
+        <div class="span9 tab-pane" id="fourthStep" > 
+	        <section >
+		        <div class="page-header">
+		        	<h1>fourth Step</h1>
+		        </div>
+		        <div class="row">
+		        	<div class="span5">
+		        		<img class="sketch" src='<?php echo $this->baseUrl("images/sketch/yioupi.png"); ?>'>
+		        	</div>
+		        	<div class="span3">
+		        		<h1 ><small> Go to sociallgreen.com find your friends, form teams, see the leaderboards</small></h1>
+		        	</div>
+		        </div>
+	        </section>
+		</div>
         
-        <section id="fourthStep">
-	        <div class="page-header">
-	        	<h1>fourth Step</h1>
-	        </div>
-	        <div class="row">
-	        	<div class="span5">
-	        		<img class="sketch" src='<?php echo $this->baseUrl("images/sketch/yioupi.png"); ?>'>
-	        	</div>
-	        	<div class="span3">
-	        		<h1 ><small >done!!!</small></h1>
-	        	</div>
-	        </div>
-        </section>
+        <!-- Fifth Step
+        ==================================================-->
+        <div class="span9 tab-pane" id="fifthStep" > 
+	        <section >
+		        <div class="page-header">
+		        	<h1>fourth Step</h1>
+		        </div>
+		        <div class="row">
+		        	<div class="span5">
+		        		<img class="sketch" src='<?php echo $this->baseUrl("images/sketch/yioupi.png"); ?>'>
+		        	</div>
+		        	<div class="span3">
+		        		<h1 ><small> Go to sociallgreen.com find your friends, form teams, see the leaderboards</small></h1>
+		        	</div>
+		        </div>
+	        </section>
+		</div>
 	</div>
     
 </div>

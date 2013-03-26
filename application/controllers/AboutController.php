@@ -23,7 +23,7 @@ class AboutController extends Zend_Controller_Action
         // action body
         $ntempos = array(
         		"Dimitrios Ntempos", 
-        		"Business Development, Co-founder", 
+        		"CEO, Co-founder", 
         		"ntempos.jpg", 
         		'Dimitrios has studied economy and the computer science at Aristotle university of thessaloniki. His working experience contains positions at public and the private sector. he strongly believes that starting up is the absolute next step after education.',
         		"http://gr.linkedin.com/pub/dimitrios-ntempos/33/407/4b1/",
@@ -41,7 +41,7 @@ class AboutController extends Zend_Controller_Action
         
         $konos = array(
         		"Konstantinos Papadopoulos",
-        		"Head of IT & S/W, Co-founder",
+        		"CTO, Co-founder",
         		"esu.jpg",
         		"Konstantinos works as a jr. IT Auditor while the same time leads the technical part of Social-Green. At his free time he enjoys Web & iOS and studing about Information Security. He Holds an MSc degree in ICT Systems.",
         		'http://www.linkedin.com/in/papadopoulosk',
@@ -54,8 +54,8 @@ class AboutController extends Zend_Controller_Action
         		"giwrgos.jpg",
         		"Born in thessaloniki, george is about to graduate from the dept computer science and technology, university of Peloponnese. At social-green he delivers cut-edge code and clear cut user interfaces . He loves travelling and swimming.",
         		'http://gr.linkedin.com/pub/giorgos-lapatas/3b/621/324/',
-        		'mail',
-        		'#');
+        		'aboutme',
+        		'http://about.me/glapatas');
 		
 		$antonis = array(
 				"Antonis Karanaftis",
