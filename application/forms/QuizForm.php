@@ -45,7 +45,10 @@ class Application_Form_QuizForm extends Zend_Form
     	$submit->setLabel("Complete!");
     	$submit->removeDecorator('DtDdWrapper');
     	$submit->setAttrib ( 'class', "btn btn-success");
+    	$submit->setAttrib('data-loading-text', "Loading...");
+    	
     	$this->addElement($submit);
+    	
     	
     	$this->setDecorators( array( array('ViewScript', array('viewScript' => '_form_quiz.phtml'))));
     }

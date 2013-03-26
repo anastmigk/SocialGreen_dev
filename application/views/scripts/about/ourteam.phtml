@@ -16,28 +16,6 @@
 <?php
 $counter = 0;
  foreach ($team as $member) {
-	/*?>
- <div class="row-fluid">
-	<!-- Personal Space -->
-	 <div class="row span12 personalSpace frame">
-		<div class="span2 visible-desktop">
-		<!-- <div class="row"> -->
-			<img class="faces img-polaroid-circle" src="<?php echo $this->baseUrl("images/teamPhotos/".$member[2]); ?>">
-		<!-- </div> -->
-		</div>
-		<div class="span2 staffnames">
-			<!-- <div class="row"> -->
-			<h4><?php echo $member[1]; ?></h4>
-			<!-- </div> -->
-		</div>
-		<div class="span8">
-			<h5><?php echo $member[0]; ?></h5>
-			<p><?php echo $member[3]; ?></p>
-		</div>
-	</div>
-	<!--  End of personal space -->
-</div>
-<?php */
 if ($counter==3){echo "</div><hr><div class='row-fluid'>";};?>
  	<div class="span4 pagination-centered <?php if ($counter==3){echo "offset2";}; ?>">
 	 	
@@ -59,9 +37,7 @@ if ($counter==3){echo "</div><hr><div class='row-fluid'>";};?>
 	 	</div>
  	</div>	
 <?php 
-
 $counter++;
-
 } ?>
 </div>
 </div>

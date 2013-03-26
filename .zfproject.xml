@@ -43,6 +43,7 @@
           <actionMethod actionName="howItWorks"/>
           <actionMethod actionName="getInvolved"/>
           <actionMethod actionName="quiz"/>
+          <actionMethod actionName="submitQuiz"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -148,6 +149,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="About">
             <viewScriptFile forActionName="quiz"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="About">
+            <viewScriptFile forActionName="submitQuiz"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

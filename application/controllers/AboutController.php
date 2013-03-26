@@ -141,13 +141,41 @@ class AboutController extends Zend_Controller_Action
         $questions = $quizModel->getQuestions();
         $validAnswers = $quizModel->getValidAnswers();
         
-        $this->view->questions = $questions;
-        $this->view->validAnswers = $validAnswers;
+        //$this->view->questions = $questions;
+        //$this->view->validAnswers = $validAnswers;
         
         //$this->view->qa = $quizModel->getQsAs();
         $this->view->quizForm = $quizModel->getQuizForm();
     }
+
+    public function submitQuizAction()
+    {
+        // action body
+    	$this->_helper->viewRenderer->setNoRender();
+    	$this->_helper->layout->disableLayout();
+    	$form = new Application_Form_QuizForm();
+    	
+    	$form->isValidPartial($this->_getAllParams());
+    	if ($form==true){
+    		//$json = $form->processAjax($this->getRequest()->getPost());
+    		//header('Content-type: application/json');
+    		$Quiz = new Application_Model_Quiz();
+    		$answers = $this->_getAllParams();
+    		try {
+    			$Quiz->saveAnswers($answers);
+    			echo 1;
+    		} catch (Exception $e) {
+    			echo 0;
+    		}
+    		
+    	}
+
+    }
+
+
 }
+
+
 
 
 

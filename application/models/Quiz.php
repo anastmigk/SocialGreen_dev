@@ -50,5 +50,20 @@ class Application_Model_Quiz
 		$form->setQuestionaire($this->getQsAs());
 		return $form;
 	}
+	
+	public function saveAnswers($data){
+		$answers = new Application_Model_DbTable_Answers();
+		
+		//var_dump($data);
+		$data = array(
+				'id' => '',
+				'q1' => $data["q_1"],
+				'q2' => $data["q_2"],
+				'q3' => $data["q_3"],
+				'q4' => $data["q_4"],
+				'q5' => $data["q_5"]
+		);	
+		$answers->insert($data);
+	}
 }
 
