@@ -1,4 +1,5 @@
 <div class="row-fluid span8 offset2">
+
 <form id="quiz" action="<?= $this->element->getAction(); ?>" method="<?= $this->element->getMethod(); ?>">
    <div id="Quizfooter" class="row">
    		<div class="progress progress-success">
@@ -32,14 +33,35 @@
    		<p><?= $this->element->q_5; ?></p>
    </div>
    <div id="submit_container" class="hidden">
-   <p>Thank you for your time!</p>
+   		<p>Thank you for your time!</p>
    		<?= $this->element->submit;?>
    		<hr>
-   		<p>You can also provide an e-mail so as to inform you about future updates!</p>
-   		<p><a title="Feedback!" class="btn btn-info" href="#contactModal" data-toggle="modal">Complete the form!</a></p>
+   		<!-- <p>You can also provide an e-mail so as to inform you about future updates!</p>
+   		<p><a title="Feedback!" class="btn btn-info" href="#contactModal" data-toggle="modal">Complete the form!</a></p>  -->
+   	<div class="row span12">
+		<p>Share the quiz!</p>
+		<div class="fb-like socialShare" data-href="http://socialgreenproject.com/about/quiz" data-send="false" data-layout="box_count" data-width="450" data-show-faces="false" data-font="lucida grande"></div>
+		<script>(function(d, s, id) {  var js, fjs = d.getElementsByTagName(s)[0];  if (d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = "//connect.facebook.net/el_GR/all.js#xfbml=1";  fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script>
+		<div class="g-plus socialShare" data-action="share" data-annotation="vertical-bubble" data-height="60" data-href="http://socialgreenproject.com/about/quiz"></div>
+		<script type="text/javascript">  (function() {    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;    po.src = 'https://apis.google.com/js/plusone.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);  })();</script>
+		<div class="socialShare" >
+		<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://socialgreenproject.com/about/quiz" data-text="I've just take the quiz!! check it out!" data-via="SGreen_Project">Tweet</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		</div>   		
+	</div>
    </div>
 </form>
 </div>
+<div id="fb-root"></div>
+<!-- facebook Like 
+    ================================================== -->
+
+
+<!-- google plus share 
+    ================================================== -->
+<!-- Place this tag after the last share tag. -->
+
+
 <script>
 	$("input.radio").change(function(){
 			next(this);
