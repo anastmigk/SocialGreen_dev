@@ -32,7 +32,7 @@ class AboutController extends Zend_Controller_Action
         
         $kuze = array(
         		"Evangelos Almpanidis",
-        		"Electronic engineer, Co-Founder",
+        		"Electronic Engineer, Co-Founder",
         		"vaggel.jpg", 
         		"Born in Thessaloniki, vangelis deals with the hardware component of Social-Green. He has worked as an embeded system developer as well as academic assistante in A.T.E.I (digital labs I&II) lab. He is a paok fc fun and former graffiti artist.",
         		'http://gr.linkedin.com/pub/almpanidis-evangelos/5a/43b/194/',

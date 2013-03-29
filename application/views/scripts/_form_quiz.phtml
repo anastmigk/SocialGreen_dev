@@ -1,36 +1,27 @@
 <div class="row-fluid span8 offset2">
 
 <form id="quiz" action="<?= $this->element->getAction(); ?>" method="<?= $this->element->getMethod(); ?>">
-   <div id="Quizfooter" class="row">
-   		<div class="progress progress-success">
-	  		<div id="questionBar" class="bar" style="width:0%"></div>
-		</div>
-   		<ul class="pager">
-  			<li><a id="back" href="#">Previous</a></li>
-  			<li><a id="next" href="#">Next</a></li>
-		</ul>
-		
-   	</div>
+  
    
    <div id="q_1_container" active="true">
-   		<h2>Question 1</h2>
-   		<p><?= $this->element->q_1; ?></p>
+   		
+   		 <?= $this->element->q_1; ?>
    </div>
    <div id="q_2_container" class="hidden">
-   		<h2>Question 2</h2>
-   		<p><?= $this->element->q_2; ?></p>
+   		
+   		<?= $this->element->q_2; ?>
    </div>
    <div id="q_3_container" class="hidden">
-   		<h2>Question 3</h2>
-   		<p><?= $this->element->q_3; ?></p>
+   		
+   		<?= $this->element->q_3; ?>
    </div>
    <div id="q_4_container" class="hidden">
-   		<h2>Question 4</h2>
-   		<p><?= $this->element->q_4; ?></p>
+   		
+   		<?= $this->element->q_4; ?>
    </div>
    <div id="q_5_container" class="hidden">
-   		<h2>Question 5</h2>
-   		<p><?= $this->element->q_5; ?></p>
+   		
+   		<?= $this->element->q_5; ?>
    </div>
    <div id="submit_container" class="hidden">
    		<p>Thank you for your time!</p>
@@ -50,6 +41,16 @@
 		</div>   		
 	
    </div>
+   <div id="Quizfooter" class="row">
+   		
+   		<div class="progress progress-success">
+	  		<div id="questionBar" class="bar" style="width:0%"></div>
+		</div>
+		<ul class="pager">
+  			<li><a id="back" href="#">Previous</a></li>
+  			<li><a id="next" href="#">Next</a></li>
+		</ul>
+   	</div>
 </form>
 </div>
 <div id="fb-root"></div>
