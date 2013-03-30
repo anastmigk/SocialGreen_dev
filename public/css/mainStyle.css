@@ -291,6 +291,11 @@ img.faces2 {
 	height: 400px;
 }
 
+div#quiz {
+	background-image:url('../images/post_it.png');
+	background-position:center; 
+}
+
 div#quizContainer {
 	height:40%;
 }

@@ -11,7 +11,7 @@ class Application_Form_ContactForm extends Zend_Form
     	//$this->setAction($path);
     	
     	$name = new Zend_Form_Element_Text("name");
-    	$name->setAttrib ('placeholder', "Your name goes here!");
+    	$name->setAttrib ('placeholder', "name");
     	$name->setAttrib ('class', "input-block-level");
     	$name->setAttrib('size',35);
     	$name->setRequired(true);
@@ -22,7 +22,7 @@ class Application_Form_ContactForm extends Zend_Form
     	$name->removeDecorator('htmlTag');
     	
     	$email = new Zend_Form_Element_Text('email');
-    	$email->setAttrib("placeholder", "Please provide your e-mail!");
+    	$email->setAttrib("placeholder", "e-mail");
     	$email->setAttrib ('class', "input-block-level");
     	$email->setAttrib('size',35);
     	$email->setRequired(true);
@@ -49,7 +49,7 @@ class Application_Form_ContactForm extends Zend_Form
     	$captcha->removeDecorator('htmlTag');
     	
     	$description = new Zend_Form_Element_Textarea('description');
-    	$description->setAttrib("placeholder", "Please describe briefly your inquiry!");
+    	$description->setAttrib("placeholder", "subject");
     	$description->removeDecorator('label');
     	$description->removeDecorator('htmlTag');
     	$description->setAttrib ( 'class', "input-block-level");
