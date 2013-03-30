@@ -155,7 +155,8 @@ class AboutController extends Zend_Controller_Action
     	$this->_helper->layout->disableLayout();
     	$form = new Application_Form_QuizForm();
     	
-    	$form->isValidPartial($this->_getAllParams());
+    	$form->isValid($this->_getAllParams());
+    	
     	if ($form==true){
     		//$json = $form->processAjax($this->getRequest()->getPost());
     		//header('Content-type: application/json');

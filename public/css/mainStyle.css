@@ -291,9 +291,25 @@ img.faces2 {
 	height: 400px;
 }
 
+div#quizContainer {
+	height:40%;
+}
+
+div#quizfooter {
+}
+
+label.form-label {
+	font-size: x-large;
+	padding-bottom:15px;
+}
+
 div.radio label {
 	padding-bottom:0;
 	margin:0;
+}
+
+div.radio label input {
+	font-size: large;
 }
 
 div.radio label input {
