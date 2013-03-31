@@ -2,7 +2,7 @@
 class Application_Model_FormRegister extends Zend_Form {
     public function __construct($options=NULL) {
         parent::__construct($options);
-        $path;
+        $path = "";
         if ($options=="edit"){
         	$path="/account/edit/";
         	$label="Save";
@@ -85,11 +85,12 @@ class Application_Model_FormRegister extends Zend_Form {
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setLabel($label);
         $submit->removeDecorator('DtDdWrapper');
-        $submit->class = 'button';
+        $submit->setAttrib ( 'class', "btn btn-success");
         
         $this->setDecorators( array( array('ViewScript', array('viewScript' => '_form_register.phtml'))));
         
-        $this->addElements(array($username, $email, $pswd, $pswd2, $captcha, $description, $submit));
+        //$this->addElements(array($username, $email, $pswd, $pswd2, $captcha, $submit));
+        $this->addElements(array($email, $submit));
     }
 }
 

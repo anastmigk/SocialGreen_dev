@@ -1,27 +1,46 @@
 <div class="row-fluid span8 offset2">
+<div id="myCarousel" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item">…</div>
+    <div class="item">…</div>
+    <div class="item">…</div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+
+
+
 
 <div id="quizContainer">
 
 <form id="quiz" action="<?= $this->element->getAction(); ?>" method="<?= $this->element->getMethod(); ?>">
   
-<div id="myCarousel" class="carousel slide">
-  <ol class="hidden carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-    <li data-target="#myCarousel" data-slide-to="3"></li>
-    <li data-target="#myCarousel" data-slide-to="4"></li>
-    <li data-target="#myCarousel" data-slide-to="5"></li>
-  </ol>
-  <!-- Carousel items -->
-  <div class="carousel-inner">
-    <div class="active item"> <?= $this->element->q_1; ?></div>
-    <div class="item"><?= $this->element->q_2; ?></div>
-    <div class="item"><?= $this->element->q_3; ?></div>
-    <div class="item"><?= $this->element->q_4; ?></div>
-    <div class="item"><?= $this->element->q_5; ?></div>
-     <div class="item" id="submit_container">
-    <p>Thank you for your time!</p>
+   
+   <div id="q_1_container" active="true">
+   		 <?= $this->element->q_1; ?>
+   </div>
+   <div id="q_2_container" class="hidden">
+   		<?= $this->element->q_2; ?>
+   </div>
+   <div id="q_3_container" class="hidden">
+   		<?= $this->element->q_3; ?>
+   </div>
+   <div id="q_4_container" class="hidden">
+   		<?= $this->element->q_4; ?>
+   </div>
+   <div id="q_5_container" class="hidden">
+   		<?= $this->element->q_5; ?>
+   </div>
+   <div id="submit_container" class="hidden">
+   		<p>Thank you for your time!</p>
    		
    		
    		<?= $this->element->submit;?>
@@ -36,21 +55,19 @@
 		<div class="socialShare" >
 		<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://socialgreenproject.com/about/quiz" data-text="I've just taken the quiz! Check it out!" data-via="SGreen_Project">Tweet</a>
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-		</div> 
-    </div>
-    
-  </div>
-  <!-- Carousel nav -->
-</div> 
+		</div>   		
+	 
+   </div>
+ 
 </form>
 </div>
  <div id="Quizfooter" class="row-fluid span8 offset2">
-   		<!-- <div class="progress progress-success">
+   		<div class="progress progress-success">
 	  		<div id="questionBar" class="bar" style="width:0%"></div>
-		</div>  -->
+		</div>
 		<ul class="pager">
-  			<li><a href="#myCarousel" data-slide="prev">&lsaquo; Go back</a></li>
-  			<li><a href="#myCarousel" data-slide="next">Next &rsaquo;</a></li>
+  			<li><a id="back" href="#">Previous</a></li>
+  			<li><a id="next" href="#">Next</a></li>
 		</ul>
 </div>
 </div>
@@ -66,8 +83,7 @@
 
 <script>
 	$("input.radio").change(function(){
-			//next(this);
-		$('.carousel').carousel('next');
+			next(this);
 		});
 	$("form#quiz").submit(function(){
 			var data = $(this).serialize();

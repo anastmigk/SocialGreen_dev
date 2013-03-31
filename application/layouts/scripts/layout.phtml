@@ -4,6 +4,7 @@
   		<?php echo $this->headTitle($this->title); ?>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Stalemate' rel='stylesheet' type='text/css'>
     	<!-- Bootstrap -->
     	<?php  $this->headLink()->appendStylesheet($this->baseUrl('bootstrap/css/bootstrap.min.css')); ?>
     	<?php  $this->headLink()->appendStylesheet($this->baseUrl('css/mainStyle.css')); ?>
@@ -175,14 +176,12 @@
     
    <!-- Contact Form -->
 <div id="contactModal" class="modal hide fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div style="width=10%; margin=auto;">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
     <h3 id="myModalLabel">Contact Form</h3>
   </div>
   <div class="modal-body">
     <?php echo $this->action("submit-contact", "index");// contactForm; ?>
-  </div>
   </div>
 </div>  
     

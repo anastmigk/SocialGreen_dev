@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+* {
+	font-family: 'Georgia', cursive;
+}
+
 html{
   overflow-y: scroll;
 }
@@ -19,6 +23,13 @@ img#logo {
 section#header, section#footer {
 	/*border: thin solid black;*/
 	clear: both;
+}
+
+body #contactModal {
+    /* new custom width */
+    width: 400px;
+    /* must be half of the width, minus scrollbar on the left (30px) */
+    margin-left: -200px;
 }
 
 .profile-container {
@@ -158,8 +169,8 @@ div#mainContent{
 /* Sketch
  =========================*/
 img.sketch {
-	width:450px;
-	height:450px;
+	/*width:350px;
+	height:350px;
 	/*-webkit-box-shadow:0 1px 3px rgba(0, 0, 0, 0.2);
 	-moz-box-shadow:0 1px 3px rgba(0, 0, 0, 0.2);
 	box-shadow:5px 5px 10px rgba(145, 23, 98, 1);*/
@@ -177,7 +188,7 @@ img.sketch {
 }
 .sketchText {
 	margin-top: 50px;
-	font-size:35.5px;
+	font-size:x-large;
 	line-height: 120%;
 	letter-spacing:0.5px;
 	font-weight:bold;
@@ -311,6 +322,7 @@ label.form-label {
 div.radio label {
 	padding-bottom:0;
 	margin:0;
+	font-size:large;
 }
 
 div.radio label input {

@@ -32,6 +32,19 @@ class Application_Form_ContactForm extends Zend_Form
     	$email->removeDecorator('htmlTag');
     	$email->addErrorMessage('Something is wrong with your mail!');
     	
+    	$category = new Zend_Form_Element_Select('category', array(
+			       "label" => "Currency",
+			       "required" => true,
+			    ));
+    	$category->addMultiOptions(array(
+	        1 => "Organization",
+	        2 => "Company",
+    			3 => "Individual",
+    			4 => "Other"
+	    ));
+		$category->removeDecorator("label");
+    	$category->removeDecorator("htmlTag");
+    	
     	// Add a captcha
     	$captcha = new Zend_Form_Element_Captcha("captcha",array(
     			/*'label'      => 'Are you human?!:',*/
@@ -53,8 +66,8 @@ class Application_Form_ContactForm extends Zend_Form
     	$description->removeDecorator('label');
     	$description->removeDecorator('htmlTag');
     	$description->setAttrib ( 'class', "input-block-level");
-    	$description->setAttrib('rows', '4');
-    	$description->setAttrib('cols', '8');
+    	$description->setAttrib('rows', '3');
+    	$description->setAttrib('cols', '1');
     	$description->setAttrib("required", true);
     	$description->setRequired(true);
     	$description->addErrorMessage("Why don't you tell us what it is about?");
@@ -67,7 +80,7 @@ class Application_Form_ContactForm extends Zend_Form
     	
     	$this->setDecorators( array( array('ViewScript', array('viewScript' => '_form_contact.phtml'))));
     	//$this->addElements(array($name, $email, $captcha, $description, $submit));
-    	$this->addElements(array($name, $email, $description, $submit));
+    	$this->addElements(array($name, $email,$category, $description, $submit));
     }
 
 
