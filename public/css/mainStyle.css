@@ -24,12 +24,29 @@ section#header, section#footer {
 	/*border: thin solid black;*/
 	clear: both;
 }
-
+/* Contact Form CSS */
 body #contactModal {
     /* new custom width */
     width: 400px;
     /* must be half of the width, minus scrollbar on the left (30px) */
     margin-left: -200px;
+}
+@media (max-width: 480px) {
+	body #contactModal {
+	    /* new custom width */
+	    width: 300px;
+	    /* must be half of the width, minus scrollbar on the left (30px) */
+	    margin-left: 0px;
+	}
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+	body #contactModal {
+	    /* new custom width */
+	    width: 300px;
+	    /* must be half of the width, minus scrollbar on the left (30px) */
+	    margin-left: 140px;
+	}
 }
 
 .profile-container {
@@ -134,6 +151,12 @@ img.links {
 	img.links {
 	width: 30px;
 	}
+	.hero-unit {
+		padding:10px;margin-bottom:0px;font-size:14px;font-weight:100;line-height:12px;
+	}
+	.hero-unit h1{
+	
+	}
 }
 
 
@@ -195,6 +218,37 @@ img.sketch {
 	color:inherit;
 	text-rendering:optimizelegibility;
 	color: #911762;
+}
+
+@media (max-width: 979px) {
+img.sketch {
+	width:80%;
+	/*height:80%;
+	/*-webkit-box-shadow:0 1px 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:0 1px 3px rgba(0, 0, 0, 0.2);
+	box-shadow:5px 5px 10px rgba(145, 23, 98, 1);*/
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	border-radius:16px;
+	
+	padding:1px;
+	background-color:#911762;
+	border:1px solid #911762;
+	border:1px solid rgba(145, 23, 98, 1);
+	/*-webkit-box-shadow:0 1px 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:0 1px 3px rgba(0, 0, 0, 0.2);
+	box-shadow:0 1px 3px rgba(0, 0, 0, 0.2);*/
+}
+.sketchText {
+	margin-top: 50px;
+	font-size:large;
+	line-height: 100%;
+	letter-spacing:0.5px;
+	font-weight:bold;
+	color:inherit;
+	text-rendering:optimizelegibility;
+	color: #911762;
+}
 }
 /* End Sketch
  =========================*/
