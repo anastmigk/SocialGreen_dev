@@ -126,7 +126,7 @@ class AboutController extends Zend_Controller_Action
     {
         // action body
         $information = array(
-        		array("id"=>"firstStep", "id2"=>"firstStep", "linktitle"=>"1st Collect", "image"=>"pickup.png", "text"=>"Search your place for cans, glass and the plastic bottles..."),
+        		array("id"=>"firstStep", "id2"=>"firstStep", "linktitle"=>"1st Collect", "image"=>"pickup.png", "text"=>"Search your place for cans, glass and plastic bottles..."),
         		array("id"=>"secondStep", "id2"=>"secondStep", "linktitle"=>"2nd Dispose", "image"=>"throw.png", "text"=>"Go to the nearest bin, wake him up and throw. He will count for you..."),
         		array("id"=>"thirdStep", "id2"=>"thirdStep", "linktitle"=>"3rd Scan", "image"=>"qrscan.png", "text"=>"Use the social green app to scan the QR code which contains your score..."),
         		array("id"=>"fourthStep", "id2"=>"fourthStep", "linktitle"=>"4th Play", "image"=>"sync.png", "text"=>"Go to sociallgreen.com find your friends, form teams, see the leaderboards."),
