@@ -58,6 +58,17 @@ class AccountController extends Zend_Controller_Action
 					//$this->_helper->redirector("index", 'index');
 					//$this->_helper->redirector("index","index",array("register"));// _redirector->gotoUrl('/my-controller/my-action/param1/test/param2/test2');
 					
+					$smtpServer = 'socialgreenproject.com';
+					$username = 'info@socialgreenproject.com';
+					$password = 'sgadmin12!';
+					 
+					$config = array(
+							'auth' => 'login',
+							'username' => $username,
+							'password' => $password);
+					 
+					$transport = new Zend_Mail_Transport_Smtp($smtpServer, $config);
+					
 					$htmlMail = "<!DOCTYPE html>
 						<html>
 						<head>
@@ -88,7 +99,7 @@ class AccountController extends Zend_Controller_Action
 					->setFrom('no-reply@socialgreenproject.com', 'Social Green Project Team')
 					->addTo($form->getValue('email'))
 					->setSubject('Confirmation Mail')
-					->send();
+					->send($transport);
 					
 					//$this->_helper->_redirector("index", 'index', array("register","true"));
 					$this->_helper->_redirector('index','index',null,array('register'=>'true'));

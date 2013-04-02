@@ -1,7 +1,23 @@
 <form id="register" action="<?= $this->baseUrl($this->element->getAction()); ?>" method="<?= $this->element->getMethod(); ?>">
 <p>
+Enter a username:<br />
+<?= $this->element->username; ?>
+</p>
+<p>
 E-mail Address:<br />
 <?= $this->element->email; ?>
+</p>
+<p>
+Password:<br />
+<?= $this->element->pswd; ?>
+</p>
+<p>
+Re-type your password:<br />
+<?= $this->element->pswd2; ?>
+</p>
+<p>
+Verify that you are human:<br />
+<?= $this->element->captcha; ?>
 </p>
 <p>
 <?= $this->element->submit; ?>

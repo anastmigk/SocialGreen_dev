@@ -53,6 +53,10 @@ body #contactModal {
 	}
 }
 
+img.smallProfileImage {
+	height: 3%;
+}
+
 .profile-container {
 	margin-left:auto;
 	margin-right:auto;
@@ -261,7 +265,7 @@ img.sketch {
 =========================*/
 .faceText {
 	font-size:18px;
-	font-weight:400;
+	font-weight:bold;
 	line-height:30px;
 	color:inherit;
 	}

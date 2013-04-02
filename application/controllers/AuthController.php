@@ -136,7 +136,16 @@ class AuthController extends Zend_Controller_Action
     			$queue->insert($data);
     			try {
     				
-    			
+    				$smtpServer = 'socialgreenproject.com';
+    				$username = 'info@socialgreenproject.com';
+    				$password = 'sgadmin12!';
+    				 
+    				$config = array(
+    						'auth' => 'login',
+    						'username' => $username,
+    						'password' => $password);
+    				 
+    				$transport = new Zend_Mail_Transport_Smtp($smtpServer, $config);
     			
     			//Send recovery mail
     			
@@ -170,7 +179,7 @@ class AuthController extends Zend_Controller_Action
     			->setFrom('no-reply@socialgreenproject.com', 'Social Green Project Team')
     			->addTo($form->getValue('email'))
     			->setSubject('Confirmation Mail')
-    			->send();
+    			->send($transport);
     			
     			$this->_helper->_redirector('index','index');
     			} catch (Exception $e){

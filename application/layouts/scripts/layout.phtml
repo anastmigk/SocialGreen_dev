@@ -38,25 +38,11 @@
 				
 					<?php /*<li <?= $howItworks ?> ><a title="Learn more!" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'how-it-works'), null, TRUE); ?>">How It Works</a></li>
 					<li <?= $getInvolved ?>><a title="Participate!" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'get-involved'), null, TRUE); ?>">Get Involved</a></li> */ ?> 
-					<li <?= $howItworks ?> ><a title="Learn more!" style="text-decoration:line-through;" >How It Works</a></li>
-					<li <?= $getInvolved ?>><a title="Participate!" style="text-decoration:line-through;" >Get Involved</a></li>
-					
+					<!-- <li <?= $howItworks ?> ><a title="Learn more!" style="text-decoration:line-through;" >How It Works</a></li>
+					<li <?= $getInvolved ?>><a title="Participate!" style="text-decoration:line-through;" >Get Involved</a></li>-->
+					<?php echo $this->LoggedInAs(); ?>
 				</ul>
-				<!-- POP UP menu for later.. 
-				<ul class="nav pull-right">  
-					<li class="dropdown">  
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					Services
-					<b class="caret"></b>  
-					</a>  
-					<ul class="dropdown-menu">  
-						<li><a href="#">Web Design</a></li>  
-						<li><a href="#">Web development</a></li>  
-						<li><a href="#">Wordpress Theme development</a></li>  
-					</ul>
-					</li>
-				</ul>
-				 -->
+				
 			</div><!--/.nav-collapse -->
 		</div>
 	</div>

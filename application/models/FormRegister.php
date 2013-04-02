@@ -56,7 +56,7 @@ class Application_Model_FormRegister extends Zend_Form {
         		'required'   => true,
         		'captcha'    => array(
         				'captcha' => 'Figlet',
-        				'wordLen' => 5,
+        				'wordLen' => 6,
         				'timeout' => 300
         		),
         		'messages' => array(
@@ -89,8 +89,8 @@ class Application_Model_FormRegister extends Zend_Form {
         
         $this->setDecorators( array( array('ViewScript', array('viewScript' => '_form_register.phtml'))));
         
-        //$this->addElements(array($username, $email, $pswd, $pswd2, $captcha, $submit));
-        $this->addElements(array($email, $submit));
+        $this->addElements(array($username, $email, $pswd, $pswd2, $captcha, $submit));
+        //$this->addElements(array($email, $submit));
     }
 }
 
