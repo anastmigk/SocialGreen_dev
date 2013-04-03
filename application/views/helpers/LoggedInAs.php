@@ -32,7 +32,8 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
             					<li class="dropdown">
             						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-rounded smallProfileImage" src="'.$this->view->baseUrl("/images/profile-picture-default.jpg").'"><b class="caret"></b></a>
             							<ul class="dropdown-menu">
-            								<li><a>Hello '.$username.'!&nbsp;<i class="icon-user"></i></a></li>
+            								<li class="nav-header" >Hello '.$username.'!&nbsp;<i class="icon-user"></i></li>
+            								<li class="divider"></li>
 											<li><a href='. $this->view->url(array('controller'=>'account'), null, TRUE).'>Profile&nbsp;<i class="icon-book"></i></a></li>';
             								//'<li><a href='. $this->view->url(array('controller'=>'account'), null, TRUE).' title="We have lots of users">Users</a></li>
             								//<li><a href='.$this->view->url(array('controller'=>'account','action'=>'profile', 'usr'=>$username)).' title="Find out more">More Info</a></li>
@@ -68,14 +69,15 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
             return '';
 
         }
-*/		$introLink='<li><a title="Learn more!">How It Works</a></li>
-					<li><a title="Participate!">Get Involved</a></li>';
+*/		/*$introLink='<li><a title="Learn more!">How It Works</a></li>
+					<li><a title="Participate!">Get Involved</a></li>';*/
         $loginUrl = '<li><a href="'.$this->view->url(array('controller'=>'auth', 'action'=>'index')).'" title="Get inside Social Green!">Login</a></li>';
         //$loginUrl = $this->view->url(array('controller'=>'auth', 'action'=>'index'));
         $registerUrl = "<li><a id='buttonModalRegister' href=".$this->view->url(array('controller'=>'account', 'action'=>'register'), null, TRUE)." title='Be a member!'>Register</a></li>";
         //$registerUrl = "<li><a id='buttonModalRegister' href='#'>Register</a></li>";
         
-        return $introLink.$registerUrl.$loginUrl;
+        return $registerUrl.$loginUrl;
+        //return $introLink.$registerUrl.$loginUrl;
         //return '<li><a href="'.$loginUrl.'" title="Get inside Social Green!">Login</a></li>'.$registerUrl;
         //return '<li><a id="buttonModalLogin" href="#">Login</a></li>'.$registerUrl;
 
