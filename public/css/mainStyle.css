@@ -3,19 +3,33 @@
 	mov : #911762;
 	prasino : #65B524;
 */
-
+      
 @import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700);
-body {
+
+/* Sticky footer styles
+      -------------------------------------------------- */
+ body {
 	font-family: 'Roboto', sans-serif;
+	height: 100%;
 }
 
-html{
-  overflow-y: scroll;
+html {
+	overflow-y: scroll;
+}
+
+#wrap {
+	min-height: 100%;
+}
+#footer {
+	position: relative;
+	margin-top: -280px; /* negative value of footer height */
+	height: 280px;
+	clear:both;
 }
 
 .howItWorks {
 	margin-top: 50px;
-	margin-bottom:50px;
+	margin-bottom: 50px;
 }
 
 img#logo {
@@ -25,10 +39,12 @@ img#logo {
 	margin-top:0px;*/
 	height:30px;
 }
-section#header, section#footer {
+section#header {
 	/*border: thin solid black;*/
 	clear: both;
 }
+
+
 /* Contact Form CSS */
 body #contactModal {
     /* new custom width */
@@ -169,15 +185,15 @@ img.links {
 	}
 }
 
-
-
 div#mainContent{
 	/*background-color: #E1F5A9;
 	background-image:url('pattern.png');
 	background-attachment: fixed;
 	border-radius: 5px;
 	/*box-shadow: 5px 5px 5px grey;*/
-	padding:1%;
+	/*padding:1%;*/
+	overflow:auto;
+	padding-bottom: 280px;
 }
 /* Under Construction
  =========================*/
@@ -333,9 +349,9 @@ img.social:hover {
 
 /* Custom Carousel
  =========================*/
-.carousel-control{position:absolute;top:105%;left:395px;width:40px;height:40px;margin-top:-20px;font-size:60px;font-weight:100;line-height:30px;color:#ffffff;text-align:center;background:#222222;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
-.carousel-control.right{left:auto;right:395px;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
-.carousel-indicators{position:absolute;top:105%;right:447.5px;z-index:5;margin:0;list-style:none;}.carousel-indicators li{display:block;float:left;width:10px;height:10px;margin-left:5px;text-indent:-999px;background-color:#ccc;border-radius:5px;}
+.carousel-control{position:absolute;top:105%;left:15%;width:40px;height:40px;margin-top:-20px;font-size:60px;font-weight:100;line-height:30px;color:#ffffff;text-align:center;background:#222222;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
+.carousel-control.right{left:auto;right:15%;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
+.carousel-indicators{position:absolute;top:105%;right:46%;z-index:5;margin:0;list-style:none;}.carousel-indicators li{display:block;float:left;width:10px;height:10px;margin-left:5px;text-indent:-999px;background-color:#ccc;border-radius:5px;}
 .carousel-indicators .active{background-color:#333333;}
 
 /* End Custom Carousel
@@ -421,111 +437,7 @@ div.staffnames {
 	display:table-cell; vertical-align:middle
 }
 
-/* Sticky Sidenav
--------------------------------------------------- */
 
-.nav-stacked {
-  width: 228px;
-  margin: 80px 0 0;
-  padding: 0;
-  background-color: #fff;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
-  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
-     -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
-          box-shadow: 0 1px 4px rgba(0,0,0,.065);
-}
-.nav-stacked > li > a {
-  display: block;
-  width: 190px \9;
-  margin: 0 0 -1px;
-  padding: 8px 14px;
-  border: 1px solid #e5e5e5;
-}
-.nav-stacked > li:first-child > a {
-  -webkit-border-radius: 6px 6px 0 0;
-     -moz-border-radius: 6px 6px 0 0;
-          border-radius: 6px 6px 0 0;
-}
-.nav-stacked > li:last-child > a {
-  -webkit-border-radius: 0 0 6px 6px;
-     -moz-border-radius: 0 0 6px 6px;
-          border-radius: 0 0 6px 6px;
-}
-.nav-stacked> .active > a {
-  position: relative;
-  z-index: 2;
-  padding: 9px 15px;
-  border: 0;
-  text-shadow: 0 1px 0 rgba(0,0,0,.15);
-  -webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
-     -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
-          box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
-}
-/* Chevrons */
-.nav-stacked .icon-chevron-right {
-  float: right;
-  margin-top: 2px;
-  margin-right: -6px;
-  opacity: .25;
-}
-.nav-stacked > li > a:hover {
-  background-color: #f5f5f5;
-}
-.nav-stacked a:hover .icon-chevron-right {
-  opacity: .5;
-}
-.nav-stacked .active .icon-chevron-right,
-.nav-stacked .active a:hover .icon-chevron-right {
-  background-image: url(../img/glyphicons-halflings-white.png);
-  opacity: 1;
-}
-.nav-stacked.affix {
-  top: 40px;
-}
-.nav-stacked.affix-bottom {
-  position: absolute;
-  top: auto;
-  bottom: 270px;
-}
-
-/* Sections
--------------------------------------------------- */
-
-/* padding for in-page bookmarks and fixed navbar */
-section {
-	padding-top: 30px;
-	padding-bottom: 30px;
-}
-section > .page-header,
-section > .lead {
-  color: #5a5a5a;
-}
-section > ul li {
-  margin-bottom: 5px;
-}
-
-/* Separators (hr) */
-.bs-docs-separator {
-  margin: 40px 0 39px;
-}
-
-/* Faded out hr */
-hr.soften {
-  height: 1px;
-  margin: 70px 0;
-  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
-  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
-  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
-  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
-  border: 0;
-}
-
-
-
-/* End of Sticky Sidenav
- ------------------------------------------*/
 
 /* Responsive
 -------------------------------------------------- */
@@ -554,20 +466,6 @@ hr.soften {
     padding-left: 10px;
     padding-right: 10px;
   }
-
-  /* Inline-block quick links for more spacing */
-  .quick-links li {
-    display: inline-block;
-    margin: 5px;
-  }
-
-  /* When affixed, space properly */
-  .nav-stacked {
-    top: 0;
-    width: 218px;
-    margin-top: 30px;
-    margin-right: 0;
-  }
 }
 
 /* Tablet to desktop
@@ -576,14 +474,6 @@ hr.soften {
   /* Remove any padding from the body */
   body {
     padding-top: 0;
-  }
-  /* Adjust sidenav width */
-  .nav-stacked {
-    width: 166px;
-    margin-top: 20px;
-  }
-  .nav-stacked.affix {
-    top: 0;
   }
 }
 
@@ -607,10 +497,18 @@ hr.soften {
   }
   
   /* sketch */
-.sketchText {
+	.sketchText {
 	margin-top: 20px;
-}
-
+  }
+	/*.carousel-control{position:absolute;top:105%;left:395px;width:40px;height:40px;margin-top:-20px;font-size:60px;font-weight:100;line-height:30px;color:#ffffff;text-align:center;background:#222222;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
+	.carousel-control.right{left:auto;right:395px;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
+	.carousel-indicators{position:absolute;top:15px;right:15px;z-index:5;margin:0;list-style:none;}
+	.carousel-indicators li{display:block;float:left;width:10px;height:10px;margin-left:5px;text-indent:-999px;background-color:#ccc;background-color:rgba(255, 255, 255, 0.25);border-radius:5px;}
+	.carousel-indicators .active{background-color:#fff;}*/
+	.carousel-control{position:absolute;top:105%;left:15px;width:40px;height:40px;margin-top:-20px;font-size:60px;font-weight:100;line-height:30px;color:#ffffff;text-align:center;background:#222222;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
+	.carousel-control.right{left:auto;right:15px;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
+	.carousel-indicators{position:absolute;top:105%;right:44%;z-index:5;margin:0;list-style:none;}.carousel-indicators li{display:block;float:left;width:10px;height:10px;margin-left:5px;text-indent:-999px;background-color:#ccc;border-radius:5px;}
+	.carousel-indicators .active{background-color:#333333;}
 }
 
 /* Landscape phones
