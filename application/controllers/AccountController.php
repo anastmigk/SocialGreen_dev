@@ -17,7 +17,8 @@ class AccountController extends Zend_Controller_Action
     {
         // action body
         $accounts = new Application_Model_DbTable_Accounts();
-        $this->view->accounts = $accounts->fetchAll();
+        $order = $accounts->select()->order("created DESC");
+        $this->view->accounts = $accounts->fetchAll($order);
     }
 
     public function registerAction()
@@ -228,7 +229,7 @@ class AccountController extends Zend_Controller_Action
 			$where = array('id = ?' => $accountRowset->id);
 			$userDB->update( $data, $where);
 		} else {
-			$this->_helper->redirector("index","index");
+			//$this->_helper->redirector("index","index");
 		}
     }
 

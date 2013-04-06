@@ -1,46 +1,45 @@
 <?php  $accounts = $this->accounts; ?>
-<div class="row">
+<div class="row-fluid">
 	<div class="span4">
-		<h5>Leaf Section</h5>
-		<p><strong>234</strong><br>Total leafs saved today</p>
+		<div class="span12">
+			<h3><strong>234</strong><br>Total leafs saved today</h3>
+		</div>
 		<hr>
-		<h5>Friends Section</h5>
-		<?php  foreach ($accounts as $account) { ?>
-			<div class="span1">
-				<a href="#" class="thumbnail" title="<?php echo $account->username; ?>"><img src="http://placehold.it/50x50&text=Thumbnail"></a>
-			</div>
-		<?php } ?>	
+		<div class="span12">
+			<h5>Friends Section</h5>
+			<?php $counter=0;?>
+			<?php  foreach ($accounts as $account) { ?>
+				
+				<div class="media span3 friends">
+				 
+				  <a class="thumbnail" title="<?php echo $account->username; ?>" href="#">
+				    <img class="media-object" src="http://placehold.it/50x50&text=Thumbnail">
+				  </a>
+				  <div class="media-body">
+				   <?php //echo $account->username; ?>
+				  </div>  
+				<?php if ($counter==0) { echo '<span class="left label label-info newMember">New!</span>'; }
+				elseif ($account->points>2) {  echo '<span class="left label label-success newMember"><i class="icon-leaf icon-white"></i></span>';}?>
+				</div>
+				
+			 <?php $counter++; } ?>	
+		</div>
 	</div>
-
 	<div class="span5">
 		<div class="row">
-			<h2>Tab section</h2>
-			
-			
-            <ul id="myTab" class="nav nav-tabs">
-              <li class="active"><a href="#home" data-toggle="tab">Badges</a></li>
-              <li class=""><a href="#profile" data-toggle="tab">Leaderboard</a></li>
-              <!-- <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#dropdown1" data-toggle="tab">@fat</a></li>
-                  <li><a href="#dropdown2" data-toggle="tab">@mdo</a></li>
-                </ul>
-              </li>-->
-            </ul>
+			<ul class="nav nav-pills">
+			  <li class="active">
+			    <a  data-toggle="tab" href="#home">Home</a>
+			  </li>
+			  <li><a  data-toggle="tab" href="#profile">profile</a></li>
+			</ul>
             <div id="myTabContent" class="tab-content">
               <div class="tab-pane fade active in" id="home">
-                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+                <div id="barChartContainer" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
               </div>
               <div class="tab-pane fade" id="profile">
                 <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
               </div>
-              <!-- <div class="tab-pane fade" id="dropdown1">
-                <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
-              </div>
-              <div class="tab-pane fade" id="dropdown2">
-                <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
-              </div>-->
             </div>
        
 			

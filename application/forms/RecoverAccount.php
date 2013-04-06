@@ -48,7 +48,7 @@ class Application_Form_RecoverAccount extends Zend_Form
         $this->addElement('submit', 'submit', array(
             'ignore'   => true,
             'label'    => 'Recover now!',
-        		'class'=>'button'
+        		'class'=>'btn btn-warning'
         ));
  
         // And finally add some CSRF protection

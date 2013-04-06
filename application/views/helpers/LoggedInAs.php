@@ -30,15 +30,15 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
            // <!-- POP UP menu for later.. -->
             $dropdownMenu = '<ul class="nav pull-right">
             					<li class="dropdown">
-            						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-rounded smallProfileImage" src="'.$this->view->baseUrl("/images/profile-picture-default.jpg").'"><b class="caret"></b></a>
+            						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-rounded smallProfileImage" src="'.$this->view->baseUrl("/images/profile-picture-default.jpg").'"></a>
             							<ul class="dropdown-menu">
-            								<li class="nav-header" >Hello '.$username.'!&nbsp;<i class="icon-user"></i></li>
+            								<li class="nav-header" ><i class="icon-user"></i>&nbsp;&nbsp;Hello '.$username.'!</li>
             								<li class="divider"></li>
-											<li><a href='. $this->view->url(array('controller'=>'account'), null, TRUE).'>Profile&nbsp;<i class="icon-book"></i></a></li>';
+											<li><a href='. $this->view->url(array('controller'=>'account'), null, TRUE).'><i class="icon-book"></i>&nbsp;&nbsp;Profile</a></li>';
             								//'<li><a href='. $this->view->url(array('controller'=>'account'), null, TRUE).' title="We have lots of users">Users</a></li>
             								//<li><a href='.$this->view->url(array('controller'=>'account','action'=>'profile', 'usr'=>$username)).' title="Find out more">More Info</a></li>
-            								$dropdownMenu.='<li><a href='.$this->view->url(array('controller'=>'account','action'=>'edit')).' title="Change your info">Edit&nbsp;<i class="icon-edit"></i></a></li>
-            								<li><a href="'.$logoutUrl.'" title="Bye">Logout&nbsp;<i class="icon-off"></i></a></li>
+            								$dropdownMenu.='<li><a href='.$this->view->url(array('controller'=>'account','action'=>'edit')).' title="Change your info"><i class="icon-edit"></i>&nbsp;&nbsp;Edit</a></li>
+            								<li><a href="'.$logoutUrl.'" title="Bye"><i class="icon-off"></i>&nbsp;&nbsp;Logout</a></li>
             							</ul>
             					</li>
             				</ul>';

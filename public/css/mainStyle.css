@@ -44,6 +44,8 @@ section#header {
 	clear: both;
 }
 
+.left {float:left;}
+.right {float:right;}
 
 /* Contact Form CSS */
 body #contactModal {
@@ -157,6 +159,21 @@ ul.mylist li{
 	margin:0 0 7px 0
 }
 
+.friends {
+	position:relative
+}
+
+.newMember {
+	position:absolute;
+	top:5px;
+	z-index:100;
+	font-size:0.8em;
+	transform:rotate(-15deg);
+	-ms-transform:rotate(-15deg); /* IE 9 */
+	-moz-transform:rotate(-15deg); /* Firefox */
+	-webkit-transform:rotate(-15deg); /* Safari and Chrome */
+	-o-transform:rotate(-15deg); /* Opera */
+}
 
 body {
   padding-top: 60px;
@@ -178,7 +195,7 @@ img.links {
 	width: 30px;
 	}
 	.hero-unit {
-		padding:10px;margin-bottom:0px;font-size:14px;font-weight:100;line-height:12px;
+		padding:10px;margin-bottom:0px;font-size:14px;line-height:12px;
 	}
 	.hero-unit h1{
 	
@@ -296,7 +313,6 @@ img.sketch {
 	}
 	
 .faceText small {
-	font-weight:300;
 	line-height:1;
 	font-size:85%;
 }
@@ -351,7 +367,8 @@ img.social:hover {
  =========================*/
 .carousel-control{position:absolute;top:105%;left:15%;width:40px;height:40px;margin-top:-20px;font-size:60px;font-weight:100;line-height:30px;color:#ffffff;text-align:center;background:#222222;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
 .carousel-control.right{left:auto;right:15%;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
-.carousel-indicators{position:absolute;top:105%;right:46%;z-index:5;margin:0;list-style:none;}.carousel-indicators li{display:block;float:left;width:10px;height:10px;margin-left:5px;text-indent:-999px;background-color:#ccc;border-radius:5px;}
+.carousel-indicators{position:absolute;top:105%;right:46%;z-index:5;margin:0;list-style:none;}
+.carousel-indicators li{display:block;float:left;width:10px;height:10px;margin-left:5px;text-indent:-999px;background-color:#ccc;border-radius:5px;}
 .carousel-indicators .active{background-color:#333333;}
 
 /* End Custom Carousel
@@ -399,8 +416,9 @@ img.faces2 {
 }
 
 div#quiz {
-	background-image:url('../images/post_it.png');
+	background-image:url('../images/post_it2.png');
 	background-position:center; 
+	background-repeat:no-repeat;
 }
 
 div#quizContainer {

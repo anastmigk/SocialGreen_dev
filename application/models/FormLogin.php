@@ -27,7 +27,7 @@ class Application_Model_FormLogin extends Zend_Form
             'required' => false,
             'ignore'   => true,
             'label'    => 'Login',
-        		'class'=> 'button'
+        		'class'=> 'btn btn-success'
         ));
 		
         // Add a captcha

@@ -1,3 +1,17 @@
+<?php 
+$Access = array();
+$Access = $this->Access($this);
+$homelink = $Access['homelink'];
+try {
+	if($Access['acl'] =="denied"){
+			header("Location: ".$this->baseUrl()."/");
+	} else {
+			//echo "Access allowed";
+	}
+} catch (Exception $e) {
+	echo $e->getMessage();
+}
+?>
 <html>
     <head>
     	<meta charset="utf-8" />
@@ -20,13 +34,14 @@
         <!-- End Facebook open graph meta tags -->
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        
         <!-- <link href='http://fonts.googleapis.com/css?family=Stalemate' rel='stylesheet' type='text/css'>  -->
     	<!-- Bootstrap -->
     	<?php  $this->headLink()->appendStylesheet($this->baseUrl('bootstrap/css/bootstrap.min.css')); ?>
     	<?php  $this->headLink()->appendStylesheet($this->baseUrl('css/mainStyle.css')); ?>
-    	<?php echo $this->headLink(); ?>
+    	<?php echo $this->headLink(); ?>	
     </head>
-<body >
+<body >		
 <div id="wrap">
 <!-- Navbar
     ================================================== -->
@@ -38,7 +53,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="brand" title="Back to home" href="<?php echo $this->url(array('controller'=>'index'), null, TRUE); ?>"><img id="logo" src="<?php echo $this->baseUrl("images/logo50.png"); ?>"></a>
+			<a class="brand" title="Back to home" href="<?php echo $homelink; ?>"><img id="logo" src="<?php echo $this->baseUrl("images/logo50.png"); ?>"></a>
 			<div class="nav-collapse collapse">
 				<ul class="nav pull-right">
 				<?php
@@ -66,8 +81,7 @@
 <!-- End of Navbar -->
 
 <!-- View Content
-    ================================================== -->
-   
+    ================================================== -->​
 <div class="container" id="mainContent">
 	<?php echo $this->layout()->content; ?>
 </div>
@@ -219,11 +233,4 @@ alt="hits counter"></a></div></noscript>
 <!-- End of StatCounter Code for Default Guide -->
 
 </body>
-
- <!-- BugSense Code -->
- <script src="http://www.bugsense.com/static/js/global/bugsense.js" type='text/javascript'></script>
- <script type="text/javascript">
-    var bugsense = new Bugsense( { apiKey: 'a66b52fb' } );
- </script>
- <!-- End of BugSense -->
 </html>
