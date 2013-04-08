@@ -22,6 +22,7 @@ class Zend_View_Helper_Access extends Zend_View_Helper_Abstract
     	$acl->add(new Zend_Acl_Resource('auth'));
     	$acl->add(new Zend_Acl_Resource('error'));
     	$acl->add(new Zend_Acl_Resource('account'));
+    	$acl->add(new Zend_Acl_Resource("greenladder"));
     	//$acl->add(new Zend_Acl_Resource('register'), 'account');
     	
     	
@@ -29,6 +30,7 @@ class Zend_View_Helper_Access extends Zend_View_Helper_Abstract
     	$acl->allow("guest","error");
     	$acl->allow("guest","about");
     	$acl->allow("guest","auth");
+    	$acl->allow("guest","greenladder", array("binupdate"));
     	$acl->allow("guest","account", array('register','confirm','reset'));
     	$acl->allow('member');
     	
