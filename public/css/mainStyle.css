@@ -44,6 +44,11 @@ section#header {
 	clear: both;
 }
 
+.termsFrame {
+	border:thin black silver;
+	padding: 15px;
+}
+
 .left {float:left;}
 .right {float:right;}
 

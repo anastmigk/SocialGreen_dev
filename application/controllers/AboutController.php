@@ -182,8 +182,35 @@ class AboutController extends Zend_Controller_Action
 
     }
 
+    public function termsAction()
+    {
+        // action body
+        $tabTerms = array(
+        		"tabtitle"=>"Terms of Use",
+        		'id'=>"tab1",
+        		"title"=>"Social Green Terms of Use",
+        		"subTitle1"=>"Basic Terms",
+        		"subTitle2"=>"General Conditions",
+        		"text1"=>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        		"text2"=>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			);
+        $tabPrivacy = array(
+        		"tabtitle"=>"Privacy Policy",
+        		'id'=>"tab2",
+        		"title"=>"Social Green Privacy Policy",
+        		"subTitle1"=>"Mpla mpla 1",
+        		"subTitle2"=>"Mpla mpla 2",
+        		"text1"=>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        		"text2"=>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			);
+        $content = array ("terms"=>$tabTerms, "privacy"=>$tabPrivacy);
+        $this->view->content = $content;
+    }
+
 
 }
+
+
 
 
 

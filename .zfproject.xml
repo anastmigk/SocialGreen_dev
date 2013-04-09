@@ -45,6 +45,7 @@
           <actionMethod actionName="getInvolved"/>
           <actionMethod actionName="quiz"/>
           <actionMethod actionName="submitQuiz"/>
+          <actionMethod actionName="terms"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -158,6 +159,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Greenladder">
             <viewScriptFile forActionName="binupdate"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="About">
+            <viewScriptFile forActionName="terms"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
