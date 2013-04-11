@@ -1,6 +1,10 @@
 <div class="row-fluid">
 	<div class="span6 offset3">
 		<?php echo $this->form; ?>
+		<p>- or -<br>
+		<div class="fb-login-button" size="large" data-show-faces="false" data-width="200" data-max-rows="1" scope="email">Sign Up</div>
+		<div style="display: hidden" onclick="logout()" class="fb-logout" size="large" >Logout</div>
+		</p>
 	</div>
 	<?php $this->Errors($this->errors); ?>
 </div>

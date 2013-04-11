@@ -12,7 +12,7 @@ try {
 	echo $e->getMessage();
 }
 ?>
-<html>
+<html xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
     <head>
     	<meta charset="utf-8" />
   		<?php echo $this->headTitle($this->title); ?>
@@ -28,9 +28,13 @@ try {
         <!-- End Google plus Snippet -->
         
         <!-- Facebook open graph meta tags -->
+         
         <meta property="og:title" content="SocialGreen"/>
-        <meta property="og:image" content="http://socialgreenproject.com/images/social.png" />
-        <meta property="og:description" content="Get the Quiz!"/>
+        <meta property="og:image" content="http://socialgreenproject.com/images/sg.png" />
+        <meta property="og:description" content="Get the Green Quiz!"/>
+        <meta property="pg:url" content="http://socialgreenproject.com/about/quiz" />
+        <meta property="fb:app_id" content="333359660120082" />
+        
         <!-- End Facebook open graph meta tags -->
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -41,7 +45,87 @@ try {
     	<?php  $this->headLink()->appendStylesheet($this->baseUrl('css/mainStyle.css')); ?>
     	<?php echo $this->headLink(); ?>	
     </head>
-<body >		
+<body >
+<!-- Facebook Login
+    ================================================== -->
+<div id="fb-root"></div>
+<script>
+  // Additional JS functions here
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '333359660120082', // App ID
+      channelUrl : '//socialgreen.azurewebsites.net/channel.html', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+
+    // Additional init code here
+    FB.getLoginStatus(function(response) {
+  	  if (response.status === 'connected') {
+  	    // connected
+    	testAPI();
+    	document.getElementById('fb-logout').style.display = 'block';
+  	  } else if (response.status === 'not_authorized') {
+  	    // not_authorized
+   		 login();
+  	  } else {
+  	    // not_logged_in
+   		 login();
+    	document.getElementById('fb-logout').style.display = 'block';
+  	  }
+  	 });
+
+  };
+  // Function Login
+  function login() {
+	    FB.login(function(response) {
+	        if (response.authResponse) {
+	            // connected
+	        } else {
+	            // cancelled
+	        }
+	    });
+	}
+  // Function Logout
+  function logout() {
+	    FB.logout(function(response) {
+	        console.log('User is now logged out');
+	    });
+	}
+	
+  function testAPI() {
+	    console.log('Welcome!  Fetching your information.... ');
+	    FB.api('/me', function(response) {
+	        console.log('Good to see you, ' + response.name + '.');
+	    });
+	}
+
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+</script>
+
+
+<script>
+//button script
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/el_GR/all.js#xfbml=1&appId=333359660120082";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- End Facebook Login
+    ================================================== -->
+
+
 <div id="wrap">
 <!-- Navbar
     ================================================== -->
