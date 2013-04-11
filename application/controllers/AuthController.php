@@ -27,7 +27,7 @@ class AuthController extends Zend_Controller_Action
     			
     				// We're authenticated! Redirect to the home page
     			
-    				$this->_helper->redirector('index', 'index');
+    				$this->_helper->redirector('index', 'account');
     			} else {
     				
     				$this->view->errors = array( array("Wrong username and password combination dude!"));

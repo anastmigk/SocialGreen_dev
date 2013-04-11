@@ -40,9 +40,9 @@ class IndexController extends Zend_Controller_Action
     	$contactForm = new Application_Form_ContactForm();
     	$this->view->contactForm = $contactForm;
     }
-
-
 }
+
+
 
 
 

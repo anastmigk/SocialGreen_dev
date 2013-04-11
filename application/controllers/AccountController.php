@@ -17,7 +17,7 @@ class AccountController extends Zend_Controller_Action
     {
         // action body
         $accounts = new Application_Model_DbTable_Accounts();
-        $order = $accounts->select()->order("created DESC");
+        $order = $accounts->select()->order("points DESC");
         $this->view->accounts = $accounts->fetchAll($order);
     }
 

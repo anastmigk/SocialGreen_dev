@@ -132,13 +132,14 @@ try {
 <div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
-			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+			<!-- <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
-			</button>
+			</button> -->
 			<a class="brand" title="Back to home" href="<?php echo $homelink; ?>"><img id="logo" src="<?php echo $this->baseUrl("images/logo50.png"); ?>"></a>
-			<div class="nav-collapse collapse">
+			<!--<div class="nav-collapse collapse">-->
+			<div>
 				<ul class="nav pull-right">
 				<?php
 				$uri = Zend_Controller_Front::getInstance()->getRequest()->getRequestUri(); 
@@ -184,9 +185,9 @@ try {
 	      	<div class="span2">
 	      		<ul class="mylist">
 		        	<li class="FooterTitles">Info</li>
+					<li ><a title="Home!" href="<?php echo $this->url(array('controller'=>'index', 'action'=>'index'), null, TRUE); ?>">Home</a></li>
 					<li ><a title="Learn about us!"  href="<?php echo $this->url(array('controller'=>'about', 'action'=>'ourteam'), null, TRUE); ?>" >About</a></li>
 					<li ><a title="Dig in our project!"  href="<?php echo $this->url(array('controller'=>'about', 'action'=>'how-it-works'), null, TRUE); ?>" >How it works</a></li>
-					<li ><a title="Legal staff!" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'terms'), null, TRUE); ?>">Terms &amp; Privacy</a></li>
 				</ul>
 	       	</div>
 	        
@@ -197,7 +198,8 @@ try {
 					
 					<li><a title="Contribute!" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'quiz'), null, TRUE); ?>">Get the quiz</a></li>
 					<li><a title="Participate!" style="text-decoration:line-through;" >Get Involved</a></li>
-					<li><a title="Feedback!" href="#contactModal" data-toggle="modal">Contact us</a></li>
+					<li><a title="Feedback!" class="hidden-phone" href="#contactModal" data-toggle="modal">Contact us</a></li>
+					<li><a title="Feedback!" class="visible-phone" href="<?php echo $this->url(array('controller'=>'index', 'action'=>'submit-Contact'), null, TRUE); ?>">Contact us</a></li>
 					<!-- href="/underdevelopment/public/auth"  -->
 				</ul>
 	        </div>

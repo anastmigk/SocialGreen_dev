@@ -4,7 +4,7 @@ class Zend_View_Helper_Errors extends Zend_View_Helper_Abstract
     public function Errors ($errors){
         if (count($errors)>0){
         	//echo '<div class="">';
-            echo "<div id='errors' style='margin-top:5%' class='three columns alert-box alert'>";
+            echo '<div  class="alert fade in"><button type="button" class="close" data-dismiss="alert">×</button>';
            //echo "<ul>";
             foreach ($errors as $error) {
                 if ($error[0]!=""){
@@ -16,5 +16,5 @@ class Zend_View_Helper_Errors extends Zend_View_Helper_Abstract
         }
     }
 
-}
+} 
 ?>
