@@ -60,47 +60,26 @@ try {
       xfbml      : true  // parse XFBML
     });
 
-    // Additional init code here
-    FB.getLoginStatus(function(response) {
-  	  if (response.status === 'connected') {
-  	    // connected
-    	testAPI();
-    	document.getElementById('fb-logout').style.display = 'block';
-  	  } else if (response.status === 'not_authorized') {
-  	    // not_authorized
-   		 login();
-  	  } else {
-  	    // not_logged_in
-   		 login();
-    	document.getElementById('fb-logout').style.display = 'block';
-  	  }
-  	 });
+
+    button = document.getElementById('fbc-login-button');
+    button.onclick = function() {
+        FB.getLoginStatus(function(response) {
+            if (response.authResponse) {
+                this.location = 'http://socialgreen.azurewebsites.net/public/auth/facebook/token/' +  response.authResponse.accessToken;
+            }
+            else {
+                FB.login(function(response) {
+                    if (response.authResponse) {
+                        this.location = 'http://socialgreen.azurewebsites.net/public/facebook/token/' +  response.authResponse.accessToken;
+                    }}, {scope: 'email'});
+            }
+        });
+ 
+    };
+	
 
   };
-  // Function Login
-  function login() {
-	    FB.login(function(response) {
-	        if (response.authResponse) {
-	            // connected
-	        } else {
-	            // cancelled
-	        }
-	    });
-	}
-  // Function Logout
-  function logout() {
-	    FB.logout(function(response) {
-	        console.log('User is now logged out');
-	    });
-	}
-	
-  function testAPI() {
-	    console.log('Welcome!  Fetching your information.... ');
-	    FB.api('/me', function(response) {
-	        console.log('Good to see you, ' + response.name + '.');
-	    });
-	}
-
+  
   // Load the SDK Asynchronously
   (function(d){
      var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
@@ -111,16 +90,6 @@ try {
    }(document));
 </script>
 
-
-<script>
-//button script
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/el_GR/all.js#xfbml=1&appId=333359660120082";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 
 <!-- End Facebook Login
     ================================================== -->
@@ -167,6 +136,7 @@ try {
 <!-- View Content
     ================================================== -->​
 <div class="container" id="mainContent">
+<button id="fbc-login-button">Login with Facebook</button>
 	<?php echo $this->layout()->content; ?>
 </div>
 <!-- End of View Content -->
