@@ -194,8 +194,28 @@ class AuthController extends Zend_Controller_Action
     	$this->view->form = $form;
     }
 
+    public function facebookAction()
+    {
+        $token = $this->getRequest()->getParam('token',false);
+		    if($token == false) {
+		        return false; // redirect instead
+		    }
+		 
+		    $auth = Zend_Auth::getInstance();
+		    $adapter = new Application_Model_FacebookLogin($token);
+		    $result = $auth->authenticate($adapter);
+		    if($result->isValid()) {
+		        $user = $adapter->getUser();
+		        $auth->getStorage()->write($user);
+		        return true; // redirect instead
+		    }
+		    return false; // redirect instead
+    }
+
 
 }
+
+
 
 
 

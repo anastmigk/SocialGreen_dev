@@ -31,6 +31,7 @@
           <actionMethod actionName="logout"/>
           <actionMethod actionName="isConfirmed"/>
           <actionMethod actionName="recover"/>
+          <actionMethod actionName="facebook"/>
         </controllerFile>
         <controllerFile controllerName="Delete">
           <actionMethod actionName="index"/>
@@ -74,6 +75,7 @@
         <modelFile modelName="Ladder"/>
         <modelFile modelName="Quiz"/>
         <modelFile modelName="Questions"/>
+        <modelFile modelName="FacebookLogin"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
@@ -162,6 +164,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="About">
             <viewScriptFile forActionName="terms"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Auth">
+            <viewScriptFile forActionName="facebook"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
