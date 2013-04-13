@@ -181,9 +181,20 @@ ul.mylist li{
 }
 
 .friends {
-	position:relative
+	position:relative;
 }
 
+.friends .thumbnail{
+	padding:1px;
+	position: relative;	
+}
+
+.friends .thumbnail span{ 
+	position: absolute;
+	top:20%;
+	right:+18%;
+	
+}
 .newMember {
 	position:absolute;
 	top:5px;

@@ -2,7 +2,7 @@
 <?php  $accounts = $this->accounts; ?>
 
 <div class="row-fluid">
-	<div class="span4">
+	<div class="span3">
 		<div class="row-fluid">
 			<div class="span12">
 				<div class="profile-points">
@@ -18,13 +18,12 @@
 				$mostPoints = 0;
 				?>
 				<?php  foreach ($accountsFriends as $account) { ?>
-					<div class="span3 friends">
+					<div class="span2 friends">
 						  <a class="thumbnail" title="<?php echo $account->username; ?>" href="#">
+						    <span class="right visible-phone"><?php echo $account->username; ?></span>
 						    <img class="media-object" src="http://placehold.it/50x50&text=Thumbnail">
+						    
 						  </a>
-						  <div class="media-body">
-						   <?php //echo $account->username; ?>
-						  </div>  
 						<?php if ($counter==0) { echo '<span class="left label label-info newMember">New!</span>'; }
 						elseif ($account->points>10) {  echo '<span class="left label label-success newMember"><i class="icon-leaf icon-white"></i></span>';}?>
 					</div>
@@ -35,7 +34,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="span6">
+	<div class="span6 offset1">
 		<div class="row">
 			<ul class="nav nav-pills">
 			  <li class="active">
