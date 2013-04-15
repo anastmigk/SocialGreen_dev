@@ -32,6 +32,10 @@ html {
 	margin-bottom: 50px;
 }
 
+.userContent {
+	margin-top: 50px;
+}
+
 img#logo {
 	/* ekrive to logo
 	margin-left:3%;
@@ -277,7 +281,7 @@ img.sketch {
 	border-radius:16px;
 	
 	padding:1px;
-	background-color:#911762;
+	/*background-color:#911762;
 	border:1px solid #911762;
 	border:1px solid rgba(145, 23, 98, 1);
 	/*-webkit-box-shadow:0 1px 3px rgba(0, 0, 0, 0.2);
@@ -307,7 +311,7 @@ img.sketch {
 	border-radius:16px;
 	
 	padding:1px;
-	background-color:#911762;
+	/*background-color:#911762;
 	border:1px solid #911762;
 	border:1px solid rgba(145, 23, 98, 1);
 	/*-webkit-box-shadow:0 1px 3px rgba(0, 0, 0, 0.2);

@@ -1,7 +1,8 @@
 <?php  $accountsFriends = $this->accounts; ?>
 <?php  $accounts = $this->accounts; ?>
+<?php  $allactivity = $this->results; ?>
 
-<div class="row-fluid">
+<div class="row-fluid userContent">
 	<div class="span3">
 		<div class="row-fluid">
 			<div class="span12">
@@ -13,7 +14,7 @@
 		<div class="row-fluid">
 			<div class="span12">
 				
-				<h5>Friends Section</h5>
+				<h5>Explore Users</h5>
 				<?php $counter=0; 
 				$mostPoints = 0;
 				?>
@@ -35,15 +36,21 @@
 		</div>
 	</div>
 	<div class="span6 offset1">
-		<div class="row">
+		<div class="row-fluid ">
 			<ul class="nav nav-pills">
-			  <li class="active">
-			    <a  data-toggle="tab" href="#Leaderboard">Leaderboard</a>
-			  </li>
-			  <li><a  data-toggle="tab" href="#Badges">Badges</a></li>
+			  <li class="active"><a data-toggle="tab" href="#Diagram">Diagram</a></li>
+			  <li><a  data-toggle="tab" href="#Barchart">Barchart</a></li>
+			  <li><a  data-toggle="tab" href="#Activity">Activity</a></li>
 			</ul>
             <div id="myTabContent" class="tab-content">
-              <div class="tab-pane fade active in" id="Leaderboard">
+            
+            	<!-- Diagram Content -->
+            	<div class="tab-pane fade active in" id="Diagram">
+               
+              	</div>
+              	
+              	<!-- Barchart Content -->
+				<div class="tab-pane fade" id="Barchart">
               		<?php $place = 1;?>
 	                <?php  foreach ($accounts as $account) { ?>
 	                    <div class="row-fluid">
@@ -53,22 +60,24 @@
 							</div>
 						</div>
 					<?php $place++; } ?>
-			  </div>
-              <div class="tab-pane fade" id="Badges">
-                <table class="table">
-				 <thead><td>Badge</td><td>Description</td></thead>
-				 <tr><td><i class="icon-search"></i></td><td>Best noob</td></tr>
-				 <tr><td><i class="icon-eject"></i></td><td>Best noob</td></tr>
-				 <tr><td><i class="icon-remove-sign"></i></td><td>Best noob</td></tr>
-				 <tr><td><i class="icon-remove-circle"></i></td><td>Best noob</td></tr>
-				 <tr><td><i class="icon-shopping-cart"></i></td><td>Best noob</td></tr>
-				 <tr><td><i class="icon-circle-arrow-left"></i></td><td>Best noob</td></tr>
-				 <tr><td><i class="icon-th-large"></i></td><td>Best noob</td></tr>
-				</table>
-              </div>
+			 	</div>
+			 	
+			 	<!-- Activity Content -->
+				<div class="tab-pane fade" id="Activity">
+					<?php  foreach ( $allactivity as $activity) { ?>
+					<div class="media">
+	                    <a class="pull-left" href="#">
+	                    <img class="media-object" src="http://placehold.it/64x64">
+	                    </a>
+						<div class="media-body">
+	    					<h4 class="media-heading"><?php echo $activity->userid;  ?></h4>
+	    					 just saved <?php echo $activity->quantity;?>
+	    				</div>
+					</div> 
+					<?php } ?>
+				</div>
+								
             </div>
-       
-			
 		</div>	
 	</div>
 </div>

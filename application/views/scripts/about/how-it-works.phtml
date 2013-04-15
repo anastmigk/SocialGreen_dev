@@ -1,46 +1,7 @@
-<?php /*
 
-<!--Sticky Sidenav, and sketch content
-    ==================================================-->
-
-<div class="row" >
-	<div class="span3 bs-docs-sidebar">
-		<ul class="nav nav-tabs nav-stacked " > 
-		<?php foreach ($this->information as $item) {?>
-			<li>
-				<a href="#<?php echo $item['id']; ?>" data-toggle="tab" ><i class="icon-chevron-right"></i><?= $item['linktitle']?></a>
-    		</li>
-    		<?php } ?>
-    	</ul>
-    </div>
-    <div class="tab-content">
-    	<?php foreach ($this->information as $dataitem) {?>
-	   <div class="span9 tab-pane <?php if ($dataitem['id2']=="firstStep") echo "active"; ?>" id="<?php echo $dataitem['id2']; ?>" > 
-	        <section>
-		        <!-- <div class="page-header">
-		        	<h1>5th Step</h1>
-		        </div> -->
-		        <div class="row">
-		        	<div class="span3 offset1">
-		        		<img class="sketch" src='<?php echo $this->baseUrl("images/sketch/".$dataitem['image']); ?>'>
-		        	</div>
-		        	<div class="span3 sketchText">
-		        		<?php echo $dataitem['text']; ?>
-		        	</div>
-		        </div>
-	        </section>
-		</div>
-		<?php } ?>
-	</div>
-    
-</div>
-
-<!-- End of Sticky Sidenav, and sketch content
-    ================================================== -->
-*/ ?>
 <div class="row howItWorks ">
 	<div class="span10 offset1" >
-		<div id="myCarousel" class="carousel slide">
+		<?php /*<div id="myCarousel" class="carousel slide">
 			<ol class="carousel-indicators">
 				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 				<li data-target="#myCarousel" data-slide-to="1"></li>
@@ -60,7 +21,7 @@
 						</div>
 						<?php /*<div class="carousel-caption sketchText">
 							<?php echo $dataitem['text']; ?>
-						</div> */?>
+						</div> *?>
 						
 					</div>
 				<?php } ?>
@@ -69,6 +30,8 @@
 			<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
 			<a class="carousel-control right" href="#myCarousel" data-slide="next" >&rsaquo;</a>
 		</div>
+		*/ ?>
+		<img class="" src='<?php echo $this->baseUrl("images/sketch/howitworks.png"); ?>'>
 	</div>
 </div>	
 

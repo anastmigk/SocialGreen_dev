@@ -1,74 +1,77 @@
-<?php
-    $account = $this->account;
-?>
-<?php /*
-<div class="row">    
+<?php  $accountsFriends = $this->accounts; ?>
+<?php  $accounts = $this->accounts; ?>
+<?php  $auth = Zend_Auth::getInstance();
+		$username = $auth->getIdentity()->username;?>
 
-    <!-- Main Content Section -->
-    <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
-    <div class="nine columns push-three">
-      
-      <h3><?php echo $account->username; ?> <small><?php echo $account->email; ?></small></h3>
-      
-      <p><?php echo $account->description; ?></p>
-            
-    </div>
-    
-    <!-- Nav Sidebar -->
-    <!-- This is source ordered to be pulled to the left on larger screens -->
-    <div class="three columns pull-nine">
-      <p><img src="<?php echo $this->baseUrl('images/profile-picture-default.jpg') ?>" /></p>
-      
-      <ul class="side-nav">
-        <li><a href="#">Section 1</a></li>
-        <li><a href="#">Section 2</a></li>
-        <li><a href="#">Section 3</a></li>
-        <li><a href="#">Section 4</a></li>
-        <li><a href="#">Section 5</a></li>
-        <li><a href="#">Section 6</a></li>
-      </ul>
-
-    </div>    
-</div>
-*/?>
-<div class="row">
-	<!-- Nav Sidebar -->
-    <!-- This is source ordered to be pulled to the left on larger screens -->
-	<div class="two columns" >
-		<ul class="block-grid one-up">
-		<li><a href="<?php echo $this->baseUrl('images/profile-picture-default.jpg') ?>" target="_blank" class="th"><img src="<?php echo $this->baseUrl('images/profile-picture-default.jpg') ?>"></a></li>
-		<li><a href="mailto:<?php echo $account->email;?>?Subject=Social%20Green">Send Mail</a></li>
-		</ul>
-	</div>
-	<!-- Main Content Section -->
-    <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
-	<div class="ten columns"  >
-		<div class="row">
-			<div class="two columns"><h2 class="subheader"><?php echo $account->username; ?></h2></div>
-			<div class="two columns"><div class="profile-points" ><h2 class="subheader" ><?php echo $account->points; ?></h2>Points</div></div>
-			
+<div class="row-fluid userContent">
+	<div class="span3">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="profile-points">
+					<h1>234</h1><p>Total leafs saved today</p>
+				</div>
+			</div>
 		</div>
-		<!-- blocking points to overflow on tabs -->
-		<p></p>
-		<dl class="tabs">
-  			<dd class="active"><a href="#about">About</a></dd>
-  			<dd><a href="#posts">Posts</a></dd>
-  			<dd><a href="#badges">Badges</a></dd>
-		</dl>
-		<ul class="tabs-content">
-  			<li class="active" id="aboutTab">
-  				<p><?php echo $account->description; ?></p>
-  				<p>Member Since : <?php echo $account->created; ?></p>
-  			</li>
-  			<li id="postsTab" >This is simple tab 2s content. Now you see it!</li>
-  			<li id="badgesTab" >This is simple tab 3s content.</li>
-		</ul>
+		<div class="row-fluid">
+			<div class="span12">
+				
+				<h5>Friends</h5>
+				<?php $counter=0; 
+				$mostPoints = 0;
+				?>
+				<?php  foreach ($accountsFriends as $account) { ?>
+					<div class="span2 friends">
+						  <a class="thumbnail" title="<?php echo $account->username; ?>" href="#">
+						    <span class="right visible-phone"><?php echo $account->username; ?></span>
+						    <img class="media-object" src="http://placehold.it/50x50&text=Thumbnail">
+						    
+						  </a>
+						<?php if ($counter==0) { echo '<span class="left label label-info newMember">New!</span>'; }
+						elseif ($account->points>10) {  echo '<span class="left label label-success newMember"><i class="icon-leaf icon-white"></i></span>';}?>
+					</div>
+				 <?php 
+				 $counter++; 
+				if ($mostPoints<$account->points) $mostPoints = $account->points;
+				} ?>	
+			</div>
+		</div>
+	</div>
+	<div class="span6 offset1">
+		<div class="row-fluid ">
+			<ul class="nav nav-pills">
+			  <li class="active">
+			    <a  data-toggle="tab" href="#Leaderboard">Leaderboard</a>
+			  </li>
+			  <li><a  data-toggle="tab" href="#Badges">Badges</a></li>
+			</ul>
+            <div id="myTabContent" class="tab-content">
+              <div class="tab-pane fade active in" id="Leaderboard">
+              		<?php $place = 1;?>
+	                <?php  foreach ($accounts as $account) {      	
+	                	if($account->username == $username) { ?>
+	                
+	                    <div class="row-fluid">
+	                    	<p>#<?php echo $place." - ". $account->username; ?></p>
+		                   <div class="progress">
+			  					<div class="bar bar-success" style="width: <?php echo ($account->points/$mostPoints)*100 ?>%;"><?php echo $account->points;?> points</div>
+							</div>
+						</div>
+					<?php }$place++; } ?>
+			  </div>
+              <div class="tab-pane fade" id="Badges">
+                <table class="table">
+				 <thead><td>Badge</td><td>Description</td></thead>
+				 <tr><td><i class="icon-search"></i></td><td>Best noob</td></tr>
+				 <tr><td><i class="icon-eject"></i></td><td>Best noob</td></tr>
+				 <tr><td><i class="icon-remove-sign"></i></td><td>Best noob</td></tr>
+				 <tr><td><i class="icon-remove-circle"></i></td><td>Best noob</td></tr>
+				 <tr><td><i class="icon-shopping-cart"></i></td><td>Best noob</td></tr>
+				 <tr><td><i class="icon-circle-arrow-left"></i></td><td>Best noob</td></tr>
+				 <tr><td><i class="icon-th-large"></i></td><td>Best noob</td></tr>
+				</table>
+              </div>
+            </div>
+		</div>	
 	</div>
 </div>
-
-<!-- Blocking the Badges to overflow 
-<div style="clear: both;"> </div> -->
-
-</div>
-
 

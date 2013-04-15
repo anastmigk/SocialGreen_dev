@@ -19,6 +19,9 @@ class AccountController extends Zend_Controller_Action
         $accounts = new Application_Model_DbTable_Accounts();
         $order = $accounts->select()->order("points DESC");
         $this->view->accounts = $accounts->fetchAll($order);
+        
+        $activity = new Application_Model_DbTable_Activity();
+        $this->view->results = $activity->fetchAll();
     }
 
     public function registerAction()
@@ -121,13 +124,19 @@ class AccountController extends Zend_Controller_Action
 
     public function profileAction()
     {
-        // action body
+        /* action body
     	$username = $this->_getParam('usr');
     	$this->view->title = "Profile";
         $accounts = new Application_Model_DbTable_Accounts();
         $select = $accounts->select();
         $select->where("username = ?", $username);
-        $this->view->account = $accounts->fetchRow($select);
+        $this->view->account = $accounts->fetchRow($select);*/
+        
+        // action body
+        $accounts = new Application_Model_DbTable_Accounts();
+        $order = $accounts->select()->order("points DESC");
+        $this->view->accounts = $accounts->fetchAll($order);
+        
     }
 
     public function editAction()
