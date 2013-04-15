@@ -23,8 +23,13 @@ class AccountController extends Zend_Controller_Action
         $activity = new Application_Model_DbTable_Activity();
         //$this->view->results = $activity->fetchAll();
         
+        $query = $activity->select();
+        $query->from(array('acc' => 'accounts'), array('id', 'username'));
+        $query->join(array('act' => 'activity'), 'act.userid = acc.id', array('quantity','date'));
+        $query->order('act.date DESC');
+        $query->setIntegrityCheck(false);
         
-        $result = $activity->fetchAll();
+        $result = $activity->fetchAll($query);
         $page=$this->_getParam('page',1);
         $paginator = Zend_Paginator::factory($result);
         $paginator->setItemCountPerPage(3);

@@ -4,7 +4,6 @@ class Application_Model_FacebookLogin implements Zend_Auth_Adapter_Interface  {
 
 	private $token = null;
     private $user = null;
-    private $mail = null;
  
     public function __construct($token) {
         $this->token = $token;
@@ -14,10 +13,6 @@ class Application_Model_FacebookLogin implements Zend_Auth_Adapter_Interface  {
         return $this->user;
     }
     
-    public function getMail (){
-    	return $this->mail;
-    }
- 
     public function authenticate()  {
         if($this->token == null) {
             return new Zend_Auth_Result(Zend_Auth_Result::FAILURE_CREDENTIAL_INVALID,
@@ -37,7 +32,6 @@ class Application_Model_FacebookLogin implements Zend_Auth_Adapter_Interface  {
         //    registerUser($user); // NOT AN ACTUAL FUNCTION
         //};
         $this->user = $user;
-        $this->mail = $details->email;
         return new Zend_Auth_Result(Zend_Auth_Result::SUCCESS,$user);
     }
 }

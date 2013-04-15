@@ -26,7 +26,8 @@ class AuthController extends Zend_Controller_Action
     			if ($this->_process($form->getValues())) {
     			
     				// We're authenticated! Redirect to the home page
-    			
+    				$rememberme = 60*15;
+    				Zend_Session::RememberMe($rememberme);
     				$this->_helper->redirector('index', 'account');
     			} else {
     				
@@ -96,7 +97,6 @@ class AuthController extends Zend_Controller_Action
     {
         // action body
     	Zend_Auth::getInstance()->clearIdentity();
-    	
     	$this->_helper->redirector('index', 'index'); // back to login page
     }
 
