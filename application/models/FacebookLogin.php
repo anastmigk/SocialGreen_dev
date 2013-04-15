@@ -4,6 +4,7 @@ class Application_Model_FacebookLogin implements Zend_Auth_Adapter_Interface  {
 
 	private $token = null;
     private $user = null;
+    private $mail = null;
  
     public function __construct($token) {
         $this->token = $token;
@@ -11,6 +12,10 @@ class Application_Model_FacebookLogin implements Zend_Auth_Adapter_Interface  {
  
     public function getUser() {
         return $this->user;
+    }
+    
+    public function getMail (){
+    	return $this->mail;
     }
  
     public function authenticate()  {
@@ -29,9 +34,10 @@ class Application_Model_FacebookLogin implements Zend_Auth_Adapter_Interface  {
         
         //$user = lookUpUserInDB($details->email); // NOT AN ACTUALL FUNCTION
         //if($user ==  false) { // first time login, register user
-            //registerUser($user); // NOT AN ACTUAL FUNCTION
+        //    registerUser($user); // NOT AN ACTUAL FUNCTION
         //};
         $this->user = $user;
+        $this->mail = $details->email;
         return new Zend_Auth_Result(Zend_Auth_Result::SUCCESS,$user);
     }
 }

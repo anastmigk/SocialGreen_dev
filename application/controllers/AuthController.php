@@ -212,6 +212,7 @@ class AuthController extends Zend_Controller_Action
 		    $result = "Invalid login"; // redirect instead
 		    }
 		 $this->view->login = $result;
+		 $this->view->mail = $adapter->getMail();
     }
 
 
