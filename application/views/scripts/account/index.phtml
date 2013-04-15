@@ -38,15 +38,36 @@
 	<div class="span6 offset1">
 		<div class="row-fluid ">
 			<ul class="nav nav-pills">
-			  <li class="active"><a data-toggle="tab" href="#Diagram">Diagram</a></li>
-			  <li><a  data-toggle="tab" href="#Barchart">Barchart</a></li>
-			  <li><a  data-toggle="tab" href="#Activity">Activity</a></li>
+				<li class="active"><a  data-toggle="tab" href="#Activity">Activity</a></li>
+			  	<li><a data-toggle="tab" href="#Diagram">Diagram</a></li>
+			  	<li><a  data-toggle="tab" href="#Barchart">Barchart</a></li>
 			</ul>
             <div id="myTabContent" class="tab-content">
+				
+				<!-- Activity Content -->
+				<div class="tab-pane fade active in" id="Activity">
+					<?php  foreach ( $allactivity as $activity) { ?>
+					<div class="media">
+	                    <a class="pull-left" href="#">
+	                    <img class="media-object" src="http://placehold.it/64x64">
+	                    </a>
+						<div class="media-body">
+	    					<h4 class="media-heading"><?php echo $activity->userid;  ?></h4>
+	    					 just saved <?php echo $activity->quantity;?>
+	    				</div>
+					</div> 
+					<?php } ?>
+					<?php echo $this->paginationControl($this->results, 'Sliding', 'pagination.phtml'); ?>
+				</div>            
             
             	<!-- Diagram Content -->
-            	<div class="tab-pane fade active in" id="Diagram">
-               
+            	<div class="tab-pane fade" id="Diagram">
+               		<?php // foreach($this->paginator as $record)
+					    //{
+					     //   echo $record['email'].'\n';
+					    //}
+					    //echo $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml');
+					    ?>
               	</div>
               	
               	<!-- Barchart Content -->
@@ -62,20 +83,7 @@
 					<?php $place++; } ?>
 			 	</div>
 			 	
-			 	<!-- Activity Content -->
-				<div class="tab-pane fade" id="Activity">
-					<?php  foreach ( $allactivity as $activity) { ?>
-					<div class="media">
-	                    <a class="pull-left" href="#">
-	                    <img class="media-object" src="http://placehold.it/64x64">
-	                    </a>
-						<div class="media-body">
-	    					<h4 class="media-heading"><?php echo $activity->userid;  ?></h4>
-	    					 just saved <?php echo $activity->quantity;?>
-	    				</div>
-					</div> 
-					<?php } ?>
-				</div>
+			 	
 								
             </div>
 		</div>	

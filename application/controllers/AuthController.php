@@ -207,9 +207,11 @@ class AuthController extends Zend_Controller_Action
 		    if($result->isValid()) {
 		        $user = $adapter->getUser();
 		        $auth->getStorage()->write($user);
-		        return true; // redirect instead
+		        $result = "Valid"; // redirect instead
+		    } else {
+		    $result = "Invalid login"; // redirect instead
 		    }
-		    return false; // redirect instead
+		 $this->view->login = $result;
     }
 
 

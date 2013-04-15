@@ -21,7 +21,17 @@ class AccountController extends Zend_Controller_Action
         $this->view->accounts = $accounts->fetchAll($order);
         
         $activity = new Application_Model_DbTable_Activity();
-        $this->view->results = $activity->fetchAll();
+        //$this->view->results = $activity->fetchAll();
+        
+        
+        $result = $activity->fetchAll();
+        $page=$this->_getParam('page',1);
+        $paginator = Zend_Paginator::factory($result);
+        $paginator->setItemCountPerPage(3);
+        $paginator->setCurrentPageNumber($page);
+        
+        //$this->view->paginator=$paginator;
+        $this->view->results = $paginator;
     }
 
     public function registerAction()
