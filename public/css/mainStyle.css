@@ -166,23 +166,37 @@ img.smallProfileImage {
 }
 
 .FooterTitles {
+	text-decoration: none;
 	display: block;
-	color:#911762;
+	color:#65B524;/*#911762;*/
 	text-align:center;
 	text-decoration: underline;
 }
 
 ul.mylist {
+	color:#911762;
 	display:block;
 	list-style:none;
 	margin:0;
 	padding:17px 0
 }
+
 ul.mylist li{
+	color:#911762;
 	display:block;
 	list-style:none;
 	margin:0 0 7px 0
 }
+
+.mylist a {
+  color: #911762;
+  text-decoration: none;
+}
+.mylist a:hover, a:focus {
+  color: #74124e;
+  text-decoration: underline;
+}
+
 
 .friends {
 	position:relative;
@@ -452,7 +466,7 @@ img.faces2 {
 }
 
 div#quiz {
-	background-image:url('../images/post_it4.png');
+	background-image:url('../images/post_it3.png');
 	background-position:center; 
 	background-repeat:no-repeat;
 }

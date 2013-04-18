@@ -35,7 +35,7 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
             								<li class="nav-header" ><i class="icon-user"></i>&nbsp;&nbsp;Hello '.$username.'!</li>
             								<li class="divider"></li>
 											<li><a href='. $this->view->url(array('controller'=>'account'), null, TRUE).'><i class="icon-home"></i>&nbsp;&nbsp;Home</a></li>
-            								<li><a href='. $this->view->url(array('controller'=>'account' , 'action'=>'profile'), null, TRUE).'><i class="icon-book"></i>&nbsp;&nbsp;Profile</a></li>';
+            								<li><a href='. $this->view->url(array('controller'=>'account' , 'action'=>'profile'), null, TRUE).'?user='.$username.'><i class="icon-book"></i>&nbsp;&nbsp;Profile</a></li>';
             										
             								//'<li><a href='. $this->view->url(array('controller'=>'account'), null, TRUE).' title="We have lots of users">Users</a></li>
             								//<li><a href='.$this->view->url(array('controller'=>'account','action'=>'profile', 'usr'=>$username)).' title="Find out more">More Info</a></li>

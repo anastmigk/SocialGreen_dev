@@ -30,7 +30,7 @@ class AccountController extends Zend_Controller_Action
         $query->setIntegrityCheck(false);
         
         $result = $activity->fetchAll($query);
-        $page=$this->_getParam('page',1);
+        $page = $this->_getParam('page',1);
         $paginator = Zend_Paginator::factory($result);
         $paginator->setItemCountPerPage(3);
         $paginator->setCurrentPageNumber($page);
@@ -148,8 +148,10 @@ class AccountController extends Zend_Controller_Action
         $this->view->account = $accounts->fetchRow($select);*/
         
         // action body
+    	$user = $this->_getParam('user');
+    	
         $accounts = new Application_Model_DbTable_Accounts();
-        $order = $accounts->select()->order("points DESC");
+        $order = $accounts->select()->where("username = ?", $user)->order("points DESC");
         $this->view->accounts = $accounts->fetchAll($order);
         
     }
@@ -182,9 +184,28 @@ class AccountController extends Zend_Controller_Action
     		
     		
     		if ($this->getRequest()->isPost()) {
-    		
+    	
     			if ($form->isValid($this->_request->getPost()))
     			{
+    				//file code
+    					
+    				    // Define a transport and set the destination on the server
+	    				/*$upload = new Zend_File_Transfer_Adapter_Http();
+	    				$upload->addFilter('Rename', APPLICATION_PATH.$this->baseUrl('images/avatars/').$userId.'.jpg');
+	    				Zend_Debug::dump($upload->getFileInfo());
+	    				$upload->receive();
+	    				Zend_Debug::dump($upload->getFileInfo());
+	    				
+	    				try {
+	    					// This takes care of the moving and making sure the file is there
+	    					$upload->receive();
+	    					// Dump out all the file info
+	    					Zend_Debug::dump($upload->getFileInfo());
+	    				} catch (Zend_File_Transfer_Exception $e) {
+	    					echo $e->message();
+	    				}*/
+    				
+    				//end file code
     				$account = new Application_Model_DbTable_Accounts();
     				$salt = substr(md5(rand()), 0, 32);  
     				$hashedPass = sha1($form->getValue('pswd').$salt);

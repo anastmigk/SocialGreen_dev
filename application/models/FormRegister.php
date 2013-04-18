@@ -14,6 +14,7 @@ class Application_Model_FormRegister extends Zend_Form {
         $this->setName('register');
         $this->setMethod('post');
         $this->setAction($path);
+        $this->setAttrib('enctype', 'multipart/form-data');
         //$this->setAction($this->url(array('controller'=>'account','action'=>'register'), null, true));
         
         $username = new Zend_Form_Element_Text('username');
@@ -66,10 +67,19 @@ class Application_Model_FormRegister extends Zend_Form {
        //$captcha->addErrorMessage("Security word is not correct!");
         $pswd2->removeDecorator('label');
         $pswd2->removeDecorator('htmlTag');
+        
         /*$file = new Zend_Form_Element_File('file');
-        //$file->setLabel('File to Upload:');
-        //$file->setDestination('/images');
-        $file->addValidator('IsImage');
+        $file->setRequired(true);
+        $file->setDestination('/images/avatars/');
+        // ensure only 1 file
+        $file->addValidator('Count', false, 1);
+        // limit to 100K
+        $file->addValidator('Size', false, 102400);
+        // only JPEG, PNG, and GIFs
+        $file->addValidator('Extension', false, 'jpg,png,gif');
+        $file->setValueDisabled(true);
+        
+        /*$file->addValidator('IsImage');
         $file->setMaxFileSize(5242880);
         $file->addValidator('Size', false, array('max' => '5242880'));
         $file->addValidator('Count', false, 1);
@@ -89,7 +99,7 @@ class Application_Model_FormRegister extends Zend_Form {
         
         $this->setDecorators( array( array('ViewScript', array('viewScript' => '_form_register.phtml'))));
         
-        $this->addElements(array($username, $email, $pswd, $pswd2, $captcha, $submit));
+        $this->addElements(array($username, $email, $file, $pswd, $pswd2, $captcha, $submit));
         //$this->addElements(array($email, $submit));
     }
 }

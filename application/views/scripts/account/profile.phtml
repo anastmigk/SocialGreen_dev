@@ -21,7 +21,7 @@
 				?>
 				<?php  foreach ($accountsFriends as $account) { ?>
 					<div class="span2 friends">
-						  <a class="thumbnail" title="<?php echo $account->username; ?>" href="#">
+						  <a class="thumbnail" title="<?php echo $account->username; ?>" href="<?php echo $this->baseUrl('account/profile/').'?user='.$account->username;?>">
 						    <span class="right visible-phone"><?php echo $account->username; ?></span>
 						    <img class="media-object" src="http://placehold.it/50x50&text=Thumbnail">
 						    
@@ -52,11 +52,11 @@
 	                
 	                    <div class="row-fluid">
 	                    	<p>#<?php echo $place." - ". $account->username; ?></p>
-		                   <div class="progress">
+		                	<div class="progress">
 			  					<div class="bar bar-success" style="width: <?php echo ($account->points/$mostPoints)*100 ?>%;"><?php echo $account->points;?> points</div>
 							</div>
 						</div>
-					<?php }$place++; } ?>
+					<?php } $place++; } ?>
 			  </div>
               <div class="tab-pane fade" id="Badges">
                 <table class="table">

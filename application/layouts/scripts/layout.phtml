@@ -33,8 +33,13 @@ try {
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://socialgreen.azurewebsites.net/public/images/sg.png" />
         <meta property="og:description" content="Get the Green Quiz!"/>
-        <meta property="pg:url" content="http://socialgreenproject.com/about/quiz" />
+        <meta property="pg:url" content="https://socialgreen.azurewebsites.net/public/about/quiz" />
         <meta property="fb:app_id" content="333359660120082" />
+        
+        <!--<meta property="og:title" content="Facebook Open Graph META Tags"/>
+		<meta property="og:image" content="http://davidwalsh.name/wp-content/themes/klass/img/facebooklogo.png"/>
+		<meta property="og:site_name" content="David Walsh Blog"/>
+		<meta property="og:description" content="Facebook's Open Graph protocol allows for web developers to turn their websites into Facebook " />-->
         
         <!-- End Facebook open graph meta tags -->
         
@@ -153,7 +158,7 @@ try {
 	      	<!-- ABOUT -->
 	      	<div class="span2">
 	      		<ul class="mylist">
-		        	<li class="FooterTitles">Info</li>
+		        	<li ><span class="FooterTitles">Info</span></li>
 					<li ><a title="Home!" href="<?php echo $this->url(array('controller'=>'index', 'action'=>'index'), null, TRUE); ?>">Home</a></li>
 					<li ><a title="Learn about us!"  href="<?php echo $this->url(array('controller'=>'about', 'action'=>'ourteam'), null, TRUE); ?>" >About</a></li>
 					<li ><a title="Dig in our project!"  href="<?php echo $this->url(array('controller'=>'about', 'action'=>'how-it-works'), null, TRUE); ?>" >How it works</a></li>
@@ -163,7 +168,7 @@ try {
 	       	<!-- Activities -->
 	        <div  class="span2">
 				<ul class="mylist">
-					<li class="FooterTitles">Activities</li>
+					<li ><span class="FooterTitles">Activities</span></li>
 					
 					<li><a title="Contribute!" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'quiz'), null, TRUE); ?>">Get the quiz</a></li>
 					<li><a title="Participate!" style="text-decoration:line-through;" >Get Involved</a></li>
@@ -175,7 +180,7 @@ try {
 	        <!-- Find Us -->
 	        <div class="span2">
 	        	<ul class="mylist">
-					<li class="FooterTitles ">Social</li>
+					<li ><span class="FooterTitles">Social</span></li>
 					
 					<!-- VERSION with Likes and follows
 						================================================== 
