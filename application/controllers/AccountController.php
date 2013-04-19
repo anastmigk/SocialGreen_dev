@@ -151,7 +151,7 @@ class AccountController extends Zend_Controller_Action
     	$user = $this->_getParam('user');
     	
         $accounts = new Application_Model_DbTable_Accounts();
-        $order = $accounts->select()->where("username = ?", $user)->order("points DESC");
+        $order = $accounts->select()->order("points DESC");
         $this->view->accounts = $accounts->fetchAll($order);
         
     }
