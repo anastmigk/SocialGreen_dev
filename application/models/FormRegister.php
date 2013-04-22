@@ -28,6 +28,7 @@ class Application_Model_FormRegister extends Zend_Form {
         
         $email = new Zend_Form_Element_Text('email');
         $email->setAttrib('size',35);
+        $email->setAttrib('type',"email");
         $email->setRequired(true);
         $email->addValidator('emailAddress');
         $email->removeDecorator('label');
@@ -70,14 +71,14 @@ class Application_Model_FormRegister extends Zend_Form {
         
         /*$file = new Zend_Form_Element_File('file');
         $file->setRequired(true);
-        $file->setDestination('/images/avatars/');
+        $file->setDestination(BASE_PATH . '/public/images/avatars');
         // ensure only 1 file
-        $file->addValidator('Count', false, 1);
+        //$file->addValidator('Count', false, 1);
         // limit to 100K
-        $file->addValidator('Size', false, 102400);
+       // $file->addValidator('Size', false, 102400);
         // only JPEG, PNG, and GIFs
-        $file->addValidator('Extension', false, 'jpg,png,gif');
-        $file->setValueDisabled(true);
+        //$file->addValidator('Extension', false, 'jpg,png,gif');
+       // $file->setValueDisabled(true);
         
         /*$file->addValidator('IsImage');
         $file->setMaxFileSize(5242880);
@@ -99,7 +100,7 @@ class Application_Model_FormRegister extends Zend_Form {
         
         $this->setDecorators( array( array('ViewScript', array('viewScript' => '_form_register.phtml'))));
         
-        $this->addElements(array($username, $email, $file, $pswd, $pswd2, $captcha, $submit));
+        $this->addElements(array($username, $email, $pswd, $pswd2, $captcha, $submit));
         //$this->addElements(array($email, $submit));
     }
 }

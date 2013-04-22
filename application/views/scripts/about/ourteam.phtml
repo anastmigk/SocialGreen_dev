@@ -11,12 +11,12 @@
 
 
 <hr>
-<div class="row-fluid">
+<div class="row-fluid ">
 <?php
 $counter = 0;
  foreach ($team as $member) {
-if ($counter==3){echo "</div><div class='row-fluid'>";};?>
- 	<div class="span4 pagination-centered <?php if ($counter==3){echo "offset2";}; ?>">
+if ($counter==3){echo "</div><div class='row-fluid keno'>";};?>
+ 	<div class="span4 pagination-centered ">
 	 	
 	 	<div class="row">
 	 		<a href='<?= $member[4] ?>' target='_blank'><img class="img-circle-shadowed links" src="<?php echo $this->baseUrl("images/fairhead-icons/fc-webicon-linkedin.png"); ?>"></a>

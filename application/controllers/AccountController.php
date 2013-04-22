@@ -184,28 +184,9 @@ class AccountController extends Zend_Controller_Action
     		
     		
     		if ($this->getRequest()->isPost()) {
-    	
+    			
     			if ($form->isValid($this->_request->getPost()))
     			{
-    				//file code
-    					
-    				    // Define a transport and set the destination on the server
-	    				/*$upload = new Zend_File_Transfer_Adapter_Http();
-	    				$upload->addFilter('Rename', APPLICATION_PATH.$this->baseUrl('images/avatars/').$userId.'.jpg');
-	    				Zend_Debug::dump($upload->getFileInfo());
-	    				$upload->receive();
-	    				Zend_Debug::dump($upload->getFileInfo());
-	    				
-	    				try {
-	    					// This takes care of the moving and making sure the file is there
-	    					$upload->receive();
-	    					// Dump out all the file info
-	    					Zend_Debug::dump($upload->getFileInfo());
-	    				} catch (Zend_File_Transfer_Exception $e) {
-	    					echo $e->message();
-	    				}*/
-    				
-    				//end file code
     				$account = new Application_Model_DbTable_Accounts();
     				$salt = substr(md5(rand()), 0, 32);  
     				$hashedPass = sha1($form->getValue('pswd').$salt);
@@ -229,12 +210,11 @@ class AccountController extends Zend_Controller_Action
     					echo $e->getMessage();
     				}
     			}else {
+    				
     				$this->view->errors = $form->getErrors();
     			}
     		
     		}
-    		
-    		
     	}
     }
 

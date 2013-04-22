@@ -65,8 +65,17 @@ class AboutController extends Zend_Controller_Action
 				'http://gr.linkedin.com/pub/antonis-karanaftis/65/3a1/19b',
 				'mail',
 				'#');
+		
+		$andreas = array(
+				"Andreas Monastiriotis",
+				"Automation Engineer",
+				"adre.jpg",
+				"",
+				'http://gr.linkedin.com/pub/andreas-monastiriotis/6b/354/390',
+				'aboutme',
+				'http://about.me/andreas.monastiriotis');
         
-        $team = array($ntempos,$kuze,$konos,$laps,$antonis);
+        $team = array($ntempos,$kuze,$konos,$laps,$antonis,$andreas);
         //var_dump($team);
         $this->view->team = $team;
     }

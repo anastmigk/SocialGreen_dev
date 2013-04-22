@@ -1,13 +1,13 @@
-<form id="login" action="<?= $this->element->getAction(); ?>"
+<form class="form-horizontal" id="login" action="<?= $this->element->getAction(); ?>"
 method="<?= $this->element->getMethod(); ?>">
-<p>
-<?= $this->element->username; ?>
-</p>
-<p>
-<?= $this->element->password; ?>
-</p>
-<p>
-<?= $this->element->login; ?>
-</p>
+<div class="control-group">
+	<?= $this->element->username; ?>
+</div>
+<div class="control-group">
+	<?= $this->element->password; ?>
+</div>
+<div class="control-group">
+	<?= $this->element->login; ?>
+</div>
 </form>
 <a href="<?php echo $this->url(array('controller'=>'auth','action'=>'recover'))?>">Did you forget your account?</a>
