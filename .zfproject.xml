@@ -54,6 +54,7 @@
         <formFile formName="ContactForm"/>
         <formFile formName="QuizForm"/>
         <formFile formName="BinUpdateForm"/>
+        <formFile formName="UploadAvatar"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>

@@ -160,8 +160,8 @@ class AccountController extends Zend_Controller_Action
     {
         // action body
     	$auth = Zend_Auth::getInstance();
-    	if ($auth->hasIdentity()) {
-    	
+    	if ($auth->hasIdentity())
+    	{
     		$username = $auth->getIdentity()->username;
     		$userId = $auth->getStorage()->read()->id;
     		
@@ -171,6 +171,42 @@ class AccountController extends Zend_Controller_Action
     		$select->from($accounts)->where('id = ?', $userId);
     		
     		$userAccount = $accounts->fetchAll($select);
+    		
+    		$form = new Application_Form_UploadAvatar();
+    		
+    		$elements = $form->getElements();
+    		foreach($elements as $element) {
+    			$element->removeDecorator('Errors');
+    		}
+    		
+    		//$form->populate($userAccount->current()->toArray());
+    		
+    		$this->view->form = $form;
+    		
+    		
+    		if ($this->getRequest()->isPost())
+    		{
+    			$formData = $this->_request->getPost();
+    			if ($form->isValid($formData)) 
+    			{
+    				// success - do something with the uploaded file
+    				$uploadedData = $form->getValues();
+    				$fullFilePath = $form->file->getFileName();
+    				
+    				Zend_Debug::dump($uploadedData, '$uploadedData');
+    				Zend_Debug::dump($fullFilePath, '$fullFilePath');
+    			}
+    			else
+    			{
+    				$this->view->errors = $form->getErrors();
+    				$form->populate($formData);
+    			}
+    		}
+    		
+    		
+    		
+    		
+    		/* prin
     		$form = new Application_Model_FormRegister("edit");
     		
     		$elements = $form->getElements();
@@ -214,7 +250,7 @@ class AccountController extends Zend_Controller_Action
     				$this->view->errors = $form->getErrors();
     			}
     		
-    		}
+    		}*/
     	}
     }
 

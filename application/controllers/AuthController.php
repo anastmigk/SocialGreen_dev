@@ -44,8 +44,7 @@ class AuthController extends Zend_Controller_Action
     }
 
     protected function _process($values)
-    {
-    
+    {    
     	// Get our authentication adapter and check credentials
     
     	$adapter = $this->_getAuthAdapter();
@@ -58,24 +57,20 @@ class AuthController extends Zend_Controller_Action
     
     	$result = $auth->authenticate($adapter);
     
-    	if ($result->isValid() && $this->isConfirmedAction($values['username'])) {
-    
+    	if ($result->isValid() && $this->isConfirmedAction($values['username']))
+    	{
     		$user = $adapter->getResultRowObject();
-    
+    		    
     		$auth->getStorage()->write($user);
-    
+    		
     		return true;
-    
     	}
     
     	return false;
-    
     }
 
     protected function _getAuthAdapter()
     {
-    
-    
     
     	$dbAdapter = Zend_Db_Table::getDefaultAdapter();
     

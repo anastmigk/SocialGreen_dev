@@ -12,6 +12,7 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
         if ($auth->hasIdentity()) {
 
             $username = $auth->getIdentity()->username;
+            $avatar = $auth->getIdentity()->avatar;
 
             $logoutUrl = $this->view->url(array('controller'=>'auth','action'=>'logout'), null, true);
             
@@ -30,7 +31,7 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
            // <!-- POP UP menu for later.. -->
             $dropdownMenu = '<ul class="nav pull-right">
             					<li class="dropdown">
-            						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-rounded smallProfileImage" src="'.$this->view->baseUrl("/images/profile-picture-default.jpg").'"></a>
+            						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-rounded smallProfileImage" src="'.$this->view->baseUrl($avatar).'"></a>
             							<ul class="dropdown-menu">
             								<li class="nav-header" ><i class="icon-user"></i>&nbsp;&nbsp;Hello '.$username.'!</li>
             								<li class="divider"></li>
