@@ -26,6 +26,14 @@ html {
 	height: 280px;
 	clear:both;
 }
+
+span.greenfonts {
+	color: #65B524;
+}
+span.purplefonts {
+	color: #911762;
+}
+
 /* sto team page anamesa stis grammes keno*/
 .keno { 
 	margin-top:50px;

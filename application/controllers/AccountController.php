@@ -189,17 +189,50 @@ class AccountController extends Zend_Controller_Action
     			$formData = $this->_request->getPost();
     			if ($form->isValid($formData)) 
     			{
+    				//FILE renamed to username
+    				$originalFilename = pathinfo($form->file->getFileName());
+    				//Zend_Debug::dump($originalFilename);
+    				$newName = $username. $userId . "." . $originalFilename['extension'];
+    				$form->file->addFilter('Rename', $newName);
+    				//$data = $form->getValues();
+    				
     				// success - do something with the uploaded file
     				$uploadedData = $form->getValues();
     				$fullFilePath = $form->file->getFileName();
     				
-    				Zend_Debug::dump($uploadedData, '$uploadedData');
-    				Zend_Debug::dump($fullFilePath, '$fullFilePath');
+    				//Zend_Debug::dump($uploadedData, '$uploadedData');
+    				//Zend_Debug::dump($fullFilePath, '$fullFilePath');
+    				
+    				//Database update
+    				$account = new Application_Model_DbTable_Accounts();
+    				//$salt = substr(md5(rand()), 0, 32);
+    				//$hashedPass = sha1($form->getValue('pswd').$salt);
+    				$data2 = array(
+    						/*'email'=>$form->getValue('email'),
+    						'description'=>$form->getValue('description'),
+    						'username'=>$form->getValue('username'),
+    						'password'=>$hashedPass,
+    						'salt'=> $salt,*/
+    						'created'=>date('Y-m-d H:i:s'),
+    						'updated'=>date('Y-m-d H:i:s'),
+    						'avatar' => "/images/avatars/".$uploadedData['file']
+    				);
+    				
+    				$where = array('id = ?' => $userId);
+    				
+    				TRY {
+    					$account->update( $data2, $where);
+    					$this->_helper->flashMessenger->addMessage("You have successfully updated your profile!");
+    					$this->_helper->redirector("index", 'account');
+    				} catch (Zend_Db_Exception $e) {
+    					echo $e->getMessage();
+    				}
+    				
     			}
     			else
     			{
     				$this->view->errors = $form->getErrors();
-    				$form->populate($formData);
+    				//$form->populate($formData);
     			}
     		}
     		

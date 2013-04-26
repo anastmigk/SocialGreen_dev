@@ -19,6 +19,13 @@ class Application_Form_UploadAvatar extends Zend_Form
     	$file->setLabel('File');
     	$file->setDestination(BASE_PATH . '/public/images/avatars');
     	$file->setRequired(true);
+    	// ensure only 1 file
+    	$file->addValidator('Count', false, 1);
+    	// limit to 100K
+    	//$file->addValidator('Size', false, 102400);
+    	// only JPEG, PNG, and GIFs
+    	$file->addValidator('Extension', false, 'jpg,png,gif');
+    	//$file->setValueDisabled(true);
     	
     	$submit = new Zend_Form_Element_Submit('submit');
     	$submit->setLabel('Upload');
