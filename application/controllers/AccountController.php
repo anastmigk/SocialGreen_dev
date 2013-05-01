@@ -37,6 +37,9 @@ class AccountController extends Zend_Controller_Action
         
         //$this->view->paginator=$paginator;
         $this->view->results = $paginator;
+        
+        $Ladder = new Application_Model_DailyLadder();
+        $this->view->activity = $Ladder->getGraph();
     }
 
     public function registerAction()
@@ -172,14 +175,15 @@ class AccountController extends Zend_Controller_Action
     		
     		$userAccount = $accounts->fetchAll($select);
     		
-    		$form = new Application_Form_UploadAvatar();
+    		//$form = new Application_Form_UploadAvatar();
+    		$form = new Application_Model_FormRegister("edit");
     		
     		$elements = $form->getElements();
     		foreach($elements as $element) {
     			$element->removeDecorator('Errors');
     		}
     		
-    		//$form->populate($userAccount->current()->toArray());
+    		$form->populate($userAccount->current()->toArray());
     		
     		$this->view->form = $form;
     		
@@ -190,32 +194,32 @@ class AccountController extends Zend_Controller_Action
     			if ($form->isValid($formData)) 
     			{
     				//FILE renamed to username
-    				$originalFilename = pathinfo($form->file->getFileName());
+    				//$originalFilename = pathinfo($form->file->getFileName());
     				//Zend_Debug::dump($originalFilename);
-    				$newName = $username. $userId . "." . $originalFilename['extension'];
-    				$form->file->addFilter('Rename', $newName);
+    				//$newName = $username. $userId . "." . $originalFilename['extension'];
+    				//$form->file->addFilter('Rename', $newName);
     				//$data = $form->getValues();
     				
     				// success - do something with the uploaded file
-    				$uploadedData = $form->getValues();
-    				$fullFilePath = $form->file->getFileName();
+    				//$uploadedData = $form->getValues();
+    				//$fullFilePath = $form->file->getFileName();
     				
     				//Zend_Debug::dump($uploadedData, '$uploadedData');
     				//Zend_Debug::dump($fullFilePath, '$fullFilePath');
     				
     				//Database update
     				$account = new Application_Model_DbTable_Accounts();
-    				//$salt = substr(md5(rand()), 0, 32);
-    				//$hashedPass = sha1($form->getValue('pswd').$salt);
+    				$salt = substr(md5(rand()), 0, 32);
+    				$hashedPass = sha1($form->getValue('pswd').$salt);
     				$data2 = array(
-    						/*'email'=>$form->getValue('email'),
+    						'email'=>$form->getValue('email'),
     						'description'=>$form->getValue('description'),
     						'username'=>$form->getValue('username'),
     						'password'=>$hashedPass,
-    						'salt'=> $salt,*/
+    						'salt'=> $salt,
     						'created'=>date('Y-m-d H:i:s'),
-    						'updated'=>date('Y-m-d H:i:s'),
-    						'avatar' => "/images/avatars/".$uploadedData['file']
+    						'updated'=>date('Y-m-d H:i:s')//,
+    						//'avatar' => "/images/avatars/".$uploadedData['file']
     				);
     				
     				$where = array('id = ?' => $userId);

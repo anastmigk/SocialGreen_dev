@@ -12,8 +12,7 @@ try {
 	echo $e->getMessage();
 }
 ?>
-<html xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#"
-xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<html xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
     <head>
     	<meta charset="utf-8" />
   		<?php echo $this->headTitle($this->title); ?>
@@ -50,7 +49,12 @@ xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
     	<!-- Bootstrap -->
     	<?php  $this->headLink()->appendStylesheet($this->baseUrl('bootstrap/css/bootstrap.min.css')); ?>
     	<?php  $this->headLink()->appendStylesheet($this->baseUrl('css/mainStyle.css')); ?>
-    	<?php echo $this->headLink(); ?>	
+    	
+    	<!-- jPlot Pluggin - Charts -->
+    	<?php $this->headLink()->appendStylesheet($this->baseUrl('jqplot/jquery.jqplot.css')) ?>
+    	<script src="<?php echo $this->baseUrl("jqplot/jquery.jqplot.min.js"); ?>"></script>
+ 
+    	<?php echo $this->headLink(); ?>
     </head>
 <body >
 <!-- Facebook Login
@@ -267,12 +271,12 @@ xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
     
  <!-- BootStrap & Jquery Script 
      ================================================== -->
- <script src="http://code.jquery.com/jquery.js"></script>
+ <!-- <script src="http://code.jquery.com/jquery.js"></script> -->
  <script src="<?php echo $this->baseUrl("bootstrap/js/bootstrap.min.js"); ?>"></script>
  <script type="text/javascript">
  			$(document).ready(function () {
     			$("a").tooltip();
-  			});
+      		}); 			
 </script>
  
  <!-- Start of StatCounter Code for Default Guide -->

@@ -13,7 +13,13 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
 
             $username = $auth->getIdentity()->username;
             $avatar = $auth->getIdentity()->avatar;
-
+            $accounts2 = new Application_Model_DbTable_Accounts();
+            $select2 = $accounts2->select();
+            $select2->from($accounts2, array('avatar'))->where('username = ?', $username);
+            
+            $avatarTemp = $accounts2->fetchAll($select2);
+            $avatar = $avatarTemp[0]->avatar;
+            
             $logoutUrl = $this->view->url(array('controller'=>'auth','action'=>'logout'), null, true);
             
             $editUrl = $this->view->url(array('controller'=>'account', 'action'=>'profile', 'usr'=>$username),null, true);

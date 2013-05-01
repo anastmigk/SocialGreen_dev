@@ -38,14 +38,25 @@
 	<div class="span6 offset1">
 		<div class="row-fluid ">
 			<ul class="nav nav-pills">
-				<li class="active"><a  data-toggle="tab" href="#Activity">Activity</a></li>
-			  	<li><a data-toggle="tab" href="#Diagram">Diagram</a></li>
+				<li class="active"><a data-toggle="tab" href="#Diagram">Diagram</a></li>
+			  	<li><a  data-toggle="tab" href="#Activity">Activity</a></li>
 			  	<li><a  data-toggle="tab" href="#Barchart">Barchart</a></li>
 			</ul>
             <div id="myTabContent" class="tab-content">
 				
+				<!-- Diagram Content -->
+            	<div class="tab-pane fade active in" id="Diagram">
+    					<div id="chartdiv"></div>
+    					<?php // foreach($this->paginator as $record)
+					    //{
+					     //   echo $record['email'].'\n';
+					    //}
+					    //echo $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml');
+					    ?>
+              	</div>
+              	
 				<!-- Activity Content -->
-				<div class="tab-pane fade active in" id="Activity">
+				<div class="tab-pane fade" id="Activity">
 					<?php  foreach ( $allactivity as $activity) { ?>
 					<div class="media">
 	                    <a class="pull-left" href="<?php echo $this->baseUrl('account/profile/').'?user='.$activity->username;?>">
@@ -55,21 +66,16 @@
 	    					<h4 class="media-heading"><?php echo $activity->username;  ?></h4>
 	    					 just saved <?php echo $activity->quantity;?>
 	    				</div>
+	
 					</div> 
+	
 					<?php } ?>
+	
 					<?php echo $this->paginationControl($this->results, 'Sliding', 'pagination.phtml'); ?>
+	
 				</div>            
             
-            	<!-- Diagram Content -->
-            	<div class="tab-pane fade" id="Diagram">
-               		<?php // foreach($this->paginator as $record)
-					    //{
-					     //   echo $record['email'].'\n';
-					    //}
-					    //echo $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml');
-					    ?>
-              	</div>
-              	
+            	
               	<!-- Barchart Content -->
 				<div class="tab-pane fade" id="Barchart">
               		<?php $place = 1;?>
@@ -82,10 +88,32 @@
 						</div>
 					<?php $place++; } ?>
 			 	</div>
-			 	
-			 	
-								
             </div>
 		</div>	
 	</div>
 </div>
+<script>
+<?php 
+	$count=1;
+	$lines = "[";
+	foreach ($this->activity as $act) {
+		echo "var line".$count."=".str_replace('"', "", $act).";";
+		//echo "<br>";
+		$lines.= " line".$count.",";
+		$count++;
+	}
+	$lines = rtrim($lines, ",");
+	$lines.="]";
+?>
+//var line1 = [14, 32, 41, 44, 40, 47, 53, 67];
+var plot1 = $.jqplot('chartdiv', <?php echo $lines ?>, {
+	  animate: true,
+      // Will animate plot on calls to plot1.replot({resetAxes:true})
+      animateReplot: true,
+    title: 'Chart with Point Labels', 
+    seriesDefaults: { 
+      showMarker:false,
+      pointLabels: { show:true } 
+    }
+});
+</script>

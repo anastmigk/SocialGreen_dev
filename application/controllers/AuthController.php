@@ -26,8 +26,8 @@ class AuthController extends Zend_Controller_Action
     			if ($this->_process($form->getValues())) {
     			
     				// We're authenticated! Redirect to the home page
-    				$rememberme = 60*15;
-    				Zend_Session::RememberMe($rememberme);
+    				//$rememberme = 60*15;
+    				//Zend_Session::RememberMe($rememberme);
     				$this->_helper->redirector('index', 'account');
     			} else {
     				
@@ -59,6 +59,7 @@ class AuthController extends Zend_Controller_Action
     
     	if ($result->isValid() && $this->isConfirmedAction($values['username']))
     	{
+    		$adapter->setIdentity("1");
     		$user = $adapter->getResultRowObject();
     		    
     		$auth->getStorage()->write($user);

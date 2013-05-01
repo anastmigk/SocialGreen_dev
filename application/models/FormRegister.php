@@ -69,25 +69,17 @@ class Application_Model_FormRegister extends Zend_Form {
         $pswd2->removeDecorator('label');
         $pswd2->removeDecorator('htmlTag');
         
-        /*$file = new Zend_Form_Element_File('file');
-        $file->setRequired(true);
-        $file->setDestination(BASE_PATH . '/public/images/avatars');
-        // ensure only 1 file
-        //$file->addValidator('Count', false, 1);
-        // limit to 100K
-       // $file->addValidator('Size', false, 102400);
-        // only JPEG, PNG, and GIFs
-        //$file->addValidator('Extension', false, 'jpg,png,gif');
-       // $file->setValueDisabled(true);
-        
-        /*$file->addValidator('IsImage');
-        $file->setMaxFileSize(5242880);
-        $file->addValidator('Size', false, array('max' => '5242880'));
-        $file->addValidator('Count', false, 1);
-        $file->addValidator('Extension', false, array('jpg', 'jpeg', 'png', 'gif'));
-        $file->removeDecorator('label');
-        $file->removeDecorator('htmlTag');
-        $file->addErrorMessage("Profile Photo");*/
+       	///$file = new Zend_Form_Element_File('file');
+    	//$file->setLabel('File');
+    	//$file->setDestination(BASE_PATH . '/public/images/avatars');
+    	//$file->setRequired(true);
+    	// ensure only 1 file
+    	//$file->addValidator('Count', false, 1);
+    	// limit to 100K
+    	//$file->addValidator('Size', false, 102400);
+    	// only JPEG, PNG, and GIFs
+    	//$file->addValidator('Extension', false, 'jpg,png,gif');
+    	//$file->setValueDisabled(true);
         
         $description = new Zend_Form_Element_Textarea('description');
         $description->removeDecorator('label');
@@ -100,7 +92,7 @@ class Application_Model_FormRegister extends Zend_Form {
         
         $this->setDecorators( array( array('ViewScript', array('viewScript' => '_form_register.phtml'))));
         
-        $this->addElements(array($username, $email, $pswd, $pswd2, $captcha, $submit));
+        $this->addElements(array($username, $email, $pswd, $pswd2, $submit));
         //$this->addElements(array($email, $submit));
     }
 }

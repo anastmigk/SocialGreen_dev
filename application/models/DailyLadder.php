@@ -13,7 +13,7 @@ class Application_Model_DailyLadder
 	}
 
 	public function __construct(array $options = null){
-		
+		/*
 		$ladder = new Application_Model_DbTable_Ladder();
 		$users = new Application_Model_DbTable_Accounts();
 		
@@ -50,8 +50,61 @@ class Application_Model_DailyLadder
 			$graph.="],";
 		}
 		$graph = substr($graph,0,-1);
+		*/
 		
-		$this->graph = $this->getHtmlCode($graph);		
+		$activity = new Application_Model_DbTable_Activity();
+		$select = $activity->select();
+		$select->from($activity)->order("userid ASC");
+		$data = $activity->fetchAll($select);
+		
+		$datesSelect = $activity->select();
+		$datesSelect->from($activity, array('date'))->distinct()->order("date ASC");
+		$dates = $activity->fetchAll($datesSelect);
+		$dateArray = array();
+		foreach ($dates as $date){
+			$dateArray[] = $date['date'];
+		}
+		
+//		var_dump($dateArray);
+		
+		$users =  array();
+		$currentID = null;
+		$currentDate = null;
+		$population = count($dateArray);
+		$flipped_dateArray = array_flip($dateArray);
+		//var_dump($flipped_dateArray);
+		
+		foreach ($data as $entry){
+			
+			$needle = $entry['date'];
+			$currentID = $entry['userid'];
+			$users[$currentID] = array_fill(0, $population, 0);
+			
+			if (isset($flipped_dateArray[$needle]) )
+			{
+				$users[$currentID][strval($flipped_dateArray[$needle])] = $entry['quantity'];
+//				$users[$currentID][] = $entry['quantity'];
+				
+			} else {
+			//	$users[$currentID][] = 0;
+			}
+			
+			
+	/*		
+			if ($currentDate!=$entry['date']){
+				$currentDate = $entry['date'];
+			}
+				$currentID = $entry['userid'];
+				$users[$currentID][] = $entry['quantity'];
+	*/
+		}
+		$jsUsers = array();
+		foreach ($users as $user){
+			$jsUsers[]= $this->getHtmlCode($user);
+		}
+		
+		//$this->graph = $this->getHtmlCode($graph);	
+		$this->graph = $jsUsers;	
 	}
 
 	private function getHtmlCode($vars) {
@@ -84,7 +137,10 @@ class Application_Model_DailyLadder
     <div id='dailyLadder'></div>
 		 ";
 		
-		return $htmlCode;
+		$newHtml = "";
+		$js_array = json_encode($vars);
+		return $js_array;
+		//return $htmlCode;
 	}
 }
 
