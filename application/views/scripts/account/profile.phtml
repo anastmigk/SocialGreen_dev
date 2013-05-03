@@ -1,4 +1,5 @@
 <?php  $accountsFriends = $this->accounts; ?>
+<?php $activeUser = $this->activeAccount; ?>
 <?php  $accounts = $this->accounts; ?>
 <?php  $auth = Zend_Auth::getInstance();
 		$username = $auth->getIdentity()->username;?>
@@ -20,58 +21,48 @@
 				$mostPoints = 0;
 				?>
 				<?php  foreach ($accountsFriends as $account) { ?>
+				<?php if ($counter==0) $mostPoints = $account->quantity; ?>
 					<div class="span2 friends">
 						  <a class="thumbnail" title="<?php echo $account->username; ?>" href="<?php echo $this->baseUrl('account/profile/').'?user='.$account->username;?>">
 						    <span class="right visible-phone"><?php echo $account->username; ?></span>
-						    <img class="media-object" src="http://placehold.it/50x50&text=Thumbnail">
-						    
+  						    <img class="media-object" src="<?php echo $this->baseUrl($account->avatar); ?>">
 						  </a>
 						<?php if ($counter==0) { echo '<span class="left label label-info newMember">New!</span>'; }
-						elseif ($account->points>10) {  echo '<span class="left label label-success newMember"><i class="icon-leaf icon-white"></i></span>';}?>
+						elseif ($account->quantity>0.8*$mostPoints) {  echo '<span class="left label label-success newMember"><i class="icon-leaf icon-white"></i></span>';}?>
 					</div>
 				 <?php 
 				 $counter++; 
-				if ($mostPoints<$account->points) $mostPoints = $account->points;
 				} ?>	
 			</div>
 		</div>
 	</div>
-	<div class="span6 offset1">
-		<div class="row-fluid ">
-			<ul class="nav nav-pills">
-			  <li class="active">
-			    <a  data-toggle="tab" href="#Leaderboard">Leaderboard</a>
-			  </li>
-			  <li><a  data-toggle="tab" href="#Badges">Badges</a></li>
-			</ul>
-            <div id="myTabContent" class="tab-content">
-              <div class="tab-pane fade active in" id="Leaderboard">
-              		<?php $place = 1;?>
-	                <?php  foreach ($accounts as $account) {      	
-	                	if($account->username == $username) { ?>
-	                
-	                    <div class="row-fluid">
-	                    	<p>#<?php echo $place." - ". $account->username; ?></p>
-		                	<div class="progress">
-			  					<div class="bar bar-success" style="width: <?php echo ($account->points/$mostPoints)*100 ?>%;"><?php echo $account->points;?> points</div>
-							</div>
-						</div>
-					<?php } $place++; } ?>
-			  </div>
-              <div class="tab-pane fade" id="Badges">
-                <table class="table">
-				 <thead><td>Badge</td><td>Description</td></thead>
-				 <tr><td><i class="icon-search"></i></td><td>Best noob</td></tr>
-				 <tr><td><i class="icon-eject"></i></td><td>Best noob</td></tr>
-				 <tr><td><i class="icon-remove-sign"></i></td><td>Best noob</td></tr>
-				 <tr><td><i class="icon-remove-circle"></i></td><td>Best noob</td></tr>
-				 <tr><td><i class="icon-shopping-cart"></i></td><td>Best noob</td></tr>
-				 <tr><td><i class="icon-circle-arrow-left"></i></td><td>Best noob</td></tr>
-				 <tr><td><i class="icon-th-large"></i></td><td>Best noob</td></tr>
-				</table>
-              </div>
-            </div>
-		</div>	
+	<div class="span6 offset0">
+	<?php  foreach ($accounts as $account) {      	
+       	if($account->username == $activeUser) { ?>
+		<div class='row-fluid hero-unit'>
+			<div class="span5">
+				 <img class="media-object" src="<?php echo $this->baseUrl($account->avatar); ?>">
+			</div>
+			<div class="span6">
+				<div class="row-fluid">
+					<h3><?php echo $account->username; ?></h3>
+				</div>
+				<div class="row-fluid">
+					<p>Total points:<?php echo $account->quantity; ?></p>
+				</div>
+				<div class="row-fluid">
+					<p>Last recycled on:<?php echo date("F j, Y",strtotime($account->date)); ?></p>
+				</div>
+			</div>
+		
+		</div>
+		<div class="row-fluid">
+			<div class="progress">
+				<div class="bar bar-success" style="width: <?php echo ($account->quantity/$mostPoints)*100 ?>%;"><?php echo $account->quantity;?> points</div>
+			</div>
+		</div>
+	<?php } } ?>
+		
 	</div>
 </div>
 

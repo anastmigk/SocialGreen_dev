@@ -1,6 +1,7 @@
 <?php  $accountsFriends = $this->accounts; ?>
 <?php  $accounts = $this->accounts; ?>
 <?php  $allactivity = $this->results; ?>
+<?php  $usernamesTemp = $this->usernames; ?>
 
 <div class="row-fluid userContent">
 	<div class="span3">
@@ -19,23 +20,23 @@
 				$mostPoints = 0;
 				?>
 				<?php  foreach ($accountsFriends as $account) { ?>
+				<?php if ($counter==0) $mostPoints = $account->quantity; ?>
 					<div class="span2 friends">
 						  <a class="thumbnail" title="<?php echo $account->username; ?>" href="<?php echo $this->baseUrl('account/profile/').'?user='.$account->username;?>">
 						    <span class="right visible-phone"><?php echo $account->username; ?></span>
-						    <img class="media-object" src="http://placehold.it/50x50&text=Thumbnail">
+						    <img class="media-object" src="<?php echo $this->baseUrl($account->avatar); ?>">
 						  </a>
 						<?php if ($counter==0) { echo '<span class="left label label-info newMember">New!</span>'; }
-						elseif ($account->points>10) {  echo '<span class="left label label-success newMember"><i class="icon-leaf icon-white"></i></span>';}?>
+						elseif ($account->quantity>0.8*$mostPoints) {  echo '<span class="left label label-success newMember"><i class="icon-leaf icon-white"></i></span>';}?>
 					</div>
 				 <?php 
 				 $counter++; 
-				if ($mostPoints<$account->points) $mostPoints = $account->points;
-				} ?>	
+			} ?>	
 			</div>
 		</div>
 	</div>
 	
-	<div class="span6 offset1">
+	<div class="span8">
 		<div class="row-fluid ">
 			<ul class="nav nav-pills">
 				<li class="active"><a data-toggle="tab" href="#Diagram">Diagram</a></li>
@@ -57,8 +58,9 @@
               	
 				<!-- Activity Content -->
 				<div class="tab-pane fade" id="Activity">
+					<table class="table table-hover table-stripped">
 					<?php  foreach ( $allactivity as $activity) { ?>
-					<div class="media">
+					<!--  <div class="media">
 	                    <a class="pull-left" href="<?php echo $this->baseUrl('account/profile/').'?user='.$activity->username;?>">
 	                    <img class="media-object" src="http://placehold.it/64x64">
 	                    </a>
@@ -68,9 +70,20 @@
 	    				</div>
 	
 					</div> 
-	
+					-->
+						<tr>
+							<td>
+								<a class="pull-left" href="<?php echo $this->baseUrl('account/profile/').'?user='.$activity->username;?>">
+	                    			<img class="media-object" src="http://placehold.it/64x64">
+	                    		</a>
+							</td>
+							<td>
+								<?php echo $activity->username;  ?>	gained <?php echo $activity->quantity;?> (<?php echo date("d-M",strtotime($activity->date)) ?>)!
+							</td>
+						</tr>
+					
 					<?php } ?>
-	
+					</table>
 					<?php echo $this->paginationControl($this->results, 'Sliding', 'pagination.phtml'); ?>
 	
 				</div>            
@@ -83,7 +96,7 @@
 	                    <div class="row-fluid">
 	                    	<p>#<?php echo $place." - ". $account->username; ?></p>
 		                   <div class="progress">
-			  					<div class="bar bar-success" style="width: <?php echo ($account->points/$mostPoints)*100 ?>%;"><?php echo $account->points;?> points</div>
+			  					<div class="bar bar-success" style="width: <?php echo ($account->quantity/$mostPoints)*100 ?>%;"><?php echo $account->quantity;?> points</div>
 							</div>
 						</div>
 					<?php $place++; } ?>
@@ -104,16 +117,63 @@
 	}
 	$lines = rtrim($lines, ",");
 	$lines.="]";
+	
+
+	$usernames = "[";
+	foreach ($usernamesTemp as $usr) {
+		$usernames.='"'.$usr.'",';
+	}
+	$usernames = rtrim($usernames, ",");
+	$usernames.="]"; 
+
+	$ticks = "[";
+	$i = 1;
+	foreach ($this->dates as $date){
+		$ticks.='['.$i.',"'.date("d-M", strtotime($date)).'"],';
+		$i++;
+	}
+	$ticks = rtrim($ticks,",");
+	$ticks.="]";
 ?>
-//var line1 = [14, 32, 41, 44, 40, 47, 53, 67];
+var labels = <?php echo $usernames; ?>;
+var ticks = <?php echo $ticks; ?>; 
 var plot1 = $.jqplot('chartdiv', <?php echo $lines ?>, {
 	  animate: true,
       // Will animate plot on calls to plot1.replot({resetAxes:true})
-      animateReplot: true,
+      animateReplot: false,
     title: 'Chart with Point Labels', 
     seriesDefaults: { 
       showMarker:false,
       pointLabels: { show:true } 
+    },
+    legend: {
+        show: true,
+        renderer: $.jqplot.EnhancedLegendRenderer,
+        placement: "outsideGrid",
+        labels: labels,
+        location: "nw",
+        rowSpacing: "1px"
+    },
+    axes: {
+        xaxis: {
+        	tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+            pad: 1,
+            label: 'Activity over time',
+            tickOptions: {
+                showGridline: true,
+                angle: -30
+            },
+            ticks: ticks
+        },
+        yaxis: {
+            min: 0,
+            //max: 100,
+            //label: 'Points',
+            tickOptions: {
+              showGridline: true//,
+            //  suffix: '%'
+            }
+        }
     }
 });
 </script>

@@ -11,15 +11,27 @@ class AccountController extends Zend_Controller_Action
     	if ($this->_helper->FlashMessenger->hasMessages()) {
     		$this->view->messages = $this->_helper->FlashMessenger->getMessages();
     	}
+    	//Retrieve All user accounts
+    	$accounts = new Application_Model_DbTable_Accounts();
+    	$query = $accounts->select();
+    	$query->from(array('act' => 'activity'), array('SUM(act.quantity) as quantity','userid','MAX(act.date) as date'));
+    	$query->join(array('acc' => 'accounts'), 'act.userid = acc.id', array('username','avatar'));
+    	$query->order('quantity DESC');
+    	$query->group(array("username"));
+    	$query->setIntegrityCheck(false);
+    	//echo (String)$query;
+    	$this->view->accounts = $accounts->fetchAll($query);
+    	
     }
 
     public function indexAction()
     {
         // action body
-        $accounts = new Application_Model_DbTable_Accounts();
-        $order = $accounts->select()->order("points DESC");
-        $this->view->accounts = $accounts->fetchAll($order);
+        //$accounts = new Application_Model_DbTable_Accounts();
+        //$order = $accounts->select()->order("points DESC");
+        //$this->view->accounts = $accounts->fetchAll($order);
         
+       
         $activity = new Application_Model_DbTable_Activity();
         //$this->view->results = $activity->fetchAll();
         
@@ -32,7 +44,7 @@ class AccountController extends Zend_Controller_Action
         $result = $activity->fetchAll($query);
         $page = $this->_getParam('page',1);
         $paginator = Zend_Paginator::factory($result);
-        $paginator->setItemCountPerPage(3);
+        $paginator->setItemCountPerPage(6);
         $paginator->setCurrentPageNumber($page);
         
         //$this->view->paginator=$paginator;
@@ -40,6 +52,8 @@ class AccountController extends Zend_Controller_Action
         
         $Ladder = new Application_Model_DailyLadder();
         $this->view->activity = $Ladder->getGraph();
+        $this->view->usernames = $Ladder->getUsernames();
+        $this->view->dates = $Ladder->getDates();
     }
 
     public function registerAction()
@@ -153,9 +167,10 @@ class AccountController extends Zend_Controller_Action
         // action body
     	$user = $this->_getParam('user');
     	
-        $accounts = new Application_Model_DbTable_Accounts();
-        $order = $accounts->select()->order("points DESC");
-        $this->view->accounts = $accounts->fetchAll($order);
+//        $accounts = new Application_Model_DbTable_Accounts();
+//        $order = $accounts->select()->order("points DESC");
+ //       $order->where("username = ?", $user);
+        $this->view->activeAccount = $user;// $accounts->fetchAll($order);
         
     }
 

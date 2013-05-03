@@ -4,12 +4,22 @@ class Application_Model_DailyLadder
 {
 	
 	private $graph;
+	private $usernames;
+	private $dates;
 	
 	/**
 	 * @return the $graph
 	 */
 	public function getGraph() {
 		return $this->graph;
+	}
+	
+	public function getUsernames(){
+		return $this->usernames;
+	}
+	
+	public function getDates(){
+		return $this->dates;
 	}
 
 	public function __construct(array $options = null){
@@ -51,59 +61,67 @@ class Application_Model_DailyLadder
 		}
 		$graph = substr($graph,0,-1);
 		*/
-		
 		$activity = new Application_Model_DbTable_Activity();
-		$select = $activity->select();
-		$select->from($activity)->order("userid ASC");
-		$data = $activity->fetchAll($select);
+		$query = $activity->select();
+		$query->from(array('act' => 'activity'), array('id', 'userid','quantity','date'));
+		$query->join(array('acc' => 'accounts'), 'act.userid = acc.id', array("id","username"));
+		$query->order('act.date ASC');
+		$query->setIntegrityCheck(false);
 		
-		$datesSelect = $activity->select();
-		$datesSelect->from($activity, array('date'))->distinct()->order("date ASC");
-		$dates = $activity->fetchAll($datesSelect);
+		//$activity = new Application_Model_DbTable_Activity();
+		//$select = $activity->select();
+		//$select->from($activity)->order("userid ASC");
+		//$data = $activity->fetchAll($select);
+		$data = $activity->fetchAll($query);
+		
+		//$datesSelect = $activity->select();
+		//$datesSelect->from($activity, array('date'))->distinct()->order("date ASC");
+		//$dates = $activity->fetchAll($datesSelect);
+		
 		$dateArray = array();
-		foreach ($dates as $date){
-			$dateArray[] = $date['date'];
+		$prevDate = null;
+		$i=0;
+		foreach ($data as $date){
+			if ($prevDate!=$date['date']){
+				$prevDate = $date['date'];
+				$dateArray[$i] = $date['date'];
+				$i++;
+			}
 		}
+		$this->dates = $dateArray;
 		
-//		var_dump($dateArray);
+		$flipped_dateArray = array_flip($dateArray);
+		$population = count($flipped_dateArray);
 		
 		$users =  array();
 		$currentID = null;
 		$currentDate = null;
-		$population = count($dateArray);
-		$flipped_dateArray = array_flip($dateArray);
+		$usernames = array();
 		//var_dump($flipped_dateArray);
-		
 		foreach ($data as $entry){
-			
-			$needle = $entry['date'];
 			$currentID = $entry['userid'];
 			$users[$currentID] = array_fill(0, $population, 0);
-			
-			if (isset($flipped_dateArray[$needle]) )
-			{
-				$users[$currentID][strval($flipped_dateArray[$needle])] = $entry['quantity'];
-//				$users[$currentID][] = $entry['quantity'];
-				
+		}
+		
+		$i=0;
+		$prevUser = null;
+		foreach ($data as $entry){
+			$currentID = $entry['userid'];
+			$needle = $entry['date'];
+			if ($prevUser!= $currentID) {
+				$users[$currentID][$flipped_dateArray[$needle]] = $entry['quantity'];
+				$usernames[$currentID] = $entry['username'];
 			} else {
-			//	$users[$currentID][] = 0;
+				$users[$currentID][$flipped_dateArray[$needle]] += $entry['quantity'];
 			}
-			
-			
-	/*		
-			if ($currentDate!=$entry['date']){
-				$currentDate = $entry['date'];
-			}
-				$currentID = $entry['userid'];
-				$users[$currentID][] = $entry['quantity'];
-	*/
+		$i++;	
 		}
 		$jsUsers = array();
 		foreach ($users as $user){
-			$jsUsers[]= $this->getHtmlCode($user);
+			$jsUsers[]= $this->getHtmlCode($user); //transform to Javascript Array
+			
 		}
-		
-		//$this->graph = $this->getHtmlCode($graph);	
+		$this->usernames = $usernames;
 		$this->graph = $jsUsers;	
 	}
 
