@@ -6,7 +6,7 @@ class AccountController extends Zend_Controller_Action
     public function init()
     {
         /* Initialize action controller here */
-    	$title = "Accounts Management";
+    	$title = "User Management";
     	$this->view->title = $title;
     	if ($this->_helper->FlashMessenger->hasMessages()) {
     		$this->view->messages = $this->_helper->FlashMessenger->getMessages();
@@ -166,7 +166,7 @@ class AccountController extends Zend_Controller_Action
         
         // action body
     	$user = $this->_getParam('user');
-    	
+    	$this->view->title = $user;//->append($user);
 //        $accounts = new Application_Model_DbTable_Accounts();
 //        $order = $accounts->select()->order("points DESC");
  //       $order->where("username = ?", $user);

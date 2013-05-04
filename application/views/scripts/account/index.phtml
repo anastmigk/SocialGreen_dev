@@ -143,7 +143,7 @@ var plot1 = $.jqplot('chartdiv', <?php echo $lines ?>, {
       animateReplot: false,
     title: 'Chart with Point Labels', 
     seriesDefaults: { 
-      showMarker:false,
+      showMarker:true,
       pointLabels: { show:true } 
     },
     legend: {
@@ -151,8 +151,19 @@ var plot1 = $.jqplot('chartdiv', <?php echo $lines ?>, {
         renderer: $.jqplot.EnhancedLegendRenderer,
         placement: "outsideGrid",
         labels: labels,
-        location: "nw",
-        rowSpacing: "1px"
+        location: "ne",
+        rowSpacing: "1px",
+        seriesToggle : 'normal',
+        showSwatches : true,
+        showLabels: true
+    },
+    highlighter: {
+        show: true,
+        sizeAdjust: 7.5,
+        bringSeriesToFront: true
+    },
+    cursor: {
+        show: false
     },
     axes: {
         xaxis: {

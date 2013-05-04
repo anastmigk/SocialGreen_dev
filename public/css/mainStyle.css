@@ -226,8 +226,14 @@ ul.mylist li{
 	position: absolute;
 	top:20%;
 	right:+18%;
-	
 }
+
+@media (max-width: 767px) {
+	.friends .thumbnail img{
+		width:15%;
+	}
+}
+
 .newMember {
 	position:absolute;
 	top:5px;
@@ -276,6 +282,32 @@ div#mainContent{
 	/*padding:1%;*/
 	overflow:auto;
 	padding-bottom: 280px;
+}
+
+/*Tweets*/
+
+table#twitter {
+	width:95%;	
+	margin:5px;
+	border-radius:5px;
+	box-shadow: 0px 0px 16px rgba(169, 232, 125, 0.91);
+	background-image:url('https://dev.twitter.com/sites/default/files/images_documentation/bird_blue_32.png');
+	background-repeat:no-repeat;
+	background-position:95% 95%;
+}
+
+table#twitter tr {
+	
+}
+table#twitter tr td.text {
+	font-size:small;
+	width:85%;
+	padding:5%;
+}
+
+table#twitter tr td.time {
+	font-size:x-small;
+	padding:5%;
 }
 /* Under Construction
  =========================*/
