@@ -295,9 +295,10 @@ table#twitter {
 	background-repeat:no-repeat;
 	background-position:95% 95%;
 }
-
-table#twitter tr {
-	
+ 
+table#twitter tr:first-child td {
+	padding-left:10px;
+	padding-top:5px;
 }
 table#twitter tr td.text {
 	font-size:small;
@@ -552,7 +553,9 @@ div.staffnames {
 	display:table-cell; vertical-align:middle
 }
 
-
+div#activity img {
+	max-height:20px;
+}
 
 /* Responsive
 -------------------------------------------------- */

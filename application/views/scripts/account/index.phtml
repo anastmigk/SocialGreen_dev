@@ -8,7 +8,7 @@
 		<div class="row-fluid">
 			<div class="span12">
 				<div class="profile-points">
-					<h1>234</h1><p>Total leafs saved today</p>
+					<h1>234</h1><p>Total leafs saved!</p>
 				</div>
 			</div>
 		</div>
@@ -32,6 +32,12 @@
 				 <?php 
 				 $counter++; 
 			} ?>	
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12">
+				<h5>Updates</h5>
+				<?php $this->tweets(); ?>
 			</div>
 		</div>
 	</div>
@@ -74,7 +80,7 @@
 						<tr>
 							<td>
 								<a class="pull-left" href="<?php echo $this->baseUrl('account/profile/').'?user='.$activity->username;?>">
-	                    			<img class="media-object" src="http://placehold.it/64x64">
+	                    			<img class="media-object thumbnail" src="<?php echo $this->baseUrl($activity->avatar);?>">
 	                    		</a>
 							</td>
 							<td>
@@ -90,7 +96,7 @@
             
             	
               	<!-- Barchart Content -->
-				<div class="tab-pane fade" id="Barchart">
+				<div class="tab-pane fade well" id="Barchart">
               		<?php $place = 1;?>
 	                <?php  foreach ($accounts as $account) { ?>
 	                    <div class="row-fluid">
@@ -144,7 +150,8 @@ var plot1 = $.jqplot('chartdiv', <?php echo $lines ?>, {
     title: 'Chart with Point Labels', 
     seriesDefaults: { 
       showMarker:true,
-      pointLabels: { show:true } 
+      pointLabels: { show:true },
+      rendererOptions: {smooth: true} 
     },
     legend: {
         show: true,

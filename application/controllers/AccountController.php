@@ -36,7 +36,7 @@ class AccountController extends Zend_Controller_Action
         //$this->view->results = $activity->fetchAll();
         
         $query = $activity->select();
-        $query->from(array('acc' => 'accounts'), array('id', 'username'));
+        $query->from(array('acc' => 'accounts'), array('id', 'username','avatar'));
         $query->join(array('act' => 'activity'), 'act.userid = acc.id', array('quantity','date'));
         $query->order('act.date DESC');
         $query->setIntegrityCheck(false);
