@@ -17,6 +17,11 @@ html {
 	overflow-y: scroll;
 }
 
+div#barchart span:nth-of-type(1) {
+	font-family: 'Roboto','Chewy', cursive;
+	font-size:x-large;
+}
+
 #wrap {
 	min-height: 100%;
 }

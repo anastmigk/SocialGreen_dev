@@ -18,7 +18,8 @@ class Zend_View_Helper_Tweets extends Zend_View_Helper_Abstract
 			if ($displayCounter>=$limit) echo " class='hidden' ";
 			echo ">";
 			echo "<td class='text'>";
-			echo $item['text'];//linkEntitiesWithinText($arr);//$item['text'];
+			//echo $item['text'];//linkEntitiesWithinText($arr);//$item['text'];
+			echo $this->links($item['text']);
 			echo "</td>";
 			echo "<td class='time'>";
 			echo date("j/n/y",strtotime($item['created_at']));;
@@ -47,4 +48,30 @@ class Zend_View_Helper_Tweets extends Zend_View_Helper_Abstract
 		</script>
 		<?php	
 	}
+	
+	private function links($status_text) {
+		// linkify URLs
+		$status_text = preg_replace(
+				'/(https?:\/\/\S+)/',
+				'<a target="_blank" href="\1" class="preg-links">\1</a>',
+				$status_text
+		);
+	
+		// linkify twitter users
+		$status_text = preg_replace(
+				'/(^|\s)@(\w+)/',
+				'\1@<a target="_blank" href="http://twitter.com/\2" class="preg-links">\2</a>',
+				$status_text
+		);
+	
+		// linkify tags
+		$status_text = preg_replace(
+				'/(^|\s)#(\w+)/',
+				'\1#<a target="_blank" href="http://twitter.com/search?q=%23\2" class="preg-links">\2</a>',
+				$status_text
+		);
+	
+		return $status_text;
+	}
+	
 }

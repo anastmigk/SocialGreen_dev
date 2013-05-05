@@ -100,7 +100,7 @@
               		<?php $place = 1;?>
 	                <?php  foreach ($accounts as $account) { ?>
 	                    <div class="row-fluid">
-	                    	<p>#<?php echo $place." - ". $account->username; ?></p>
+	                    	<p><img src='<?php echo $this->baseUrl("images/numbers/".$place.".png"); ?>'>&nbsp;&nbsp;&nbsp;<span><?php echo $account->username; ?></span>&nbsp;&nbsp;<span class="pull-right">Last week&nbsp;&nbsp;&nbsp;<img src='<?php echo $this->baseUrl("images/numbers/up.png"); ?>'></span></p>
 		                   <div class="progress">
 			  					<div class="bar bar-success" style="width: <?php echo ($account->quantity/$mostPoints)*100 ?>%;"><?php echo $account->quantity;?> points</div>
 							</div>
