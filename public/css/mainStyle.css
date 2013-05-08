@@ -420,9 +420,11 @@ img.sketch {
 	font-size:85%;
 }
 .teamTextImage {
+	display: block;
 	margin-top: 50px;
 	margin-bottom: 50px;
 	width:700px;
+	
 }
 .socialLinks {
 	width:30;
