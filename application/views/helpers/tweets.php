@@ -3,8 +3,8 @@ class Zend_View_Helper_Tweets extends Zend_View_Helper_Abstract
 {
 	public function Tweets(){
 		
-		$url = file_get_contents("https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=sociallgreen");
-		
+		//$url = file_get_contents("https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=sociallgreen");
+		$url = file_get_contents("https://search.twitter.com/search.json?q=%20%23recycle&rpp=5&include_entities=true&with_twitter_user_id=true&result_type=mixed");
 		$arr = json_decode($url,true);
 		$prettyString = Zend_Json::prettyPrint($url);
 		//print_r($prettyString);
@@ -12,7 +12,7 @@ class Zend_View_Helper_Tweets extends Zend_View_Helper_Abstract
 		echo "<table class='' id='twitter'>";
 		$displayCounter = 1;
 		$limit = 4;
-		foreach ($arr as $item){
+		foreach ($arr['results'] as $item){
 			if ($displayCounter=='1') echo '<tr><td><button class="btn btn-info" data-toggle="button" id="moarTweets" type="button">More&nbsp;<i class="icon-circle-arrow-down icon-white"></i></button></td></tr>';
 			echo "<tr";
 			if ($displayCounter>=$limit) echo " class='hidden' ";

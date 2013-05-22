@@ -2,6 +2,7 @@
 <?php  $accounts = $this->accounts; ?>
 <?php  $allactivity = $this->results; ?>
 <?php  $usernamesTemp = $this->usernames; ?>
+<?php $imgPrefix = $this->imgPrefix; ?>
 
 <div class="row-fluid userContent">
 	<div class="span3">
@@ -24,10 +25,10 @@
 					<div class="span2 friends">
 						  <a class="thumbnail" title="<?php echo $account->username; ?>" href="<?php echo $this->baseUrl('account/profile/').'?user='.$account->username;?>">
 						    <span class="right visible-phone"><?php echo $account->username; ?></span>
-						    <img class="media-object" src="<?php echo $this->baseUrl($account->avatar); ?>">
+						    <img class="media-object" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$account->avatar); ?>">
 						  </a>
-						<?php if ($counter==0) { echo '<span class="left label label-info newMember">New!</span>'; }
-						elseif ($account->quantity>0.8*$mostPoints) {  echo '<span class="left label label-success newMember"><i class="icon-leaf icon-white"></i></span>';}?>
+						<?php //if ($counter==0) { echo '<span class="left label label-info newMember">New!</span>'; }
+						//elseif ($account->quantity>0.8*$mostPoints) {  echo '<span class="left label label-success newMember"><i class="icon-leaf icon-white"></i></span>';}?>
 					</div>
 				 <?php 
 				 $counter++; 
@@ -80,7 +81,7 @@
 						<tr>
 							<td>
 								<a class="pull-left" href="<?php echo $this->baseUrl('account/profile/').'?user='.$activity->username;?>">
-	                    			<img class="media-object thumbnail" src="<?php echo $this->baseUrl($activity->avatar);?>">
+	                    			<img class="media-object thumbnail" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$activity->avatar);?>">
 	                    		</a>
 							</td>
 							<td>

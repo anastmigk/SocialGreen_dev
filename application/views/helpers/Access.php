@@ -12,6 +12,9 @@ class Zend_View_Helper_Access extends Zend_View_Helper_Abstract
     		$homelink = $view->url(array('controller'=>'account'), null, TRUE);
     		$user = "member";
     	}
+    	
+    	//Temporary link to access all pages
+    	$homelink = $view->url(array('controller'=>'account'), null, TRUE);
     	 
     	$acl = new Zend_Acl();
     	$acl->addRole(new Zend_Acl_Role('guest'))->addRole(new Zend_Acl_Role('member'))->addRole(new Zend_Acl_Role('admin'));
@@ -25,7 +28,8 @@ class Zend_View_Helper_Access extends Zend_View_Helper_Abstract
     	$acl->add(new Zend_Acl_Resource("greenladder"));
     	//$acl->add(new Zend_Acl_Resource('register'), 'account');
     	
-    	
+    	/* Old ACL Rules
+    	 * 
     	$acl->allow("guest","index");
     	$acl->allow("guest","error");
     	$acl->allow("guest","about");
@@ -33,7 +37,9 @@ class Zend_View_Helper_Access extends Zend_View_Helper_Abstract
     	$acl->allow("guest","greenladder", array("binupdate"));
     	$acl->allow("guest","account", array('register','confirm','reset'));
     	$acl->allow('member');
+    	*/
     	
+    	$acl->allow("guest");
     	$acl->deny("guest","about",array("index"));
     	
     	$frontController = Zend_Controller_Front::getInstance();

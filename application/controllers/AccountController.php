@@ -15,12 +15,13 @@ class AccountController extends Zend_Controller_Action
     	$accounts = new Application_Model_DbTable_Accounts();
     	$query = $accounts->select();
     	$query->from(array('act' => 'activity'), array('SUM(act.quantity) as quantity','userid','MAX(act.date) as date'));
-    	$query->join(array('acc' => 'accounts'), 'act.userid = acc.id', array('username','avatar'));
+    	$query->join(array('acc' => 'accounts'), 'act.userid = acc.id', array('username','avatar','description', 'url'));
     	$query->order('quantity DESC');
     	$query->group(array("username"));
     	$query->setIntegrityCheck(false);
     	//echo (String)$query;
     	$this->view->accounts = $accounts->fetchAll($query);
+    	$this->view->imgPrefix = "/images/avatars/";
     	
     }
 
@@ -125,8 +126,9 @@ class AccountController extends Zend_Controller_Action
 						<img style='max-width:400px' src='http://socialgreenproject.com/images/social.png'>
 						<h1>Welcome at Social Green Project</h1>
 						<p>This is a confirmation mail for registering at our community. <br>
-							Click the following link to confirm your registration.</p>
-						<a href='http://socialgreenproject.com/account/confirm/token/".$token."/usr/".$form->getValue('username')."'>http://socialgreenproject.com/account/confirm/token/".$token."/usr/".$form->getValue('username')."</a>
+							Click the following link to confirm your registration.</p>".
+//						<a href='http://socialgreenproject.com/account/confirm/token/".$token."/usr/".$form->getValue('username')."'>http://socialgreenproject.com/account/confirm/token/".$token."/usr/".$form->getValue('username')."</a>
+						"<a href='http://socialgreenproject.com/account/confirm/token/".$token."'>http://socialgreenproject.com/account/confirm/token/".$token."</a>
 						</body>
 						</html>";
 					
@@ -141,7 +143,7 @@ class AccountController extends Zend_Controller_Action
 					$this->_helper->_redirector('index','index',null,array('register'=>'true'));
                 }
                 catch (Zend_Db_Exception $e) {
-					echo $e->getMessage();	
+					//echo $e->getMessage();	
                 }
 			}
             else
@@ -331,7 +333,7 @@ class AccountController extends Zend_Controller_Action
     	
     	$userDB = new Application_Model_DbTable_Accounts();
     	$select = $userDB->select();
-		$select->from($userDB)->where('username = ?', $user)->where('recovery = ?', $token);
+		$select->from($userDB)->where('recovery = ?', $token);//->where('username = ?', $user);
 		$accountRowset = $userDB->fetchRow($select);
 		if (count($accountRowset) > 0) {
 			$this->view->user = $user;			

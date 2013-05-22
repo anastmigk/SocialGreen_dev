@@ -19,7 +19,7 @@ class Application_Model_FormRegister extends Zend_Form {
         
         $username = new Zend_Form_Element_Text('username');
         $username->setAttrib('size',35);
-        $username->setRequired(true);
+        //$username->setRequired(true);
         $username->addValidator('alnum');
         $username->addErrorMessage("Please use only alphanumeric characters!");
         $username->removeDecorator('label');
@@ -37,7 +37,7 @@ class Application_Model_FormRegister extends Zend_Form {
         
         $pswd = new Zend_Form_Element_Password('pswd');
         $pswd->setAttrib('size',35);
-        $pswd->setRequired(true);
+        //$pswd->setRequired(true);
         $pswd->removeDecorator('label');
         $pswd->removeDecorator('htmlTag');
         $pswd->addErrorMessage("Password is required");
@@ -45,7 +45,7 @@ class Application_Model_FormRegister extends Zend_Form {
         //Retype password
         $pswd2 = new Zend_Form_Element_Password('pswd2');
         $pswd2->setAttrib('size',35);
-        $pswd2->setRequired(true);
+        //$pswd2->setRequired(true);
         $pswd2->removeDecorator('label');
         $pswd2->removeDecorator('htmlTag');
         $pswd2->addErrorMessage("Password re-type is not correct");
@@ -55,7 +55,7 @@ class Application_Model_FormRegister extends Zend_Form {
         // Add a captcha
         $captcha = new Zend_Form_Element_Captcha("captcha",array(
         		/*'label'      => 'Are you human?!:',*/
-        		'required'   => true,
+        		'required'   => false,
         		'captcha'    => array(
         				'captcha' => 'Figlet',
         				'wordLen' => 6,
@@ -92,8 +92,8 @@ class Application_Model_FormRegister extends Zend_Form {
         
         $this->setDecorators( array( array('ViewScript', array('viewScript' => '_form_register.phtml'))));
         
-        $this->addElements(array($username, $email, $pswd, $pswd2, $submit));
-        //$this->addElements(array($email, $submit));
+        //$this->addElements(array($username, $email, $pswd, $pswd2, $submit));
+        $this->addElements(array($email, $submit));
     }
 }
 
