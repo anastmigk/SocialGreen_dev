@@ -137,6 +137,12 @@ img.smallProfileImage {
 	border-radius: 5px;
 	
 }
+
+ul.nav-pills a, div.profile-points {
+	background-color:rgb(121,193,67);
+	color: white;	
+}
+
 .profile-points {
 	margin:10px;
 	border: 1px solid #eeeeee;
@@ -146,6 +152,7 @@ img.smallProfileImage {
 	text-align:center;
 	font-size:18px;
 	font-weight:400;
+	
 }
 .profile-points h1{
 	
@@ -291,11 +298,18 @@ div#mainContent{
 
 /*Tweets*/
 
-table#twitter {
-	width:95%;	
-	margin:5px;
+
+div#friends, div#twitterTable {
 	border-radius:5px;
 	box-shadow: 0px 0px 16px rgba(169, 232, 125, 0.91);
+	width:95%;	
+	margin:5px;
+	margin-top:5px;
+	padding:5px;
+}
+
+div#twitterTable {
+	
 	background-image:url('https://dev.twitter.com/sites/default/files/images_documentation/bird_blue_32.png');
 	background-repeat:no-repeat;
 	background-position:95% 95%;

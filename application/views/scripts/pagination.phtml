@@ -1,8 +1,6 @@
 <div class="pagination" style="width:100%">
-    <div style="float:left;width:28%">
-    </div>
-    <div style="float:right;width:70%;">
-        <!-- First page link -->
+    <div style="float:left;width:100%">
+    	<!-- First page link -->
         <?php if (isset($this->previous)): ?>
               <a href="<?= $this->url(array('page' => $this->first)); ?>">Start</a> |
         <?php else: ?>
@@ -23,7 +21,7 @@
             <?php else: ?>
                 <?= $page; ?>
             <?php endif; ?>
-        <?php endforeach; ?>
+        <?php endforeach; ?>        
         <!-- Next page link -->
         <?php if (isset($this->next)): ?>
               | <a href="<?= $this->url(array('page' => $this->next)); ?>">Next &gt;</a> |
@@ -37,5 +35,8 @@
             <span class="disabled">End</span>
         <?php endif; ?>
         &nbsp; Page <?= $this->current; ?> of <?= $this->last; ?>
-    </div>
+         
+    	</div>
+    	<div style="float:right;width:30%;">
+    	</div>
  </div>

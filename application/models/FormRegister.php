@@ -58,16 +58,16 @@ class Application_Model_FormRegister extends Zend_Form {
         		'required'   => false,
         		'captcha'    => array(
         				'captcha' => 'Figlet',
-        				'wordLen' => 6,
+        				'wordLen' => 5,
         				'timeout' => 300
         		),
         		'messages' => array(
-        				'badCaptcha' => 'You have entered an invalid value for the captcha'
-        		)
+        			'badCaptcha' => 'You have entered an invalid value for the captcha'
+      			)
         ));
-       //$captcha->addErrorMessage("Security word is not correct!");
-        $pswd2->removeDecorator('label');
-        $pswd2->removeDecorator('htmlTag');
+ 	
+       	$pswd2->removeDecorator('label');
+       	$pswd2->removeDecorator('htmlTag');
         
        	///$file = new Zend_Form_Element_File('file');
     	//$file->setLabel('File');
@@ -93,7 +93,7 @@ class Application_Model_FormRegister extends Zend_Form {
         $this->setDecorators( array( array('ViewScript', array('viewScript' => '_form_register.phtml'))));
         
         //$this->addElements(array($username, $email, $pswd, $pswd2, $submit));
-        $this->addElements(array($email, $submit));
+        $this->addElements(array($email,$captcha, $submit));
     }
 }
 

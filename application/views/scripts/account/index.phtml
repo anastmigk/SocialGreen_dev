@@ -14,7 +14,7 @@
 			</div>
 		</div>
 		<div class="row-fluid">
-			<div class="span12">
+			<div class="span11" id="friends">
 				
 				<h5>Explore Users</h5>
 				<?php $counter=0; 
@@ -36,8 +36,8 @@
 			</div>
 		</div>
 		<div class="row-fluid">
-			<div class="span12">
-				<h5>Updates</h5>
+			<div class="span11" id="twitterTable">
+				<h5>Tweet!Tweet!</h5>
 				<?php $this->tweets(); ?>
 			</div>
 		</div>
@@ -54,6 +54,7 @@
 				
 				<!-- Diagram Content -->
             	<div class="tab-pane fade active in" id="Diagram">
+            		<h4>Check the progress of our users - Activity over time</h4>
     					<div id="chartdiv"></div>
     					<?php // foreach($this->paginator as $record)
 					    //{
@@ -65,6 +66,7 @@
               	
 				<!-- Activity Content -->
 				<div class="tab-pane fade" id="Activity">
+					<h4>Latest recycling!</h4>
 					<table class="table table-hover table-stripped">
 					<?php  foreach ( $allactivity as $activity) { ?>
 					<!--  <div class="media">
@@ -91,7 +93,7 @@
 					
 					<?php } ?>
 					</table>
-					<?php echo $this->paginationControl($this->results, 'Sliding', 'pagination.phtml'); ?>
+					<span class="pull-left"><?php echo $this->paginationControl($this->results, 'Sliding', 'pagination.phtml'); ?></span>
 	
 				</div>            
             
@@ -147,8 +149,7 @@ var ticks = <?php echo $ticks; ?>;
 var plot1 = $.jqplot('chartdiv', <?php echo $lines ?>, {
 	  animate: true,
       // Will animate plot on calls to plot1.replot({resetAxes:true})
-      animateReplot: false,
-    title: 'Chart with Point Labels', 
+      animateReplot: false, 
     seriesDefaults: { 
       showMarker:true,
       pointLabels: { show:true },
@@ -177,7 +178,6 @@ var plot1 = $.jqplot('chartdiv', <?php echo $lines ?>, {
         xaxis: {
         	tickRenderer: $.jqplot.CanvasAxisTickRenderer,
             pad: 1,
-            label: 'Activity over time',
             tickOptions: {
                 showGridline: true,
                 angle: -30

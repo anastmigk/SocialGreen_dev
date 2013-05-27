@@ -15,7 +15,7 @@
 			</div>
 		</div>
 		<div class="row-fluid">
-			<div class="span12">
+			<div class="span12" id="friends">
 				
 				<h5>Friends</h5>
 				<?php $counter = 0; 
@@ -54,15 +54,14 @@
 				
 			</div>
 			<div class='span6'>
-				<div class="row-fluid">
-					<p>Total points:<?php echo $account->quantity; ?></p>
-				</div>
-				<div class="row-fluid">
-					<p>Last recycled on: <?php echo date("F j, Y",strtotime($account->date)); ?></p>
-				</div>
-				<div class="row-fluid">
-					<p><a href='<?php echo $account->url; ?>' target="_blank"><?php echo $account->url; ?></a></p>
-				</div>
+				<table class="table table-striped">
+					<tbody>
+					<tr><td><p>Total points:<?php echo $account->quantity; ?></p></td></tr>
+					<tr><td><p>Last recycled on: <?php echo date("F j, Y",strtotime($account->date)); ?></p></td></tr>
+					</tbody>
+				</table>
+				<hr>
+				<p><a href='<?php echo $account->url; ?>' target="_blank" class="btn btn-success">Go to&nbsp;<?php echo $account->url; ?></a></p>
 			</div>
 		</div>
 		<!-- 
