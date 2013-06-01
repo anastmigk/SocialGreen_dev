@@ -16,7 +16,7 @@
 		<div class="row-fluid">
 			<div class="span11" id="friends">
 				
-				<h5>Explore Users</h5>
+				<h5 class="hidden">Explore Users</h5>
 				<?php $counter=0; 
 				$mostPoints = 0;
 				?>
@@ -37,7 +37,7 @@
 		</div>
 		<div class="row-fluid">
 			<div class="span11" id="twitterTable">
-				<h5>Tweet!Tweet!</h5>
+				<h5 class="hidden">Tweet!Tweet!</h5>
 				<?php $this->tweets(); ?>
 			</div>
 		</div>
@@ -48,7 +48,7 @@
 			<ul class="nav nav-pills">
 				<li class="active"><a data-toggle="tab" href="#Diagram">Diagram</a></li>
 			  	<li><a  data-toggle="tab" href="#Activity">Activity</a></li>
-			  	<li><a  data-toggle="tab" href="#Barchart">Barchart</a></li>
+		   <!-- <li><a  data-toggle="tab" href="#Barchart">Barchart</a></li> -->
 			</ul>
             <div id="myTabContent" class="tab-content">
 				
@@ -66,6 +66,19 @@
               	
 				<!-- Activity Content -->
 				<div class="tab-pane fade" id="Activity">
+				
+				<!-- BarChart Container -->
+				<?php $place = 1;?>
+	                <?php  foreach ($accounts as $account) { ?>
+	                    <div class="row-fluid">
+	                    	<div class="barChartDetails"><img src='<?php echo $this->baseUrl("images/numbers/".$place.".png"); ?>'>&nbsp;&nbsp;&nbsp;<span class="ladderName"><?php echo $account->username; ?></span><br><span class="ladderPoints"><?php echo $account->quantity;?> points</span></div>
+		                   	<div class="progress">
+			  					<div class="bar bar-success" style="width: <?php echo ($account->quantity/$mostPoints)*100 ?>%;"></div>
+							</div>
+						</div>
+					<?php $place++; } ?>
+				
+				<!-- Activity Container -->
 					<h4>Latest recycling!</h4>
 					<table class="table table-hover table-stripped">
 					<?php  foreach ( $allactivity as $activity) { ?>
@@ -99,6 +112,7 @@
             
             	
               	<!-- Barchart Content -->
+              	<!-- 
 				<div class="tab-pane fade well" id="Barchart">
               		<?php $place = 1;?>
 	                <?php  foreach ($accounts as $account) { ?>
@@ -110,6 +124,7 @@
 						</div>
 					<?php $place++; } ?>
 			 	</div>
+			 	 -->
             </div>
 		</div>	
 	</div>

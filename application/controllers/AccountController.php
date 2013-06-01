@@ -45,7 +45,7 @@ class AccountController extends Zend_Controller_Action
         $result = $activity->fetchAll($query);
         $page = $this->_getParam('page',1);
         $paginator = Zend_Paginator::factory($result);
-        $paginator->setItemCountPerPage(15);
+        $paginator->setItemCountPerPage(6);
         $paginator->setCurrentPageNumber($page);
         
         //$this->view->paginator=$paginator;

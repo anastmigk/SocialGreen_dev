@@ -17,9 +17,23 @@ html {
 	overflow-y: scroll;
 }
 
-div#barchart span:nth-of-type(1) {
+.barChartDetails {
+	margin-bottom:8px;
+}
+
+.barChartDetails span:nth-of-type(1) {
 	font-family: 'Roboto','Chewy', cursive;
 	font-size:x-large;
+}
+
+.barChartDetails span:nth-of-type(2) {
+	font-family: 'Roboto','Chewy', cursive;
+	font-size:small;
+	margin-left:30px;
+}
+
+.barChartDetails > img {
+	height:50%;
 }
 
 #wrap {
@@ -141,6 +155,10 @@ img.smallProfileImage {
 ul.nav-pills a, div.profile-points {
 	background-color:rgb(121,193,67);
 	color: white;	
+}
+
+ul.nav li:hover a{
+	background-color:grey;
 }
 
 .profile-points {
@@ -298,6 +316,9 @@ div#mainContent{
 
 /*Tweets*/
 
+button#moarTweets {
+	margin:10px;
+}
 
 div#friends, div#twitterTable {
 	border-radius:5px;

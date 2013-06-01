@@ -8,12 +8,12 @@ class Zend_View_Helper_Tweets extends Zend_View_Helper_Abstract
 		$arr = json_decode($url,true);
 		$prettyString = Zend_Json::prettyPrint($url);
 		//print_r($prettyString);
-		
-		echo "<table class='' id='twitter'>";
+		echo '<button class="btn btn-info" data-toggle="button" id="moarTweets" type="button">More&nbsp;<i class="icon-circle-arrow-down icon-white"></i></button>';
+		echo "<table class='table' id='twitter'>";
 		$displayCounter = 1;
 		$limit = 4;
 		foreach ($arr['results'] as $item){
-			if ($displayCounter=='1') echo '<tr><td><button class="btn btn-info" data-toggle="button" id="moarTweets" type="button">More&nbsp;<i class="icon-circle-arrow-down icon-white"></i></button></td></tr>';
+//			if ($displayCounter=='1') echo '<tr><td><button class="btn btn-info" data-toggle="button" id="moarTweets" type="button">More&nbsp;<i class="icon-circle-arrow-down icon-white"></i></button></td></tr>';
 			echo "<tr";
 			if ($displayCounter>=$limit) echo " class='hidden' ";
 			echo ">";
