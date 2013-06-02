@@ -4,17 +4,22 @@
 <?php  $auth = Zend_Auth::getInstance();
 		$username = $auth->getIdentity()->username;?>
 <?php $imgPrefix = $this->imgPrefix; ?>
+<?php 
+	$sum=0;
+	foreach ($this->allActivity as $activityTemp){
+	$sum = $sum +  (1*$activityTemp->glass)+(2*$activityTemp->plastic)+(3*$activityTemp->aluminium);
+}?>
 
 <div class="row-fluid userContent">
 	<div class="span3">
 		<div id="profile-points" class="row-fluid">
-			<div class="span11 pull-right">
-				<div class="profile-points">
-					<span>247</span>
+			<div class="span11">
+				<div class="profile-points text-right">
+					<span><?php echo $sum; ?></span>
 				</div>
 			</div>
-			<div class="span11 pull-right">
-				<div class="profile-points">
+			<div class="span11">
+				<div class="profile-points text-right">
 					<span>total leafs<br>saved!</span>
 				</div>
 			</div>
@@ -61,7 +66,7 @@
 			<div class='span6'>
 				<table class="table table-striped">
 					<tbody>
-					<tr><td><p>Total points:<?php echo $account->quantity; ?></p></td></tr>
+					<tr><td><p>Total leafs saved: <span class="text-success"><strong><?php echo 1*$account->glass+2*$account->plastic+3*$account->aluminium; ?></strong></span></p></td></tr>
 					<tr><td><p>Last recycled on: <?php echo date("F j, Y",strtotime($account->date)); ?></p></td></tr>
 					</tbody>
 				</table>
