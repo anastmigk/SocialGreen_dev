@@ -32,10 +32,6 @@ html {
 	margin-left:30px;
 }
 
-.barChartDetails > img {
-	height:50%;
-}
-
 #wrap {
 	min-height: 100%;
 }
@@ -152,7 +148,7 @@ img.smallProfileImage {
 	
 }
 
-ul.nav-pills a, div.profile-points {
+ul.nav-pills a {
 	background-color:rgb(121,193,67);
 	color: white;	
 }
@@ -162,6 +158,7 @@ ul.nav li:hover a{
 }
 
 .profile-points {
+	/* Old CSS properties
 	margin:10px;
 	border: 1px solid #eeeeee;
 	border-bottom-left-radius:4em;
@@ -170,8 +167,26 @@ ul.nav li:hover a{
 	text-align:center;
 	font-size:18px;
 	font-weight:400;
-	
+	*/
+	border: 1px solid #eeeeee;
 }
+
+#profile-points div div span {
+	border: 1px solid #eeeeee;
+	font-weight:900;
+	font-family: 'Roboto';
+}
+
+#profile-points div div:nth-child(1) span{
+	font-size:x-large;
+	color: rgb(121,193,67);
+}
+
+#profile-points div div:nth-child(2) span{
+	font-size:large;
+	color: #911762;
+}
+
 .profile-points h1{
 	
 	text-align:center;
@@ -193,14 +208,18 @@ ul.nav li:hover a{
 }
 
 .profile-photo {
-	position:relative;
-	box-shadow: 1px 1px 1px #888888;
+	/*position:relative;*/
+	box-shadow: 2px 2px 2px #888888;
 	z-index:2;
 	background-color: #fff;
 	border: 1px solid #888888;
 	border-radius: 2px;
-	width: 160px;
-	height: auto;
+	max-height:80px;
+	max-width: 90%;
+	margin-bottom:3%;
+	margin-top:3%;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 .MainTitles {

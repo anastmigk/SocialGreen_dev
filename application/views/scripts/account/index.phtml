@@ -69,15 +69,17 @@
 				
 				<!-- BarChart Container -->
 				<?php $place = 1;?>
+					<div class="well">
 	                <?php  foreach ($accounts as $account) { ?>
 	                    <div class="row-fluid">
 	                    	<div class="barChartDetails"><img src='<?php echo $this->baseUrl("images/numbers/".$place.".png"); ?>'>&nbsp;&nbsp;&nbsp;<span class="ladderName"><?php echo $account->username; ?></span><br><span class="ladderPoints"><?php echo $account->quantity;?> points</span></div>
 		                   	<div class="progress">
-			  					<div class="bar bar-success" style="width: <?php echo ($account->quantity/$mostPoints)*100 ?>%;"></div>
+			  					<div class="bar" style="width: <?php echo ($account->quantity/$mostPoints)*100 ?>%;"></div>
 							</div>
 						</div>
 					<?php $place++; } ?>
-				
+					</div>
+					
 				<!-- Activity Container -->
 					<h4>Latest recycling!</h4>
 					<table class="table table-hover table-stripped">
@@ -165,21 +167,23 @@ var plot1 = $.jqplot('chartdiv', <?php echo $lines ?>, {
 	  animate: true,
       // Will animate plot on calls to plot1.replot({resetAxes:true})
       animateReplot: false, 
+      seriesColors:['#000', '#00F', '#000', '#000', '#17BDB8'],
     seriesDefaults: { 
       showMarker:true,
-      pointLabels: { show:true },
+      pointLabels: { 
+          show:false },
       rendererOptions: {smooth: true} 
     },
     legend: {
         show: true,
         renderer: $.jqplot.EnhancedLegendRenderer,
-        placement: "outsideGrid",
+        placement: "insideGrid",
         labels: labels,
         location: "ne",
         rowSpacing: "1px",
         seriesToggle : 'normal',
         showSwatches : true,
-        showLabels: true
+        showLabels: false
     },
     highlighter: {
         show: true,
