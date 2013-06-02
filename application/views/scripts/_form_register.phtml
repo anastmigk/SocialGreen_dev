@@ -1,12 +1,11 @@
 <form id="register" action="<?= $this->baseUrl($this->element->getAction()); ?>" method="<?= $this->element->getMethod(); ?>">
 <p>
-Type in your e-mail address to stay connected!<br />
+Type in your e-mail address to stay connected!</p>
+<p>
 <?= $this->element->email; ?>
 </p>
-<p>
-Retype the captcha word!!<br />
-<?= $this->element->captcha; ?>
-</p>
+<p>Retype the captcha word!!</p>
+<p><?= $this->element->captcha; ?></p>
 
 <p>
 <?= $this->element->submit; ?>

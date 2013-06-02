@@ -82,7 +82,7 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
 					<li><a title="Participate!">Get Involved</a></li>';*/
         $loginUrl = '<li><a href="'.$this->view->url(array('controller'=>'auth', 'action'=>'index')).'" title="Get inside Social Green!">Login</a></li>';
         //$loginUrl = $this->view->url(array('controller'=>'auth', 'action'=>'index'));
-        $registerUrl = "<li><a id='buttonModalRegister' href=".$this->view->url(array('controller'=>'account', 'action'=>'register'), null, TRUE)." title='Be a member!'>Join Beta!</a></li>";
+        $registerUrl = "<li><a id='buttonModalRegister' href=".$this->view->url(array('controller'=>'account', 'action'=>'register'), null, TRUE)." title='Be a member!'>Join Community!</a></li>";
         //$registerUrl = "<li><a id='buttonModalRegister' href='#'>Register</a></li>";
         
         //return $registerUrl.$loginUrl;

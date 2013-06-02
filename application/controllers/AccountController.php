@@ -14,8 +14,8 @@ class AccountController extends Zend_Controller_Action
     	//Retrieve All user accounts
     	$accounts = new Application_Model_DbTable_Accounts();
     	$query = $accounts->select();
-    	$query->from(array('act' => 'activity'), array('SUM(act.quantity) as quantity','userid','MAX(act.date) as date'));
-    	$query->join(array('acc' => 'accounts'), 'act.userid = acc.id', array('username','avatar','description', 'url'));
+    	$query->from(array('act' => 'activity'), array('SUM(act.quantity) as quantity','SUM(act.plastic) as plastic','SUM(act.glass) as glass','SUM(act.aluminium) as aluminium','userid','MAX(act.date) as date'));
+    	$query->join(array('acc' => 'accounts'), 'act.userid = acc.id', array('fullname','username','avatar','description', 'url'));
     	$query->order('quantity DESC');
     	$query->group(array("username"));
     	$query->setIntegrityCheck(false);
@@ -23,6 +23,12 @@ class AccountController extends Zend_Controller_Action
     	$this->view->accounts = $accounts->fetchAll($query);
     	$this->view->imgPrefix = "/images/avatars/";
     	
+    	
+    	$activity = new Application_Model_DbTable_Activity();
+    	
+    	$query = $activity->select();
+    	$query->from($activity);
+    	$this->view->allActivity = $activity->fetchAll($query);
     }
 
     public function indexAction()
@@ -37,15 +43,15 @@ class AccountController extends Zend_Controller_Action
         //$this->view->results = $activity->fetchAll();
         
         $query = $activity->select();
-        $query->from(array('acc' => 'accounts'), array('id', 'username','avatar'));
-        $query->join(array('act' => 'activity'), 'act.userid = acc.id', array('quantity','date'));
+        $query->from(array('acc' => 'accounts'), array('id', 'username','avatar', 'fullname'));
+        $query->join(array('act' => 'activity'), 'act.userid = acc.id', array('quantity','date', 'aluminium','glass','plastic'));
         $query->order('act.date DESC');
         $query->setIntegrityCheck(false);
         
         $result = $activity->fetchAll($query);
         $page = $this->_getParam('page',1);
         $paginator = Zend_Paginator::factory($result);
-        $paginator->setItemCountPerPage(6);
+        $paginator->setItemCountPerPage(10);
         $paginator->setCurrentPageNumber($page);
         
         //$this->view->paginator=$paginator;
@@ -55,6 +61,10 @@ class AccountController extends Zend_Controller_Action
         $this->view->activity = $Ladder->getGraph();
         $this->view->usernames = $Ladder->getUsernames();
         $this->view->dates = $Ladder->getDates();
+        
+        $query = $activity->select();
+        $query->from($activity);
+        $this->view->allActivity = $activity->fetchAll($query);
     }
 
     public function registerAction()

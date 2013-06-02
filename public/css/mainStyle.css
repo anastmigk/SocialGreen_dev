@@ -29,7 +29,31 @@ html {
 .barChartDetails span:nth-of-type(2) {
 	font-family: 'Roboto','Chewy', cursive;
 	font-size:small;
-	margin-left:30px;
+	margin-left:8%;
+}
+
+div#diagramUserNamesPanel {
+	margin-top:3%;
+	
+}
+
+div#diagramUserNamesPanel div ul {
+	list-style:none;
+}
+
+div#diagramUserNamesPanel div ul li{
+	margin-top:3%;
+}
+
+div#diagramUserNamesPanel div ul li span:nth-of-type(1){
+	min-width:100px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin-right:3%;
+}
+div#diagramUserNamesPanel div ul li span:nth-of-type(2){
+	font-family:"Georgia"
 }
 
 #wrap {
@@ -168,27 +192,32 @@ ul.nav li:hover a{
 	font-size:18px;
 	font-weight:400;
 	*/
-	border: 1px solid #eeeeee;
+	padding:0;
+	margin:0;
+	font-size:1.5em;
+	font-weight:900;
 }
 
 #profile-points div div span {
-	border: 1px solid #eeeeee;
 	font-weight:900;
 	font-family: 'Roboto';
 }
+#profile-points div:nth-child(1) div {
+	position:relative;
+	right:-7px;
+}
 
-#profile-points div div:nth-child(1) span{
-	font-size:x-large;
+#profile-points div:nth-child(1) div span{
+	font-size:xx-large;
 	color: rgb(121,193,67);
 }
 
-#profile-points div div:nth-child(2) span{
-	font-size:large;
+#profile-points div:nth-child(2) div span{
+	font-size:medium;
 	color: #911762;
 }
 
 .profile-points h1{
-	
 	text-align:center;
 	margin-bottom:0;
 	font-size:60px;

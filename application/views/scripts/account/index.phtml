@@ -2,14 +2,24 @@
 <?php  $accounts = $this->accounts; ?>
 <?php  $allactivity = $this->results; ?>
 <?php  $usernamesTemp = $this->usernames; ?>
-<?php $imgPrefix = $this->imgPrefix; ?>
-
+<?php  $imgPrefix = $this->imgPrefix; ?>
+<?php  $seriesColor = array("#000", "#00F"); ?>
+<?php 
+	$sum=0;
+	foreach ($this->allActivity as $activityTemp){
+	$sum = $sum +  (1*$activityTemp->glass)+(2*$activityTemp->plastic)+(3*$activityTemp->aluminium);
+}?>
 <div class="row-fluid userContent">
 	<div class="span3">
-		<div class="row-fluid">
-			<div class="span12">
-				<div class="profile-points">
-					<h1>234</h1><p>Total leaves saved!</p>
+		<div id="profile-points" class="row-fluid">
+			<div class="span11">
+				<div class="profile-points text-right">
+					<span><?php echo $sum;?></span>
+				</div>
+			</div>
+			<div class="span11">
+				<div class="profile-points text-right">
+					<span>total leafs<br>saved!</span>
 				</div>
 			</div>
 		</div>
@@ -48,7 +58,7 @@
 			<ul class="nav nav-pills">
 				<li class="active"><a data-toggle="tab" href="#Diagram">Diagram</a></li>
 			  	<li><a  data-toggle="tab" href="#Activity">Activity</a></li>
-		   <!-- <li><a  data-toggle="tab" href="#Barchart">Barchart</a></li> -->
+		        <li><a  data-toggle="tab" href="#Barchart">Barchart</a></li> 
 			</ul>
             <div id="myTabContent" class="tab-content">
 				
@@ -62,23 +72,25 @@
 					    //}
 					    //echo $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml');
 					    ?>
+					    <div id="diagramUserNamesPanel" class="row-fluid">
+					    	<div class="span8 well">
+					    	<ul>
+					    		<?php 
+					    			$colorCounter = 0;
+					    			foreach ($accounts as $account){
+										echo "<li><span style='background-color:".$seriesColor[$colorCounter]."'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>".$account->fullname."</span></li>";
+										$colorCounter++;
+									}
+					    		?>
+					    	</ul>
+					    	</div>
+					    </div>
               	</div>
               	
 				<!-- Activity Content -->
 				<div class="tab-pane fade" id="Activity">
 				
-				<!-- BarChart Container -->
-				<?php $place = 1;?>
-					<div class="well">
-	                <?php  foreach ($accounts as $account) { ?>
-	                    <div class="row-fluid">
-	                    	<div class="barChartDetails"><img src='<?php echo $this->baseUrl("images/numbers/".$place.".png"); ?>'>&nbsp;&nbsp;&nbsp;<span class="ladderName"><?php echo $account->username; ?></span><br><span class="ladderPoints"><?php echo $account->quantity;?> points</span></div>
-		                   	<div class="progress">
-			  					<div class="bar" style="width: <?php echo ($account->quantity/$mostPoints)*100 ?>%;"></div>
-							</div>
-						</div>
-					<?php $place++; } ?>
-					</div>
+				
 					
 				<!-- Activity Container -->
 					<h4>Latest recycling!</h4>
@@ -95,6 +107,7 @@
 	
 					</div> 
 					-->
+						<?php if ($activity->quantity>0) {?>
 						<tr>
 							<td>
 								<a class="pull-left" href="<?php echo $this->baseUrl('account/profile/').'?user='.$activity->username;?>">
@@ -102,10 +115,11 @@
 	                    		</a>
 							</td>
 							<td>
-								<?php echo $activity->username;  ?>	gained <?php echo $activity->quantity;?> (<?php echo date("d-M",strtotime($activity->date)) ?>)!
+								<?php echo ucfirst($activity->username);  ?> saved <?php echo 1*$activity->glass+2*$activity->plastic+3*$activity->aluminium; ?> leafs on <?php echo date("d-M",strtotime($activity->date)) ?>! <span class="muted">(aluminium: <?php echo $activity->aluminium.", plastic:".$activity->plastic.", glass:".$activity->glass ?>)</span>
 							</td>
 						</tr>
 					
+						<?php } ?>
 					<?php } ?>
 					</table>
 					<span class="pull-left"><?php echo $this->paginationControl($this->results, 'Sliding', 'pagination.phtml'); ?></span>
@@ -114,19 +128,23 @@
             
             	
               	<!-- Barchart Content -->
-              	<!-- 
+              
 				<div class="tab-pane fade well" id="Barchart">
-              		<?php $place = 1;?>
+				
+				<!-- BarChart Container -->
+				<?php $place = 1;?>
+					<div>
 	                <?php  foreach ($accounts as $account) { ?>
 	                    <div class="row-fluid">
-	                    	<p><img src='<?php echo $this->baseUrl("images/numbers/".$place.".png"); ?>'>&nbsp;&nbsp;&nbsp;<span><?php echo $account->username; ?></span>&nbsp;&nbsp;<span class="pull-right">Last week&nbsp;&nbsp;&nbsp;<img src='<?php echo $this->baseUrl("images/numbers/up.png"); ?>'></span></p>
-		                   <div class="progress">
-			  					<div class="bar bar-success" style="width: <?php echo ($account->quantity/$mostPoints)*100 ?>%;"><?php echo $account->quantity;?> points</div>
+	                    	<div class="barChartDetails"><img src='<?php echo $this->baseUrl("images/numbers/".$place.".png"); ?>'>&nbsp;&nbsp;&nbsp;<span class="ladderName"><?php echo $account->fullname; ?></span><br><span class="ladderPoints"><?php echo $account->quantity;?> points</span></div>
+		                   	<div class="progress">
+			  					<div class="bar" style="width: <?php echo ($account->quantity/$mostPoints)*100 ?>%;"></div>
 							</div>
 						</div>
 					<?php $place++; } ?>
-			 	</div>
-			 	 -->
+					</div>
+				</div>
+			 	
             </div>
 		</div>	
 	</div>
@@ -167,7 +185,7 @@ var plot1 = $.jqplot('chartdiv', <?php echo $lines ?>, {
 	  animate: true,
       // Will animate plot on calls to plot1.replot({resetAxes:true})
       animateReplot: false, 
-      seriesColors:['#000', '#00F', '#000', '#000', '#17BDB8'],
+      seriesColors:<?php echo json_encode($seriesColor); ?>,
     seriesDefaults: { 
       showMarker:true,
       pointLabels: { 
