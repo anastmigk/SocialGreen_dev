@@ -21,8 +21,7 @@ class AccountController extends Zend_Controller_Action
     	$query->setIntegrityCheck(false);
     	//echo (String)$query;
     	$this->view->accounts = $accounts->fetchAll($query);
-    	$this->view->imgPrefix = "/images/avatars/";
-    	
+    	$this->view->imgPrefix = "/images/avatars/";  	
     	
     	$activity = new Application_Model_DbTable_Activity();
     	
@@ -375,8 +374,15 @@ class AccountController extends Zend_Controller_Action
     	}
     }
 
+    public function badgesAction()
+    {
+        // action body
+    }
+
 
 }
+
+
 
 
 

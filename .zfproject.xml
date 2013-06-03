@@ -21,6 +21,7 @@
           <actionMethod actionName="delete"/>
           <actionMethod actionName="confirm"/>
           <actionMethod actionName="reset"/>
+          <actionMethod actionName="badges"/>
         </controllerFile>
         <controllerFile controllerName="Greenladder">
           <actionMethod actionName="index"/>
@@ -168,6 +169,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Auth">
             <viewScriptFile forActionName="facebook"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Account">
+            <viewScriptFile forActionName="badges"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

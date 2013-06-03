@@ -17,43 +17,9 @@ html {
 	overflow-y: scroll;
 }
 
-.barChartDetails {
-	margin-bottom:8px;
-}
-
-.barChartDetails span:nth-of-type(1) {
+div#barchart span:nth-of-type(1) {
 	font-family: 'Roboto','Chewy', cursive;
 	font-size:x-large;
-}
-
-.barChartDetails span:nth-of-type(2) {
-	font-family: 'Roboto','Chewy', cursive;
-	font-size:small;
-	margin-left:8%;
-}
-
-div#diagramUserNamesPanel {
-	margin-top:3%;
-	
-}
-
-div#diagramUserNamesPanel div ul {
-	list-style:none;
-}
-
-div#diagramUserNamesPanel div ul li{
-	margin-top:3%;
-}
-
-div#diagramUserNamesPanel div ul li span:nth-of-type(1){
-	min-width:100px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	margin-right:3%;
-}
-div#diagramUserNamesPanel div ul li span:nth-of-type(2){
-	font-family:"Georgia"
 }
 
 #wrap {
@@ -80,6 +46,16 @@ span.purplefonts {
 /* ta pedia input pl mikraopote allaxa ligo ton kodika tou bootstrap*/
 select,textarea,input[type="text"],input[type="password"],input[type="datetime"],input[type="datetime-local"],input[type="date"],input[type="month"],input[type="time"],input[type="week"],input[type="number"],input[type="email"],input[type="url"],input[type="search"],input[type="tel"],input[type="color"],.uneditable-input{display:inline-block;height:25px;padding:2px 6px;margin-bottom:10px;font-size:14px;line-height:20px;color:#555555;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;vertical-align:middle;}
 
+/* Profile CSS RULES  */
+
+img.badges {
+	display:inline;
+	margin-top: 5px;
+	
+}
+
+
+/* End of profiles Rules */
 
 .howItWorks {
 	margin-top: 50px;
@@ -172,17 +148,12 @@ img.smallProfileImage {
 	
 }
 
-ul.nav-pills a {
+ul.nav-pills a, div.profile-points {
 	background-color:rgb(121,193,67);
 	color: white;	
 }
 
-ul.nav li:hover a{
-	background-color:grey;
-}
-
 .profile-points {
-	/* Old CSS properties
 	margin:10px;
 	border: 1px solid #eeeeee;
 	border-bottom-left-radius:4em;
@@ -191,33 +162,10 @@ ul.nav li:hover a{
 	text-align:center;
 	font-size:18px;
 	font-weight:400;
-	*/
-	padding:0;
-	margin:0;
-	font-size:1.5em;
-	font-weight:900;
+	
 }
-
-#profile-points div div span {
-	font-weight:900;
-	font-family: 'Roboto';
-}
-#profile-points div:nth-child(1) div {
-	position:relative;
-	right:-7px;
-}
-
-#profile-points div:nth-child(1) div span{
-	font-size:xx-large;
-	color: rgb(121,193,67);
-}
-
-#profile-points div:nth-child(2) div span{
-	font-size:medium;
-	color: #911762;
-}
-
 .profile-points h1{
+	
 	text-align:center;
 	margin-bottom:0;
 	font-size:60px;
@@ -237,18 +185,14 @@ ul.nav li:hover a{
 }
 
 .profile-photo {
-	/*position:relative;*/
-	box-shadow: 2px 2px 2px #888888;
+	position:relative;
+	box-shadow: 1px 1px 1px #888888;
 	z-index:2;
 	background-color: #fff;
 	border: 1px solid #888888;
 	border-radius: 2px;
-	max-height:80px;
-	max-width: 90%;
-	margin-bottom:3%;
-	margin-top:3%;
-	margin-left:auto;
-	margin-right:auto;
+	width: 160px;
+	height: auto;
 }
 
 .MainTitles {
@@ -364,9 +308,6 @@ div#mainContent{
 
 /*Tweets*/
 
-button#moarTweets {
-	margin:10px;
-}
 
 div#friends, div#twitterTable {
 	border-radius:5px;

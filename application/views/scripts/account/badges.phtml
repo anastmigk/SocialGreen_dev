@@ -1,0 +1,76 @@
+<?php  $accountsFriends = $this->accounts; ?>
+<?php $activeUser = $this->activeAccount; ?>
+<?php  $badges = $this->badges; ?>
+<?php  $auth = Zend_Auth::getInstance();
+		$username = $auth->getIdentity()->username;?>
+<?php $imgPrefix = $this->imgPrefix; ?>
+
+<!-- <div class="row-fluid userContent">
+	<div class="span10 offset1">
+	
+		<?php /*
+		$counter = 1; 
+				
+		foreach ($accountsFriends as $account) 
+		{ 
+			if (($counter % 2) == 1)
+			{ ?>
+				<div class="row-fluid">
+				<div class="span4">
+				
+			<?php
+			}
+			else
+			{ ?>
+				<div class="row-fluid">
+				<div class="span4 offset 1">
+			<?php
+			}
+			?>
+				
+  			  	<img class="media-object" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$account->avatar); ?>">
+				</div>
+				</div>
+			<?php 
+			$counter++; 
+		} ?>	
+		</div>
+		</div>	
+	</div>
+</div> */ ?>
+-->
+<div class="row-fluid userContent">
+	<div class="span12">
+		
+		<div class="row-fluid">
+			<div class="span6">
+				<div class="row-fluid">
+					<div class="span4">
+						<img class="media-object" src="<?php echo $this->baseUrl("/images/badges/newbie.png"); ?>">
+						<h3>Newbie</h3>
+					</div>
+					<div class="span8">
+					<p>The DbTable provider is responsible for creating Zend_Db_Table model/data access files for your application to consume, with the proper class name, and in the proper location in the application. The two important pieces of information are the DbTable name, and the actual database table name. For example:  </p>
+					</div>
+				</div>
+			</div>
+		
+		
+		
+			<div class="span6">
+				<div class="row-fluid">
+					<div class="span4">
+						<img class="media-object" src="<?php echo $this->baseUrl("/images/badges/bart.png"); ?>">
+						<h3>kati</h3>
+					</div>
+					<div class="span8">
+					<p>The DbTable provider is responsible for creating Zend_Db_Table model/data access files for your application to consume, with the proper class name, and in the proper location in the application. The two important pieces of information are the DbTable name, and the actual database table name. For example:  </p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+		
+				
+		
