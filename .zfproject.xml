@@ -72,6 +72,7 @@
           <dbTableFile dbTableName="AnswersTemplate"/>
           <dbTableFile dbTableName="Answers"/>
           <dbTableFile dbTableName="Activity"/>
+          <dbTableFile dbTableName="Badges"/>
         </dbTableDirectory>
         <modelFile modelName="DailyLadder"/>
         <modelFile modelName="Ladder"/>
