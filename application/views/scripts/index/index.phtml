@@ -1,7 +1,7 @@
 <div class="span8 offset2">
 	<div class="row">
-		<div class="hero-unit">
-			<h1>Recycle while playing logo goes here..</h1>
+		<div class="well">
+			<img src="<?php echo $this->baseUrl("images/RecycleWhilePlaying.png"); ?>">
 		</div>
 	</div>
 	<div class="row-fluid" style="margin-bottom:40px">
@@ -33,35 +33,37 @@
    <div class="row">
    		<div class="span8">
    			<p><span class="label label-success">Attention!</span> Up until now, we have managed to save <span class="text-success"><strong>150 leafs</strong></span>! It is not hard, you just need to dedicate some of your time! Are you interested to find out how we managed to do that?! Everyone is contributing in his own way!</p>
-   			<p><a class="btn btn-success pull-right" href="#">More details!</a></p>
+   			<p><a class="btn btn-success pull-right" href="<?php echo $this->url(array('module' => null,'controller'=>'account','action'=>'index'), null, FALSE); ?>">More details!</a></p>
    		</div>
    </div>
+	<hr>
 	<div class="row">
 		<div class="span4">
               <h2 class="text-success">What is Social Green?</h2>
-              <p>Do you recycle? Are you a smart-phone geek?! Are you a nerd that spents half his day connected on-line on various social media?! You have come to the right spot! Compine your interests and join us!</p>
-              <p><a class="btn btn-success pull-right" href="#">Find out more!</a></p>
+              <p>Do you recycle? Are you a smart-phone geek?! Are you a nerd that spents half his day connected on-line on various social media?! You have come to the right spot! Combine your interests and join us!</p>
+              <p><a class="btn btn-success pull-right" href="<?php echo $this->url(array('module' => null,'controller'=>'about','action'=>'how-it-works'), null, FALSE); ?>">Find out more!</a></p>
     	</div>
-    	<div class="span4">
-    		  <h2>Someone is talking about us!</h2>
-              <blockquote class="twitter-tweet"><p><a href="https://twitter.com/search/%23Thessaloniki">#Thessaloniki</a>'s greentech <a href="https://twitter.com/search/%23startup">#startup</a> @<a href="https://twitter.com/sgreen_project">sgreen_project</a> <a href="http://t.co/wf1kiAhQsl" title="http://socialgreenproject.com">socialgreenproject.com</a> +others 2B presented @<a href="https://twitter.com/opencoffeegr">opencoffeegr</a> Patras IV - Reloaded @<a href="https://twitter.com/openfund">openfund</a></p>&mdash; New Greece (@New_Greece) <a href="https://twitter.com/New_Greece/status/312185939483062272" data-datetime="2013-03-14T12:58:22+00:00">March 14, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    	<div id="twitterSwitcher" class="span4">
+    		<h2 class="text-success">Someone is talking about us!</h2>
+			 <?php echo $this->tweet; ?>
+			<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     	</div>
 	</div>
+	<hr>
 	<div class="row">
 		<div class="span4">
-              <h2><img src="http://www.ennovation.gr/wp-content/themes/poloray/images/logo.png"></h2>
-              <p>Earned the 1st price at the digital and enterpreneuship competittion of 2012. Ennovation is mpla mpla mpla.. </p>
-              <p><a class="btn pull-right" href="#">Learn more about E-nnovation</a></p>
+              <h2 class="text-success">1st Place baby! <img src="<?php echo $this->baseUrl("images/ennovation.png")?>"></h2>
+              <blockquote>
+				<p>Ennovation is an international student competition on Digital Entrepreneurship, Innovation and e-Business. The competition is organised by the Athens University of Economics and Business (ELTRUN, the eBusiness Centre), the International Hellenic University and the University of Nicosia. </p>
+				<small>From E-nnovation Official Web Site <cite title="ennovation.gr"><a href="http://www.ennovation.gr/">Click here</a></cite></small>
+			  </blockquote>
     	</div>
     	<div class="span4">
+    			<h2 class="text-success">Supported by:</h2>
               <img src="http://www.gaiocorp.com/home/images/stories/BizSpark_StartUp.jpg">
     	</div>
 	</div>
 </div>
-
-
-
 
 <!-- Old Landing page 
 

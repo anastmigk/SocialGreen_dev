@@ -20,6 +20,17 @@ class IndexController extends Zend_Controller_Action
     	//$form2 = new Application_Model_FormRegister();
     	//$this->view->registerForm = $form2;
     	
+    	$tweetDB = new Application_Model_DbTable_Tweets();
+    	$select = $tweetDB->select();
+    	$select->from($tweetDB);
+	 	$tweetsResults = $tweetDB->fetchAll($select);
+	 	$tempTweets = array();
+	 	foreach ($tweetsResults as $tweet){
+	 		$tempTweets[] = $tweet['tweet'];
+	 	}
+	 	shuffle($tempTweets);
+	 	$this->view->tweet = $tempTweets[0];
+    	
     }
 
     public function submitContactFormAction()
