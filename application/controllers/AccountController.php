@@ -377,6 +377,16 @@ class AccountController extends Zend_Controller_Action
     public function badgesAction()
     {
         // action body
+    	//Retrieve All badges
+    	$badges = new Application_Model_DbTable_Badges();
+    	$query2 = $badges->select();
+    	$query2->from(array('bad' => 'badges'), array('title','description','path','class'));
+    	$query2->order('class');
+    	$query2->setIntegrityCheck(false);
+    	
+    	$this->view->badges = $badges->fetchAll($query2);
+    	$this->view->badgesPrefix = "/images/badges/";
+    	
     }
 
 

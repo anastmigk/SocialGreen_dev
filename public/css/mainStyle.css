@@ -45,6 +45,24 @@ div#diagramUserNamesPanel div ul li{
 margin-top:3%;
 }
 
+img.badges {
+	width:57px;
+	height:57px;
+}
+img.badges2 {
+	width:100px;
+	height:100px;
+}
+
+.text-badges {
+	margin:10px 0;
+	font-family:inherit;
+	font-weight:bold;
+	line-height:80%;
+	color:inherit;
+	text-rendering:optimizelegibility;
+}
+
 div#diagramUserNamesPanel div ul li span:nth-of-type(1){
 min-width:100px;
 -webkit-border-radius: 5px;
