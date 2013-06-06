@@ -74,6 +74,7 @@
           <dbTableFile dbTableName="Activity"/>
           <dbTableFile dbTableName="Badges"/>
           <dbTableFile dbTableName="Tweets"/>
+          <dbTableFile dbTableName="UserBadges"/>
         </dbTableDirectory>
         <modelFile modelName="DailyLadder"/>
         <modelFile modelName="Ladder"/>
