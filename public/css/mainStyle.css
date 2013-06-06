@@ -45,6 +45,9 @@ div#diagramUserNamesPanel div ul li{
 margin-top:3%;
 }
 
+/* Badges rules
+-------------------------------*/
+
 img.badges {
 	width:57px;
 	height:57px;
@@ -62,6 +65,7 @@ img.badges2 {
 	color:inherit;
 	text-rendering:optimizelegibility;
 }
+/* ----------------------------*/
 
 div#diagramUserNamesPanel div ul li span:nth-of-type(1){
 min-width:100px;
@@ -226,7 +230,7 @@ right:-7px;
 }
 
 #profile-points div:nth-child(1) div span{
-font-size:xx-large;
+font-size:200%;
 color: rgb(121,193,67);
 }
 
@@ -726,6 +730,46 @@ max-height:20px;
     top: 0;
   }
   
+/* Profile points
+---------------------*/
+.profile-points {
+		/* Old CSS properties
+	margin:10px;
+	border: 1px solid #eeeeee;
+	border-bottom-left-radius:4em;
+	border-top-right-radius:4em;
+	box-shadow: 1px 1px 5px #ddd;
+	
+	font-size:18px;
+	font-weight:400;
+	*/
+	
+	padding-right:35px;
+	margin:0;
+	font-size:1.5em;
+	font-weight:900;
+}
+
+#profile-points div div span {
+font-weight:900;
+font-family: 'Roboto';
+}
+#profile-points div:nth-child(1) div {
+position:relative;
+right:-2px;
+}
+
+#profile-points div:nth-child(1) div span{
+font-size:200%;
+color: rgb(121,193,67);
+}
+
+#profile-points div:nth-child(2) div span{
+font-size:medium;
+color: #911762;
+}
+/* ------------------------------------*/
+  
   /* sketch */
 .sketchText {
 margin-top: 20px;
@@ -748,4 +792,48 @@ margin-top: 20px;
   body {
     padding-top: 0;
   }
+  
+  /* Profile points
+---------------------*/
+.profile-points {
+		/* Old CSS properties
+	margin:10px;
+	border: 1px solid #eeeeee;
+	border-bottom-left-radius:4em;
+	border-top-right-radius:4em;
+	box-shadow: 1px 1px 5px #ddd;
+	
+	font-size:18px;
+	font-weight:400;
+	*/
+	
+	padding-right:20px;
+	margin:0;
+	font-size:1.5em;
+	font-weight:900;
+}
+
+#profile-points div div span {
+font-weight:900;
+font-family: 'Roboto';
+}
+#profile-points div:nth-child(1) div {
+position:relative;
+right:-2px;
+}
+
+#profile-points div:nth-child(1) div span{
+font-size:200%;
+color: rgb(121,193,67);
+}
+
+#profile-points div:nth-child(2) div span{
+font-size:medium;
+color: #911762;
+}
+/* ------------------------------------*/
+  
+  
+  
+  
 }
