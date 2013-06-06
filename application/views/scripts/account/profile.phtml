@@ -1,9 +1,11 @@
 <?php  $accountsFriends = $this->accounts; ?>
 <?php $activeUser = $this->activeAccount; ?>
 <?php  $accounts = $this->accounts; ?>
-<?php  $auth = Zend_Auth::getInstance();
-		$username = $auth->getIdentity()->username;?>
+<?php $userbadges = $this->userbadges;?>
+<?php  //$auth = Zend_Auth::getInstance();
+		//$username = $auth->getIdentity()->username;?>
 <?php $imgPrefix = $this->imgPrefix; ?>
+<?php $badgesPrefix = $this->badgesPrefix; ?>
 <?php 
 	$sum=0;
 	foreach ($this->allActivity as $activityTemp){
@@ -68,6 +70,40 @@
 					<tbody>
 					<tr><td><p>Total leafs saved: <span class="text-success"><strong><?php echo 1*$account->glass+2*$account->plastic+3*$account->aluminium; ?></strong></span></p></td></tr>
 					<tr><td><p>Last recycled on: <?php echo date("F j, Y",strtotime($account->date)); ?></p></td></tr>
+					<tr>
+					<?php 
+						$counter = 1; 
+								
+						foreach ($userbadges as $badge) 
+						{ 
+							if (($counter % 2) == 1)
+							{ ?>
+								<!-- Arxi siras -->
+										<td>
+										<img class="badges2" title="<?php echo $badge->title; ?>" src="<?php echo $this->baseUrl($badgesPrefix.$badge->path); ?>">
+									
+										<h3 class="text-badges"><?php echo $badge->title; ?></h3>
+										</td>
+								
+							<?php
+							}
+							else
+							{ ?>
+								<td>
+										<img class="badges2" src="<?php echo $this->baseUrl($badgesPrefix.$badge->path); ?>">
+										<h3 class="text-badges"><?php echo $badge->title; ?></h3>
+								</td>
+							<?php
+							} 
+							$counter++; 
+						}
+						if (($counter % 2) == 1)
+						{
+							echo "";
+						}
+						?>
+					</tr>
+					
 					</tbody>
 				</table>
 				<hr>

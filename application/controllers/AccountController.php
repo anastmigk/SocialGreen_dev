@@ -174,7 +174,7 @@ class AccountController extends Zend_Controller_Action
         $select = $accounts->select();
         $select->where("username = ?", $username);
         $this->view->account = $accounts->fetchRow($select);*/
-        
+    	      
         // action body
     	$user = $this->_getParam('user');
     	$this->view->title = $user;//->append($user);
@@ -182,6 +182,21 @@ class AccountController extends Zend_Controller_Action
 //        $order = $accounts->select()->order("points DESC");
  //       $order->where("username = ?", $user);
         $this->view->activeAccount = $user;// $accounts->fetchAll($order);
+        $this->view->badgesPrefix = "/images/badges/";
+        
+        /*Retrieve All user's badges*/
+        $userbadges = new Application_Model_DbTable_Accounts();
+        $query = $userbadges->select('bad.id','bad.title','bad.path','bad.class');
+        $query->from(array('acc' => 'accounts'),array('id','username'));
+        $query->from(array('usb' => 'user_badges'),array('badge_id','user_id'));
+        $query->from(array('bad' => 'badges'),array('id','title','path', 'class'));
+        $query->where('acc.id = usb.user_id AND acc.username = "'.$user.'" AND usb.badge_id = bad.id');
+        //$query->join(array('usb' => 'user_badges'), 'acc.id = usb.user_id AND acc.username = "'.$user.'"', array('badge_id','user_id'));
+        //$query->join(array('bad' => 'badges'), 'usb.badge_id = bad.id', array('id','title','path', 'class'));
+        $query->order('class');
+        $query->setIntegrityCheck(false);
+        //echo (String)$query;
+        $this->view->userbadges = $userbadges->fetchAll($query);
         
     }
 
