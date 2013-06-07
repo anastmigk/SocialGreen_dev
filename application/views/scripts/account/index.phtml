@@ -151,6 +151,7 @@
 </div>
 <script>
 <?php 
+
 	$count=1;
 	$lines = "[";
 	foreach ($this->activity as $act) {
@@ -186,14 +187,14 @@ var plot1 = $.jqplot('chartdiv', <?php echo $lines ?>, {
       // Will animate plot on calls to plot1.replot({resetAxes:true})
       animateReplot: false, 
       seriesColors:<?php echo json_encode($seriesColor); ?>,
-    seriesDefaults: { 
+   	 seriesDefaults: { 
       showMarker:true,
       pointLabels: { 
           show:false },
       rendererOptions: {smooth: true} 
     },
     legend: {
-        show: true,
+        show: false,
         renderer: $.jqplot.EnhancedLegendRenderer,
         placement: "insideGrid",
         labels: labels,
@@ -204,15 +205,15 @@ var plot1 = $.jqplot('chartdiv', <?php echo $lines ?>, {
         showLabels: false
     },
     highlighter: {
-        show: true,
+        show: false,
         sizeAdjust: 7.5,
-        bringSeriesToFront: true
-    },
-    cursor: {
-        show: false
-    },
+        bringSeriesToFront: false
+    },	
+    grid: {
+        drawGridLines: true},
     axes: {
         xaxis: {
+        	labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
         	tickRenderer: $.jqplot.CanvasAxisTickRenderer,
             pad: 1,
             tickOptions: {
@@ -222,6 +223,7 @@ var plot1 = $.jqplot('chartdiv', <?php echo $lines ?>, {
             ticks: ticks
         },
         yaxis: {
+        	labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
             min: 0,
             //max: 100,
             //label: 'Points',
