@@ -193,7 +193,8 @@ class AccountController extends Zend_Controller_Action
         $query->where('acc.id = usb.user_id AND acc.username = "'.$user.'" AND usb.badge_id = bad.id');
         //$query->join(array('usb' => 'user_badges'), 'acc.id = usb.user_id AND acc.username = "'.$user.'"', array('badge_id','user_id'));
         //$query->join(array('bad' => 'badges'), 'usb.badge_id = bad.id', array('id','title','path', 'class'));
-        $query->order('class');
+        $query->group(array("bad.id"));
+        
         $query->setIntegrityCheck(false);
         //echo (String)$query;
         $this->view->userbadges = $userbadges->fetchAll($query);
@@ -395,8 +396,8 @@ class AccountController extends Zend_Controller_Action
     	//Retrieve All badges
     	$badges = new Application_Model_DbTable_Badges();
     	$query2 = $badges->select();
-    	$query2->from(array('bad' => 'badges'), array('title','description','path','class'));
-    	$query2->order('class');
+    	$query2->from(array('bad' => 'badges'), array('id','title','description','path','class'));
+    	$query2->order('id');
     	$query2->setIntegrityCheck(false);
     	
     	$this->view->badges = $badges->fetchAll($query2);

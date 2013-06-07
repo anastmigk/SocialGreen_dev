@@ -22,7 +22,7 @@
 			</div>
 			<div class="span11">
 				<div class="profile-points text-right">
-					<span>total leafs<br>saved!</span>
+					<span>total leaves<br>saved</span>
 				</div>
 			</div>
 		</div>
@@ -71,41 +71,22 @@
 					<tr><td><p>Total leafs saved: <span class="text-success"><strong><?php echo 1*$account->glass+2*$account->plastic+3*$account->aluminium; ?></strong></span></p></td></tr>
 					<tr><td><p>Last recycled on: <?php echo date("F j, Y",strtotime($account->date)); ?></p></td></tr>
 					<tr>
+					<td>
+					<span class="customh4" ><a href='<?php echo $this->baseUrl('account/badges'); ?>' title='badges' >Badges</a></span><br>
+					<hr class="btable">
 					<?php 
-						$counter = 1; 
-								
+						$counter = 1; 		
 						foreach ($userbadges as $badge) 
-						{ 
-							if (($counter % 2) == 1)
-							{ ?>
-								<!-- Arxi siras -->
-										<td>
-										<img class="badges2" title="<?php echo $badge->title; ?>" src="<?php echo $this->baseUrl($badgesPrefix.$badge->path); ?>">
-									
-										<h3 class="text-badges"><?php echo $badge->title; ?></h3>
-										</td>
-								
+						{?>
+							<img class="badges" title="<?php echo $badge->title; ?>" src="<?php echo $this->baseUrl($badgesPrefix.$badge->path); ?>"></img>
 							<?php
-							}
-							else
-							{ ?>
-								<td>
-										<img class="badges2" src="<?php echo $this->baseUrl($badgesPrefix.$badge->path); ?>">
-										<h3 class="text-badges"><?php echo $badge->title; ?></h3>
-								</td>
-							<?php
-							} 
-							$counter++; 
-						}
-						if (($counter % 2) == 1)
-						{
-							echo "";
 						}
 						?>
-					</tr>
-					
+						</td>
+						</tr>	
 					</tbody>
 				</table>
+				 
 				<hr>
 				<p><a href='<?php echo $account->url; ?>' target="_blank" class="btn btn-success">Go to&nbsp;<?php echo $account->url; ?></a></p>
 			</div>

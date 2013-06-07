@@ -44,13 +44,25 @@ list-style:none;
 div#diagramUserNamesPanel div ul li{
 margin-top:3%;
 }
-
+/*Used in the badge array at profile */
+.customh4{
+	font-weight: bold;
+	font-size: large;
+	line-height: 130%;
+}
+hr.btable{
+	margin:2px 0px 4px;
+	border:0;
+	border-top:1px solid #eeeeee;
+	border-bottom:1px solid #ffffff;
+}
+/* ------------------------------------------ */
 /* Badges rules
 -------------------------------*/
 
 img.badges {
-	width:57px;
-	height:57px;
+	width:35px;
+	height:35px;
 }
 img.badges2 {
 	width:100px;
@@ -230,13 +242,15 @@ right:-7px;
 }
 
 #profile-points div:nth-child(1) div span{
-font-size:200%;
+font-size:250%;
 color: rgb(121,193,67);
+line-height:100%;
 }
 
 #profile-points div:nth-child(2) div span{
-font-size:medium;
+font-size:120%;
 color: #911762;
+line-height:100%;
 }
 
 .profile-points h1{
@@ -760,13 +774,15 @@ right:-2px;
 }
 
 #profile-points div:nth-child(1) div span{
-font-size:200%;
+font-size:250%;
 color: rgb(121,193,67);
+line-height:100%;
 }
 
 #profile-points div:nth-child(2) div span{
-font-size:medium;
+font-size:120%;
 color: #911762;
+line-height:100%;
 }
 /* ------------------------------------*/
   
@@ -823,13 +839,15 @@ right:-2px;
 }
 
 #profile-points div:nth-child(1) div span{
-font-size:200%;
+font-size:250%;
 color: rgb(121,193,67);
+line-height:100%;
 }
 
 #profile-points div:nth-child(2) div span{
-font-size:medium;
+font-size:120%;
 color: #911762;
+line-height:100%;
 }
 /* ------------------------------------*/
   
