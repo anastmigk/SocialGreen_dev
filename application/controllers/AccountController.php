@@ -6,7 +6,7 @@ class AccountController extends Zend_Controller_Action
     public function init()
     {
         /* Initialize action controller here */
-    	$title = "User Management";
+    	$title = "Game";
     	$this->view->title = $title;
     	if ($this->_helper->FlashMessenger->hasMessages()) {
     		$this->view->messages = $this->_helper->FlashMessenger->getMessages();
