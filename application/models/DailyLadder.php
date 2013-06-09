@@ -81,6 +81,7 @@ class Application_Model_DailyLadder
 		$dateArray = array();
 		$prevDate = null;
 		$i=0;
+		//Unique array of dates is created so as to have a point of reference
 		foreach ($data as $date){
 			if ($prevDate!=$date['date']){
 				$prevDate = $date['date'];
@@ -88,38 +89,48 @@ class Application_Model_DailyLadder
 				$i++;
 			}
 		}
+		//dates are sent to view
 		$this->dates = $dateArray;
 		
+		//Date array is flipped
 		$flipped_dateArray = array_flip($dateArray);
 		$population = count($flipped_dateArray);
 		
+		//Users: array to hold the information of each user account per date
 		$users =  array();
 		$currentID = null;
 		$currentDate = null;
 		$usernames = array();
-		//var_dump($flipped_dateArray);
+		
 		foreach ($data as $entry){
 			$currentID = $entry['userid'];
+			//The id of the user is used as a key and the specific value is equal to 0
 			$users[$currentID] = array_fill(0, $population, 0);
 		}
 		
 		$i=0;
 		$prevUser = null;
 		foreach ($data as $entry){
-			$currentID = $entry['userid'];
+			/*$currentID = $entry['userid'];
 			$needle = $entry['date'];
-			if ($prevUser!= $currentID) {
+			if ($prevUser!= $currentID) { 
+			//if ($users[$currentID][$flipped_dateArray[$needle]]==null){
+			//New user id
 				$users[$currentID][$flipped_dateArray[$needle]] = $entry['quantity'];
 				$usernames[$currentID] = $entry['username'];
 			} else {
-				$users[$currentID][$flipped_dateArray[$needle]] += $entry['quantity'];
+				//We are still in the same user at this loop
+				$users[$currentID][$flipped_dateArray[$needle]] =+ $entry['quantity'];
 			}
-		$i++;	
+			//echo $currentID."-".$entry['date'].": ".$users[$currentID][$flipped_dateArray[$needle]]."<br>";
+		$i++;*/
+			$users[$entry['userid']][$flipped_dateArray['date']]+=$entry['quantity'];	
 		}
+		
 		$jsUsers = array();
 		foreach ($users as $user){
-			$jsUsers[]= $this->getHtmlCode($user); //transform to Javascript Array
-			
+			$jsUsers[]= $this->getHtmlCode($user);
+			echo $this->getHtmlCode($user)."<br>"; //transform to Javascript Array
 		}
 		$this->usernames = $usernames;
 		$this->graph = $jsUsers;	
@@ -156,7 +167,11 @@ class Application_Model_DailyLadder
 		 ";
 		
 		$newHtml = "";
-		$js_array = json_encode($vars);
+		foreach ($vars as $var){
+			$jsarray[] = $var;
+		}
+		$js_array = json_encode($jsarray);
+		//var_dump($js_array);
 		return $js_array;
 		//return $htmlCode;
 	}
