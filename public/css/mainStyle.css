@@ -3,7 +3,7 @@
 mov : #911762;
 prasino : #65B524;
 */
-      
+
 @import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700);
 
 /* Sticky footer styles
@@ -18,8 +18,13 @@ overflow-y: scroll;
 }
 
 div#splashPageLogo {
+	text-align:center;
 	margin-top:5%;
 	margin-bottom:5%;
+}
+
+div#splashPageLogo img {
+	width:400px;
 }
 
 .barChartDetails {
@@ -410,19 +415,21 @@ margin:10px;
 }
 
 div#friends, div#twitterTable {
-border-radius:5px;
-box-shadow: 0px 0px 16px rgba(169, 232, 125, 0.91);
-width:95%;	
-margin:5px;
-margin-top:5px;
-padding:5px;
+	border-radius:5px;
+	box-shadow: 0px 0px 16px rgba(169, 232, 125, 0.91);
+	width:95%;	
+	margin:5px;
+}
+div#friends {
+	margin-top:15px;
+	padding:5px;
 }
 
 div#twitterTable {
-
-background-image:url('https://dev.twitter.com/sites/default/files/images_documentation/bird_blue_32.png');
-background-repeat:no-repeat;
-background-position:95% 95%;
+	padding:15px;
+	background-image:url('https://dev.twitter.com/sites/default/files/images_documentation/bird_blue_32.png');
+	background-repeat:no-repeat;
+	background-position:95% 95%;
 }
  
 table#twitter tr:first-child td {
