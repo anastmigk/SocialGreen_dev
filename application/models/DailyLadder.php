@@ -61,12 +61,30 @@ class Application_Model_DailyLadder
 		}
 		$graph = substr($graph,0,-1);
 		*/
+		
+		/* Old QUery
 		$activity = new Application_Model_DbTable_Activity();
 		$query = $activity->select();
 		$query->from(array('act' => 'activity'), array('id', 'userid','quantity','date'));
 		$query->join(array('acc' => 'accounts'), 'act.userid = acc.id', array("id","username"));
 		$query->order('act.date ASC');
 		$query->setIntegrityCheck(false);
+		*/
+		
+		$activity = new Application_Model_DbTable_Activity();
+		//$query = $activity->select("SELECT date, userid, SUM(quantity) as quantity FROM activity GROUP BY userid,date order by date DESC;");
+		
+		$query=$activity->select();
+		$query->from($activity, array("date", "userid", "quantity" => "SUM(quantity)"));
+		$query->group(array("userid","date"));
+		$query->order("date ASC");
+		/*
+		$select = $table->select();
+		$select->from ("table", array("date", "column1" => "sum(column1)"));
+		$select->group ( array ("date") );
+		
+		$sql = (string) $select; //Retrieve SQL as a string
+		*/
 		
 		//$activity = new Application_Model_DbTable_Activity();
 		//$select = $activity->select();
@@ -78,20 +96,24 @@ class Application_Model_DailyLadder
 		//$datesSelect->from($activity, array('date'))->distinct()->order("date ASC");
 		//$dates = $activity->fetchAll($datesSelect);
 		
+		/*
+		*/
 		$dateArray = array();
 		$prevDate = null;
 		$i=0;
+		
 		//Unique array of dates is created so as to have a point of reference
 		foreach ($data as $date){
 			if ($prevDate!=$date['date']){
 				$prevDate = $date['date'];
 				$dateArray[$i] = $date['date'];
+				//echo $date['date'];
 				$i++;
 			}
 		}
 		//dates are sent to view
 		$this->dates = $dateArray;
-		
+		/*
 		//Date array is flipped
 		$flipped_dateArray = array_flip($dateArray);
 		$population = count($flipped_dateArray);
@@ -109,7 +131,8 @@ class Application_Model_DailyLadder
 		}
 		
 		$i=0;
-		$prevUser = null;
+		$prevUser = null;*/
+		$dateCounter = 0 ;
 		foreach ($data as $entry){
 			/*$currentID = $entry['userid'];
 			$needle = $entry['date'];
@@ -124,15 +147,22 @@ class Application_Model_DailyLadder
 			}
 			//echo $currentID."-".$entry['date'].": ".$users[$currentID][$flipped_dateArray[$needle]]."<br>";
 		$i++;*/
-			$users[$entry['userid']][$flipped_dateArray['date']]+=$entry['quantity'];	
+			//$users[$entry['userid']][$flipped_dateArray['date']]+=$entry['quantity'];
+			$users[$entry['userid']][$entry['date']]=$entry['quantity'];
+			//echo $entry['date']." -- ".$entry['quantity']."<Br>";
+			foreach ($dateArray as $singleDate){
+				if (!isset($users[$entry['userid']][$singleDate])){
+					$users[$entry['userid']][$singleDate]="0";
+				}
+			}
 		}
 		
 		$jsUsers = array();
 		foreach ($users as $user){
 			$jsUsers[]= $this->getHtmlCode($user);
-			echo $this->getHtmlCode($user)."<br>"; //transform to Javascript Array
+			//echo $this->getHtmlCode($user)."<br>"; //transform to Javascript Array
 		}
-		$this->usernames = $usernames;
+		//$this->usernames = $usernames;
 		$this->graph = $jsUsers;	
 	}
 
