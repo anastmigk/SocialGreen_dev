@@ -14,9 +14,9 @@ class AccountController extends Zend_Controller_Action
     	//Retrieve All user accounts
     	$accounts = new Application_Model_DbTable_Accounts();
     	$query = $accounts->select();
-    	$query->from(array('act' => 'activity'), array('SUM(act.quantity) as quantity','SUM(act.plastic) as plastic','SUM(act.glass) as glass','SUM(act.aluminium) as aluminium','userid','MAX(act.date) as date'));
+    	$query->from(array('act' => 'activity'), array('SUM(act.quantity) as quantity','SUM(act.plastic) as plastic','SUM(act.glass) as glass','SUM(act.aluminium) as aluminium', '(SUM(act.glass)*1+SUM(act.plastic)*2+SUM(act.aluminium)*3) as leafs','userid','MAX(act.date) as date'));
     	$query->join(array('acc' => 'accounts'), 'act.userid = acc.id', array('fullname','username','avatar','description', 'url'));
-    	$query->order('quantity ASC');
+    	$query->order('leafs Desc');
     	$query->group(array("username"));
     	$query->setIntegrityCheck(false);
     	//echo (String)$query;
@@ -25,8 +25,8 @@ class AccountController extends Zend_Controller_Action
     	
     	$activity = new Application_Model_DbTable_Activity();
     	
-    	$query = $activity->select();
-    	$query->from($activity);
+    	$query2 = $activity->select();
+    	$query2->from($activity);
     	$this->view->allActivity = $activity->fetchAll($query);
     }
 

@@ -3,7 +3,7 @@
 <?php  $allactivity = $this->results; ?>
 <?php  $usernamesTemp = $this->usernames; ?>
 <?php  $imgPrefix = $this->imgPrefix; ?>
-<?php  $seriesColor = array("#FF9900", "#00F"); ?>
+<?php  $seriesColor = array("#FF9900", "#00F", "#BB0000"); ?>
 <?php 
 	$sum=0;
 	foreach ($this->allActivity as $activityTemp){
@@ -19,7 +19,7 @@
 			</div>
 			<div class="span11">
 				<div class="profile-points text-right">
-					<span>total leaves<br>saved</span>
+					<span>total leafs<br>saved</span>
 				</div>
 			</div>
 		</div>
@@ -77,8 +77,8 @@
 					    	<ul>
 					    		<?php 
 					    			$colorCounter = 0;
-					    			foreach ($accounts as $account){
-										echo "<li><span style='background-color:".$seriesColor[$colorCounter]."'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>".$account->fullname."</span></li>";
+					    			foreach ($usernamesTemp as $fullName){
+										echo "<li><span style='background-color:".$seriesColor[$colorCounter]."'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>".$fullName."</span></li>";
 										$colorCounter++;
 									}
 					    		?>
@@ -115,7 +115,7 @@
 	                    		</a>
 							</td>
 							<td>
-								<?php echo ucfirst($activity->username);  ?> saved <?php echo 1*$activity->glass+2*$activity->plastic+3*$activity->aluminium; ?> leafs on <?php echo date("d-M",strtotime($activity->date)) ?>! <span class="muted">(aluminium: <?php echo $activity->aluminium.", plastic:".$activity->plastic.", glass:".$activity->glass ?>)</span>
+								<?php echo ucfirst($activity->username);  ?> saved <?php echo 1*$activity->glass+2*$activity->plastic+3*$activity->aluminium; ?> leafs on <?php echo date("d-M",strtotime($activity->date)) ?>! <span class="muted">(aluminium: <?php echo $activity->aluminium." * 3 leafs, plastic:".$activity->plastic." * 2 leafs, glass:".$activity->glass ?> * 1 leaf)</span>
 							</td>
 						</tr>
 					
@@ -136,9 +136,9 @@
 					<div>
 	                <?php  foreach ($accounts as $account) { ?>
 	                    <div class="row-fluid">
-	                    	<div class="barChartDetails"><img src='<?php echo $this->baseUrl("images/numbers/".$place.".png"); ?>'>&nbsp;&nbsp;&nbsp;<span class="ladderName"><?php echo $account->fullname; ?></span><br><span class="ladderPoints"><?php echo $account->quantity;?> points</span></div>
+	                    	<div class="barChartDetails"><img src='<?php echo $this->baseUrl("images/numbers/".$place.".png"); ?>'>&nbsp;&nbsp;&nbsp;<span class="ladderName"><?php echo $account->fullname; ?></span><br><span class="ladderPoints"><?php echo $account->leafs;?> leafs</span></div>
 		                   	<div class="progress">
-			  					<div class="bar" style="width: <?php echo ($account->quantity/$mostPoints)*100 ?>%;"></div>
+			  					<div class="bar" style="width: <?php echo ($account->leafs/$mostPoints)*100 ?>%;"></div>
 							</div>
 						</div>
 					<?php $place++; } ?>
@@ -188,12 +188,11 @@ var plot1 = $.jqplot('chartdiv', <?php echo $lines ?>, {
       animateReplot: false, 
       seriesColors:<?php echo json_encode($seriesColor); ?>,
    	 seriesDefaults: { 
-      showMarker:true,
-      pointLabels: { 
-          show:false },
+     // showMarker:false,
+     // pointLabels: {show:false},
       rendererOptions: {smooth: true} 
     },
-    legend: {
+    /*legend: {
         show: false,
         renderer: $.jqplot.EnhancedLegendRenderer,
         placement: "insideGrid",
@@ -203,14 +202,14 @@ var plot1 = $.jqplot('chartdiv', <?php echo $lines ?>, {
         seriesToggle : 'normal',
         showSwatches : true,
         showLabels: false
-    },
-    highlighter: {
+    },*/
+    /*highlighter: {
         show: true,
         //sizeAdjust: 7.5,
         bringSeriesToFront: false
-    },	
-    grid: {
-        drawGridLines: true},
+    },*/	
+    /*grid: {
+        drawGridLines: true},*/
     axes: {
         xaxis: {
         	labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
