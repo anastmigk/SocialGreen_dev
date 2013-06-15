@@ -30,7 +30,7 @@ class IndexController extends Zend_Controller_Action
 	 	}
 	 	shuffle($tempTweets);
 	 	$this->view->tweet = $tempTweets[0];
-    	
+	 	$this->view->messages = $this->_helper->flashMessenger->getMessages();
     }
 
     public function submitContactFormAction()

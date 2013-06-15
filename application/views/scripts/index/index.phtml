@@ -1,3 +1,17 @@
+<?php
+		//	Retrieving the stored messages is similarly simple:
+		$messages = $this->messages;
+		//This will create an array of messages in your view object which you can then loop over in your view script:
+		if (count($messages)){
+			foreach ($messages as $message) {
+ 				echo '<div id="customalert" class="alert alert-success span3 pull-right hidden-phone"><button type="button" class="close pull-right" data-dismiss="alert">&times;</button>'.$message.'</div>'; 
+ 			}
+ 			echo '	<script>$( document ).ready(function() {
+    					$("div#customalert").delay(2000).animate({top:"70px"},"slow").delay(10000).fadeOut(2000);
+					});</script>';
+ 		}
+?>
+
 <div class="span8 offset2">
 	<div id="splashPageLogo" class="row-fluid">
 		<div class="span12">

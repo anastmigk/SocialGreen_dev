@@ -23,6 +23,16 @@ div#splashPageLogo {
 	margin-bottom:5%;
 }
 
+div#customalert {
+	width: 150px;
+	position:absolute;
+	top:-300px;
+	right: 5%;
+	-moz-box-shadow: 3px 3px 4px #000;
+	-webkit-box-shadow: 3px 3px 4px #000;
+	box-shadow: 3px 3px 4px #000;
+}
+
 div#splashPageLogo img {
 	width:400px;
 }

@@ -63,8 +63,8 @@ class AboutController extends Zend_Controller_Action
 				"antw.jpg",
 				"He is the Art Director of Social Green where he handles every design related issue. His working experience contains printing and graphic design positions. In his free time, Antonis enjoys photo shooting and animation.",
 				'http://gr.linkedin.com/pub/antonis-karanaftis/65/3a1/19b',
-				'mail',
-				'#');
+				'aboutme',
+				'http://about.me/antonis.k');
 		
 		$andreas = array(
 				"Andreas Monastiriotis",

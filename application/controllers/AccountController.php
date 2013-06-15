@@ -64,6 +64,9 @@ class AccountController extends Zend_Controller_Action
         $query = $activity->select();
         $query->from($activity);
         $this->view->allActivity = $activity->fetchAll($query);
+        
+        $this->view->messages = $this->_helper->flashMessenger->getMessages();
+        
     }
 
     public function registerAction()
@@ -104,8 +107,8 @@ class AccountController extends Zend_Controller_Action
 					//$this->_helper->redirector("index", 'index');
 					//$this->_helper->redirector("index","index",array("register"));// _redirector->gotoUrl('/my-controller/my-action/param1/test/param2/test2');
 					
-					$smtpServer = 'socialgreenproject.com';
-					$username = 'info@socialgreenproject.com';
+					$smtpServer = 'mail.sociallgreen.com';
+					$username = 'info@sociallgreen.com';
 					$password = 'sgadmin12!';
 					 
 					$config = array(
@@ -132,27 +135,28 @@ class AccountController extends Zend_Controller_Action
 							</style>	
 						</head>
 						<body>
-						<img style='max-width:400px' src='http://socialgreenproject.com/images/social.png'>
-						<h1>Welcome at Social Green Project</h1>
+						<img style='max-width:400px' src='http://sociallgreen.com/images/socialllogo600.png'>
+						<h1>Welcome at SociallGreen community!</h1>
 						<p>This is a confirmation mail for registering at our community. <br>
 							Click the following link to confirm your registration.</p>".
 //						<a href='http://socialgreenproject.com/account/confirm/token/".$token."/usr/".$form->getValue('username')."'>http://socialgreenproject.com/account/confirm/token/".$token."/usr/".$form->getValue('username')."</a>
-						"<a href='http://socialgreenproject.com/account/confirm/token/".$token."'>http://socialgreenproject.com/account/confirm/token/".$token."</a>
+						"<a href=http://sociallgreen.com/account/confirm/token/".$token."'>http://sociallgreen.com/account/confirm/token/".$token."</a>
 						</body>
 						</html>";
 					
 					$mail = new Zend_Mail();
-					$mail->setBodyHtml($htmlMail)
-					->setFrom('no-reply@socialgreenproject.com', 'Social Green Project Team')
-					->addTo($form->getValue('email'))
-					->setSubject('Confirmation Mail')
-					->send($transport);
+					$mail->setBodyHtml($htmlMail)->setFrom('no-reply@sociallgreen.com', 'Social Green Team')->addTo($form->getValue('email'))->setSubject('Confirmation Mail')->send($transport);
 					
 					//$this->_helper->_redirector("index", 'index', array("register","true"));
-					$this->_helper->_redirector('index','index',null,array('register'=>'true'));
+					$flashMessenger = $this->_helper->getHelper('FlashMessenger');
+					$flashMessenger->addMessage("You have successfully registered to our community!<br>A confirmation mail was sent to the address provided!");
+					//$this->_helper->flashMessenger("You have successfully registered to our community! A confirmation mail was sent to the address provided!");
+					$this->_helper->redirector("index", 'index');
+//					$this->_helper->_redirector('index','index',null,array('register'=>'true'));
                 }
                 catch (Zend_Db_Exception $e) {
 					//echo $e->getMessage();	
+					$this->view->errors = array("Your are already registered");
                 }
 			}
             else
@@ -160,7 +164,6 @@ class AccountController extends Zend_Controller_Action
 				$this->view->errors = $form->getErrors();
             }
         }
-        $this->view->messages = $this->_helper->flashMessenger->getMessages();
         $this->view->title = "New registration";
         $this->view->form = $form;        
     }

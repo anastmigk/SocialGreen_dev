@@ -194,35 +194,6 @@ class Application_Model_DailyLadder
 
 	private function getHtmlCode($vars) {
 		
-		$htmlCode = "<script type='text/javascript'>
-      // Load the Visualization API and the piechart package.
-      google.load('visualization', '1.0', {'packages':['corechart']});
-		
-      // Set a callback to run when the Google Visualization API is loaded.
-      google.setOnLoadCallback(drawChart);
-		
-      // Callback that creates and populates a data table,
-      // instantiates the pie chart, passes in the data and
-      // draws it.
-      function drawChart() {
-		
-        // Create the data table.
-    	  var data = google.visualization.arrayToDataTable([
-    	  ". $vars."]);
-		
-        // Set chart options
-        var options = {'title':'Who is the best recycler? - Daily Activity',
-                       'is3D': true};
-		
-        // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.LineChart(document.getElementById('dailyLadder'));
-        chart.draw(data, options);
-      }
-    </script>
-    <div id='dailyLadder'></div>
-		 ";
-		
-		$newHtml = "";
 		ksort($vars);
 //		var_dump($vars);
 		foreach ($vars as $var){
