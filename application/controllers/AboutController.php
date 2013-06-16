@@ -45,8 +45,8 @@ class AboutController extends Zend_Controller_Action
         		"esu.jpg",
         		"Konstantinos works as a jr. IT Auditor while the same time leads the technical part of Social-Green. At his free time he enjoys Web & iOS and studing about Information Security. He Holds an MSc degree in ICT Systems.",
         		'http://www.linkedin.com/in/papadopoulosk',
-        		'twitter',
-        		'https://twitter.com/papadopoulospk');
+        		'aboutme',
+        		'http://about.me/papadopoulospk');
         
         $laps = array(
         		"George Lapatas",
