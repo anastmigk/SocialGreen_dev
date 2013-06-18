@@ -109,7 +109,7 @@ class AccountController extends Zend_Controller_Action
 					
 					$smtpServer = 'mail.sociallgreen.com';
 					$username = 'info@sociallgreen.com';
-					$password = 'sgadmin12!';
+					$password = 'leac8r12!';
 					 
 					$config = array(
 							'auth' => 'login',
