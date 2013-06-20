@@ -74,8 +74,17 @@ class AboutController extends Zend_Controller_Action
 				'http://gr.linkedin.com/pub/andreas-monastiriotis/6b/354/390',
 				'aboutme',
 				'http://about.me/andreas.monastiriotis');
+		
+		$eva = array(
+				"Eva Kavaliotou",
+				"Community Manager",
+				"eva.jpg",
+				'Eva Kavaliotou Community Manager at Social Green. Her academic background is on Business Administration and Information Systems. Currently she is studying Management Science and Technology at Athens University of Economics and Business and emphasizes her studies on e-Commerce and how Digital marketing and Conversion Rate Optimization can boost online businesses. Gamification is also on her interests. Given the fact that she is still an undergraduate student, her only working experience is as a Conversion Rate Optimization Trainee at her University’s Research Center(ELTRUN) and as an e-Business Intern at "Be eBusiness".',
+				"http://gr.linkedin.com/pub/eva-kavaliotou/53/646/81a",
+				"mail",
+				"");
         
-        $team = array($ntempos,$kuze,$konos,$laps,$antonis,$andreas);
+        $team = array($ntempos,$kuze,$konos,$eva,$laps,$antonis,$andreas);
         //var_dump($team);
         $this->view->team = $team;
     }

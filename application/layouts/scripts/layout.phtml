@@ -198,9 +198,11 @@ try {
     ================================================== -->
 <div id="footer" class="container">
 <div class="row pagination-centered ">
-      	<div class="row offset2">
+      	<hr>
+      	<div class="row-fluid">
+      	 <div class="span10 offset1">
 	      	<!-- ABOUT -->
-	      	<div class="span2">
+	      	<div class="span4">
 	      		<ul class="mylist">
 		        	<li ><span class="FooterTitles">Info</span></li>
 					<li ><a title="Home!" href="<?php echo $this->url(array('controller'=>'index', 'action'=>'index'), null, TRUE); ?>">Home</a></li>
@@ -210,7 +212,7 @@ try {
 	       	</div>
 	        
 	       	<!-- Activities -->
-	        <div  class="span2">
+	        <div  class="span4">
 				<ul class="mylist">
 					<li ><span class="FooterTitles">Activities</span></li>
 					
@@ -222,7 +224,7 @@ try {
 				</ul>
 	        </div>
 	        <!-- Find Us -->
-	        <div class="span2">
+	        <div class="span4">
 	        	<ul class="mylist">
 					<li ><span class="FooterTitles">Social</span></li>
 					
@@ -247,9 +249,13 @@ try {
 				</ul>
 	        </div>
         </div>
-    	<div class="span11">
+        </div>
+        <div class="row">
+        
+    	<div class="span10 offset1">
       		<p class="FooterTitles" style="text-decoration: none;">&copy; Copyright 2013 Social Green</p>
       		<p><a href="mailto:info@sociallgreen.com">info@sociallgreen.com</a></p>
+      	</div>
       	</div>
       	
 </div>
