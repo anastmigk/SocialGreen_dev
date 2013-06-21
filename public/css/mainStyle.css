@@ -842,98 +842,103 @@ max-height:20px;
 /* Tablet
 ------------------------- */
 @media (max-width: 767px) {
-  /* Remove any padding from the body */
-  body {
-    padding-top: 0;
-  }
-
-  /* Sidenav */
-  .nav-stacked {
-    width: auto;
-    margin-bottom: 20px;
-  }
-  .nav-stacked.affix {
-    position: static;
-    width: auto;
-    top: 0;
-  }
+	/* Remove any padding from the body */
+	body {
+    	padding-top: 0;
+	}
+	/* Sidenav */
+	.nav-stacked {
+    	width: auto;
+    	margin-bottom: 20px;
+	}
+	.nav-stacked.affix {
+		position: static;
+		width: auto;
+		top: 0;
+	}
   
-/* Profile points
----------------------*/
-.profile-points {
-		/* Old CSS properties
-	margin:10px;
-	border: 1px solid #eeeeee;
-	border-bottom-left-radius:4em;
-	border-top-right-radius:4em;
-	box-shadow: 1px 1px 5px #ddd;
+	/* Profile points
+	---------------------*/
+	.profile-points {
+			/* Old CSS properties
+		margin:10px;
+		border: 1px solid #eeeeee;
+		border-bottom-left-radius:4em;
+		border-top-right-radius:4em;
+		box-shadow: 1px 1px 5px #ddd;
+		
+		font-size:18px;
+		font-weight:400;
+		*/
+		
+		padding-right:35px;
+		margin:0;
+		font-size:1.5em;
+		font-weight:900;
+	}
 	
-	font-size:18px;
-	font-weight:400;
-	*/
-	
-	padding-right:35px;
-	margin:0;
-	font-size:1.5em;
+	#profile-points div div span {
 	font-weight:900;
-}
-
-#profile-points div div span {
-font-weight:900;
-font-family: 'Roboto';
-}
-#profile-points div:nth-child(1) div {
-position:relative;
-right:-2px;
-}
-
-#profile-points div:nth-child(1) div span{
-font-size:250%;
-color: rgb(121,193,67);
-line-height:100%;
-}
-
-#profile-points div:nth-child(2) div span{
-font-size:120%;
-color: #911762;
-line-height:100%;
-}
-/* ------------------------------------*/
-  
-  /* sketch */
-.sketchText {
-margin-top: 20px;
-  }
-#myCarousel {
+	font-family: 'Roboto';
+	}
+	#profile-points div:nth-child(1) div {
+	position:relative;
+	right:-2px;
+	}
+	
+	#profile-points div:nth-child(1) div span{
+	font-size:250%;
+	color: rgb(121,193,67);
+	line-height:100%;
+	}
+	
+	#profile-points div:nth-child(2) div span{
+	font-size:120%;
+	color: #911762;
+	line-height:100%;
+	}
+	/* ------------------------------------*/
+	  
+	  /* sketch */
+	.sketchText {
 	margin-top: 20px;
-}
-/*.carousel-control{position:absolute;top:105%;left:395px;width:40px;height:40px;margin-top:-20px;font-size:60px;font-weight:100;line-height:30px;color:#ffffff;text-align:center;background:#222222;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
-.carousel-control.right{left:auto;right:395px;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
-.carousel-indicators{position:absolute;top:15px;right:15px;z-index:5;margin:0;list-style:none;}
-.carousel-indicators li{display:block;float:left;width:10px;height:10px;margin-left:5px;text-indent:-999px;background-color:#ccc;background-color:rgba(255, 255, 255, 0.25);border-radius:5px;}
-.carousel-indicators .active{background-color:#fff;}*/
-.carousel-control{position:absolute;top:107%;left:15px;width:40px;height:40px;margin-top:-20px;font-size:60px;font-weight:100;line-height:30px;color:#ffffff;text-align:center;background:#222222;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
-.carousel-control.right{left:auto;right:15px;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
-.carousel-indicators{position:absolute;top:105%;right:44%;z-index:5;margin:0;list-style:none;}.carousel-indicators li{display:block;float:left;width:10px;height:10px;margin-left:5px;text-indent:-999px;background-color:#ccc;border-radius:5px;}
-.carousel-indicators .active{background-color:#333333;}
-
-/* Landing Page
-=================================================
-
-/*Trademarks images 
---------------------------------------------*/
-.trademarks {
-	margin: 40px 0px;
-}
-.trademarks img{
-	margin:20px 5px;
-	width:200px;
-	height:auto;
-}
-.linktohow {
-	margin-top:6px;
-}
-/*===============================================*/
+	  }
+	#myCarousel {
+		margin-top: 20px;
+	}
+	/*.carousel-control{position:absolute;top:105%;left:395px;width:40px;height:40px;margin-top:-20px;font-size:60px;font-weight:100;line-height:30px;color:#ffffff;text-align:center;background:#222222;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
+	.carousel-control.right{left:auto;right:395px;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
+	.carousel-indicators{position:absolute;top:15px;right:15px;z-index:5;margin:0;list-style:none;}
+	.carousel-indicators li{display:block;float:left;width:10px;height:10px;margin-left:5px;text-indent:-999px;background-color:#ccc;background-color:rgba(255, 255, 255, 0.25);border-radius:5px;}
+	.carousel-indicators .active{background-color:#fff;}*/
+	.carousel-control{position:absolute;top:107%;left:15px;width:40px;height:40px;margin-top:-20px;font-size:60px;font-weight:100;line-height:30px;color:#ffffff;text-align:center;background:#222222;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
+	.carousel-control.right{left:auto;right:15px;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
+	.carousel-indicators{position:absolute;top:105%;right:44%;z-index:5;margin:0;list-style:none;}.carousel-indicators li{display:block;float:left;width:10px;height:10px;margin-left:5px;text-indent:-999px;background-color:#ccc;border-radius:5px;}
+	.carousel-indicators .active{background-color:#333333;}
+	
+	/* Landing Page
+	=================================================
+	
+	/*Trademarks images 
+	--------------------------------------------*/
+	.trademarks {
+		margin: 40px 0px;
+	}
+	.trademarks img{
+		margin:20px 5px;
+		width:200px;
+		height:auto;
+	}
+	.linktohow {
+		margin-top:6px;
+	}
+	/* The fear of missing out
+	--------------------------------------------*/
+	.text-letters {
+		text-align:center;
+		padding: 10px 0px;
+	}
+	/*===============================================*/
 }
 
 
@@ -1005,6 +1010,12 @@ margin-top: 20px;
 	}
 	.linktohow {
 		margin-top:6px;
+	}
+	/* The fear of missing out
+	--------------------------------------------*/
+	.text-letters {
+		text-align:center;
+		padding: 10px 0px;
 	}
 	/*===============================================*/
 
