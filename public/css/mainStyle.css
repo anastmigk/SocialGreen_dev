@@ -150,16 +150,16 @@ RECYCLING GOT SOCIAL
 	right:-7px;
 }
 
-#moto div:nth-child(1) div span{
-	font-size:250%;
+#moto div:nth-child(1) div span:nth-child(1){
+	font-size:190%;
 	/*color: rgb(121,193,67);*/
 	line-height:100%;
 }
 
-#moto div:nth-child(2) div span{
+#moto div:nth-child(2) div span, #moto div:nth-child(1) div span:nth-child(2){
 	font-weight:200;
 	letter-spacing:3px;
-	font-size:220%;
+	font-size:150%;
 	/*color: #911762;*/
 	line-height:100%;
 }
@@ -434,6 +434,7 @@ top:20%;
 right:+18%;
 }
 
+
 @media (max-width: 767px) {
 .friends .thumbnail img{
 width:15%;
@@ -505,6 +506,12 @@ div#friends, div#twitterTable {
 div#friends {
 	margin-top:15px;
 	padding:5px;
+}
+
+div#friends img:1st-child{
+	margin-top:20px;
+	display: inline-block !important;
+    vertical-align: middle !important;
 }
 
 div#twitterTable {
@@ -683,17 +690,17 @@ display: block;
 
 /* Custom Carousel
 =========================*/
-/*.carousel-control{position:absolute;top:105%;left:15%;width:40px;height:40px;margin-top:-20px;font-size:60px;font-weight:100;line-height:30px;color:#ffffff;text-align:center;background:#222222;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
+.carousel-control{position:absolute;top:105%;left:15%;width:40px;height:40px;margin-top:-20px;font-size:60px;font-weight:100;line-height:30px;color:#ffffff;text-align:center;background:#222222;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
 .carousel-control.right{left:auto;right:15%;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
 .carousel-indicators{position:absolute;top:105%;right:46%;z-index:5;margin:0;list-style:none;}
 .carousel-indicators li{display:block;float:left;width:10px;height:10px;margin-left:5px;text-indent:-999px;background-color:#ccc;border-radius:5px;}
-.carousel-indicators .active{background-color:#333333;}*/
+.carousel-indicators .active{background-color:#333333;}
 
-.carousel-control{position:absolute;top:40%;left:15px;width:40px;height:40px;margin-top:-20px;font-size:60px;font-weight:100;line-height:30px;color:#ffffff;text-align:center;background:#222222;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
+/*.carousel-control{position:absolute;top:40%;left:15px;width:40px;height:40px;margin-top:-20px;font-size:60px;font-weight:100;line-height:30px;color:#ffffff;text-align:center;background:#222222;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
 .carousel-control.right{left:auto;right:15px;}
 .carousel-indicators{position:absolute;top:15px;right:15px;z-index:5;margin:0;list-style:none;}
 .carousel-indicators li{display:block;float:left;width:10px;height:10px;margin-left:5px;text-indent:-999px;background-color:#ccc;background-color:rgba(255, 255, 255, 0.25);border-radius:5px;}
-.carousel-indicators .active{background-color:#fff;}
+.carousel-indicators .active{background-color:#fff;}*/
 
 /* End Custom Carousel
 =========================*/
@@ -829,12 +836,11 @@ max-height:20px;
 /*Trademarks images 
 --------------------------------------------*/
 .trademarks {
-	margin: 40px 0px;
+	margin: 0px 0px;
 }
-.trademarks img{
-	margin:20px 5px;
-	width:200px;
-	height:auto;
+.trademarks div img{
+	width:100%;
+	max-height:10%;
 }
 /*===============================================*/
 }
@@ -906,15 +912,15 @@ max-height:20px;
 	#myCarousel {
 		margin-top: 20px;
 	}
-	/*.carousel-control{position:absolute;top:105%;left:395px;width:40px;height:40px;margin-top:-20px;font-size:60px;font-weight:100;line-height:30px;color:#ffffff;text-align:center;background:#222222;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
+	.carousel-control{position:absolute;top:105%;left:395px;width:40px;height:40px;margin-top:-20px;font-size:60px;font-weight:100;line-height:30px;color:#ffffff;text-align:center;background:#222222;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
 	.carousel-control.right{left:auto;right:395px;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
 	.carousel-indicators{position:absolute;top:15px;right:15px;z-index:5;margin:0;list-style:none;}
 	.carousel-indicators li{display:block;float:left;width:10px;height:10px;margin-left:5px;text-indent:-999px;background-color:#ccc;background-color:rgba(255, 255, 255, 0.25);border-radius:5px;}
-	.carousel-indicators .active{background-color:#fff;}*/
-	.carousel-control{position:absolute;top:107%;left:15px;width:40px;height:40px;margin-top:-20px;font-size:60px;font-weight:100;line-height:30px;color:#ffffff;text-align:center;background:#222222;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
+	.carousel-indicators .active{background-color:#fff;}
+	/*.carousel-control{position:absolute;top:107%;left:15px;width:40px;height:40px;margin-top:-20px;font-size:60px;font-weight:100;line-height:30px;color:#ffffff;text-align:center;background:#222222;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
 	.carousel-control.right{left:auto;right:15px;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
 	.carousel-indicators{position:absolute;top:105%;right:44%;z-index:5;margin:0;list-style:none;}.carousel-indicators li{display:block;float:left;width:10px;height:10px;margin-left:5px;text-indent:-999px;background-color:#ccc;border-radius:5px;}
-	.carousel-indicators .active{background-color:#333333;}
+	.carousel-indicators .active{background-color:#333333;}*/
 	
 	/* Landing Page
 	=================================================

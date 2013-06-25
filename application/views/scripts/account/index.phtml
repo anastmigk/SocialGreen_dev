@@ -24,7 +24,29 @@
 			</div>
 		</div>
 		<div class="row-fluid">
-			<div class="span11" id="friends">
+			<div class="11" id="friends">
+				<h4 class="text-success">Leaderboard</h4>
+					<!-- BarChart Container -->
+					<?php $place = 1;?>
+					<div>
+	                <?php  foreach ($accounts as $account) { ?>
+	                    <hr>
+	                    <div class="row-fluid">
+	                    	<div class="span2 offset1">
+	                    		<img src='<?php echo $this->baseUrl("images/numbers/".$place.".png"); ?>'>
+	                    	</div>
+	                    	<div class="span2">
+	                    		<img class="media-object" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$account->avatar); ?>">
+	                    	</div>
+	                    	<div class="span7">
+	                    		<p><strong><?php echo $account->fullname; ?></strong></p><p><i><?php echo $account->leafs;?> leafs</i></p>
+	                    	</div>
+						</div>
+						
+					<?php $place++; } ?>
+					</div>
+			</div>
+			<div class="span11 hidden" id="friends">
 				
 				<h5 class="hidden">Explore Users</h5>
 				<?php $counter=0; 
@@ -58,7 +80,7 @@
 			<ul class="nav nav-pills">
 				<li class="active"><a data-toggle="tab" href="#Diagram">Diagram</a></li>
 			  	<li><a  data-toggle="tab" href="#Activity">Activity</a></li>
-		        <li><a  data-toggle="tab" href="#Barchart">Barchart</a></li> 
+		        <!-- <li><a  data-toggle="tab" href="#Barchart">Barchart</a></li> --> 
 			</ul>
             <div id="myTabContent" class="tab-content">
 				
@@ -129,9 +151,10 @@
             	
               	<!-- Barchart Content -->
               
-				<div class="tab-pane fade well" id="Barchart">
+				<!-- <div class="tab-pane fade well" id="Barchart"> -->
 				
 				<!-- BarChart Container -->
+				<!-- 
 				<?php $place = 1;?>
 					<div>
 	                <?php  foreach ($accounts as $account) { ?>
@@ -143,7 +166,7 @@
 						</div>
 					<?php $place++; } ?>
 					</div>
-				</div>
+				</div> -->
 			 	
             </div>
 		</div>	
