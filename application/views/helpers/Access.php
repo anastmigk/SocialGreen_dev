@@ -14,8 +14,9 @@ class Zend_View_Helper_Access extends Zend_View_Helper_Abstract
     	}
     	
     	//Temporary link to access all pages
-    	$homelink = $view->url(array('controller'=>'account'), null, TRUE);
-    	 
+    	//$homelink = $view->url(array('controller'=>'account'), null, TRUE);
+    	$homelink = $view->url(array('controller'=>'index'), null, TRUE);
+    	
     	$acl = new Zend_Acl();
     	$acl->addRole(new Zend_Acl_Role('guest'))->addRole(new Zend_Acl_Role('member'))->addRole(new Zend_Acl_Role('admin'));
     	//$parents = array('guest', 'member', 'admin');

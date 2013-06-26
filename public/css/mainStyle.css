@@ -419,6 +419,29 @@ margin:0 0 7px 0
 }
 
 
+.leaderboardSpot {
+	font-family: 'Merienda One', cursive;
+	font-size: 2.5em;
+	font-weight: 700;
+	color:#911762;
+	text-shadow: 2px 2px 2px #GGGGGG;
+ 	/*text-shadow:#fff 0px 1px 0, #000 0 -1px 0;*/
+}
+
+.effect {
+	text-shadow: -5px -5px 1px #C0C0C0; 
+}
+
+.effect2 {
+	text-shadow:1px 0px 1px #ccc, 0px 1px 1px #eee, 
+2px 1px 1px #ccc, 1px 2px 1px #eee,
+3px 2px 1px #ccc, 2px 3px 1px #eee,
+4px 3px 1px #ccc, 3px 4px 1px #eee,
+5px 4px 1px #ccc, 4px 5px 1px #eee,
+6px 5px 1px #ccc, 5px 6px 1px #eee,
+7px 6px 1px #ccc;
+}
+
 .friends {
 position:relative;
 }
