@@ -140,7 +140,7 @@ select,textarea,input[type="text"],input[type="password"],input[type="datetime"]
 RECYCLING GOT SOCIAL 
 --------------------------------------------*/
 
-#moto div div {
+/*#moto div div {
 	font-weight:900;
 	font-family: 'Roboto';
 	font-size:2em;
@@ -151,16 +151,49 @@ RECYCLING GOT SOCIAL
 }
 
 #moto div:nth-child(1) div span:nth-child(1){
-	font-size:190%;
-	/*color: rgb(121,193,67);*/
+	font-weight:300;
+	font-size:110%;
+	color: #911762;
 	line-height:100%;
 }
 
 #moto div:nth-child(2) div span, #moto div:nth-child(1) div span:nth-child(2){
-	font-weight:200;
+	font-weight:900;
+	letter-spacing:4px;
+	font-size:190%;
+	color: rgb(121,193,67);
+	line-height:100%;
+}*/
+#moto div div {
+	font-weight:900;
+	font-family: 'Roboto';
+	font-size:2em;
+}
+#moto div:nth-child(1) div {
+	position:relative;
+	right:-7px;
+}
+
+#moto div:nth-child(1) span:nth-child(1){
+	letter-spacing:-2px;
+	font-weight:300;
+	font-size:100%;
+	color: #911762;
+	line-height:100%;
+}
+
+#moto div:nth-child(1) span:nth-child(2){
+	font-weight:bolder;
+	letter-spacing:-3px;
+	font-size:190%;
+	color: rgb(121,193,67);
+	line-height:100%;
+}
+#moto div:nth-child(1) span:nth-child(3){
+	font-weight:900;
 	letter-spacing:3px;
-	font-size:150%;
-	/*color: #911762;*/
+	font-size:130%;
+	color: #777373;
 	line-height:100%;
 }
 
@@ -205,6 +238,46 @@ RECYCLING GOT SOCIAL
 	text-align:center;
 	padding-top: 40px;
 }
+
+/* Animation see the game
+--------------------------------------------*/
+@keyframes resize {
+  0% {
+    padding:50px 19px;
+  }
+  50% {
+    padding:70px 30px;
+    /*background-color:rgba(255,0,0,0.2);*/
+  }
+  100% {
+    padding: 100px 100px;
+    /*background-color:rgba(255,0,0,0.9);*/
+  }
+}
+#box:hover {
+	cursor: pointer;
+	-webkit-animation-name: resize;
+	-webkit-animation-duration: 3s;
+	-webkit-animation-iteration-count: 4;
+	-webkit-animation-direction: alternate;
+
+	-moz-animation-name: resize;
+	-moz-animation-duration: 3s;
+	-moz-animation-iteration-count: 4;
+	-moz-animation-direction: alternate;
+
+	-o-animation-name: resize;
+	-o-animation-duration: 3s;
+	-o-animation-iteration-count: 4;
+	-o-animation-direction: alternate;
+
+	animation-name: resize;
+	animation-duration: 3s;
+	animation-iteration-count: 4;
+	animation-direction: alternate;
+}
+
+
 /*===============================================*/
 
 .howItWorks {
