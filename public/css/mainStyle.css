@@ -77,6 +77,12 @@ hr.btable{
 	border-top:1px solid #eeeeee;
 	border-bottom:1px solid #ffffff;
 }
+
+.join-nav {
+	color:white;
+	padding-top:10px;
+	font-size: 120%;
+}
 /* ------------------------------------------ */
 /* Badges rules
 -------------------------------*/
@@ -391,8 +397,16 @@ text-align:center;
 font-size:18px;
 font-weight:400;
 */
-padding:0;
-margin:0;
+	padding:0px;
+	margin:0;
+
+	box-shadow: 0px 0px 16px rgba(169, 232, 125, 0.91);
+	width:95%;	
+	margin:5px;
+
+	margin-top:60px;
+	padding:10px;
+
 }
 
 #profile-points div div {
@@ -407,14 +421,15 @@ right:-7px;
 }
 
 #profile-points div:nth-child(1) div span{
-font-size:250%;
-color: rgb(121,193,67);
+font-size:120%;
+color: #911762;
 line-height:100%;
 }
 
 #profile-points div:nth-child(2) div span{
-font-size:120%;
-color: #911762;
+
+font-size:250%;
+color: rgb(121,193,67);
 line-height:100%;
 }
 
@@ -454,7 +469,7 @@ margin-right:auto;
 
 .MainTitles {
 display: block;
-font-size:300%;
+font-size:200%;
 color:#911762;
 text-align:center;
 }
@@ -589,18 +604,21 @@ padding-bottom: 280px;
 
 /*Tweets*/
 
+
+
 button#moarTweets {
 margin:10px;
 }
 
 div#friends, div#twitterTable {
 	border-radius:5px;
+	
 	box-shadow: 0px 0px 16px rgba(169, 232, 125, 0.91);
 	width:95%;	
 	margin:5px;
 }
 div#friends {
-	margin-top:15px;
+	margin-top:60px;
 	padding:5px;
 }
 
@@ -761,7 +779,7 @@ list-style:none;
 }
 
 /* Social stuff
-=========================*/
+=================================================*/
 /* einai sto footer */
 img.social {
 display: inline-block;
@@ -782,10 +800,10 @@ filter:alpha(opacity=60);
 display: block;
 }
 /* End Social stuff
-=========================*/
+=================================================*/
 
 /* Custom Carousel
-=========================*/
+=================================================*/
 .carousel-control{position:absolute;top:105%;left:15%;width:40px;height:40px;margin-top:-20px;font-size:60px;font-weight:100;line-height:30px;color:#ffffff;text-align:center;background:#222222;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
 .carousel-control.right{left:auto;right:15%;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
 .carousel-indicators{position:absolute;top:105%;right:46%;z-index:5;margin:0;list-style:none;}
@@ -799,7 +817,7 @@ display: block;
 .carousel-indicators .active{background-color:#fff;}*/
 
 /* End Custom Carousel
-=========================*/
+=================================================*/
 
 div#nav {
 min-height: 78px;

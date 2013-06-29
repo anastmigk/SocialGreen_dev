@@ -11,21 +11,11 @@
 }?>
 <div class="row-fluid userContent">
 	<div class="span3">
-		<div id="profile-points" class="row-fluid">
-			<div class="span11">
-				<div class="profile-points text-right">
-					<span><?php echo $sum;?></span>
-				</div>
-			</div>
-			<div class="span11">
-				<div class="profile-points text-right">
-					<span>total leafs<br>saved</span>
-				</div>
-			</div>
-		</div>
+		
 		<div class="row-fluid">
-			<div class="11" id="friends">
-				<h2 class="text-success well well-small">Leaderboard</h2>
+			<div class="span11" id="friends">
+				<!-- <h2 class="text-success text-center">Leaderboard</h2> -->
+				<img src="<?php echo $this->baseUrl("images/Leaderboard/leaderboard.png")?>" alt="">
 					<!-- BarChart Container -->
 					<?php $place = 1;
 					$sup = array(1=>"st",2=>"nd",3=>"rd");
@@ -33,23 +23,36 @@
 					
 					<div>
 	                <?php  foreach ($accounts as $account) { ?>
-	                    <hr>
+	                    
 	                    <div class="row-fluid">
-	                    	<div class="span2 offset1">
-	                    		<span class="leaderboardSpot text-success effect"><?php echo $place; ?><sup><?php if ($place<=4) { echo $sup[$place];} else {echo "th";} ?></sup></span>
-	                    		<img class="hidden" src='<?php echo $this->baseUrl("images/numbers/".$place.".png"); ?>'>
+	                    	<div class="span2 offset1 text-center">
+	                    		<!-- <span class="MainTitles text-success"><?php echo $place; ?><sup><?php if ($place<=4) { echo $sup[$place];} else {echo "th";} ?></sup></span> -->
+	                    		<img class="" style="padding-top:12px;" src='<?php echo $this->baseUrl("images/Leaderboard/".$place.".png"); ?>'>
 	                    	</div>
 	                    	<div class="span2">
 	                    		<a class="thumbnail" title="<?php echo $account->username; ?>" href="<?php echo $this->baseUrl('account/profile/').'?user='.$account->username;?>">
 	                    		<img class="media-object" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$account->avatar); ?>"></a>
 	                    	</div>
-	                    	<div class="span7">
-	                    		<p><strong><?php echo $account->fullname; ?></strong></p><p><i><?php echo $account->leafs;?> leafs</i></p>
+	                    	<div class="span7" style="padding-top:16px;margin-bottom: 5px;" >
+	                    		<p style="margin-bottom: 0px;"><strong><?php echo $account->username; ?></strong></p><p><i><?php echo $account->leafs;?> leafs</i></p>
 	                    	</div>
 						</div>
 						
 					<?php $place++; } ?>
 					</div>
+			</div>
+			
+			<div id="profile-points" class="row-fluid profile-points">
+				<div class="span11">
+					<div class="profile-points ">
+						<span>total leafs<br>saved</span>
+					</div>
+				</div>
+				<div class="span11">
+					<div class="profile-points ">
+						<span><?php echo $sum;?></span>
+					</div>
+				</div>
 			</div>
 			<div class="span11 hidden" id="friends">
 				
@@ -80,7 +83,7 @@
 		</div>
 	</div>
 	
-	<div class="span8">
+	<div class="span8" >
 		<div class="row-fluid ">
 			<ul class="nav nav-pills">
 				<li class="active"><a data-toggle="tab" href="#Diagram">Diagram</a></li>
