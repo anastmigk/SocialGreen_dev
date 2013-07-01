@@ -13,9 +13,9 @@
 	<div class="span3">
 		
 		<div class="row-fluid">
-			<div class="span11 text-center" id="friends">
+			<div class="span11 text-center" id="friends" style="margin-top:100px;">
 				<!--  <h2 class="text-success text-center">Leaderboard</h2>  -->
-				<img src="<?php echo $this->baseUrl("images/Leaderboard/leaderboard.png")?>" alt="">
+				<img style="margin-top: 10px;" src="<?php echo $this->baseUrl("images/Leaderboard/leaderboard.png")?>" alt="">
 					<!-- BarChart Container -->
 					<?php $place = 1;
 					$sup = array(1=>"st",2=>"nd",3=>"rd");
@@ -25,32 +25,33 @@
 	                <?php  foreach ($accounts as $account) { ?>
 	                    
 	                    <div class="row-fluid">
-	                    	<div class="span2 offset1 text-center">
+	                    	<div class="span2 offset1 text-center" style="padding-top:15px; width:32px;height: 16px;">
 	                    		<!-- <span class="MainTitles text-success"><?php echo $place; ?><sup><?php if ($place<=4) { echo $sup[$place];} else {echo "th";} ?></sup></span> -->
-	                    		<img class="" style="padding-top:12px;" src='<?php echo $this->baseUrl("images/Leaderboard/".$place.".png"); ?>'>
+	                    		<img class="" src='<?php echo $this->baseUrl("images/Leaderboard/".$place.".png"); ?>'>
 	                    	</div>
 	                    	<div class="span2">
 	                    		<a class="thumbnail" title="<?php echo $account->username; ?>" href="<?php echo $this->baseUrl('account/profile/').'?user='.$account->username;?>">
 	                    		<img class="media-object" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$account->avatar); ?>"></a>
 	                    	</div>
 	                    	<div class="span7 text-left" style="padding-top:16px;margin-bottom: 5px;" >
-	                    		<p style="margin-bottom: 0px;"><strong><?php echo $account->username; ?></strong></p><p><i><?php echo $account->leafs;?> leafs</i></p>
+	                    		<p style="margin-bottom: 0px;color:black;"><strong><a title="<?php echo $account->username; ?>" href="<?php echo $this->baseUrl('account/profile/').'?user='.$account->username;?>"><?php echo $account->username; ?></a></strong></p><p><i><?php echo $account->leafs;?> leaves</i></p>
 	                    	</div>
 						</div>
 						
 					<?php $place++; } ?>
 					</div>
 			</div>
-			
-			<div id="profile-points" class="row-fluid profile-points">
-				<div class="span11">
-					<div class="profile-points ">
-						<span>total leafs<br>saved</span>
+			<div class="span11 glow">
+				<div id="profile-points" class="row-fluid profile-points">
+					<div class="span11">
+						<div class="profile-points ">
+							<span>total leaves<br>saved</span>
+						</div>
 					</div>
-				</div>
-				<div class="span11">
-					<div class="profile-points ">
-						<span><?php echo $sum;?></span>
+					<div class="span11">
+						<div class="profile-points ">
+							<span><?php echo $sum;?></span>
+						</div>
 					</div>
 				</div>
 			</div>

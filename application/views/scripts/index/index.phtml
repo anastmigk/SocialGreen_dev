@@ -12,7 +12,7 @@
  		}
 ?>
 
-<div class="span10 0ffset1">
+<div class="span10 0ffset2">
 	<div id="splashPageLogo" class="row-fluid">
 	</div>
 	
@@ -36,7 +36,9 @@
    					<p><a class="btn btn-success pull-right" href="<?php echo $this->url(array('module' => null,'controller'=>'account','action'=>'index'), null, FALSE); ?>">More details!</a></p>-->
    					
    					<!-- <a id="box" class="btn btn-xxlarge btn-inverse" href="<?php echo $this->url(array('module' => null,'controller'=>'account','action'=>'index'), null, FALSE); ?>">See the game in action!</a> -->
-   					<a  href="<?php echo $this->url(array('module' => null,'controller'=>'account','action'=>'index'), null, FALSE); ?>"><img src="<?php echo $this->baseUrl("images/See.png"); ?>"></a>
+   					<!-- <a  href="<?php //echo $this->url(array('module' => null,'controller'=>'account','action'=>'index'), null, FALSE); ?>"><img src="<?php //echo $this->baseUrl("images/See.png"); ?>"></a>  -->
+   					<a href="<?php echo $this->url(array('module' => null,'controller'=>'account','action'=>'index'), null, FALSE); ?>"><div class="arcade-button2"></div></a>
+   					<!-- <button class="arcade-button2" onclick=" this.style.backgroundImage = 'url(\"../images/see2.png\")';" ></button> -->
 				</div>
 			</div>
 		</div>
@@ -82,10 +84,9 @@
    
    <div class="accordion" id="accordion2">
 		<div class="accordion-group">
-			<div class="accordion-heading">
-				<div class="row-fluid">
-					<div class="span2 offset5 text-center">
-						
+		<div class="row-fluid">
+			<div class="span11 offset1 text-center">
+				<div class="accordion-heading">
 						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne"><div class="tringle"></div></a>
 					</div>
 				</div>
@@ -98,11 +99,19 @@
 						<div class="span5 offset1 text-center" style="margin-top: 50px;">
 							
 							<!-- <a class="btn btn-xxlarge linktohow  btn-block btn-inverse" href="<?php echo $this->url(array('module' => null,'controller'=>'about','action'=>'how-it-works'), null, FALSE); ?>">How Sociallgreen works ?</a> -->
-							<a  href="<?php echo $this->url(array('module' => null,'controller'=>'about','action'=>'how-it-works'), null, FALSE); ?>"><img src="<?php echo $this->baseUrl("images/HowSocial.png"); ?>"></a>
+							<!-- <img style="margin-right: 15px;" src="<?php //echo $this->baseUrl("images/hw1.png"); ?>"><a  href="<?php echo $this->url(array('module' => null,'controller'=>'about','action'=>'how-it-works'), null, FALSE); ?>"><img src="<?php //echo $this->baseUrl("images/hw.png"); ?>"></a> -->
+							<a href="<?php echo $this->url(array('module' => null,'controller'=>'about','action'=>'how-it-works'), null, FALSE); ?>"><div class="arcade-button1"></div></a>
+							<!-- <script>
+							function displayResult()
+							{
+								this.style.backgroundImage = "url('../images/hw2.png;')";
+								//this.css("background", "none;");
+							}
+							</script> -->
 				             <!-- <h2 class="text-success">What is Social Green?</h2>
 				             <div class="row">
 				             	<div class="span10 offset1 thumbnail">
-					         	<a href="<?php echo $this->url(array('module' => null,'controller'=>'about','action'=>'how-it-works'), null, FALSE); ?>"><img src="<?php echo $this->baseUrl("images/sketch/howitworks-thumb.PNG")?>"></a>	
+					         	<a href="<?php //echo $this->url(array('module' => null,'controller'=>'about','action'=>'how-it-works'), null, FALSE); ?>"><img src="<?php //echo $this->baseUrl("images/sketch/howitworks-thumb.PNG")?>"></a>	
 					         </div> -->	       
 				             
 				    	</div>
@@ -124,19 +133,25 @@
 	</div>
 
 	<div class="row-fluid trademarks">
-		<div class="span3">
+		<div class="span3 offset1 text-center" style="padding-top: 20px;">
 			<a href="http://ennovation.gr" target="_blank"><img src="<?php echo $this->baseUrl("images/partners/ennovation.png")?>"></a>
 		</div>
-		<div class="span3 text-center">
+		<div class="span2 text-center">
 			<a href="http://www.microsoft.com/bizspark/" target="_blank"><img src="<?php echo $this->baseUrl("images/partners/BizSpark_StartUp.jpg"); ?>"></a>
 		</div>
 		<div class="span3 text-center">
 			<a href="http://www.ihu.edu.gr/" target="_blank"><img src="<?php echo $this->baseUrl("images/partners/IHU.jpg")?>"></a>
 		</div>
-		<div class="span3 text-center">
+		<div class="span3 text-center" style="padding-top: 15px;">
 			<a href="https://www.facebook.com/found.ationgr" target="_blank"><img src="<?php echo $this->baseUrl("images/partners/Founation.png")?>"></a>
 		</div>
 	</div>
+	<div class="row-fluid trademarks">
+		<div class="span3 offset1" style="padding-top: 20px;">
+			<?php echo $this->LoggedInAs(); ?>
+		</div>
+	</div>
+	
 	<!-- 
 	<div class="row-fluid trademarks">
 		<div class="span3 offset1 text-center">

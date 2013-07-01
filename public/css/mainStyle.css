@@ -80,7 +80,8 @@ hr.btable{
 
 .join-nav {
 	color:white;
-	padding-top:10px;
+	padding: 10px 5px 10px;
+	/*padding-top:10px;*/
 	font-size: 120%;
 }
 /* ------------------------------------------ */
@@ -235,9 +236,45 @@ RECYCLING GOT SOCIAL
     /*background-color:rgba(255,0,0,0.9);*/
   }
 }
-#box:hover {
+.arcade-button1 {
+	position:relative;
+	display:inline-block;
+	width:255px;
+	height:79px;
+	background-image: url('../images/hw.png');
+	/*background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-position: fixed center;*/ 
+	background-color: transparent;
+	border: 0;
+	
+}
+.arcade-button1:hover {
 	cursor: pointer;
-	-webkit-animation-name: resize;
+	background-image: url("../images/hw2.png");
+}
+
+.arcade-button2 {
+	position:relative;
+	display:inline-block;
+	width:255px;
+	height:89px;
+	background-image: url('../images/see1.png');
+	/*background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-position: fixed center;*/ 
+	background-color: transparent;
+	border: 0;
+	
+}
+.arcade-button2:hover {
+	cursor: pointer;
+	background-image: url("../images/see2.png");
+}
+/*.arcade-button:hover {
+	/*cursor: pointer;
+	background-image: url("../images/hw2.png");
+	/*-webkit-animation-name: resize;
 	-webkit-animation-duration: 3s;
 	-webkit-animation-iteration-count: 4;
 	-webkit-animation-direction: alternate;
@@ -256,7 +293,7 @@ RECYCLING GOT SOCIAL
 	animation-duration: 3s;
 	animation-iteration-count: 4;
 	animation-direction: alternate;
-}
+}*/
 
 /* Custom accordion
 --------------------------------------------*/
@@ -265,10 +302,10 @@ RECYCLING GOT SOCIAL
 }
 .accordion-group {
 	margin-bottom:2px;
-	border:0px solid #e5e5e5;
+	/*border:0px solid #e5e5e5;
 	-webkit-border-radius:4px;
 	-moz-border-radius:4px;
-	border-radius:4px;
+	border-radius:4px;*/
 }
 .accordion-heading {
 	display:block;
@@ -310,7 +347,7 @@ RECYCLING GOT SOCIAL
 }
 .tringle {
 	position:absolute;
-	left:44%;
+	left:45%;
 	width: 0; 
 	height: 0; 
 	border-left: 15px inset transparent;
@@ -321,9 +358,11 @@ RECYCLING GOT SOCIAL
 }
 
 .accordion-inner {
-	padding:9px 15px;
+	/*padding:0px 0px;
 	/*border-top:1px solid #e5e5e5;*/
 }
+
+
 
 
 /*===============================================*/
@@ -445,8 +484,11 @@ background-color:grey;
 
 }
 .glow {
+	margin:30px 5px 5px 5px;
+	padding:10px;
+	border-radius:5px;
 	box-shadow: 0px 0px 16px rgba(169, 232, 125, 0.91);
-	width:95%;	
+	/*width:95%;*/
 }
 
 #profile-points div div {
@@ -457,20 +499,20 @@ background-color:grey;
 	
 }
 #profile-points div:nth-child(1) div {
-	margin-top:75px;
+	
 	position:relative;
 	right:-7px;
 }
 
 #profile-points div:nth-child(1) div span {
-	font-size:100%;
+	font-size:90%;
 	color: #911762;
 	line-height:100%;
 }
 
 #profile-points div:nth-child(2) div span {
 	
-	font-size:180%;
+	font-size:150%;
 	color: rgb(121,193,67);
 	line-height:100%;
 }
@@ -659,13 +701,12 @@ margin:10px;
 
 div#friends, div#twitterTable {
 	border-radius:5px;
-	
 	box-shadow: 0px 0px 16px rgba(169, 232, 125, 0.91);
-	width:95%;	
+	/*width:95%;*/	
 	margin:5px;
 }
 div#friends {
-	margin-top:65px;
+	
 	padding:5px;
 }
 
@@ -834,6 +875,10 @@ width: 22px;
 height: 22px;
 opacity: 1.0;
 filter:alpha(opacity=100);
+}
+
+#socialhorizontal {
+	padding: 10px 5px 10px;
 }
 
 img.social:hover {
