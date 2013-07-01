@@ -13,15 +13,15 @@
 	<div class="span3">
 		
 		<div class="row-fluid">
-			<div class="span11" id="friends">
-				<!-- <h2 class="text-success text-center">Leaderboard</h2> -->
+			<div class="span11 text-center" id="friends">
+				<!--  <h2 class="text-success text-center">Leaderboard</h2>  -->
 				<img src="<?php echo $this->baseUrl("images/Leaderboard/leaderboard.png")?>" alt="">
 					<!-- BarChart Container -->
 					<?php $place = 1;
 					$sup = array(1=>"st",2=>"nd",3=>"rd");
 					?>
 					
-					<div>
+					<div style="margin-top: 10px;">
 	                <?php  foreach ($accounts as $account) { ?>
 	                    
 	                    <div class="row-fluid">
@@ -33,7 +33,7 @@
 	                    		<a class="thumbnail" title="<?php echo $account->username; ?>" href="<?php echo $this->baseUrl('account/profile/').'?user='.$account->username;?>">
 	                    		<img class="media-object" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$account->avatar); ?>"></a>
 	                    	</div>
-	                    	<div class="span7" style="padding-top:16px;margin-bottom: 5px;" >
+	                    	<div class="span7 text-left" style="padding-top:16px;margin-bottom: 5px;" >
 	                    		<p style="margin-bottom: 0px;"><strong><?php echo $account->username; ?></strong></p><p><i><?php echo $account->leafs;?> leafs</i></p>
 	                    	</div>
 						</div>

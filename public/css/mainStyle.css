@@ -145,31 +145,6 @@ select,textarea,input[type="text"],input[type="password"],input[type="datetime"]
 =================================================
 RECYCLING GOT SOCIAL 
 --------------------------------------------*/
-
-/*#moto div div {
-	font-weight:900;
-	font-family: 'Roboto';
-	font-size:2em;
-}
-#moto div:nth-child(1) div {
-	position:relative;
-	right:-7px;
-}
-
-#moto div:nth-child(1) div span:nth-child(1){
-	font-weight:300;
-	font-size:110%;
-	color: #911762;
-	line-height:100%;
-}
-
-#moto div:nth-child(2) div span, #moto div:nth-child(1) div span:nth-child(2){
-	font-weight:900;
-	letter-spacing:4px;
-	font-size:190%;
-	color: rgb(121,193,67);
-	line-height:100%;
-}*/
 #moto div div {
 	font-weight:900;
 	font-family: 'Roboto';
@@ -283,6 +258,73 @@ RECYCLING GOT SOCIAL
 	animation-direction: alternate;
 }
 
+/* Custom accordion
+--------------------------------------------*/
+.accordion {
+	margin-bottom:20px;
+}
+.accordion-group {
+	margin-bottom:2px;
+	border:0px solid #e5e5e5;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px;
+}
+.accordion-heading {
+	display:block;
+	border:0;
+	border-top:1px solid rgb(221, 221, 221);
+	border-bottom:1px solid #ffffff;
+	
+	/*background-image: 
+					-moz-linear-gradient(-235.5deg,
+                                            rgba( 0, 0, 0, 0.0) 0%,
+                                            rgba(  0, 0, 0, 0.0) 48%,
+                                            rgba(  119, 115, 115, 1) 49%,
+                                            rgba(119, 115, 115, 1) 50%,
+                                            rgba(0, 0, 0, 0.0) 52%,
+                                            rgba(0, 0, 0, 0.0) 100%),
+                    -moz-linear-gradient(235.5deg,
+                                            rgba(0, 0, 0, 0.0) 0%,
+                                            rgba(0, 0, 0, 0.0) 48%,
+                                            rgba(119, 115, 115, 1) 49%,
+                                            rgba(119, 115, 115, 1) 50%,
+                                            rgba(  0,   0,   0, 0.0) 52%,
+                                            rgba(  0,   0,   0, 0.0) 100%);
+				    
+	background-position: 50.85% -5%,
+                     49.15% -5%;
+                      
+	background-size: 1rem 1rem,
+                   1rem 1rem;
+                   
+	background-repeat: no-repeat,
+                     no-repeat;             
+	text-decoration: none;*/
+}
+
+.accordion-toggle {
+	display:block;
+	padding:0px 15px;
+	cursor:pointer;
+}
+.tringle {
+	position:absolute;
+	left:44%;
+	width: 0; 
+	height: 0; 
+	border-left: 15px inset transparent;
+	border-right: 15px inset transparent;
+	
+	border-top: 15px solid rgb(221, 221, 221);
+	
+}
+
+.accordion-inner {
+	padding:9px 15px;
+	/*border-top:1px solid #e5e5e5;*/
+}
+
 
 /*===============================================*/
 
@@ -387,50 +429,50 @@ background-color:grey;
 }
 
 .profile-points {
-/* Old CSS properties
-margin:10px;
-border: 1px solid #eeeeee;
-border-bottom-left-radius:4em;
-border-top-right-radius:4em;
-box-shadow: 1px 1px 5px #ddd;
-text-align:center;
-font-size:18px;
-font-weight:400;
-*/
+	/* Old CSS properties
+	margin:10px;
+	border: 1px solid #eeeeee;
+	border-bottom-left-radius:4em;
+	border-top-right-radius:4em;
+	box-shadow: 1px 1px 5px #ddd;
+	text-align:center;
+	font-size:18px;
+	font-weight:400;
+	*/
+	
+	margin:0px;
 	padding:0px;
-	margin:0;
 
+}
+.glow {
 	box-shadow: 0px 0px 16px rgba(169, 232, 125, 0.91);
 	width:95%;	
-	margin:5px;
-
-	margin-top:60px;
-	padding:10px;
-
 }
 
 #profile-points div div {
-font-weight:900;
-font-family: 'Roboto';
-font-size:2em;
-font-weight:900;
+	font-weight:900;
+	font-family: 'Roboto';
+	font-size:2em;
+	font-weight:900;
+	
 }
 #profile-points div:nth-child(1) div {
-position:relative;
-right:-7px;
+	margin-top:75px;
+	position:relative;
+	right:-7px;
 }
 
-#profile-points div:nth-child(1) div span{
-font-size:120%;
-color: #911762;
-line-height:100%;
+#profile-points div:nth-child(1) div span {
+	font-size:100%;
+	color: #911762;
+	line-height:100%;
 }
 
-#profile-points div:nth-child(2) div span{
-
-font-size:250%;
-color: rgb(121,193,67);
-line-height:100%;
+#profile-points div:nth-child(2) div span {
+	
+	font-size:180%;
+	color: rgb(121,193,67);
+	line-height:100%;
 }
 
 .profile-points h1{
@@ -530,6 +572,8 @@ margin:0 0 7px 0
 7px 6px 1px #ccc;
 }
 
+
+
 .friends {
 position:relative;
 }
@@ -538,7 +582,10 @@ position:relative;
 padding:1px;
 position: relative;	
 }
-
+.thumbnail {
+	width: 25px;
+	height: 25px;
+}
 .friends .thumbnail span{
 position: absolute;
 top:20%;
@@ -573,22 +620,22 @@ width: 30px;
 }
 
 @media (max-width: 979px) {
-   body {
+	body {
      padding-top: 0px;
-   }
-img.faces {
-max-width: 80px;
-margin: 1%;
-}
-img.links {
-width: 30px;
-}
-.hero-unit {
-padding:10px;margin-bottom:0px;font-size:14px;line-height:12px;
-}
-.hero-unit h1{
-
-}
+	}
+	img.faces {
+	max-width: 80px;
+	margin: 1%;
+	}
+	img.links {
+	width: 30px;
+	}
+	.hero-unit {
+	padding:10px;margin-bottom:0px;font-size:14px;line-height:12px;
+	}
+	.hero-unit h1{
+	
+	}
 }
 
 div#mainContent{
@@ -618,7 +665,7 @@ div#friends, div#twitterTable {
 	margin:5px;
 }
 div#friends {
-	margin-top:60px;
+	margin-top:65px;
 	padding:5px;
 }
 
