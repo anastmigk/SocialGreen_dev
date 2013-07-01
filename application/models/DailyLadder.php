@@ -6,6 +6,7 @@ class Application_Model_DailyLadder
 	private $graph;
 	private $usernames;
 	private $dates;
+	private $backDate;
 	
 	/**
 	 * @return the $graph
@@ -71,6 +72,9 @@ class Application_Model_DailyLadder
 		$query->setIntegrityCheck(false);
 		*/
 		
+		//Set BackDate - Value should be X-1; i.e. For displaying 10 days, backdate should be equal to 9.
+		$this->backDate = 9;
+		
 		$activity = new Application_Model_DbTable_Activity();
 		//$query = $activity->select("SELECT date, userid, SUM(quantity) as quantity FROM activity GROUP BY userid,date order by date DESC;");
 		
@@ -79,7 +83,11 @@ class Application_Model_DailyLadder
 		$query->join(array("acc" =>"accounts"), 'act.userid = acc.id', array("acc.fullname"));
 		$query->group(array("act.date","act.userid"));
 		$query->order("act.date ASC");
+		$query->where("DATEDIFF(date, curdate()) >= -".$this->backDate);
 		$query->setIntegrityCheck(false);
+		
+		//echo (string)$query;
+		
 		/*
 		$select = $table->select();
 		$select->from ("table", array("date", "column1" => "sum(column1)"));
@@ -113,15 +121,21 @@ class Application_Model_DailyLadder
 				//$dateArray[$i] = strtotime($date['date']);
 				//$dateArray[$i] = $date['date'];
 				//echo $date['date'];
-
 				$i++;
 			}
 		}
+		
+		/* Construct Array with previous $BackDate dates */
+		
+		for($i = $this->backDate; $i > 0; $i--)
+			$d[] = date("Y-m-d", strtotime('-'. $i .' days'));
+		$d[] = date("Y-m-d",strtotime("now"));
+		
 //		ksort($dateArray);
 		
 		//dates are sent to view
-		$this->dates = $dateArray;
-		
+		//$this->dates = $dateArray;
+		$this->dates = $d;
 		
 		/*
 		//Date array is flipped
@@ -164,7 +178,7 @@ class Application_Model_DailyLadder
 			}
 			$users[$entry['userid']][$entry['date']]=$entry['quantity'];
 			//echo $entry['date']." -- ".$entry['quantity']."<Br>";
-			foreach ($dateArray as $singleDate){
+			foreach ($d as $singleDate){
 				if (!isset($users[$entry['userid']][$singleDate])){
 					$users[$entry['userid']][$singleDate]="0";
 				}

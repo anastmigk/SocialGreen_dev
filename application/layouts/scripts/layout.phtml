@@ -144,7 +144,7 @@ try {
 			</button>
 			<a class="brand" href="<?php echo $homelink; ?>"><img id="logo" src="<?php echo $this->baseUrl("images/llogoAspro.png"); ?>"></a>
 			<div class="nav-collapse collapse">
-				<ul class="nav pull-right">
+				<ul class="nav pull-right navSocialLinks">
 				<?php
 				$uri = Zend_Controller_Front::getInstance()->getRequest()->getRequestUri(); 
 				$howItworks=""; $getInvolved="";
@@ -155,7 +155,7 @@ try {
 				{
 					//$getInvolved= "class='active'";
 				} ?>
-				<li class="join-nav" >Join us :</li>
+				<li class="join-nav">Join us :</li>
 				<li><a id="socialhorizontal" title="See our LinkedIn" target="_blank" href="http://www.linkedin.com/company/2937639?trk=tyah"><img  class='img-rounded social' src="<?php echo $this->baseUrl('images/fairhead-icons/fc-webicon-linkedin-m.png'); ?>"></a></li>
 		        <li><a id="socialhorizontal" title="Check our facebook" target="_blank" href="https://www.facebook.com/Sociallgreen"><img  class='img-rounded social' src="<?php echo $this->baseUrl('images/fairhead-icons/fc-webicon-facebook-m.png'); ?>"></a></li>
 				<li><a id="socialhorizontal" title="Follow us on Twitter" target="_blank" href="https://twitter.com/sociallgreen"><img  class='img-rounded social' src="<?php echo $this->baseUrl('images/fairhead-icons/fc-webicon-twitter-m.png'); ?>"></a></li>
