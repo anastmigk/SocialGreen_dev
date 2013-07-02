@@ -66,8 +66,8 @@ class Application_Form_ContactForm extends Zend_Form
     	$description->removeDecorator('label');
     	$description->removeDecorator('htmlTag');
     	$description->setAttrib ( 'class', "input-block-level");
-    	$description->setAttrib('rows', '3');
-    	$description->setAttrib('cols', '1');
+    	$description->setAttrib('rows', '4');
+    	$description->setAttrib('cols', '10');
     	$description->setAttrib("required", true);
     	$description->setRequired(true);
     	$description->addErrorMessage("Why don't you tell us what it is about?");
