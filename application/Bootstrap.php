@@ -11,7 +11,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     protected function _initViewHelpers()
     {
         $view = new Zend_View();
-        $view->headTitle('Social Green Project')->setSeparator(' - ');
+        $view->headTitle('Sociallgreen')->setSeparator(' - ');
         
         //$this->_helper->redirector($action, $controller, $module, $params);
     }

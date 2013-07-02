@@ -82,12 +82,6 @@ ul.navSocialLinks {
 	margin-top:4px;
 }
 
-.join-nav {
-	color:white;
-	padding: 14px 5px 10px;
-	/*padding-top:10px;*/
-	font-size: 120%;
-}
 /* ------------------------------------------ */
 /* Badges rules
 -------------------------------*/
@@ -154,6 +148,8 @@ RECYCLING GOT SOCIAL
 	font-weight:900;
 	font-family: 'Roboto';
 	font-size:2em;
+	height: 200px;
+	margin-top:55px;
 }
 #moto div:nth-child(1) div {
 	position:relative;
@@ -163,7 +159,8 @@ RECYCLING GOT SOCIAL
 #moto div:nth-child(1) span:nth-child(1){
 	letter-spacing:-2px;
 	font-weight:300;
-	font-size:100%;
+	/*font-size:100%;*/
+	font-size:123%;
 	color: #911762;
 	line-height:100%;
 }
@@ -171,14 +168,16 @@ RECYCLING GOT SOCIAL
 #moto div:nth-child(1) span:nth-child(2){
 	font-weight:bolder;
 	letter-spacing:-3px;
-	font-size:190%;
+	/*font-size:190%;*/
+	font-size:225%;
 	color: rgb(121,193,67);
 	line-height:100%;
 }
 #moto div:nth-child(1) span:nth-child(3){
 	font-weight:900;
 	letter-spacing:3px;
-	font-size:130%;
+	/*font-size:130%;*/
+	font-size:163%;
 	color: #777373;
 	line-height:100%;
 }
@@ -197,6 +196,16 @@ RECYCLING GOT SOCIAL
 .linktohow {
 	margin-top:100px;
 }
+
+/* Twitter hearder
+--------------------------------------------*/
+.twhd {
+	font-weight:800;
+	font-size:130%;
+	color: #777373;
+	line-height:100%;
+}
+
 
 /* Trademarks images 
 --------------------------------------------*/
@@ -887,8 +896,15 @@ opacity: 1.0;
 filter:alpha(opacity=100);
 }
 
+.join-nav {
+	color:white;
+	padding: 18px 5px 10px;
+	/*padding-top:10px;*/
+	font-size: 120%;
+}
+
 #socialhorizontal {
-	padding: 10px 5px 10px;
+	padding: 15px 5px 10px;
 }
 
 img.social:hover {
@@ -906,8 +922,41 @@ display: block;
 
 /* Custom Carousel
 =================================================*/
-.carousel-control{position:absolute;top:105%;left:15%;width:40px;height:40px;margin-top:-20px;font-size:60px;font-weight:100;line-height:30px;color:#ffffff;text-align:center;background:#222222;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
-.carousel-control.right{left:auto;right:15%;border:3px solid #ffffff;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;opacity:0.5;filter:alpha(opacity=50);}
+.carousel-control{
+	position:absolute;
+	top:40%;left:0px;width:40px;
+	height:40px;margin-top:-20px;
+	font-size:60px;font-weight:100;
+	line-height:30px;color:#ffffff;
+	text-align:center;background:#222222;
+	border:3px solid #ffffff;
+	-webkit-border-bottom-right-radius:23px;
+	-moz-border-bottom-right-radius:23px;
+	border-bottom-right-radius:23px;
+	-webkit-border-top-right-radius:23px;
+	-moz-border-top-right-radius:23px;
+	border-top-right-radius:23px;
+	opacity:0.5;
+	filter:alpha(opacity=50);
+}
+.carousel-control.right{
+	left:auto;
+	right: 0%;
+	border:3px solid #ffffff;
+		-webkit-border-bottom-right-radius:0px;
+	-moz-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-left-radius:23px;
+	-moz-border-bottom-left-radius:23px;
+	border-bottom-left-radius:23px;
+	-webkit-border-top-left-radius:23px;
+	-moz-border-top-left-radius:23px;
+	border-top-left-radius:23px;
+	opacity:0.5;
+	filter:alpha(opacity=50);}
 .carousel-indicators{position:absolute;top:105%;right:46%;z-index:5;margin:0;list-style:none;}
 .carousel-indicators li{display:block;float:left;width:10px;height:10px;margin-left:5px;text-indent:-999px;background-color:#ccc;border-radius:5px;}
 .carousel-indicators .active{background-color:#333333;}

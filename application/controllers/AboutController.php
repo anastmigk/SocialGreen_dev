@@ -21,6 +21,9 @@ class AboutController extends Zend_Controller_Action
     public function ourteamAction()
     {
         // action body
+    	$title = "The Team";
+    	$this->view->title = $title;
+    	
         $ntempos = array(
         		"Dimitrios Ntempos", 
         		"CEO, Co-founder", 
@@ -142,6 +145,8 @@ class AboutController extends Zend_Controller_Action
 
     public function howItWorksAction()
     {
+    	$title = "How it works?";
+    	$this->view->title = $title;
         // action body
         $information = array(
         		array("id"=>"firstStep", "id2"=>"firstStep", "linktitle"=>"1st Collect", "image"=>"pickup.png", "text"=>"Search your place for cans, glass and plastic bottles..."),
@@ -157,6 +162,8 @@ class AboutController extends Zend_Controller_Action
     public function getInvolvedAction()
     {
         // action body
+    	$title = "Get Involved";
+    	$this->view->title = $title;
     }
 
     public function quizAction()

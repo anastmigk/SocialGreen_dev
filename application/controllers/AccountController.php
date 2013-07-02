@@ -395,6 +395,8 @@ class AccountController extends Zend_Controller_Action
 
     public function badgesAction()
     {
+    	$title = "Badges";
+    	$this->view->title = $title;
         // action body
     	//Retrieve All badges
     	$badges = new Application_Model_DbTable_Badges();
