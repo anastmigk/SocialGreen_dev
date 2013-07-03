@@ -82,7 +82,14 @@
 			<div class='span6'>
 				<table class="table table-striped">
 					<tbody>
-					<tr><td><p>Total leafs saved: <span class="text-success"><strong><?php echo 1*$account->glass+2*$account->plastic+3*$account->aluminium; ?></strong></span></p></td></tr>
+					<tr><td>
+					<p>Glass: <span class="text-success"><?php echo 1*$account->glass; ?></span>
+					<br>Plastic: <span class="text-success"><?php echo 2*$account->plastic; ?></span>
+					<br>Aluminium: <span class="text-success"><?php echo 3*$account->aluminium; ?></span>
+					<!-- <br>Total leafs saved: <span class="text-success">
+					<strong><?php //echo 1*$account->glass+2*$account->plastic+3*$account->aluminium; ?></strong></span> -->
+					</p>
+					</td></tr>
 					<tr><td><p>Last recycled on: <?php echo date("F j, Y",strtotime($account->date)); ?></p></td></tr>
 					<tr>
 					<td>
