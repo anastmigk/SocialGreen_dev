@@ -29,7 +29,7 @@
 				<!-- </div> -->
 			</div>
 			<div class="row-fluid">
-				<div class="span12 text-center" style="margin-top: 50px;">
+				<div id="arcdiv1" class="span12 text-center" >
 					<!-- <p><span class="label label-success">Attention!</span> Up until now, we have managed to save <span class="text-success"><strong>150 leafs</strong></span>! It is not hard, you just need to dedicate some of your time! Are you interested to find out how we managed to do that?! Everyone is contributing in his own way!</p>
    					<p><a class="btn btn-success pull-right" href="<?php //echo $this->url(array('module' => null,'controller'=>'account','action'=>'index'), null, FALSE); ?>">More details!</a></p>-->
    					
@@ -43,7 +43,7 @@
 			</div>
 		
 			<div class="row-fluid">
-				<div class="span12 text-center" style="margin-top: 60px;">
+				<div id="arcdiv2" class="span12 text-center">
 					
 					<!-- <a class="btn btn-xxlarge linktohow  btn-block btn-inverse" href="<?php echo $this->url(array('module' => null,'controller'=>'about','action'=>'how-it-works'), null, FALSE); ?>">How Sociallgreen works ?</a> -->
 					<!-- <img style="margin-right: 15px;" src="<?php //echo $this->baseUrl("images/hw1.png"); ?>"><a  href="<?php echo $this->url(array('module' => null,'controller'=>'about','action'=>'how-it-works'), null, FALSE); ?>"><img src="<?php //echo $this->baseUrl("images/hw.png"); ?>"></a> -->
@@ -95,8 +95,8 @@
 			   			<div class="item">
 			        		<img class="slide" src="<?php echo $this->baseUrl("images/slider/slide43.png")?>" alt="">
 			        		<div class="carousel-caption">
-	                      	<h4><a>Final</a></h4>
-	                    	  <p>touches at SociallGreen bin</p>
+	                      	<h4><a>LAB</a></h4>
+	                    	  <p>Adding Green Intelligence</p>
 	                	    </div>
 			       		</div>
 			  		</div>
@@ -106,7 +106,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row-fluid">
+		<div class="row-fluid" style="margin-top:20px;">
 			<div id="twitterSwitcher" class="span12">
 	    		<span class="Letters">Someone is talking about us!</span>
 	    		<div class="row">
@@ -162,8 +162,12 @@
 			<a href="https://www.facebook.com/found.ationgr" target="_blank"><img src="<?php echo $this->baseUrl("images/partners/Founation.png")?>"></a>
 		</div>
 	</div>
-	<div class="row-fluid trademarks hidden">
-		<div class="span3 offset1" style="padding-top: 20px;">
+	
+	<div class="row-fluid">
+		<div class="span11 offset1 text-center betahd">
+		<p >This is a beta version</p>
+		</div>
+		<div class="span3 offset2 hidden" style="padding-top: 20px;">
 			<?php echo $this->LoggedInAs(); ?>
 		</div>
 	</div>

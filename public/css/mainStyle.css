@@ -100,7 +100,7 @@ img.badges2 {
 	font-family:inherit;
 	font-weight:bold;
 	line-height:80%;
-	color:inherit;
+	color:#3C3735;
 	text-rendering:optimizelegibility;
 }
 /* ----------------------------*/
@@ -197,10 +197,10 @@ RECYCLING GOT SOCIAL
 	margin-top:100px;
 }
 
-/* Twitter hearder
+/* beta hearder
 --------------------------------------------*/
-.twhd {
-	font-weight:800;
+.betahd {
+	font-weight:400;
 	font-size:130%;
 	color: #777373;
 	line-height:100%;
@@ -236,20 +236,14 @@ RECYCLING GOT SOCIAL
 	padding-top: 40px;
 }
 
-/* Animation see the game
+
+/* Koumpia
 --------------------------------------------*/
-@keyframes resize {
-  0% {
-    padding:50px 19px;
-  }
-  50% {
-    padding:70px 30px;
-    /*background-color:rgba(255,0,0,0.2);*/
-  }
-  100% {
-    padding: 100px 100px;
-    /*background-color:rgba(255,0,0,0.9);*/
-  }
+#arcdiv1 {
+	margin: 93px 0px 0px -10px;
+}
+#arcdiv2 {
+	margin: 60px 0px 0px -10px;
 }
 .arcade-button1 {
 	position:relative;
@@ -286,29 +280,6 @@ RECYCLING GOT SOCIAL
 	cursor: pointer;
 	background-image: url("../images/see2.png");
 }
-/*.arcade-button:hover {
-	/*cursor: pointer;
-	background-image: url("../images/hw2.png");
-	/*-webkit-animation-name: resize;
-	-webkit-animation-duration: 3s;
-	-webkit-animation-iteration-count: 4;
-	-webkit-animation-direction: alternate;
-
-	-moz-animation-name: resize;
-	-moz-animation-duration: 3s;
-	-moz-animation-iteration-count: 4;
-	-moz-animation-direction: alternate;
-
-	-o-animation-name: resize;
-	-o-animation-duration: 3s;
-	-o-animation-iteration-count: 4;
-	-o-animation-direction: alternate;
-
-	animation-name: resize;
-	animation-duration: 3s;
-	animation-iteration-count: 4;
-	animation-direction: alternate;
-}*/
 
 /* Custom accordion
 --------------------------------------------*/
@@ -394,18 +365,20 @@ RECYCLING GOT SOCIAL
 /* header
 --------------------------------------------*/
 .titlos-eikonas {
+	color:#3C3735;
 	font-size:17pt;
 	margin:0px;
 }
 .titlos-kentrikos {
 	font-family: 'Roboto';
 	font-weight:500;
-	
 	line-height: 80%;
+	color: #3C3735;
 }
 .ypotitlos-kentrikos {
 	font-size:13.5pt;
 	margin:0px;
+	color: #3C3735;
 }
 
 /* eikona aristera
@@ -439,7 +412,25 @@ RECYCLING GOT SOCIAL
 #xoros-dexia {
 	margin-left: -10px;
 }
+/*===============================================*/
 
+
+/* User Profile Page
+=================================================
+/* titlos other users
+--------------------------------------------*/
+.other-titlos {
+	margin:0px 0px 0px 8px;
+	line-height: normal;
+	font-weight:500;
+	color:#65B524;
+}
+.hr2 {
+	margin:0px 0px 3px 0xp;
+	border:0;
+	border-top:1px solid #eeeeee;
+	border-bottom:1px solid #ffffff;
+}
 /*===============================================*/
 
 .howItWorks {
