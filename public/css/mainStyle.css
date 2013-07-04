@@ -371,12 +371,26 @@ RECYCLING GOT SOCIAL
 }
 .titlos-kentrikos {
 	font-family: 'Roboto';
-	font-weight:500;
-	line-height: 80%;
-	color: #3C3735;
+	font-size: 60pt;
+	font-weight:900;
+	line-height: 100%;
+	color:  #65B524;
+	
+}
+.titlos-kentrikos2 {
+	font-family: 'Roboto';
+	font-weight:300;
+	line-height: 100%;
+	color: #911762;
+	font-size: 27pt;
 }
 .ypotitlos-kentrikos {
-	font-size:13.5pt;
+	font-family: 'Roboto';
+	font-weight:300;
+	line-height: 170%;
+	font-size: 17.5pt;
+	font-size:12pt;
+	letter-spacing:-1px;
 	margin:0px;
 	color: #3C3735;
 }
