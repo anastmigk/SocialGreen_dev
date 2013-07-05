@@ -140,6 +140,14 @@ margin-top:50px;
 /* ta pedia input pl mikraopote allaxa ligo ton kodika tou bootstrap*/
 select,textarea,input[type="text"],input[type="password"],input[type="datetime"],input[type="datetime-local"],input[type="date"],input[type="month"],input[type="time"],input[type="week"],input[type="number"],input[type="email"],input[type="url"],input[type="search"],input[type="tel"],input[type="color"],.uneditable-input{display:inline-block;height:25px;padding:2px 6px;margin-bottom:10px;font-size:14px;line-height:20px;color:#555555;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;vertical-align:middle;}
 
+.post-ti {
+	width: 60px;
+	position:absolute;
+	top:60%;
+	left:18%;
+	z-index:1;
+}
+
 /* Landing Page
 =================================================
 RECYCLING GOT SOCIAL 
@@ -169,7 +177,7 @@ RECYCLING GOT SOCIAL
 	font-weight:bolder;
 	letter-spacing:-3px;
 	/*font-size:190%;*/
-	font-size:225%;
+	font-size:227%;
 	color: rgb(121,193,67);
 	line-height:100%;
 }
@@ -177,7 +185,7 @@ RECYCLING GOT SOCIAL
 	font-weight:900;
 	letter-spacing:3px;
 	/*font-size:130%;*/
-	font-size:163%;
+	font-size:164%;
 	color: #777373;
 	line-height:100%;
 }
@@ -371,7 +379,7 @@ RECYCLING GOT SOCIAL
 }
 .titlos-kentrikos {
 	font-family: 'Roboto';
-	font-size: 60pt;
+	font-size: 60.5pt;
 	font-weight:900;
 	line-height: 100%;
 	color:  #65B524;
@@ -382,14 +390,14 @@ RECYCLING GOT SOCIAL
 	font-weight:300;
 	line-height: 100%;
 	color: #911762;
-	font-size: 27pt;
+	font-size: 27.5pt;
 }
-.ypotitlos-kentrikos {
+.titlos-kentrikos3 {
 	font-family: 'Roboto';
 	font-weight:300;
 	line-height: 170%;
-	font-size: 17.5pt;
-	font-size:12pt;
+	font-size:11.7pt;
+	
 	letter-spacing:-1px;
 	margin:0px;
 	color: #3C3735;
