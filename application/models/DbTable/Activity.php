@@ -3,7 +3,7 @@
 class Application_Model_DbTable_Activity extends Zend_Db_Table_Abstract
 {
 
-    protected $_name = 'Activity';
+    protected $_name = 'activity';
 
 
 }
