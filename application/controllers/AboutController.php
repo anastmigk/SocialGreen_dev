@@ -26,7 +26,7 @@ class AboutController extends Zend_Controller_Action
     	
         $ntempos = array(
         		"Dimitrios Ntempos", 
-        		"CEO, Co-founder", 
+        		"CEO,<br> Co-founder", 
         		"ntempos.jpg", 
         		'Dimitrios has studied economy and the computer science at Aristotle university of thessaloniki. His working experience contains positions at public and the private sector. he strongly believes that starting up is the absolute next step after education.',
         		"http://gr.linkedin.com/pub/dimitrios-ntempos/33/407/4b1/",
@@ -35,7 +35,7 @@ class AboutController extends Zend_Controller_Action
         
         $kuze = array(
         		"Evangelos Almpanidis",
-        		"Electronic Engineer, Co-Founder",
+        		"Electronic Engineer,<br> Co-Founder",
         		"vaggel.jpg", 
         		"Born in Thessaloniki, vangelis deals with the hardware component of Social-Green. He has worked as an embeded system developer as well as academic assistante in A.T.E.I (digital labs I&II) lab. He is a paok fc fun and former graffiti artist.",
         		'http://gr.linkedin.com/pub/almpanidis-evangelos/5a/43b/194/',
@@ -44,7 +44,7 @@ class AboutController extends Zend_Controller_Action
         
         $konos = array(
         		"Konstantinos Papadopoulos",
-        		"CTO, Co-founder",
+        		"CTO,<br> Co-founder",
         		"esu.jpg",
         		"Konstantinos works as a jr. IT Auditor while the same time leads the technical part of Social-Green. At his free time he enjoys Web & iOS and studing about Information Security. He Holds an MSc degree in ICT Systems.",
         		'http://www.linkedin.com/in/papadopoulosk',
@@ -80,7 +80,7 @@ class AboutController extends Zend_Controller_Action
 		
 		$eva = array(
 				"Eva Kavaliotou",
-				"Community Manager",
+				"Community<br> Manager",
 				"eva.jpg",
 				'Eva Kavaliotou Community Manager at Social Green. Her academic background is on Business Administration and Information Systems. Currently she is studying Management Science and Technology at Athens University of Economics and Business and emphasizes her studies on e-Commerce and how Digital marketing and Conversion Rate Optimization can boost online businesses. Gamification is also on her interests. Given the fact that she is still an undergraduate student, her only working experience is as a Conversion Rate Optimization Trainee at her University’s Research Center(ELTRUN) and as an e-Business Intern at "Be eBusiness".',
 				"http://gr.linkedin.com/pub/eva-kavaliotou/53/646/81a",

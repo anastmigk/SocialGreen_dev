@@ -23,6 +23,9 @@ try {
 		<link rel="icon" 
 	      type="image/png" 
 	      href="<?php echo $this->baseUrl('/favicon.ico');?> ">
+	      
+	<meta name="description" content="Sociallgreen official website! Did you know that recycling got social?">
+    <meta name="author" content="Sociallgreen team">
 	
 	<!-- Google plus Snippet -->
 	<!-- Update your html tag to include the itemscope and itemtype attributes. -->
@@ -52,17 +55,50 @@ try {
 
 <!-- End Facebook open graph meta tags -->
 
-		<script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<!-- <script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 		<link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
-
+		<link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>  -->
+		<?php /*
 		<!-- Bootstrap -->
-		<?php  $this->headLink()->appendStylesheet($this->baseUrl('bootstrap/css/bootstrap.min.css')); ?>
-    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('css/mainStyle.css')); ?>
+		<?php //  $this->headLink()->appendStylesheet($this->baseUrl('bootstrap/css/bootstrap.min.css')); ?>
+    	<?php // $this->headLink()->appendStylesheet($this->baseUrl('css/mainStyle.css')); ?>
+    	
+    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('bootstrap/css/bootstrap.css')); ?>
+    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('bootstrap/css/bootstrap-responsive.css')); ?>
+    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('bootstrap/css/extension.css')); ?>
+    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('bootstrap/css/typography.css')); ?>
+    	
+    	<!-- Custom Styles -->
+    	
+    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('css/prettyPhoto.css')); ?>
+    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('css/pricing-table.css')); ?>
+    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('css/isotope.css')); ?>
+    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('css/responsive-nav.css')); ?>
+    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('css/style.css')); ?>
+    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('rs-plugin/css/fullwidth.css')); ?>
+    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('rs-plugin/css/settings.css')); ?>
+    	*/ ?>
+    	
+    	
+    	<!-- Le styles -->
+    	<link href="<?php echo $this->baseUrl("bootstrap/css/bootstrap.css"); ?>" rel="stylesheet">
+	    <link href="<?php echo $this->baseUrl("bootstrap/css/bootstrap-responsive.css"); ?>" rel="stylesheet">
+	    <link href="<?php echo $this->baseUrl("bootstrap/css/extension.css"); ?>" rel="stylesheet">
+	    <link href="<?php echo $this->baseUrl("bootstrap/css/typography.css"); ?>" rel="stylesheet">
+		<link rel="stylesheet" href="<?php echo $this->baseUrl("css/prettyPhoto.css"); ?>">
+		<link rel="stylesheet" href="<?php echo $this->baseUrl("css/pricing-table.css"); ?>">
+	    <link rel="stylesheet" href="<?php echo $this->baseUrl("css/isotope.css"); ?>">
+	    <link rel="stylesheet" href="<?php echo $this->baseUrl("css/responsive-nav.css"); ?>">		
+		<link rel="stylesheet" href="<?php echo $this->baseUrl("css/style.css"); ?>">
+	    <!-- REVOLUTION BANNER CSS SETTINGS -->
+	    <link rel="stylesheet" href="<?php echo $this->baseUrl("rs-plugin/css/fullwidth.css"); ?>" media="screen" />
+		<link rel="stylesheet" href="<?php echo $this->baseUrl("rs-plugin/css/settings.css"); ?>" media="screen" />
+    	
+    	
     	
     	<!-- jPlot Pluggin - Charts -->
-    	<?php $this->headLink()->appendStylesheet($this->baseUrl('jqplot/jquery.jqplot.css')) ?>
+    	<?php /*$this->headLink()->appendStylesheet($this->baseUrl('jqplot/jquery.jqplot.css')) ?>
     	<script	src="<?php echo $this->baseUrl("jqplot/jquery.jqplot.min.js"); ?>"></script>
 		<script	src="<?php echo $this->baseUrl("jqplot/jqplot.canvasTextRenderer.min.js"); ?>"></script>
 		<script	src="<?php echo $this->baseUrl("jqplot/jqplot.canvasAxisLabelRenderer.min.js"); ?>"></script>
@@ -76,198 +112,281 @@ try {
 		<script src="<?php echo $this->baseUrl("jqplot/jqplot.highlighter.min.js"); ?>"></script>
 		<script src="<?php echo $this->baseUrl("jqplot/jqplot.cursor.min.js"); ?>"></script>
 		<script src="<?php echo $this->baseUrl("jqplot/jqplot.dateAxisRenderer.min.js"); ?>"></script>
-		<script type="text/javascript"	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
-		<link rel="stylesheet" type="text/css"	hrf="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/smoothness/jquery-ui.css" />
-
-    	<?php echo $this->headLink(); ?>
+		<!-- <script type="text/javascript"	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+		<link rel="stylesheet" type="text/css"	hrf="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/smoothness/jquery-ui.css" /> -->
+		*/ ?>
+    	
+    	
+    	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    	
     </head>
 <body >
-<!-- Facebook Login
-    ================================================== -->
-<div id="fb-root"></div>
-<script>
-  // Additional JS functions here
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '333359660120082', // App ID
-      channelUrl : '//socialgreen.azurewebsites.net/public/channel.html', // Channel File
-      status     : true, // check login status
-      cookie     : true, // enable cookies to allow the server to access the session
-      xfbml      : true  // parse XFBML
-    });
 
 
-    button = document.getElementById('fbc-login-button');
-    button.onclick = function() {
-        FB.getLoginStatus(function(response) {
-            if (response.authResponse) {
-                this.location = 'http://socialgreen.azurewebsites.net/public/auth/facebook/token/' +  response.authResponse.accessToken;
-            }
-            else {
-                FB.login(function(response) {
-                    if (response.authResponse) {
-                        this.location = 'http://socialgreen.azurewebsites.net/public/facebook/token/' +  response.authResponse.accessToken;
-                    }}, {scope: 'email'});
-            }
-        });
- 
-    };
-    
-
-  };
-  
-  // Load the SDK Asynchronously
-  (function(d){
-     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement('script'); js.id = id; js.async = true;
-     js.src = "//connect.facebook.net/en_US/all.js";
-     ref.parentNode.insertBefore(js, ref);
-   }(document));
-</script>
-
-
-<!-- End Facebook Login
-    ================================================== -->
-
-
-
-<!-- Navbar
-    ================================================== -->
-<div class="navbar navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="brand" href="<?php echo $homelink; ?>"><img id="logo" src="<?php echo $this->baseUrl("images/llogoAspro30.png"); ?>"></a>
-			<img  class="post-ti" src="<?php echo $this->baseUrl('images/post_ti.png'); ?>"/>
-			<div class="nav-collapse collapse">
-				<ul class="nav pull-right navSocialLinks">
-				<?php
-				$uri = Zend_Controller_Front::getInstance()->getRequest()->getRequestUri(); 
-				$howItworks=""; $getInvolved="";
-				if ($uri == $this->url(array('controller'=>'about', 'action'=>'how-it-works'), null, TRUE) )
-				{
-					//$howItworks= "class='active'";
-				}else if ($uri == $this->url(array('controller'=>'about', 'action'=>'get-involved'), null, TRUE) )
-				{
-					//$getInvolved= "class='active'";
-				} ?>
-				<li class="join-nav">Join us :</li>
-		        <li><a id="socialhorizontal" title="Check our facebook" target="_blank" href="https://www.facebook.com/Sociallgreen"><img  class='img-rounded social' src="<?php echo $this->baseUrl('images/fairhead-icons/fc-webicon-facebook-m.png'); ?>"></a></li>
-				<li><a id="socialhorizontal" title="Follow us on Twitter" target="_blank" href="https://twitter.com/sociallgreen"><img  class='img-rounded social' src="<?php echo $this->baseUrl('images/fairhead-icons/fc-webicon-twitter-m.png'); ?>"></a></li>
-				<li><a id="socialhorizontal" title="See our LinkedIn" target="_blank" href="http://www.linkedin.com/company/2937639?trk=tyah"><img  class='img-rounded social' src="<?php echo $this->baseUrl('images/fairhead-icons/fc-webicon-linkedin-m.png'); ?>"></a></li>
-					<?php /*<li <?= $howItworks ?> ><a title="Learn more!" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'how-it-works'), null, TRUE); ?>">How It Works</a></li>
-					<li <?= $getInvolved ?>><a title="Participate!" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'get-involved'), null, TRUE); ?>">Get Involved</a></li> */ ?> 
-					<!-- <li <?= $howItworks ?> ><a title="Learn more!" style="text-decoration:line-through;" >How It Works</a></li>
-					<li <?= $getInvolved ?>><a title="Participate!" style="text-decoration:line-through;" >Get Involved</a></li>-->
-					
-					<?php //echo $this->LoggedInAs(); ?>
-				</ul>
-				
-			</div><!--/.nav-collapse -->
-		</div>
-	</div>
-</div>
-<!-- End of Navbar -->
 
 
 <!-- View Content
     ================================================== -->
-<div class="container" id="mainContent">
+
 	<?php echo $this->layout()->content; ?>
 
- <!-- <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'socialgreen'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</div>
- -->    
+ 
 <!-- End of View Content -->
-
-</div>
-<!-- End of wrap -->
 
 <!-- Footer 
     ================================================== -->
-<div id="footer" class="container">
-<div class="row pagination-centered ">
-      	<hr>
-      	<div class="row-fluid">
-      	 <div class="span10 offset1">
-	      	<!-- ABOUT -->
-	      	<div class="span4">
-	      		<ul class="mylist">
-		        	<li ><span class="FooterTitles">Info</span></li>
-					<li ><a title="Home!" href="<?php echo $this->url(array('controller'=>'index', 'action'=>'index'), null, TRUE); ?>">Home</a></li>
-					<li ><a title="Learn about us!"  href="<?php echo $this->url(array('controller'=>'about', 'action'=>'ourteam'), null, TRUE); ?>" >About</a></li>
-					<li ><a title="Dig in our project!"  href="<?php echo $this->url(array('controller'=>'about', 'action'=>'how-it-works'), null, TRUE); ?>" >How it works</a></li>
-				</ul>
-	       	</div>
-	        
-	       	<!-- Activities -->
-	        <div  class="span4">
-				<ul class="mylist">
-					<li ><span class="FooterTitles">Activities</span></li>
-					
-					<li><a title="Contribute!" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'quiz'), null, TRUE); ?>">Get the quiz</a></li>
-					<li><a title="For Organisations" href="<?php echo $this->url(array('controller'=>'about', 'action'=>'get-involved'), null, TRUE); ?>" >Get Involved</a></li>
-					<li><a title="Feedback!" class="hidden-phone" href="#contactModal" data-toggle="modal">Contact us</a></li>
-					<li><a title="Feedback!" class="visible-phone" href="<?php echo $this->url(array('controller'=>'index', 'action'=>'submit-Contact'), null, TRUE); ?>">Contact us</a></li>
-					<!-- href="/underdevelopment/public/auth"  -->
-				</ul>
-	        </div>
-	        <!-- Find Us -->
-	        <div class="span4">
-	        	<ul class="mylist">
-					<li ><span class="FooterTitles">Social</span></li>
-					
-					<!-- VERSION with Likes and follows
-						================================================== 
-					<li class="social">
-					<!-- LinkedIn 
-    					================================================== 
-						<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
-						<script type="IN/FollowCompany" data-id="2937639" data-counter="right"></script>
-					</li>
-					<li><div class="fb-like" data-href="http://www.facebook.com/SGreenProject" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true" data-font="arial"></div></li>
-					<li><a href="https://twitter.com/SGreen_Project" class="twitter-follow-button" data-show-screen-name="false" data-width="120px"  data-show-count="true" data-lang="en">Follow Us</a></li>
-					-->
-					
-					<!-- VERSION Images with links to social 
-						================================================== -->
-		            <li><a title="Check our facebook" target="_blank" href="https://www.facebook.com/Sociallgreen"><img  class='img-rounded social' src="<?php echo $this->baseUrl('images/fairhead-icons/fc-webicon-facebook-m.png'); ?>"></a></li>
-					<li><a title="Follow us on Twitter" target="_blank" href="https://twitter.com/sociallgreen"><img  class='img-rounded social' src="<?php echo $this->baseUrl('images/fairhead-icons/fc-webicon-twitter-m.png'); ?>"></a></li>
-					<li><a title="See our LinkedIn" target="_blank" href="http://www.linkedin.com/company/2937639?trk=tyah"><img  class='img-rounded social' src="<?php echo $this->baseUrl('images/fairhead-icons/fc-webicon-linkedin-m.png'); ?>"></a></li>
-					
-				</ul>
-	        </div>
-        </div>
-        </div>
-        <div class="row">
-        
-    	<div class="span10 offset1">
-      		<p class="FooterTitles" style="text-decoration: none;">&copy; Copyright 2013 Social Green</p>
-      		<p><a href="mailto:info@sociallgreen.com">info@sociallgreen.com</a></p>
-      	</div>
-      	</div>
-      	
-</div>
-</div>
+	<footer id="mast-footer">
+		<section class="container-fluid">
+			<div class="row-fluid">
+				<section class="container">
+					<div class="row">
+						<article class="span2 offset2" >
+							<h3 class="title">About</h3>
+            				<nav class="navigation">
+								<a href="">Company Overview</a><br>
+								<a href="<?php echo $this->url(array('controller'=>'about', 'action'=>'ourteam' ), null, TRUE); ?>">Team</a>
+							</nav>
+						</article>
+						
+						<article class="span2 offset1">
+							<h3 class="title">Jobs</h3>
+            				<nav class="navigation">
+								<a href="">Wanna be one of us?</a>
+							</nav>
+						</article>
+						
+						<article class="span2 offset1">
+							<h3 class="title">Businesses</h3>
+            				<nav class="navigation">
+								<a href="<?php echo $this->url(array('controller'=>'index', 'action'=>'index' ), null, TRUE); ?>/#areYou">Are you a business?</a>
+							</nav>
+						</article>
+					</div>
+					<div class="row">
+						<article class="span12">
+							<div id="foot-logo">
+							<p >&copy; Copyright 2013 Sociallgreen<br>
+      						<a href="mailto:info@sociallgreen.com">info@sociallgreen.com</a></p>
+      						</div>
+						</article>
+					</div>
+				</section>
+			</div>
+		</section>
+	</footer>
 <!-- End of Footer -->
+
+
+    
+   <!-- Contact Form -->
+<div id="contactModal" class="modal hide fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+    <h3 id="myModalLabel" class="hidden-phone">Contact Form</h3>
+  </div>
+  <div class="modal-body">
+    <?php echo $this->action("submit-contact", "index");// contactForm; ?>
+  </div>
+</div>  
+
+
+<!-- BootStrap & Jquery Script 
+     ================================================== -->
+<!-- JS
+	================================================== -->
+	<script src="<?php echo $this->baseUrl("javascripts/jquery-1.7.2.min.js"); ?>"></script>
+	<script src="<?php echo $this->baseUrl("bootstrap/js/bootstrap-transition.js"); ?>"></script>
+	<script src="<?php echo $this->baseUrl("bootstrap/js/bootstrap-alert.js"); ?>"></script>
+	<script src="<?php echo $this->baseUrl("bootstrap/js/bootstrap-modal.js"); ?>"></script>
+    <script src="<?php echo $this->baseUrl("bootstrap/js/bootstrap-dropdown.js"); ?>"></script>
+    <script src="<?php echo $this->baseUrl("bootstrap/js/bootstrap-scrollspy.js"); ?>"></script>
+    <script src="<?php echo $this->baseUrl("bootstrap/js/bootstrap-tab.js"); ?>"></script>
+    <script src="<?php echo $this->baseUrl("bootstrap/js/bootstrap-tooltip.js"); ?>"></script>
+    <script src="<?php echo $this->baseUrl("bootstrap/js/bootstrap-popover.js"); ?>"></script>
+    <script src="<?php echo $this->baseUrl("bootstrap/js/bootstrap-button.js"); ?>"></script>
+    <script src="<?php echo $this->baseUrl("bootstrap/js/bootstrap-collapse.js"); ?>"></script>
+    <script src="<?php echo $this->baseUrl("bootstrap/js/bootstrap-carousel.js"); ?>"></script>
+    <script src="<?php echo $this->baseUrl("bootstrap/js/bootstrap-typeahead.js"); ?>"></script>
+    <script src="<?php echo $this->baseUrl("bootstrap/js/bootstrap-affix.js"); ?>"></script>
+    
+    <script src="<?php echo $this->baseUrl("javascripts/jquery.inview.js"); ?>"></script>
+    <script src="<?php echo $this->baseUrl("javascripts/jquery.localscroll-1.2.7-min.js"); ?>"></script>
+    <script src="<?php echo $this->baseUrl("javascripts/jquery.scrollTo-1.4.2-min.js"); ?>"></script>
+  	<script src="<?php echo $this->baseUrl("javascripts/nbw-parallax.js"); ?>"></script>
+  	<script src="<?php echo $this->baseUrl("javascripts/jquery.prettyPhoto.js"); ?>"></script>
+	<script src="<?php echo $this->baseUrl("javascripts/waypoints.min.js"); ?>"></script>
+    <script src="<?php echo $this->baseUrl("javascripts/jquery.easing.1.3.js"); ?>"></script>
+	<script src="<?php echo $this->baseUrl("javascripts/jquery.isotope.min.js"); ?>"></script>
+	<script src="<?php echo $this->baseUrl("javascripts/fake-element.js"); ?>"></script>
+ 
+    <!-- jQuery KenBurn Slider  -->
+    <script src="<?php echo $this->baseUrl("rs-plugin/js/jquery.themepunch.plugins.min.js"); ?>"></script>
+	<script src="<?php echo $this->baseUrl("rs-plugin/js/jquery.themepunch.revolution.min.js"); ?>"></script>
+    <script src="<?php echo $this->baseUrl("javascripts/form-validation.js"); ?>"></script>
+    <script src="<?php echo $this->baseUrl("javascripts/scroll.js"); ?>"></script>
+    <script src="<?php echo $this->baseUrl("javascripts/jquery.sticky.js"); ?>"></script>
+	
+	
+  	<!-- Mobile Navigation Scroll Setup -->
+	<script type="text/javascript">
+    	function moveTo(contentArea){
+        	var goPosition = $(contentArea).offset().top;
+        	$('html,body').animate({ scrollTop: goPosition}, 'slow');
+        }
+    </script>
+	<!-- Sticky nav -->
+<script>
+  $(document).ready(function(){
+    $(".desktop-header").sticky({topSpacing:0});
+  });
+</script> 
+
+</script> 
+	<script>
+
+		$(document).ready(function(){
+			//HEADER AND NAV EVENTS
+			$('.main-nav a').click(function(){
+				$('.main-nav a').removeClass('active');
+				$(this).addClass('active');
+			})
+
+			//PORTFOLIO IMAGE HOVER
+			$('.element').mouseenter(function(){
+				$(this).find('img').css('opacity','0.4');
+			})
+
+			$('.element').mouseleave(function(){
+				$('.element').find('img').css('opacity','1');
+			})
+
+			//PORTFOLIO FILTER ON CLICK
+			$('.inner-link').find('a').click(function(){
+				$('.inner-link').find('a').removeClass('.selected');
+				$(this).addClass('.selected');
+			})
+		});
+	</script>
+	
+		
+	<script>
+
+
+// Initialize prettyPhoto plugin
+	$(".portfolio a[data-gal^='prettyPhoto']").prettyPhoto({
+		theme:'light_square', 
+		autoplay_slideshow: false, 
+		overlay_gallery: false, 
+		show_title: false
+	});
+		
+//MASONRY PORTFOLIO INIT:
+    $(function(){
+      
+      var $container = $('#container');
+
+      $container.isotope({
+        itemSelector : '.element',
+        layoutMode : 'masonry' 
+      });
+      
+      
+      var $optionSets = $('#options .option-set'),
+          $optionLinks = $optionSets.find('a');
+
+      $optionLinks.click(function(){
+        var $this = $(this);
+        // don't proceed if already selected
+        if ( $this.hasClass('selected') ) {
+          return false;
+        }
+        var $optionSet = $this.parents('.option-set');
+        $optionSet.find('.selected').removeClass('selected');
+        $this.addClass('selected');
+  
+        // make option object dynamically, i.e. { filter: '.my-filter-class' }
+        var options = {},
+            key = $optionSet.attr('data-option-key'),
+            value = $this.attr('data-option-value');
+        // parse 'false' as false boolean
+        value = value === 'false' ? false : value;
+        options[ key ] = value;
+        if ( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
+          // changes in layout modes need extra logic
+          changeLayoutMode( $this, options )
+        } else {
+          // creativewise, apply new options
+          $container.isotope( options );
+        }
+        
+        return false;
+      });
+
+      
+    });
+  </script>	
+
+  <script type="text/javascript">
+
+				
+				
+
+				$(document).ready(function() {
+
+				if ($.fn.cssOriginal!=undefined)
+					$.fn.css = $.fn.cssOriginal;
+
+					$('.fullwidthbanner').revolution(
+						{
+							delay:9000,
+							startwidth:960,
+							startheight:500,
+
+							onHoverStop:"on",						// Stop Banner Timet at Hover on Slide on/off
+
+							thumbWidth:100,							// Thumb With and Height and Amount (only if navigation Tyope set to thumb !)
+							thumbHeight:50,
+							thumbAmount:3,
+
+							hideThumbs:0,
+							navigationType:"bullet",					//bullet, thumb, none, both	 (No Shadow in Fullwidth Version !)
+							navigationArrows:"verticalcentered",		//nexttobullets, verticalcentered, none
+							navigationStyle:"round",				//round,square,navbar
+
+							touchenabled:"on",						// Enable Swipe Function : on/off
+
+							navOffsetHorizontal:0,
+							navOffsetVertical:20,
+
+							stopAtSlide:-1,							// Stop Timer if Slide "x" has been Reached. If stopAfterLoops set to 0, then it stops already in the first Loop at slide X which defined. -1 means do not stop at any slide. stopAfterLoops has no sinn in this case.
+							stopAfterLoops:-1,						// Stop Timer if All slides has been played "x" times. IT will stop at THe slide which is defined via stopAtSlide:x, if set to -1 slide never stop automatic
+
+
+
+							fullWidth:"on",
+
+							shadow:0								//0 = no Shadow, 1,2,3 = 3 Different Art of Shadows -  (No Shadow in Fullwidth Version !)
+
+						});
+
+
+
+
+			});
+			</script>
+
+	<script src="<?php echo $this->baseUrl("javascripts/script.js"); ?>" type="text/javascript"></script>	
+
+
+
+
+
+
+
+ <!-- END BootStrap & Jquery Script 
+     ================================================== -->
 
 <!-- Google Analytics 
     ================================================== -->
@@ -280,56 +399,6 @@ try {
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-</script>
- 
-<!-- facebook Like 
-    ================================================== 
-	<div id="fb-root"></div>
-	<script>(
-	function(d, s, id)
-	{
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) return;
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/el_GR/all.js#xfbml=1";
-		fjs.parentNode.insertBefore(js, fjs);
-	}
-	(document, 'script', 'facebook-jssdk'));
-	</script>
--->
-
-<!-- Twitter Follow
-    ================================================== 
-    <script>!function(d,s,id){
-        var js,fjs=d.getElementsByTagName(s)[0];
-        if(!d.getElementById(id))
-        {
-            js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";
-            fjs.parentNode.insertBefore(js,fjs);
-        }
-        }(document,"script","twitter-wjs");
-	</script>
--->
-    
-   <!-- Contact Form -->
-<div id="contactModal" class="modal hide fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-    <h3 id="myModalLabel" class="hidden-phone">Contact Form</h3>
-  </div>
-  <div class="modal-body">
-    <?php echo $this->action("submit-contact", "index");// contactForm; ?>
-  </div>
-</div>  
-    
- <!-- BootStrap & Jquery Script 
-     ================================================== -->
- <!-- <script src="http://code.jquery.com/jquery.js"></script> -->
- <script src="<?php echo $this->baseUrl("bootstrap/js/bootstrap.min.js"); ?>"></script>
- <script type="text/javascript">
- 			$(document).ready(function () {
-    			$("a").tooltip();
-      		});		
 </script>
  
  <!-- Start of StatCounter Code for Default Guide -->

@@ -1,167 +1,78 @@
 <?php $team = $this->team; ?>
 
-<div class="row-fluid">
-	<div class="span8 offset2" >
-	<!--  <h1 style="margin-left:7%;">The team</h1>
-	<p style="margin-left:7%;margin-right:7%;margin-bottom:7%;">"Social Green is a Green tech Startup from Thessaloniki, Northern Greece. The team tries to change the way people recycle, exploiting modern technologies and concepts. At the same time Social-Green equips companies with absolute CSR channel, concerning recycling actions."</p>
-	 -->
-	 <img class="teamTextImage" src='<?php echo $this->baseUrl("images/teamPhotos/TeamNew.png"); ?>'>
-	</div>	
-</div>
 
-
-<hr>
-<div class="row-fluid ">
-<?php
-$counter = 0;
- foreach ($team as $member) {
-if ($counter==3 || $counter==14){
-	echo "</div><div class='row-fluid keno'>"; } ;
-?>
- 	<?php if ($counter<=2) { ?> <div class="span4 pagination-centered "> 
- 	<?php } else { ?> <div class="span3 pagination-centered "> <?php } ?>
-	 	
-	 	<div class="row">
-	 		<a href='<?= $member[4] ?>' target='_blank'><img class="img-circle-shadowed links" src="<?php echo $this->baseUrl("images/fairhead-icons/fc-webicon-linkedin.png"); ?>"></a>
-	 		<img class="img-circle-shadowed faces" src="<?php echo $this->baseUrl("images/teamPhotos/photos/mikres/".$member[2]); ?>">
-	 		<a href='<?= $member[6] ?>' target='_blank'><img class="img-circle-shadowed links " src="
-	 		<?php if  ($member[5]=="aboutme"){ 
-	 			echo $this->baseUrl("images/teamPhotos/me1.png");
-	 		} elseif ($member[5]=="twitter"){
-	 			echo $this->baseUrl("images/fairhead-icons/fc-webicon-twitter.png");
-	 		} elseif($member[5]=="mail") {
-	 			echo $this->baseUrl("images/fairhead-icons/fc-webicon-mail.png");
-	 		} ?>"></a>
-	 	</div>
-	 	<div class="row faceText" >
-	 		<p><?php echo $member[0]; ?><br>
-	 		<small><?php echo $member[1]; ?></small></p>
-	 	</div>
- 	</div>	
-<?php 
-$counter++;
-} ?>
-</div>
-<!-- </div>  -->
-<!-- 
-<div class="accordion" id="accordion2">
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-       			<div class="row">
-       				<div class="span2 visible-desktop">
-       					<img class="faces2 img-polaroid-circle" src="<?php echo $this->baseUrl("images/teamPhotos/ntempos.jpg"); ?>">
-       				</div>
-       				<div class="span6">
-       					<h2 class="media-heading">Dimitrios Ntempos</h2>
-						<h4>Business Development Manager, Founder</h4>
-       				</div>
-       			</div>
-	</a>
-    </div>
-    <div id="collapseOne" class="accordion-body collapse in">
-      <div class="accordion-inner">
-       <p>He has graduated from the Department of Economics of Aristotle university. 
-				During those years he attended student exchange programmes in Sweden and France gaining multicultural experiences. 
-				By October 2012 he holds an MSc at "Informatics and Management" from the Computer Science Departement of Aristotle. 
-				His working experience include traineeships at Greek ministry of foreign affairs, Hellenic post bank and a Consulting company. 
-				He is a co-founder of SocialGreen where he works on the Business Development of the project.</p>
-      </div>
-    </div>
-  </div>
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-       			<div class="row">
-       				<div class="span2 visible-desktop">
-       					<img class="faces2 img-polaroid-circle" src="<?php echo $this->baseUrl("images/teamPhotos/almpanidis.jpg"); ?>">
-       				</div>
-       				<div class="span6">
-       					<h2 class="media-heading">Evangelos Almpanidis</h2>
-						<h4>Electronic engineer, Co-Founder</h4>
-       				</div>
-       			</div>
-	</a>
-    </div>
-    <div id="collapseTwo" class="accordion-body collapse in">
-      <div class="accordion-inner">
-       <p>Born and raised in Thessaloniki. He is a graduate of the department of electronics, Alexandreio Technological Education Institute of Thessaloniki and has the capabilities to carry out the procedures of both digital and analog electronics design. 
-				His main interests contain embedded software and hardware issues, using FPGA's and microcontrollers.
-				 He is the electronic engineer of Social Green having developed the project's prototype bin. 
-				Furthermore he has worked as an embedded developer in elevator industry and as technical personnel at A.T.E.I(digital labs I&amp;II). 
-				In his free time he is getting involved with graphic design.</p>
-      </div>
-    </div>
-  </div>
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-       			<div class="row">
-       				<div class="span2 visible-desktop">
-       					<img class="faces2 img-polaroid-circle" src="<?php echo $this->baseUrl("images/teamPhotos/papadopoulos.jpg"); ?>">
-       				</div>
-       				<div class="span6">
-       					<h2 class="media-heading">Konstantinos Papadopoulos</h2>
-						<h4>IT Manager, Co-Founder</h4>
-       				</div>
-       			</div>
-	</a>
-    </div>
-    <div id="collapseThree" class="accordion-body collapse in">
-      <div class="accordion-inner">
-      <p>Born and raised in Thessaloniki. He is a graduate of the department of electronics, Alexandreio Technological Education Institute of Thessaloniki and has the capabilities to carry out the procedures of both digital and analog electronics design. 
-				His main interests contain embedded software and hardware issues, using FPGA's and microcontrollers.
-				 He is the electronic engineer of Social Green having developed the project’s prototype bin. 
-				Furthermore he has worked as an embedded developer in elevator industry and as technical personnel at A.T.E.I(digital labs I&II). 
-				Én his free time he is getting involved with graphic design.</p>
-      </div>
-    </div>
-  </div>
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
-       			<div class="row">
-       				<div class="span2 visible-desktop">
-       					<img class="faces2 img-polaroid-circle" src="<?php echo $this->baseUrl("images/teamPhotos/lapatas.png"); ?>">
-       				</div>
-       				<div class="span6">
-       					<h2 class="media-heading">George Lapatas</h2>
-						<h4>Lead Software Developer</h4>
-       				</div>
-       			</div>
-	</a>
-    </div>
-    <div id="collapseFour" class="accordion-body collapse in">
-      <div class="accordion-inner">
-      		<p>Born and raised in Thessaloniki, George always show passion for technology, sports and travels. 
-				He attends the University of Peloponnese where he complete his studies at the Department of Computer Science and Technology and currently involving with the SocialGreen as a Web programmer. 
-					In the mean time he is a swimmer and participate in swimming competitions. He has traveled to Italy, New York and many greek islands, his next big trip will be London.</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
-       			<div class="row">
-       				<div class="span2 visible-desktop">
-       					<img class="faces2 img-polaroid-circle" src="<?php echo $this->baseUrl("images/teamPhotos/karanaftis.jpg"); ?>">
-       				</div>
-       				<div class="span6">
-       					<h2 class="media-heading">Antonis Karanaftis</h2>
-						<h4>Lead Designer</h4>
-       				</div>
-       			</div>
-	</a>
-    </div>
-    <div id="collapseFive" class="accordion-body collapse in">
-      <div class="accordion-inner">
-      		<p>Born in Thessaloniki, he is about to graduate from the department of Graphic Design, Technological Educational Institute of Athens. 
-				His working experience contains printing and graphic design positions. 
-				In his free time, Antonis enjoys photo shooting and animation. 
-				He is the Art Director of Social Green where he handles both digital and printed design projects.</p>
-      </div>
-    </div>
-  </div>
-</div>
- -->
+<div id="team" class="page">
+	<div class="row">
+		<article class="span6 offset1">
+			<a class="tp-leftarrow large" href="<?php echo $this->url(array('controller'=>'index', 'action'=>'index' ), null, TRUE); ?>"><div class="tp-leftarrow large"></div></a>
+		</article>
+	</div>
+	<section class="container-fluid">
+		<div class="row-fluid">
+			<section class="container">
+				
+				<div class="row">
+					<article class="span12">
+						<h1 class="main-heading">Our Team</h1>
+						<div class="promotional add-top">Sociallgreen is a Green tech Startup from Thessaloniki, Northern Greece. The team tries to change the way people recycle, exploiting modern technologies and concepts. At the same time Sociallgreen equips companies with absolute CSR channel, concerning recycling actions.
+							</div>
+					</article><!-- span12 : ends -->
+				</div><!-- row : ends -->
+				
+				<div class="row">
+					<article class="span8 offset2" >
+						<!-- <h1 style="margin-left:7%;">The team</h1>
+						<p style="margin-left:7%;margin-right:7%;margin-bottom:7%;">"Social Green is a Green tech Startup from Thessaloniki, Northern Greece. The team tries to change the way people recycle, exploiting modern technologies and concepts. At the same time Social-Green equips companies with absolute CSR channel, concerning recycling actions."</p>
+						  
+	 					<img class="teamTextImage" src='<?php // echo $this->baseUrl("images/teamPhotos/TeamNew.png"); ?>'>
+	 					-->
+					</article>	
+				</div>
+				
+				<?php
+				$counter = 0;
+				foreach ($team as $member)
+				{
+					if ($counter==0 || $counter==4)
+					{ ?>
+						<div class="row team-wrap add-top">
+				 	<?php
+					}
+					?>
+					<article class="span3 team-block">
+						<img alt="<?php echo $member[0]; ?>" title="<?php echo $member[0]; ?>"  src="<?php echo $this->baseUrl("images/teamPhotos/photos/mikres/".$member[2]); ?>"/>
+				 		<h4><?php echo $member[0]; ?></h4>
+						<h5><?php echo $member[1]; ?></h5>
+				 		<nav class="pad-top-half add-top-half pad-bottom add-bottom-half">
+														
+							<a href="<?= $member[4] ?>" target="_blank"><img src="<?php echo $this->baseUrl("images/icons/t03.png"); ?>"/></a>
+					 		
+					 		<a href="<?= $member[6] ?>" target="_blank"><img src="
+					 		<?php 
+					 		if  ($member[5]=="aboutme")
+					 		{ 
+					 			echo $this->baseUrl("images/icons/me30x30.png");
+					 		}
+					 		elseif ($member[5]=="twitter")
+							{
+					 			echo $this->baseUrl("images/icons/t01.png");
+					 		} elseif($member[5]=="mail") {
+					 			echo $this->baseUrl("images/fairhead-icons/fc-webicon-mail.png");
+				 		} ?>"/></a>
+							
+							
+						</nav>
+					</article>
+					<?php 
+					if ($counter==3 || $counter==7)
+					{
+						echo "</div>"; 
+					}
+					
+					$counter++;
+				} ?>
+		
+			</section><!-- container : ends -->
+		</div><!-- row-fuild : ends -->
+	</section> <!-- container-fluid : ends-->
+</div> <!-- team : ends -->
