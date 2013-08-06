@@ -490,6 +490,22 @@ p.promo > span{
 .testimonial-wrap{
 }
 
+.dl-horizontal dt {
+	font-family:"Source_Sans" !important;
+	float: left;
+	width: 160px;
+	overflow: hidden;
+	clear: left;
+	text-align: right;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.dl-horizontal dd {
+	font-family:"Droid_Sans_Regular" !important;
+	margin-left: 180px;
+}
+
 .pricing-black .pricing-header-row-1, .pricing-black .pricing-header-row-2 {
     /*--background-color: #65B524;
     background-image: -moz-linear-gradient(center top , #65B524, #65B524); */
