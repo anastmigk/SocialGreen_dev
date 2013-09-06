@@ -48,11 +48,28 @@
 			<li><a id="downApp-linker" href="#downApp">Download App</a></li>
 			<li><a id="areYou-linker" href="#areYou">Are you a business</a></li>
 			<li><a id="contact-linker" href="#contact">Contact</a></li>
+			<!-- Button to trigger modal -->
+			<li><a data-toggle="modal" href="#myModal" class="btn btn-primary btn-small">Sign In</a></li>
 		</ul>
 		<img alt="Sociallgreen" title="Sociallgreen" id="logo" class="pull-right span1" src="<?php echo $this->baseUrl("images/logo.png"); ?>"/>
 	</header>
 
 <!-- End of Navbar -->
+	
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <p>One fine body…</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+  </div>
+</div>
 
 <div id="intro">
 	<div class="fullwidthbanner-container">
@@ -108,7 +125,7 @@
 				<div class="row">
 					<article class="span6">
 						<table class="table">
-						  <caption><h4 class="sub-heading text-left">Hour Top Communities</h4></caption>
+						  <caption><h4 class="sub-heading text-left">Top Users</h4></caption>
 						  <thead>
 						    <tr>
 						      <th></th>
@@ -120,9 +137,9 @@
 						  </thead>
 						  <tbody>
 						  
-						  <?php
+						  <?php /*
 						  $counter=1;
-						   foreach ($accounts as $account)
+						  foreach ($accounts as $account)
 						  { ?>
 						  	<tr>
 		                    <td>
@@ -130,7 +147,7 @@
 						      	<div class="numberbox-white"><i class="icon-arrow-up icon-white"></i></div>
 							</td>
 	                    	<td >
-	                    		<?php /* <a class="" title="<?php echo $account->username; ?>" href="<?php echo $this->baseUrl('account/profile/').'?user='.$account->username;?>"> */ ?>
+	                    		
 					          	<img class="about-testimonial-icon avatar" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$account->avatar); ?>"> <!-- </a> -->    
 						       	
 							</td>
@@ -142,6 +159,30 @@
 	                    	
 							</tr>
 							<?php $counter++; 
+						  } */ ?>
+						  
+						  <?php
+						  
+						  for($counter=0;$counter<3;$counter++)
+						  { ?>
+						  	<tr>
+		                    <td>
+						      	<div class="numberbox-green"><?php echo $counter+1;?></div>
+						      	<div class="numberbox-white"><i class="icon-arrow-up icon-white"></i></div>
+							</td>
+	                    	<td >
+	                    		<?php /* <a class="" title="<?php echo $account->username; ?>" href="<?php echo $this->baseUrl('account/profile/').'?user='.$account->username;?>"> */ ?>
+					          	<img class="about-testimonial-icon avatar" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$accounts[$counter][avatar]); ?>"> <!-- </a> -->    
+						       	
+							</td>
+							<td>
+							<h5 class="remove-bottom col-high"><?php echo $accounts[$counter][fullname]; ?></h5>
+							</td>
+	                    	<td>+3</td>
+	                    	<td><?php echo $accounts[$counter][leafs];?></td>
+	                    	
+							</tr>
+							<?php 
 						  } ?>
 						  
 						  </tbody>
@@ -150,18 +191,16 @@
 						
 					<article class="span6">
 						<table class="table">
-						  <caption><h4 class="sub-heading text-left">Week Top Communities</h4></caption>
+						  <caption><h4 class="sub-heading text-left">Latest Activity</h4></caption>
 						  <thead>
 						    <tr>
-						      <th></th>
-						      <th></th>
-						      <th></th>
-						      <th>Latest</th>
-						      <th>Total</th>
+						      <th>User</th>
+						      <th>Info</th>
 						    </tr>
 						  </thead>
 						  <tbody>
-						    <?php
+						  
+						    <?php /*
 						  $counter=1;
 						   foreach ($accounts as $account)
 						  { ?>
@@ -171,7 +210,7 @@
 						      	<div class="numberbox-white"><i class="icon-arrow-up icon-white"></i></div>
 							</td>
 	                    	<td >
-	                    		<?php /* <a class="" title="<?php echo $account->username; ?>" href="<?php echo $this->baseUrl('account/profile/').'?user='.$account->username;?>"> */ ?>
+	                    		
 					          	<img class="avatar" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$account->avatar); ?>"> <!-- </a> -->    
 						       	
 							</td>
@@ -183,7 +222,28 @@
 	                    	
 							</tr>
 							<?php $counter++; 
-						  } ?>
+						  } */ ?>
+						  
+						 
+					<?php  foreach ( $allactivity as $activity) { ?>
+
+						<?php if ($activity->quantity>0) {?>
+						<tr>
+							<td>
+								<a class="pull-left" href="<?php echo $this->baseUrl('account/profile/').'?user='.$activity->username;?>">
+	                    			<img class="avatar media-object thumbnail" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$activity->avatar);?>">
+	                    		</a>
+							</td>
+							<td>
+								<?php echo ucfirst($activity->username);  ?> saved <?php echo 1*$activity->glass+2*$activity->plastic+3*$activity->aluminium; ?> leafs on <?php echo date("d-M",strtotime($activity->date)) ?>! <span class="muted">(aluminium: <?php echo $activity->aluminium." * 3 leafs, plastic:".$activity->plastic." * 2 leafs, glass:".$activity->glass ?> * 1 leaf)</span>
+							</td>
+						</tr>
+					
+						<?php } ?>
+					<?php } ?>
+					
+						  
+						  
 						  </tbody>
 						</table>
 					</article>

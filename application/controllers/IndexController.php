@@ -15,7 +15,9 @@ class IndexController extends Zend_Controller_Action
     	$query->from(array('act' => 'activity'), array('SUM(act.quantity) as quantity','SUM(act.plastic) as plastic','SUM(act.glass) as glass','SUM(act.aluminium) as aluminium', '(SUM(act.glass)*1+SUM(act.plastic)*2+SUM(act.aluminium)*3) as leafs','userid','MAX(act.date) as date'));
     	$query->join(array('acc' => 'accounts'), 'act.userid = acc.id', array('fullname','username','avatar','description', 'url'));
     	$query->order('leafs Desc');
+    	
     	$query->group(array("username"));
+    	$query->limit(3,0);
     	$query->setIntegrityCheck(false);
     	//echo (String)$query;
     	$this->view->accounts = $accounts->fetchAll($query);
@@ -40,6 +42,7 @@ class IndexController extends Zend_Controller_Action
     	$query->from(array('acc' => 'accounts'), array('id', 'username','avatar', 'fullname'));
     	$query->join(array('act' => 'activity'), 'act.userid = acc.id', array('quantity','date', 'aluminium','glass','plastic'));
     	$query->order('act.date DESC');
+    	$query->limit(3,0);
     	$query->setIntegrityCheck(false);
     	
     	$result = $activity->fetchAll($query);
