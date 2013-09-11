@@ -180,16 +180,16 @@ try {
 
 
     
-   <!-- Contact Form -->
+   <!-- Contact Form
 <div id="contactModal" class="modal hide fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
     <h3 id="myModalLabel" class="hidden-phone">Contact Form</h3>
   </div>
   <div class="modal-body">
-    <?php echo $this->action("submit-contact", "index");// contactForm; ?>
+    <?php //echo $this->action("submit-contact", "index");// contactForm; ?>
   </div>
-</div>  
+</div>  -->
 
 
 <!-- BootStrap & Jquery Script 
@@ -237,13 +237,13 @@ try {
         }
     </script>
 	<!-- Sticky nav -->
-<script>
-  $(document).ready(function(){
-    $(".desktop-header").sticky({topSpacing:0});
-  });
-</script> 
+	<script>
+	  $(document).ready(function(){
+	    $(".desktop-header").sticky({topSpacing:0});
+	  });
+	</script> 
 
-</script> 
+
 	<script>
 
 		$(document).ready(function(){
@@ -273,115 +273,104 @@ try {
 		
 	<script>
 
-
-// Initialize prettyPhoto plugin
-	$(".portfolio a[data-gal^='prettyPhoto']").prettyPhoto({
-		theme:'light_square', 
-		autoplay_slideshow: false, 
-		overlay_gallery: false, 
-		show_title: false
-	});
-		
-//MASONRY PORTFOLIO INIT:
-    $(function(){
-      
-      var $container = $('#container');
-
-      $container.isotope({
-        itemSelector : '.element',
-        layoutMode : 'masonry' 
-      });
-      
-      
-      var $optionSets = $('#options .option-set'),
-          $optionLinks = $optionSets.find('a');
-
-      $optionLinks.click(function(){
-        var $this = $(this);
-        // don't proceed if already selected
-        if ( $this.hasClass('selected') ) {
-          return false;
-        }
-        var $optionSet = $this.parents('.option-set');
-        $optionSet.find('.selected').removeClass('selected');
-        $this.addClass('selected');
-  
-        // make option object dynamically, i.e. { filter: '.my-filter-class' }
-        var options = {},
-            key = $optionSet.attr('data-option-key'),
-            value = $this.attr('data-option-value');
-        // parse 'false' as false boolean
-        value = value === 'false' ? false : value;
-        options[ key ] = value;
-        if ( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
-          // changes in layout modes need extra logic
-          changeLayoutMode( $this, options )
-        } else {
-          // creativewise, apply new options
-          $container.isotope( options );
-        }
-        
-        return false;
-      });
-
-      
-    });
+	// Initialize prettyPhoto plugin
+		$(".portfolio a[data-gal^='prettyPhoto']").prettyPhoto({
+			theme:'light_square', 
+			autoplay_slideshow: false, 
+			overlay_gallery: false, 
+			show_title: false
+		});
+			
+	//MASONRY PORTFOLIO INIT:
+	    $(function(){
+	      
+	      var $container = $('#container');
+	
+	      $container.isotope({
+	        itemSelector : '.element',
+	        layoutMode : 'masonry' 
+	      });
+	      
+	      
+	      var $optionSets = $('#options .option-set'),
+	          $optionLinks = $optionSets.find('a');
+	
+	      $optionLinks.click(function(){
+	        var $this = $(this);
+	        // don't proceed if already selected
+	        if ( $this.hasClass('selected') ) {
+	          return false;
+	        }
+	        var $optionSet = $this.parents('.option-set');
+	        $optionSet.find('.selected').removeClass('selected');
+	        $this.addClass('selected');
+	  
+	        // make option object dynamically, i.e. { filter: '.my-filter-class' }
+	        var options = {},
+	            key = $optionSet.attr('data-option-key'),
+	            value = $this.attr('data-option-value');
+	        // parse 'false' as false boolean
+	        value = value === 'false' ? false : value;
+	        options[ key ] = value;
+	        if ( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
+	          // changes in layout modes need extra logic
+	          changeLayoutMode( $this, options )
+	        } else {
+	          // creativewise, apply new options
+	          $container.isotope( options );
+	        }
+	        
+	        return false;
+	      });
+	
+	      
+	    });
   </script>	
 
   <script type="text/javascript">
 
-				
-				
+		$(document).ready(function() {
 
-				$(document).ready(function() {
+		if ($.fn.cssOriginal!=undefined)
+			$.fn.css = $.fn.cssOriginal;
 
-				if ($.fn.cssOriginal!=undefined)
-					$.fn.css = $.fn.cssOriginal;
+			$('.fullwidthbanner').revolution(
+				{
+					delay:9000,
+					startwidth:960,
+					startheight:500,
 
-					$('.fullwidthbanner').revolution(
-						{
-							delay:9000,
-							startwidth:960,
-							startheight:500,
+					onHoverStop:"on",						// Stop Banner Timet at Hover on Slide on/off
 
-							onHoverStop:"on",						// Stop Banner Timet at Hover on Slide on/off
+					thumbWidth:100,							// Thumb With and Height and Amount (only if navigation Tyope set to thumb !)
+					thumbHeight:50,
+					thumbAmount:3,
 
-							thumbWidth:100,							// Thumb With and Height and Amount (only if navigation Tyope set to thumb !)
-							thumbHeight:50,
-							thumbAmount:3,
+					hideThumbs:0,
+					navigationType:"bullet",					//bullet, thumb, none, both	 (No Shadow in Fullwidth Version !)
+					navigationArrows:"verticalcentered",		//nexttobullets, verticalcentered, none
+					navigationStyle:"round",				//round,square,navbar
 
-							hideThumbs:0,
-							navigationType:"bullet",					//bullet, thumb, none, both	 (No Shadow in Fullwidth Version !)
-							navigationArrows:"verticalcentered",		//nexttobullets, verticalcentered, none
-							navigationStyle:"round",				//round,square,navbar
+					touchenabled:"on",						// Enable Swipe Function : on/off
 
-							touchenabled:"on",						// Enable Swipe Function : on/off
+					navOffsetHorizontal:0,
+					navOffsetVertical:20,
 
-							navOffsetHorizontal:0,
-							navOffsetVertical:20,
-
-							stopAtSlide:-1,							// Stop Timer if Slide "x" has been Reached. If stopAfterLoops set to 0, then it stops already in the first Loop at slide X which defined. -1 means do not stop at any slide. stopAfterLoops has no sinn in this case.
-							stopAfterLoops:-1,						// Stop Timer if All slides has been played "x" times. IT will stop at THe slide which is defined via stopAtSlide:x, if set to -1 slide never stop automatic
+					stopAtSlide:-1,							// Stop Timer if Slide "x" has been Reached. If stopAfterLoops set to 0, then it stops already in the first Loop at slide X which defined. -1 means do not stop at any slide. stopAfterLoops has no sinn in this case.
+					stopAfterLoops:-1,						// Stop Timer if All slides has been played "x" times. IT will stop at THe slide which is defined via stopAtSlide:x, if set to -1 slide never stop automatic
 
 
 
-							fullWidth:"on",
+					fullWidth:"on",
 
-							shadow:0								//0 = no Shadow, 1,2,3 = 3 Different Art of Shadows -  (No Shadow in Fullwidth Version !)
+					shadow:0								//0 = no Shadow, 1,2,3 = 3 Different Art of Shadows -  (No Shadow in Fullwidth Version !)
 
-						});
-
-
-
+				});
 
 			});
 			</script>
 
 	<script src="<?php echo $this->baseUrl("javascripts/script.js"); ?>" type="text/javascript"></script>	
-
-
-
-
 
 
 

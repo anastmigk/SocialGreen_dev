@@ -1,9 +1,5 @@
 
-
 $(document).ready(function(){
-
-
-		
 
 		//Changing NAV LINK ACTIVE STATE when reaching each section
 
@@ -17,9 +13,6 @@ $(document).ready(function(){
 			$('.desktop-nav li a').removeClass('active');
 		   	$(this).addClass('active');
 		})
-
-		
-
 	});
 
 
