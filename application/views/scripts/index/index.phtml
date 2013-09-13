@@ -51,7 +51,7 @@
 			
 			<li>
 				<!-- <a  data-toggle="modal" href="#myModal" class="btn btn-success btn-small">Sign In</a> -->
-				<a class="btn btn-success btn-small" data-toggle="modal" data-target="#myModal">Sign In</a>
+				<a class="btn btn-glor btn-small" data-toggle="modal" data-target="#myModal">Sign In</a>
 			</li>
 		</ul>
 		<img alt="Sociallgreen" title="Sociallgreen" id="logo" class="pull-right span2" src="<?php echo $this->baseUrl("images/logo.png"); ?>"/>
@@ -63,14 +63,24 @@
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-    <h3 id="myModalLabel">Modal header</h3>
+    <h3 id="myModalLabel">Sign In to Sociallgreen</h3>
   </div>
   <div class="modal-body">
-    <p>One fine body…</p>
+    <form action="">
+    	
+            <p>
+        	<input class="span3" required  size="16" type="email" name="email" id="email" placeholder="Email Address">
+        	<br>
+        	<input class="span3" required  size="16" type="password" name="password" id="password" placeholder="Password">
+        	</p>
+      
+    	
+    </form>
   </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary">Save changes</button>
+    <button class="btn btn-glor" data-dismiss="modal" aria-hidden="true">Close</button>
+    
+	<button type="submit" name="submit" id="submit" class="btn btn-glor">Sign In</button>
   </div>
 </div>
 
@@ -120,8 +130,8 @@
 						<h1 class="main-heading">Green Communities</h1>
 						
 					</article><!-- span12 : ends -->
-					<article class="span2 offset1 add-bottom text-rigth">
-						 <h4 class="sub-heading-invert "><span class="drop"><?php echo $sum;?></span><br>total leaves</h4>
+					<article class="span2 offset1 add-bottom text-right">
+						 <h4 class="sub-heading-invert-nomargin "><span class="drop"><?php echo $sum;?></span><br>total leaves</h4>
 					</article>
 				</div><!-- row : ends -->
 					

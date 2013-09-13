@@ -68,6 +68,56 @@ h3 {
 	margin-left: 0px;
 
 }
+/* User Profile */
+.profile-photo {
+	/*position:relative;*/
+	/*box-shadow: 2px 2px 2px #65B524;/*#888888;*/
+	z-index:2;
+	background-color: #fff;
+	border: 1px solid #65B524; /*#888888;*/
+	border-radius: 2px;
+	max-height:80px;
+	max-width: 90%;
+	margin-bottom:3%;
+	margin-top:3%;
+	margin-left:auto;
+	margin-right:auto;
+}
+.img-polaroid-green{
+	padding:4px;
+	background-color:#65B524;
+	border:1px solid #ccc;
+	border:1px solid rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow:0 1px 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:0 1px 3px rgba(0, 0, 0, 0.2);
+	box-shadow:0 1px 3px rgba(0, 0, 0, 0.2);
+}
+/* Badges rules
+-------------------------------*/
+
+img.badges {
+	width:35px;
+	height:35px;
+}
+img.badges2 {
+	width:100px;
+	height:100px;
+}
+
+.text-badges {
+	margin:10px 0;
+	font-family:inherit;
+	font-weight:bold;
+	line-height:80%;
+	color:#3C3735;
+	text-rendering:optimizelegibility;
+}
+hr.btable{
+	margin:2px 0px 4px;
+	border:0;
+	border-top:1px solid #eeeeee;
+	border-bottom:1px solid #ffffff;
+}
 
 
 /*Custom Bootstrap*/
@@ -128,6 +178,21 @@ h3 {
 	padding-left: 10px;
 	margin-top: 40px;
 	margin-bottom: 18px;
+}
+.sub-heading-invert-nomargin {
+	font-size: 22px;
+	font-family:"bariol_regular";
+	font-weight: normal;
+	color: #000;
+	line-height: 22px;
+	margin-bottom: 0px;
+	/*--border-left: solid 10px #65B524;*/
+	border-right: solid 10px #65B524;
+	background: #f4f4f4;
+	padding: 10px;
+	padding-left: 10px;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 .promotional{
 	font-size: 20px;
