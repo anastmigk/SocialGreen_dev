@@ -141,11 +141,12 @@
 			<div class="row-fluid">
 				<section class="container">
 					<div class="row keno2">
-						<article class="span10">
-						<h1 class="main-heading"><?php echo $username;?></h1>
+						<article class="span8">
+						<!-- <h1 class="main-heading"><?php echo $username;?></h1> -->
+						<img alt="<?php echo $username;?>" title="<?php echo $username;?>" class="img-responsive" src="<?php echo $this->baseUrl($avatar); ?>">
 						<!-- <img class="profile-photo media-object" src="<?php //echo $this->baseUrl($avatar); ?>">  -->
 						</article>
-						<article class="span2">
+						<article class="span2 offset2">
 						<h4 class="sub-heading-invert-nomargin text-right"><span class="drop"><?php echo $leafs;?></span><br>leaves saved</h4>
 						</article>
 						
@@ -156,10 +157,12 @@
 					
 					<div class="row projects-wrap add-top">
 						<article class="span3 projects-block">
-							<ul>
+							 <?php /*<ul>
 								<!-- <li><img alt="glor" title="glor by designova" src="images/clients/03.png"/></li> -->
-								<li><img alt="<?php echo $username;?>" title="<?php echo $username;?>" class=" media-object" src="<?php echo $this->baseUrl($avatar); ?>"></li>
-								<!-- <li><?php echo $username;?></li> -->
+								<?php /* <li><img alt="<?php echo $username;?>" title="<?php echo $username;?>" class=" media-object" src="<?php echo $this->baseUrl($avatar); ?>"></li> */ ?>
+								
+								<?php /*
+								<li><h1><?php echo $username;?></h1></li>
 								<li>Glass: <span class="text-success"><?php echo $glass; ?></span>
 									<br>Plastic: <span class="text-success"><?php echo $plastic; ?></span>
 									<br>Aluminium: <span class="text-success"><?php echo $aluminium; ?></span>
@@ -168,7 +171,7 @@
 								<li><a target="_blank" href="<?php echo $website;?>" class="btn btn-glor">Website</a></li>	
 								<li><a href="<?php echo $this->baseUrl('account/badges'); ?>" title='Badges'>Badges</a>
 								<br>
-								<?php 
+								<?php
 									$counter = 0; 		
 									foreach ($userbadges as $badge) 
 									{?>
@@ -184,7 +187,55 @@
 									?>
 								</li>
 								
-							</ul>
+							</ul> */ ?>
+							
+							<div class="row">
+								<div class="span12">
+									<h1><?php echo $fullname;?></h1>
+								</div>
+							</div>
+							<div class="row custom-margin-2">
+								<div class="span4 cubicles">
+									<span class="score-heading"><?php echo $glass; ?> <img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/glass2.png");?>">
+								</div>
+								<div class="span4 cubicles">
+									 <span class="score-heading"><?php echo $plastic; ?></span> <img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/plastic2.png");?>">
+								</div>
+								<div class="span4 cubicles">
+									<span class="score-heading"><?php echo $aluminium; ?></span> <img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/alum2.png");?>">
+								</div>
+							</div>
+							<div class="row custom-margin-2">
+								<div class="span12 cubicles">
+									Last recycled on:<br><?php echo date("F j, Y",strtotime($lastActive)); ?>
+								</div>
+							</div>
+							<div class="row custom-margin-2">
+								<div class="span12 cubicles">
+									<a target="_blank" href="<?php echo $website;?>" class="btn btn-glor">Website</a>
+								</div>
+							</div>
+							<div class="row">
+								<div class="span12 cubicles">
+									<a href="<?php echo $this->baseUrl('account/badges'); ?>" title='Badges' class="btn btn-glor">Badges</a>
+								<br>
+								<?php
+									$counter = 0; 		
+									foreach ($userbadges as $badge) 
+									{?>
+										<img class="badges" title="<?php echo $badge->title; ?>" src="<?php echo $this->baseUrl($badgesPrefix.$badge->path); ?>"></img>
+										<?php
+										$counter++;
+									}
+									
+									if( $counter == 0 )
+									{?>
+										<span class="text-primary">No badges yet</span>
+									<?php }
+									?>
+								</div>
+							</div>
+							
 						</article>
 						
 						<article class="span6 projects-block">

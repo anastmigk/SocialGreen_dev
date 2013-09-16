@@ -92,6 +92,38 @@ h3 {
 	-moz-box-shadow:0 1px 3px rgba(0, 0, 0, 0.2);
 	box-shadow:0 1px 3px rgba(0, 0, 0, 0.2);
 }
+.img-responsive {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+.img-materials-width {
+	width:30px;
+	height:auto;
+}
+.img-materials-height {
+	width:auto;
+	height:30px;
+}
+.score-heading {
+	font-family: "Ostrich_Sans_Black";
+	font-size: 40px;
+	color: #fff;
+	line-height: 40px;
+	margin-bottom: 0px;
+	font-weight: normal;
+}
+.custom-margin-2 {
+	margin-bottom: 2px;
+}
+.cubicles {
+	padding:10px;
+	
+	text-align: center;
+	color: #fff;
+	background-color: #65B524;
+}
+
 /* Badges rules
 -------------------------------*/
 
