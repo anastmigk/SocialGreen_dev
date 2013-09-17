@@ -401,7 +401,7 @@ p.promo > span{
 }
 
 #promo1 .bg1  {
-	background: url(../images/bg1.jpg) center center repeat fixed;
+	background: url(../images/Background/1.jpg) center center repeat fixed;
 	margin: 0 auto;
 	padding: 0;
 	position: absolute;
@@ -416,7 +416,7 @@ p.promo > span{
 	position: relative;
 }
 #promo2 .bg2  {
-	background: url(../images/bg2.jpg) center center repeat fixed;
+	background: url(../images/Background/3.jpg) center center repeat fixed;
 	margin: 0 auto;
 	padding: 0;
 	position: absolute;
@@ -431,7 +431,7 @@ p.promo > span{
 }
 
 #promo3 .bg3  {
-	background: url(../images/bg3.jpg) center center repeat fixed;
+	background: url(../images/Background/2.jpg) center center repeat fixed;
 	margin: 0 auto;
 	padding: 0;
 	position: absolute;
@@ -446,7 +446,7 @@ p.promo > span{
 }
 
 #promo4 .bg4  {
-	background: url(../images/bg4.jpg) center center repeat fixed;
+	background: url(../images/Background/4.jpg) center center repeat fixed;
 	margin: 0 auto;
 	padding: 0;
 	position: absolute;
@@ -461,7 +461,7 @@ p.promo > span{
 }
 
 #promo5 .bg5  {
-	background: url(../images/bg5.jpg) center center repeat fixed;
+	background: url(../images/Background/5.jpg) center center repeat fixed;
 	margin: 0 auto;
 	padding: 0;
 	position: absolute;
@@ -476,7 +476,7 @@ p.promo > span{
 }
 
 #promo6 .bg6  {
-	background: url(../images/bg6.jpg) center center repeat fixed;
+	background: url(../images/Background/6.jpg) center center repeat fixed;
 	margin: 0 auto;
 	padding: 0;
 	position: absolute;
