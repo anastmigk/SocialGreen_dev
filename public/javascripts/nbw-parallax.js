@@ -82,7 +82,8 @@ $(document).ready(function() { //when the document is ready...
 			//call the newPos function and change the background position
 			$secondBG.css({'backgroundPosition': newPos(0, windowHeight, pos, 1550, 0)});
 			//$secondBG.css({'backgroundPosition': newPos(50, windowHeight, pos, 1550, 0.3)});
-			bg2.css({'backgroundPosition': newPos(70, windowHeight, pos, 4410, 0.2)});
+			//bg2.css({'backgroundPosition': newPos(70, windowHeight, pos, 4410, 0.2)});
+			bg2.css({'backgroundPosition': newPos(70, windowHeight, pos, 4010, 0.2)});
 			//call the newPos function and change the second background position
 		}
 		
@@ -90,7 +91,8 @@ $(document).ready(function() { //when the document is ready...
 			//call the newPos function and change the background position
 			$thirdBG.css({'backgroundPosition': newPos(0, windowHeight, pos, 2550, 0)});
 			//$secondBG.css({'backgroundPosition': newPos(50, windowHeight, pos, 1550, 0.3)});
-			bg3.css({'backgroundPosition': newPos(50, windowHeight, pos, 5410, 0.2)});
+			//bg3.css({'backgroundPosition': newPos(50, windowHeight, pos, 5410, 0.2)});
+			bg3.css({'backgroundPosition': newPos(50, windowHeight, pos, 4810, 0.2)});
 			//call the newPos function and change the second background position
 		}
 		
