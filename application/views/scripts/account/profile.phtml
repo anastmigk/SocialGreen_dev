@@ -139,21 +139,21 @@
 			
 		</ul>
 		<img alt="Sociallgreen" title="Sociallgreen" id="logo" class="pull-right span2" src="<?php echo $this->baseUrl("images/logo.png"); ?>"/>
-	</header>
+</header>
 
 <div id="projects" class="page">
 		<section class="container-fluid">
 			<div class="row-fluid">
 				<section class="container">
 					<div class="row keno2">
-						<article class="span8">
+						<article class="span6">
 						<!-- <h1 class="main-heading"><?php echo $username;?></h1> -->
+						
 						<img alt="<?php echo $username;?>" title="<?php echo $username;?>" class="img-responsive" src="<?php echo $this->baseUrl($avatar); ?>">
+						
 						<!-- <img class="profile-photo media-object" src="<?php //echo $this->baseUrl($avatar); ?>">  -->
 						</article>
-						<article class="span2 offset2">
-						<h4 class="sub-heading-invert-nomargin text-right"><span class="drop"><?php echo $leafs;?></span><br>leaves saved</h4>
-						</article>
+						
 						
 						<!-- span12 : ends -->
 					</div><!-- row : ends -->
@@ -200,28 +200,68 @@
 								</div>
 							</div>
 							<div class="row custom-margin-2">
-								<div class="span4 cubicles">
-									<span class="score-heading"><?php echo $glass; ?> <img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/glass2.png");?>">
-								</div>
-								<div class="span4 cubicles">
+								<article class="span4 cubicles rounded">
+									<span class="score-heading"><?php echo $glass; ?></span> <img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/glass2.png");?>">
+								</article>
+								<article class="span4 cubicles rounded">
 									 <span class="score-heading"><?php echo $plastic; ?></span> <img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/plastic2.png");?>">
-								</div>
-								<div class="span4 cubicles">
+								</article>
+								<article class="span4 cubicles rounded">
 									<span class="score-heading"><?php echo $aluminium; ?></span> <img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/alum2.png");?>">
-								</div>
+								</article>
 							</div>
 							<div class="row custom-margin-2">
-								<div class="span12 cubicles">
+								<article class="span12 cubicles rounded">
+									<span class="score-heading"><?php echo $leafs;?></span><br>leaves saved</h4>
+								</article>
+							</div>
+						</article>
+						
+						<article class="span6 projects-block">
+							<div class="promotional add-top"><?php echo $description;?>
+							</div>
+						</article>
+						
+						<article class="span3 projects-block add-top">
+							
+							<div class="row custom-margin-2">
+								<div class="span12 cubicles rounded">
 									Last recycled on:<br><?php echo date("F j, Y",strtotime($lastActive)); ?>
 								</div>
 							</div>
 							<div class="row custom-margin-2">
-								<div class="span12 cubicles">
+								<div class="span12 cubicles rounded">
 									<a target="_blank" href="<?php echo $website;?>" class="btn btn-glor">Website</a>
 								</div>
 							</div>
+							
+							<div class="row custom-margin-2">
+								<div class="span12 cubicles rounded">
+									<h5><span>Other users</span></h5>
+									
+									<?php $counter = 0; 
+									$mostPoints = 0;
+									?>
+									<?php  foreach ($accountsFriends as $account) { ?>
+									<?php if ($counter==0) $mostPoints = $account->quantity; ?>
+										<div class="span2">
+											  <a class="thumbnail" title="<?php echo $account->username; ?>" href="<?php echo $this->baseUrl('account/profile/').'?user='.$account->username;?>">
+											    <span class="right visible-phone"><?php echo $account->username; ?></span>
+					  						    <img class="media-object" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$account->avatar); ?>">
+											  </a>
+											<?php //if ($counter==0) { echo '<span class="left label label-info newMember">New!</span>'; }
+											//elseif ($account->quantity>0.8*$mostPoints) {  echo '<span class="left label label-success newMember"><i class="icon-leaf icon-white"></i></span>';}?>
+										</div>
+									 <?php 
+									 $counter++; 
+									} ?>
+								</div>
+							</div>
+							
+							
+							
 							<div class="row">
-								<div class="span12 cubicles">
+								<div class="span12 cubicles rounded">
 									<a href="<?php echo $this->baseUrl('account/badges'); ?>" title='Badges' class="btn btn-glor">Badges</a>
 								<br>
 								<?php
@@ -240,36 +280,6 @@
 									?>
 								</div>
 							</div>
-							
-						</article>
-						
-						<article class="span6 projects-block">
-							<div class="promotional add-top"><?php echo $description;?>
-							</div>
-						</article>
-						
-						<article class="span3 projects-block">
-							
-				
-							<h5><span>Other users</span></h5>
-							
-							<?php $counter = 0; 
-							$mostPoints = 0;
-							?>
-							<?php  foreach ($accountsFriends as $account) { ?>
-							<?php if ($counter==0) $mostPoints = $account->quantity; ?>
-								<div class="span2">
-									  <a class="thumbnail" title="<?php echo $account->username; ?>" href="<?php echo $this->baseUrl('account/profile/').'?user='.$account->username;?>">
-									    <span class="right visible-phone"><?php echo $account->username; ?></span>
-			  						    <img class="media-object" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$account->avatar); ?>">
-									  </a>
-									<?php //if ($counter==0) { echo '<span class="left label label-info newMember">New!</span>'; }
-									//elseif ($account->quantity>0.8*$mostPoints) {  echo '<span class="left label label-success newMember"><i class="icon-leaf icon-white"></i></span>';}?>
-								</div>
-							 <?php 
-							 $counter++; 
-							} ?>	
-						
 		
 						</article>
 

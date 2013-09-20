@@ -9,7 +9,7 @@
 	foreach ($this->allActivity as $activityTemp){
 	$sum = $sum +  (1*$activityTemp->glass)+(2*$activityTemp->plastic)+(3*$activityTemp->aluminium);
 }?>
-<div class="row-fluid userContent">
+<?php /* <div class="row-fluid userContent">
 	<div class="span3">
 		
 		<div class="row-fluid">
@@ -181,6 +181,150 @@
 		</div>	
 	</div>
 </div>
+*/ ?>
+<header class="desktop-header visible-desktop">
+		<ul class="links desktop-nav span10">
+			
+		</ul>
+		<img alt="Sociallgreen" title="Sociallgreen" id="logo" class="pull-right span2" src="<?php echo $this->baseUrl("images/logo.png"); ?>"/>
+</header>
+
+
+
+<div id="projects" class="page">
+		<section class="container-fluid">
+			<div class="row-fluid">
+				<section class="container">
+					<div class="row-fluid">
+					<article class="span3 add-top " style="margin-left: -30px;">
+						    <table class="table table-striped ">
+						    	<thead style="background-color:#65B524;">
+						    		<tr>
+      									<th><span class="title-leaderboard">Leaderboard</span></th>
+      								</tr>
+						    	</thead>
+						    	<tbody>
+						    	<?php $place = 1;
+								$sup = array(1=>"st",2=>"nd",3=>"rd");
+								?>
+								
+								
+				                <?php  foreach ($accounts as $account) { ?>
+				                    	
+				                    	<tr>
+				                    		<td>
+				                    			<span class="text-leaderboard text-success"><?php echo $place; ?></span>  <!-- <sup><?php //if ($place<4) { echo $sup[$place];} else {echo "th";} ?></sup></span> -->
+					                    		<!-- <img style="width: 32px;height: auto; display: inline-table;" src='<?php echo $this->baseUrl("images/Leaderboard/".$place.".png"); ?>'> -->
+				                    		
+					                    		<a class="thumbnail" style="margin-left:5px;margin-top:2px;display: inline-table;" title="<?php echo $account->username; ?>" href="<?php echo $this->baseUrl('account/profile/').'?user='.$account->username;?>">
+					                    		<img class="media-object img-leaderboard" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$account->avatar); ?>"></a>
+				                    		
+				                    			<p style="margin-bottom: 0px !important; margin-left:5px;color:black; display: inline-table;"><strong><a title="<?php echo $account->username; ?>" href="<?php echo $this->baseUrl('account/profile/').'?user='.$account->username;?>"><?php echo $account->username; ?></a></strong><br><i><?php echo $account->leafs;?> leaves</i>
+				                    		</td>
+										</tr>
+									
+								<?php $place++; } ?>
+								</tbody>
+    						</table>
+    						
+    						<div class="row custom-margin-2">
+								<article class="span12 cubicles rounded">
+									<span class="score-heading"><?php echo $sum;?></span><br><span>total leaves<br>saved</span>
+								</article>
+							</div>
+    						
+					</article>
+					
+					<article class="span8 pull-top-medium add-left">
+						<div class="row-fluid ">
+							<div class="tabbable">
+								<ul class="nav nav-tabs">
+									    <li class="active"><a href="#Diagram" data-toggle="tab" >Diagram</a></li>
+									    <li><a href="#Activity" data-toggle="tab">Activity</a></li>
+								</ul>
+								
+					            <div class="tab-content">
+									
+									<!-- Diagram Content -->
+					            	<div class="tab-pane active" id="Diagram">
+					            		<h4 class="col-high">Check the progress of our users - Activity over time</h4>
+					            		
+					    					<div id="chartdiv"></div>
+					    					<?php // foreach($this->paginator as $record)
+										    //{
+										     //   echo $record['email'].'\n';
+										    //}
+										    //echo $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml');
+										    ?>
+										    <div id="diagramUserNamesPanel" class="row-fluid">
+										    	<div class="span8 ">
+										    	<ul>
+										    		<?php 
+										    			$colorCounter = 0;
+										    			foreach ($usernamesTemp as $fullName){
+															echo "<li><span style='background-color:".$seriesColor[$colorCounter]."'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>".$fullName."</span></li>";
+															$colorCounter++;
+														}
+										    		?>
+										    	</ul>
+										    	</div>
+										    </div>
+					              	</div>
+				              	
+									<!-- Activity Content -->
+									<div class="tab-pane" id="Activity">
+										
+									<!-- Activity Container -->
+										<h4 class="col-high">Latest recycling!</h4>
+										
+										<table class="table table-hover table-stripped">
+										<?php  foreach ( $allactivity as $activity) { ?>
+										<!--  <div class="media">
+						                    <a class="pull-left" href="<?php //echo $this->baseUrl('account/profile/').'?user='.$activity->username;?>">
+						                    <img class="media-object" src="http://placehold.it/64x64">
+						                    </a>
+											<div class="media-body">
+						    					<h4 class="media-heading"><?php //echo $activity->username;  ?></h4>
+						    					 just saved <?php //echo $activity->quantity;?>
+						    				</div>
+						
+										</div> 
+										-->
+											<?php if ($activity->quantity>0) {?>
+											<tr>
+												<td>
+													<a class="pull-left" href="<?php echo $this->baseUrl('account/profile/').'?user='.$activity->username;?>">
+						                    			<img class="media-object thumbnail avatar" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$activity->avatar);?>">
+						                    		</a>
+												</td>
+												<td>
+													<?php /* echo ucfirst($activity->username);  ?> saved <?php echo 1*$activity->glass+2*$activity->plastic+3*$activity->aluminium; ?> leafs on <?php echo date("d-M",strtotime($activity->date)) ?>! <span class="muted">(aluminium: <?php echo $activity->aluminium." * 3 leafs, plastic:".$activity->plastic." * 2 leafs, glass:".$activity->glass ?> * 1 leaf)</span> */ ?>
+													<?php echo ucfirst($activity->username);  ?> saved <?php echo 1*$activity->glass+2*$activity->plastic+3*$activity->aluminium; ?> leafs on <?php echo date("d-M",strtotime($activity->date)) ?>! <span class="muted">
+									<br><img class="img-materials-width" src="<?php echo $this->baseUrl("/images/materials/alum.png");?>"> = <?php echo $activity->aluminium; ?>
+									<img class="img-materials-width" src="<?php echo $this->baseUrl("/images/materials/plastic.png");?>"> =<?php echo $activity->plastic; ?>
+									<img class="img-materials-width" src="<?php echo $this->baseUrl("/images/materials/glass.png");?>"> = <?php echo $activity->glass; ?></span>
+												</td>
+											</tr>
+										
+											<?php } ?>
+										<?php } ?>
+										</table>
+										<span class="pull-left"><?php echo $this->paginationControl($this->results, 'Sliding', 'pagination.phtml'); ?></span>
+						
+									</div>
+								</div>  
+					</article>
+					
+				</section><!-- container : ends -->
+			</div><!-- row-fuild : ends -->
+		</section> <!-- container-fluid : ends-->
+	</div> <!-- projects : ends -->
+
+
+
+
+
+
 <script>
 <?php 
 

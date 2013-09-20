@@ -68,6 +68,10 @@ h3 {
 	margin-left: 0px;
 
 }
+
+/* extension */
+.add-right-large { margin-right: 50px !important; }
+
 /* User Profile */
 .profile-photo {
 	/*position:relative;*/
@@ -122,6 +126,29 @@ h3 {
 	text-align: center;
 	color: #fff;
 	background-color: #65B524;
+}
+
+.img-leaderboard {
+	width:25px;
+	height: 25px;
+}
+.title-leaderboard {
+	font-family:"Ostrich_Sans_Black";
+	font-size: 20px;
+	color: #fff;
+	
+	line-height: 20px;
+	margin-bottom: 0px;
+	font-weight: normal;
+}
+.text-leaderboard {
+	font-family:"Ostrich_Sans_Black";
+	font-size: 25px;
+	color: #000;
+	
+	line-height: 25px;
+	margin-bottom: 0px;
+	font-weight: normal;
 }
 
 /* Badges rules
@@ -258,19 +285,22 @@ hr.btable{
 	box-shadow: none;
 }
 .btn-glor2{
-	color: #65B524;
+	color: #fff;
 	/*--background: #65B524;*/
-	background: #fff;
+	background: #65B524;
 	text-shadow: none;
 	border-radius: 0px;
 	border: 0px;
 	box-shadow: none;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
 }
 .btn-glor2:hover{
-	color: #231f20;
-	background: #d1d2d4;
+	color: #fff !important;
+	background: #5aa220;
 	text-shadow: none;
-	border-radius: 0px;
+	/*border-radius: 0px;*/
 	border: 0px;
 	box-shadow: none;
 }
