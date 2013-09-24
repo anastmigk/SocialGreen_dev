@@ -70,8 +70,29 @@ h3 {
 }
 
 /* extension */
-.add-right-large { margin-right: 50px !important; }
-
+.remove-left { 
+	margin-left: -30px !important;
+}
+.rounded-topleft{
+	border-top-left-radius: 20px;
+	-moz-border-radius-topleft: 20px;
+	-webkit-border-top-left-radius: 20px;
+}
+.rounded-topright{
+	border-top-right-radius: 20px;
+	-moz-border-radius-topright: 20px;
+	-webkit-border-top-right-radius: 20px;
+}
+.rounded-bottomleft{
+	border-bottom-left-radius: 20px;
+	-moz-border-radius-bottomleft: 20px;
+	-webkit-border-bottom-left-radius: 20px;
+}
+.rounded-bottomright{
+	border-bottom-right-radius: 20px;
+	-moz-border-radius-bottomright: 20px;
+	-webkit-border-bottom-right-radius: 20px;
+}
 /* User Profile */
 .profile-photo {
 	/*position:relative;*/
@@ -109,28 +130,56 @@ h3 {
 	width:auto;
 	height:30px;
 }
-.score-heading {
+.img-materials-height-glass {
+	width:auto;
+	height:60px;
+}
+.img-materials-height-alum {
+	width:auto;
+	height:40px;
+}
+.img-materials-height-plastic {
+	width:auto;
+	height:60px;
+}
+.score-heading-white {
 	font-family: "Ostrich_Sans_Black";
-	font-size: 40px;
+	font-size: 60px;
 	color: #fff;
-	line-height: 40px;
+	line-height: 60px;
+	margin-bottom: 0px;
+	font-weight: normal;
+}
+.score-heading-green {
+	font-family: "Ostrich_Sans_Black";
+	font-size: 60px;
+	color: #65B524;
+	line-height: 60px;
 	margin-bottom: 0px;
 	font-weight: normal;
 }
 .custom-margin-2 {
 	margin-bottom: 2px;
 }
+
+.custom-margin-top-3 { /* increase so the tabs not fall into the previous content */
+	margin-top: inherit;
+}
 .cubicles {
 	padding:10px;
 	
-	text-align: center;
-	color: #fff;
+	text-align: right;
+	color: #fff ;
 	background-color: #65B524;
 }
 
 .img-leaderboard {
 	width:25px;
 	height: 25px;
+}
+.lead-background {
+	background: #191E22 url("../images/header-bg.png") repeat;
+	border-top: solid 1px #031114;
 }
 .title-leaderboard {
 	font-family:"Ostrich_Sans_Black";
@@ -143,7 +192,7 @@ h3 {
 }
 .text-leaderboard {
 	font-family:"Ostrich_Sans_Black";
-	font-size: 25px;
+	font-size: 24px;
 	color: #000;
 	
 	line-height: 25px;
@@ -446,7 +495,7 @@ p.promo > span{
 	position: relative;
 }
 #promo2 .bg2  {
-	background: url(../images/Background/3.jpg) center center repeat fixed;
+	background: url(../images/Background/2.jpg) center center repeat fixed;
 	margin: 0 auto;
 	padding: 0;
 	position: absolute;
@@ -461,7 +510,7 @@ p.promo > span{
 }
 
 #promo3 .bg3  {
-	background: url(../images/Background/2.jpg) center center repeat fixed;
+	background: url(../images/Background/3.jpg) center center repeat fixed;
 	margin: 0 auto;
 	padding: 0;
 	position: absolute;
@@ -1157,7 +1206,8 @@ p.promo {
     text-transform: uppercase;
     z-index: 200;
 }
-
+/* extension */
+.remove-left { margin-left: 0px !important; }
 
 }
 
@@ -1192,6 +1242,13 @@ p.promo {
 	height: 140px;
 	margin: 20px;
 }
+/* extension */
+.remove-left { 
+	margin-left: 0px !important;
+}
+.custom-margin-top-3 { /* increase so the tabs not fall into the previous content */
+	margin-top: 30px;
+}
 }
 
 @media (min-width: 320px) and (max-width: 600px) {
@@ -1220,9 +1277,9 @@ p.promo {
     text-transform: uppercase;
     z-index: 200;
 }
-	.promo-parallax{
-		display: none !important;
-	}
+.promo-parallax{
+	display: none !important;
+}
 
 .about-clients a > img{
 	width: 240px;
@@ -1238,6 +1295,9 @@ p.promo {
 	margin-top: 0px !important;
 	margin-bottom: 10px !important;
 }
+/* extension */
+.remove-left { margin-left: 0px !important; }
+
 
 }
 

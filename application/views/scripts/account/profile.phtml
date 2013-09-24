@@ -134,7 +134,7 @@
 </div>
 */ ?>
 
-<header class="desktop-header visible-desktop">
+<header class="desktop-header navbar-fixed-top visible-desktop visible-tablet">
 		<ul class="links desktop-nav span10">
 			
 		</ul>
@@ -145,8 +145,8 @@
 		<section class="container-fluid">
 			<div class="row-fluid">
 				<section class="container">
-					<div class="row keno2">
-						<article class="span6">
+					<div class="row-fluid keno2">
+						<article class="span6 offset3">
 						<!-- <h1 class="main-heading"><?php echo $username;?></h1> -->
 						
 						<img alt="<?php echo $username;?>" title="<?php echo $username;?>" class="img-responsive" src="<?php echo $this->baseUrl($avatar); ?>">
@@ -160,8 +160,8 @@
 					
 					
 					
-					<div class="row projects-wrap add-top">
-						<article class="span3 projects-block">
+					<div class="row-fluid projects-wrap add-top">
+						<article class="span3 projects-block add-top">
 							 <?php /*<ul>
 								<!-- <li><img alt="glor" title="glor by designova" src="images/clients/03.png"/></li> -->
 								<?php /* <li><img alt="<?php echo $username;?>" title="<?php echo $username;?>" class=" media-object" src="<?php echo $this->baseUrl($avatar); ?>"></li> */ ?>
@@ -194,49 +194,58 @@
 								
 							</ul> */ ?>
 							
-							<div class="row">
-								<div class="span12">
-									<h1><?php echo $fullname;?></h1>
-								</div>
-							</div>
-							<div class="row custom-margin-2">
-								<article class="span4 cubicles rounded">
-									<span class="score-heading"><?php echo $glass; ?></span> <img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/glass2.png");?>">
-								</article>
-								<article class="span4 cubicles rounded">
-									 <span class="score-heading"><?php echo $plastic; ?></span> <img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/plastic2.png");?>">
-								</article>
-								<article class="span4 cubicles rounded">
-									<span class="score-heading"><?php echo $aluminium; ?></span> <img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/alum2.png");?>">
+							<div class="row-fluid custom-margin-2">
+								<article class="span12 text-right">
+									<span class="score-heading-green"><?php echo $aluminium; ?></span> <img class="img-materials-height-alum" src="<?php echo $this->baseUrl("/images/materials/alum.png");?>">
 								</article>
 							</div>
-							<div class="row custom-margin-2">
-								<article class="span12 cubicles rounded">
-									<span class="score-heading"><?php echo $leafs;?></span><br>leaves saved</h4>
+							<div class="row-fluid custom-margin-2">
+								<article class="span12 text-right">
+									 <span class="score-heading-green"><?php echo $plastic; ?></span> <img class="img-materials-height-plastic" src="<?php echo $this->baseUrl("/images/materials/plastic.png");?>">
+								</article>
+							</div>
+							<div class="row-fluid custom-margin-2">
+								<article class="span12 text-right">
+									<span class="score-heading-green"><?php echo $glass; ?></span> <img class="img-materials-height-glass" src="<?php echo $this->baseUrl("/images/materials/glass.png");?>">
+								</article>
+							</div>
+							
+							
+							<div class="row-fluid custom-margin-2">
+								<article class="span12 cubicles rounded-bottomleft rounded-topleft">
+									<span class="score-heading-white"><?php echo $leafs;?></span><br>total leaves saved</h4>
 								</article>
 							</div>
 						</article>
 						
 						<article class="span6 projects-block">
-							<div class="promotional add-top"><?php echo $description;?>
+							<div class="row-fluid">
+								<article class="span12">
+									<h1><?php echo $fullname;?></h1>
+								
+									<span class="promotional"><?php echo $description;?>
+									</span>
+							</article>
 							</div>
 						</article>
 						
 						<article class="span3 projects-block add-top">
-							
-							<div class="row custom-margin-2">
-								<div class="span12 cubicles rounded">
-									Last recycled on:<br><?php echo date("F j, Y",strtotime($lastActive)); ?>
-								</div>
-							</div>
-							<div class="row custom-margin-2">
-								<div class="span12 cubicles rounded">
-									<a target="_blank" href="<?php echo $website;?>" class="btn btn-glor">Website</a>
-								</div>
-							</div>
-							
-							<div class="row custom-margin-2">
-								<div class="span12 cubicles rounded">
+							<div class="row-fluid custom-margin-2">
+								<div class="span12 cubicles rounded-topright ">
+									<div class="row-fluid custom-margin-2">
+										<div class="span12">
+											Last recycled on:<br><?php echo date("F j, Y",strtotime($lastActive)); ?>
+										</div>
+									</div>
+									<hr>
+									<div class="row-fluid custom-margin-2">
+										<div class="span12">
+											<a target="_blank" href="<?php echo $website;?>" class="btn btn-glor">Website</a>
+										</div>
+									</div>
+								<hr>
+							<div class="row-fluid custom-margin-2">
+								<div class="span12 ">
 									<h5><span>Other users</span></h5>
 									
 									<?php $counter = 0; 
@@ -257,11 +266,12 @@
 									} ?>
 								</div>
 							</div>
+							</div>
+							</div>
 							
 							
-							
-							<div class="row">
-								<div class="span12 cubicles rounded">
+							<div class="row-fluid">
+								<div class="span12 cubicles rounded-bottomright">
 									<a href="<?php echo $this->baseUrl('account/badges'); ?>" title='Badges' class="btn btn-glor">Badges</a>
 								<br>
 								<?php
