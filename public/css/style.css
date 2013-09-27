@@ -159,7 +159,13 @@ h3 {
 	font-weight: normal;
 }
 .custom-margin-2 {
-	margin-bottom: 2px;
+	margin-bottom: 4px;
+}
+.custom-margin-padding-top-bottom {
+	margin-bottom: 3px;
+	margin-top: 3px;
+	padding-top: 3px;
+	padding-bottom: 3px;
 }
 
 .custom-margin-top-3 { /* increase so the tabs not fall into the previous content */
@@ -167,8 +173,6 @@ h3 {
 }
 .cubicles {
 	padding:10px;
-	
-	text-align: right;
 	color: #fff ;
 	background-color: #65B524;
 }
@@ -200,6 +204,29 @@ h3 {
 	font-weight: normal;
 }
 
+.info-titles {
+	font-family:"bariol_regular";
+	font-size: 18px !important;
+	line-height: 100%;
+	color: #fff;
+	
+}
+
+.info-text {
+	font-family:"Open_Sans_R";
+	font-size: 15px !important;
+	line-height: 100%;
+	padding-bottom: 0px;
+	color: #fff;
+	margin-bottom: 20px !important;
+}
+.hr-infotable {
+  margin: 8px 0;
+  border: 0;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #65B524;
+
+}
 /* Badges rules
 -------------------------------*/
 
@@ -220,12 +247,7 @@ img.badges2 {
 	color:#3C3735;
 	text-rendering:optimizelegibility;
 }
-hr.btable{
-	margin:2px 0px 4px;
-	border:0;
-	border-top:1px solid #eeeeee;
-	border-bottom:1px solid #ffffff;
-}
+
 
 
 /*Custom Bootstrap*/

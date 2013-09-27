@@ -57,12 +57,22 @@
 			
 	</div>
 </div> */ ?>
+<header class="desktop-header navbar-fixed-top visible-desktop visible-tablet">
+		<ul class="links desktop-nav span10">
+			
+		</ul>
+		<img alt="Sociallgreen" title="Sociallgreen" id="logo" class="pull-right span2" src="<?php echo $this->baseUrl("images/logo.png"); ?>"/>
+</header>
 
-<div class="row-fluid userContent">
-	<div class="span12">
-	<h2 style="color: #3C3735"> Sample Badges</h2>
-	
-	<?php 
+<div id="projects" class="page">
+		<section class="container-fluid">
+			<div class="row-fluid">
+				<section class="container">
+					<div class="row-fluid keno2">
+						<article class="span12">
+						<h1 class="main-heading">Sample Badges</h1>
+						
+						<?php 
 		$counter = 1; 
 				
 		foreach ($badges as $badge) 
@@ -109,9 +119,16 @@
 		{
 			echo "</div>";
 		}
-		?>			
-	</div>
-</div>
-		
-				
+		?>	
+						</article>
+						
+						
+						<!-- span12 : ends -->
+					</div><!-- row : ends -->
+					
+					
+			</section>
+		</div>
+	</section>
+</div>	
 		
