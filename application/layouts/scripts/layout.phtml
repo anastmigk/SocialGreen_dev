@@ -55,37 +55,19 @@ try {
 
 <!-- End Facebook open graph meta tags -->
 
-		<!-- <script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
+		<script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<!-- 
 		<link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>  -->
-		<?php /*
-		<!-- Bootstrap -->
-		<?php //  $this->headLink()->appendStylesheet($this->baseUrl('bootstrap/css/bootstrap.min.css')); ?>
-    	<?php // $this->headLink()->appendStylesheet($this->baseUrl('css/mainStyle.css')); ?>
-    	
-    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('bootstrap/css/bootstrap.css')); ?>
-    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('bootstrap/css/bootstrap-responsive.css')); ?>
-    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('bootstrap/css/extension.css')); ?>
-    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('bootstrap/css/typography.css')); ?>
-    	
-    	<!-- Custom Styles -->
-    	
-    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('css/prettyPhoto.css')); ?>
-    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('css/pricing-table.css')); ?>
-    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('css/isotope.css')); ?>
-    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('css/responsive-nav.css')); ?>
-    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('css/style.css')); ?>
-    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('rs-plugin/css/fullwidth.css')); ?>
-    	<?php  $this->headLink()->appendStylesheet($this->baseUrl('rs-plugin/css/settings.css')); ?>
-    	*/ ?>
     	
     	
-    	<!-- Le styles -->
+    	<!-- Bootstrap -->
     	<link href="<?php echo $this->baseUrl("bootstrap/css/bootstrap.css"); ?>" rel="stylesheet">
 	    <link href="<?php echo $this->baseUrl("bootstrap/css/bootstrap-responsive.css"); ?>" rel="stylesheet">
 	    <link href="<?php echo $this->baseUrl("bootstrap/css/extension.css"); ?>" rel="stylesheet">
 	    <link href="<?php echo $this->baseUrl("bootstrap/css/typography.css"); ?>" rel="stylesheet">
+	    
+	    <!-- Le styles -->
 		<link rel="stylesheet" href="<?php echo $this->baseUrl("css/prettyPhoto.css"); ?>">
 		<link rel="stylesheet" href="<?php echo $this->baseUrl("css/pricing-table.css"); ?>">
 	    <link rel="stylesheet" href="<?php echo $this->baseUrl("css/isotope.css"); ?>">
@@ -98,7 +80,7 @@ try {
     	
     	
     	<!-- jPlot Pluggin - Charts -->
-    	<?php $this->headLink()->appendStylesheet($this->baseUrl('jqplot/jquery.jqplot.css')) ?>
+    	<?php $this->headLink()->appendStylesheet($this->baseUrl('jqplot/jquery.jqplot.min.css')); ?>
     	<script	src="<?php echo $this->baseUrl("jqplot/jquery.jqplot.min.js"); ?>"></script>
 		<script	src="<?php echo $this->baseUrl("jqplot/jqplot.canvasTextRenderer.min.js"); ?>"></script>
 		<script	src="<?php echo $this->baseUrl("jqplot/jqplot.canvasAxisLabelRenderer.min.js"); ?>"></script>
@@ -115,7 +97,7 @@ try {
 		<script type="text/javascript"	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
 		<link rel="stylesheet" type="text/css"	hrf="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/smoothness/jquery-ui.css" />
 		
-    	
+    	<?php echo $this->headLink(); ?>
     	
     	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

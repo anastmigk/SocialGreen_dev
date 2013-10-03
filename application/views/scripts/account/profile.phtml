@@ -220,13 +220,57 @@
 						</article>
 						
 						<article class="span6 projects-block">
-							<div class="row-fluid">
-								<article class="span12">
-									<h1><?php echo $fullname;?></h1>
+							<div class="row-fluid ">
+								<div class="tabbable">
+									<ul class="nav nav-tabs">
+										    <li class="active"><a href="#About" data-toggle="tab" >About</a></li>
+										    <li><a href="#Activity" data-toggle="tab">Activity</a></li>
+									</ul>
+									
+						            <div class="tab-content">
+										
+										<!-- Diagram Content -->
+						            	<div class="tab-pane active" id="About">
+						            		<h1><?php echo $fullname;?></h1>
 								
-									<span class="promotional"><?php echo $description;?>
-									</span>
-							</article>
+											<span class="promotional"><?php echo $description;?>
+											</span>
+						            			
+						              	</div>
+					              	
+										<!-- Activity Content -->
+										<div class="tab-pane" id="Activity">
+											
+										<!-- Activity Container -->
+											<h4 class="col-high">Latest recycling!</h4>
+											
+											<?php /* <table class="table table-hover table-stripped">
+											<?php   foreach ( $allactivity as $activity) { ?>
+											
+												<?php if ($activity->quantity>0) {?>
+												<tr>
+													<td>
+														<a class="pull-left" href="<?php echo $this->baseUrl('account/profile/').'?user='.$activity->username;?>">
+							                    			<img class="media-object thumbnail avatar" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$activity->avatar);?>">
+							                    		</a>
+													</td>
+													<td>
+														
+														<?php echo ucfirst($activity->username);  ?> saved <?php echo 1*$activity->glass+2*$activity->plastic+3*$activity->aluminium; ?> leafs on <?php echo date("d-M",strtotime($activity->date)) ?>! <span class="muted">
+														<br><img class="img-materials-width" src="<?php echo $this->baseUrl("/images/materials/alum.png");?>"> = <?php echo $activity->aluminium; ?>
+														<img class="img-materials-width" src="<?php echo $this->baseUrl("/images/materials/plastic.png");?>"> =<?php echo $activity->plastic; ?>
+														<img class="img-materials-width" src="<?php echo $this->baseUrl("/images/materials/glass.png");?>"> = <?php echo $activity->glass; ?></span>
+													</td>
+												</tr>
+											
+												<?php } ?>
+											<?php } ?>
+											</table>
+											<span class="pull-left"><?php echo $this->paginationControl($this->results, 'Sliding', 'pagination.phtml'); ?></span> */ ?>
+							
+										</div>
+									</div>
+								</div>
 							</div>
 						</article>
 						

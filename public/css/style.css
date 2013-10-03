@@ -66,10 +66,10 @@ h3 {
 
 .desktop-nav{
 	margin-left: 0px;
-
 }
 
-/* extension */
+/* extensions
+---------------------------------------*/
 .remove-left { 
 	margin-left: -30px !important;
 }
@@ -93,7 +93,13 @@ h3 {
 	-moz-border-radius-bottomright: 20px;
 	-webkit-border-bottom-right-radius: 20px;
 }
-/* User Profile */
+.img-responsive {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+/* User Profile 
+---------------------------------------*/
 .profile-photo {
 	/*position:relative;*/
 	/*box-shadow: 2px 2px 2px #65B524;/*#888888;*/
@@ -117,11 +123,7 @@ h3 {
 	-moz-box-shadow:0 1px 3px rgba(0, 0, 0, 0.2);
 	box-shadow:0 1px 3px rgba(0, 0, 0, 0.2);
 }
-.img-responsive {
-	display: block;
-	max-width: 100%;
-	height: auto;
-}
+
 .img-materials-width {
 	width:30px;
 	height:auto;
@@ -168,7 +170,7 @@ h3 {
 	padding-bottom: 3px;
 }
 
-.custom-margin-top-3 { /* increase so the tabs not fall into the previous content */
+.custom-margin-top-3 { /* increased so the tabs not fall into the previous content. look further down for responsive. */
 	margin-top: inherit;
 }
 .cubicles {
@@ -225,10 +227,38 @@ h3 {
   border: 0;
   border-top: 1px solid #eeeeee;
   border-bottom: 1px solid #65B524;
+}
+
+/* User landing page 
+---------------------------------------*/
+/* Diagram rules */
+div#diagramUserNamesPanel {
+margin-top:3%;
 
 }
+
+div#diagramUserNamesPanel div ul {
+list-style:none;
+}
+
+div#diagramUserNamesPanel div ul li{
+margin-top:3%;
+}
+
+div#diagramUserNamesPanel div ul li span:nth-of-type(1){
+min-width:100px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+margin-right:3%;
+}
+div#diagramUserNamesPanel div ul li span:nth-of-type(2){
+
+}
+
+
 /* Badges rules
--------------------------------*/
+---------------------------------------*/
 
 img.badges {
 	width:35px;
