@@ -219,19 +219,22 @@
 							</div>
 						</article>
 						
-						<article class="span6 projects-block">
-							<div class="row-fluid ">
+						<article class="span6 ">
+							<div class="row-fluid">
+								<article class="span12">
 								<div class="tabbable">
+									<h1><?php echo $fullname;?></h1>
 									<ul class="nav nav-tabs">
 										    <li class="active"><a href="#About" data-toggle="tab" >About</a></li>
 										    <li><a href="#Activity" data-toggle="tab">Activity</a></li>
+										    <li><a href="#Performance" data-toggle="tab">Performance</a></li>
 									</ul>
 									
 						            <div class="tab-content">
 										
-										<!-- Diagram Content -->
+										<!-- About Content -->
 						            	<div class="tab-pane active" id="About">
-						            		<h1><?php echo $fullname;?></h1>
+						            		
 								
 											<span class="promotional"><?php echo $description;?>
 											</span>
@@ -269,8 +272,15 @@
 											<span class="pull-left"><?php echo $this->paginationControl($this->results, 'Sliding', 'pagination.phtml'); ?></span> */ ?>
 							
 										</div>
+										
+										<!-- Performance Content -->
+										<div class="tab-pane active" id="Performance">
+						            		
+						              	</div>
+										
 									</div>
 								</div>
+								</article>
 							</div>
 						</article>
 						
