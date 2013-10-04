@@ -4,6 +4,8 @@
 <?php $userbadges = $this->userbadges;?>
 <?php  //$auth = Zend_Auth::getInstance();
 		//$username = $auth->getIdentity()->username;?>
+<?php  $badges = $this->badges; ?>
+<?php $badgesPrefix = $this->badgesPrefix; ?>
 <?php $imgPrefix = $this->imgPrefix; ?>
 <?php $badgesPrefix = $this->badgesPrefix; ?>
 <?php 
@@ -140,6 +142,50 @@
 		</ul>
 		<img alt="Sociallgreen" title="Sociallgreen" id="logo" class="pull-right span2" src="<?php echo $this->baseUrl("images/logo.png"); ?>"/>
 </header>
+
+<!-- Modal Badges -->
+<div id="ModalBadges" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="ModalBadgesLabel" aria-hidden="true">
+  <div class="modal-header lead-background">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove icon-white"></i></button>
+    <h6 id="ModalBadgesLabel" class="title-leaderboard">Sample Badges</h6>
+  </div>
+  <div class="modal-body">
+   
+		<h1 class="title-leaderboard">Sample Badges</h1>
+						
+		<?php 
+		$counter = 1; 
+				
+		foreach ($badges as $badge) 
+		{ 
+			?>
+				<!-- Arxi siras -->
+				<hr>
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="row-fluid">
+							<div class="span4 text-center">
+								<img class="badges2" src="<?php echo $this->baseUrl($badgesPrefix.$badge->path); ?>">
+							</div>
+							<div class="span8">
+								<h3 class="text-badges"><?php echo $badge->title; ?></h3>
+								<p><?php echo $badge->description; ?></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			<?php
+		}
+		?>	
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-glor pull-left" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+
+
 
 <div id="projects" class="page">
 		<section class="container-fluid">
@@ -295,7 +341,8 @@
 									<hr class="hr-infotable">
 									<div class="row-fluid ">
 										<div class="span12">
-											<a target="_blank" href="<?php echo $website;?>" class="btn btn-glor info-titles">Website</a>
+											<a target="_blank" href="<?php echo $website;?>" ><i class="icon-globe icon-white"></i></a>
+											
 										</div>
 									</div>
 									<hr class="hr-infotable">
@@ -345,8 +392,10 @@
 							
 							<div class="row-fluid">
 								<div class="span12 cubicles rounded-bottomright">
-									<a href="<?php echo $this->baseUrl('account/badges'); ?>" title='Badges' class="btn btn-glor info-titles">Badges:</a>
-								<br>
+									<!-- <a href="<?php // echo $this->baseUrl('account/badges'); ?>" title='Badges' class="btn btn-glor info-titles">Badges:</a> -->
+									<span class="info-titles">Badges won :</span>
+									<br>
+								
 								<?php
 									$counter = 0; 		
 									foreach ($userbadges as $badge) 
@@ -361,6 +410,8 @@
 										<span class="text-primary info-text">No badges yet</span>
 									<?php }
 									?>
+									<br>
+									<a class="btn btn-glor2 btn-small" data-toggle="modal" data-target="#ModalBadges"><small>see all badges</small></a>
 								</div>
 							</div>
 		
@@ -372,3 +423,6 @@
 			</div><!-- row-fuild : ends -->
 		</section> <!-- container-fluid : ends-->
 	</div> <!-- projects : ends -->
+
+	
+	

@@ -73,6 +73,13 @@ h3 {
 .remove-left { 
 	margin-left: -30px !important;
 }
+.rounded-2px {
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	
+}
+
 .rounded-topleft{
 	border-top-left-radius: 20px;
 	-moz-border-radius-topleft: 20px;
@@ -277,7 +284,9 @@ img.badges2 {
 	color:#3C3735;
 	text-rendering:optimizelegibility;
 }
-
+/*#ModalBadges {
+	width: 800px;
+}*/
 
 
 /*Custom Bootstrap*/

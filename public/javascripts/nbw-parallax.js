@@ -101,7 +101,8 @@ $(document).ready(function() { //when the document is ready...
 			$fourthBG.css({'backgroundPosition': newPos(0, windowHeight, pos, 5850, 0)});
 			//$secondBG.css({'backgroundPosition': newPos(50, windowHeight, pos, 1550, 0.3)});
 			//call the newPos function and change the second background position
-			bg4.css({'backgroundPosition': newPos(50, windowHeight, pos, 6610, 0.20)});
+			//bg4.css({'backgroundPosition': newPos(50, windowHeight, pos, 6610, 0.20)});
+			bg4.css({'backgroundPosition': newPos(50, windowHeight, pos, 6210, 0.20)});
 		}
 
 		if ($fifthBG.hasClass("inview")){
