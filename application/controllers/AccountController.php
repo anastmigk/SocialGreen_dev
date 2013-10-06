@@ -177,13 +177,29 @@ class AccountController extends Zend_Controller_Action
         $select = $accounts->select();
         $select->where("username = ?", $username);
         $this->view->account = $accounts->fetchRow($select);*/
-    	      
-        // action body
-    	$user = $this->_getParam('user');
-    	$this->view->title = $user;//->append($user);
-//        $accounts = new Application_Model_DbTable_Accounts();
-//        $order = $accounts->select()->order("points DESC");
- //       $order->where("username = ?", $user);
+    	
+    	// action body
+    	$param = $this->_getParam('user');
+        
+        $isxml = substr($param, -4);
+        if ($isxml === ".xml")
+        {
+        	$this->view->isxml = TRUE;
+        	$this->_helper->layout()->disableLayout();
+        	$user = substr($param, 0, -4);
+        }
+        else
+        {
+        	$this->view->isxml = FALSE;
+        	$user = $param;
+        }
+        
+        
+        
+        $this->view->title = $user;//->append($user);
+        //        $accounts = new Application_Model_DbTable_Accounts();
+        //        $order = $accounts->select()->order("points DESC");
+        //       $order->where("username = ?", $user);
         $this->view->activeAccount = $user;// $accounts->fetchAll($order);
         $this->view->badgesPrefix = "/images/badges/";
         
@@ -199,10 +215,10 @@ class AccountController extends Zend_Controller_Action
         $query->group(array("bad.id"));
         
         $query->setIntegrityCheck(false);
-        //echo (String)$query;
         $this->view->userbadges = $userbadges->fetchAll($query);
         
         /*Retrieve All badges*/
+        
         $badges = new Application_Model_DbTable_Badges();
         $query2 = $badges->select();
         $query2->from(array('bad' => 'badges'), array('id','title','description','path','class'));
@@ -211,6 +227,26 @@ class AccountController extends Zend_Controller_Action
          
         $this->view->badges = $badges->fetchAll($query2);
         $this->view->badgesPrefix = "/images/badges/";
+        
+        /*Retrieve user's Activity*/
+        $useractivity = new Application_Model_DbTable_Accounts();
+        $query3 = $useractivity->select();
+        $query3->from(array('acc' => 'accounts'), array('id', 'username','avatar', 'fullname'));
+        $query3->from(array('act' => 'activity'),array('quantity','date', 'aluminium','glass','plastic'));
+        $query3->where('acc.username = "'.$user.'" AND act.userid = acc.id');
+        
+        $query3->order('act.date DESC');
+        $query3->setIntegrityCheck(false);
+        
+        $result2 = $useractivity->fetchAll($query3);
+        $page2 = $this->_getParam('page',1);
+        $paginator2 = Zend_Paginator::factory($result2);
+        $paginator2->setItemCountPerPage(5);
+        $paginator2->setCurrentPageNumber($page2);
+        
+        //$this->view->paginator=$paginator;
+        $this->view->results2 = $paginator2;
+        
         
     }
 

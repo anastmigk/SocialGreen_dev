@@ -2,6 +2,7 @@
 <?php $activeUser = $this->activeAccount; ?>
 <?php  $accounts = $this->accounts; ?>
 <?php $userbadges = $this->userbadges;?>
+<?php  $useractivity = $this->results2; ?>
 <?php  //$auth = Zend_Auth::getInstance();
 		//$username = $auth->getIdentity()->username;?>
 <?php  $badges = $this->badges; ?>
@@ -10,131 +11,51 @@
 <?php $badgesPrefix = $this->badgesPrefix; ?>
 <?php 
 	$sum=0;
-	foreach ($this->allActivity as $activityTemp){
-	//$sum = $sum +  (1*$activityTemp->glass)+(2*$activityTemp->plastic)+(3*$activityTemp->aluminium);
-	$sum = $sum + $activityTemp->leafs;
-}?>
+	foreach ($this->allActivity as $activityTemp)
+	{
+		//$sum = $sum +  (1*$activityTemp->glass)+(2*$activityTemp->plastic)+(3*$activityTemp->aluminium);
+		$sum = $sum + $activityTemp->leafs;
+	}?>
 
-<?php  foreach ($accounts as $account) {      	
-       		if($account->username == $activeUser) { 
-				$leafs = $account->leafs;
-				$username = $account->username;
-				$fullname = $account->fullname;
-				$avatar = $imgPrefix.$account->avatar;
-				$description = $account->description;
-				$glass = $account->glass;
-				$plastic = $account->plastic;
-				$aluminium = $account->aluminium;
-				$lastActive = $account->date;
-				$website = $account->url;
-			}
+<?php  
+	foreach ($accounts as $account)
+	{      	
+    	if($account->username == $activeUser)
+    	{ 
+			$leaves = $account->leafs;
+			$username = $account->username;
+			$fullname = $account->fullname;
+			$avatar = $imgPrefix.$account->avatar;
+			$description = $account->description;
+			$glass = $account->glass;
+			$plastic = $account->plastic;
+			$aluminium = $account->aluminium;
+			$lastActive = $account->date;
+			$website = $account->url;
 		}
-?>
+	}
+	
+	$isxml = $this->isxml;
+	if ($isxml)
+	{
+		header("Content-type: text/xml;charset=utf-8");
+		echo '<USER>
+				<username>'.$username.'</username>
+				<fullname>'.$fullname.'</fullname>
+				<avatar>'.$this->baseUrl($avatar).'</avatar>
+				<description>'.$description.'</description>
+				<leaves>'.$leaves.'</leaves>
+    			<glass>'.$glass.'</glass>
+				<plastic>'.$plastic.'</plastic>
+				<aluminium>'.$aluminium.'</aluminium>
+				<lastActive>'.$lastActive.'</lastActive>
+					
+			  </USER>';
+	}
+	else
+	{?>
 
-<?php /*<div class="row-fluid userContent">
-	<div class="span3">
-		
-		<div class="row-fluid">
-			<div class="span11 " id="friends" style="margin-top: 120px;">
-				<div id="profile-points" class="row-fluid profile-points">
-					<div class="span11">
-						<div class="profile-points ">
-							<span>leaves<br>saved</span>
-						</div>
-					</div>
-					<div class="span11">
-						<div class="profile-points ">
-							<span><?php echo $leafs;?></span>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="span11" id="friends" style="margin-top: 30px;">
-				
-				<h5><span class="other-titlos">Other users</span></h5>
-				
-				
-				<?php $counter = 0; 
-				$mostPoints = 0;
-				?>
-				<?php  foreach ($accountsFriends as $account) { ?>
-				<?php if ($counter==0) $mostPoints = $account->quantity; ?>
-					<div class="span2">
-						  <a class="thumbnail" title="<?php echo $account->username; ?>" href="<?php echo $this->baseUrl('account/profile/').'?user='.$account->username;?>">
-						    <span class="right visible-phone"><?php echo $account->username; ?></span>
-  						    <img class="media-object" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$account->avatar); ?>">
-						  </a>
-						<?php //if ($counter==0) { echo '<span class="left label label-info newMember">New!</span>'; }
-						//elseif ($account->quantity>0.8*$mostPoints) {  echo '<span class="left label label-success newMember"><i class="icon-leaf icon-white"></i></span>';}?>
-					</div>
-				 <?php 
-				 $counter++; 
-				} ?>	
-			</div>
-		</div>
-		
-	</div>
-	<div class="span6 offset0">
-	<?php  foreach ($accounts as $account) {      	
-       	if($account->username == $activeUser) { ?>
-		<div class='row-fluid '>
-			<div class="span12">
-				 <img class="profile-photo media-object" src="<?php echo $this->baseUrl($imgPrefix.$account->avatar); ?>">
-			</div>
-		</div>
-		<div class='row-fluid '>
-			<div class="span6">
-				<div class="row-fluid">
-					<p><?php echo $account->description; ?></p>
-				</div>
-				
-			</div>
-			<div class='span6'>
-				<table class="table table-striped">
-					<tbody>
-					<tr><td>
-					<p>Glass: <span class="text-success"><?php echo $account->glass; ?></span>
-					<br>Plastic: <span class="text-success"><?php echo $account->plastic; ?></span>
-					<br>Aluminium: <span class="text-success"><?php echo $account->aluminium; ?></span>
-					<!-- <br>Total leafs saved: <span class="text-success">
-					<strong><?php //echo 1*$account->glass+2*$account->plastic+3*$account->aluminium; ?></strong></span> -->
-					</p>
-					</td></tr>
-					<tr><td><p>Last recycled on: <?php echo date("F j, Y",strtotime($account->date)); ?></p></td></tr>
-					<tr>
-					<td>
-					<span class="customh4" ><a href='<?php echo $this->baseUrl('account/badges'); ?>' title='badges' >Badges</a></span><br>
-					<hr class="btable">
-					<?php 
-						$counter = 1; 		
-						foreach ($userbadges as $badge) 
-						{?>
-							<img class="badges" title="<?php echo $badge->title; ?>" src="<?php echo $this->baseUrl($badgesPrefix.$badge->path); ?>"></img>
-							<?php
-						}
-						?>
-						</td>
-						</tr>
-					</tbody>
-				</table>
-				 
-				<hr>
-				<p><a href='<?php echo $account->url; ?>' target="_blank" class="btn btn-success">Go to&nbsp;<?php echo $account->url; ?></a></p>
-			</div>
-		</div>
-		<!-- 
-		<div class="row-fluid">
-			<div class="progress">
-				<div class="bar bar-success" style="width: <?php echo ($account->quantity/$mostPoints)*100 ?>%;"><?php echo $account->quantity;?> points</div>
-			</div>
-		</div>
-		 -->
-	<?php } } ?>
-		
-	</div>
-</div>
-*/ ?>
+
 
 <header class="desktop-header navbar-fixed-top visible-desktop visible-tablet">
 		<ul class="links desktop-nav span10">
@@ -193,76 +114,42 @@
 				<section class="container">
 					<div class="row-fluid keno2">
 						<article class="span6 offset3">
-						<!-- <h1 class="main-heading"><?php echo $username;?></h1> -->
-						
-						<img alt="<?php echo $username;?>" title="<?php echo $username;?>" class="img-responsive" src="<?php echo $this->baseUrl($avatar); ?>">
-						
-						<!-- <img class="profile-photo media-object" src="<?php //echo $this->baseUrl($avatar); ?>">  -->
+							<!-- <h1 class="main-heading"><?php echo $username;?></h1> -->
+							
+							<img alt="<?php echo $username;?>" title="<?php echo $username;?>" class="img-responsive" src="<?php echo $this->baseUrl($avatar); ?>">
+							
+							<!-- <img class="profile-photo media-object" src="<?php //echo $this->baseUrl($avatar); ?>">  -->
 						</article>
 						
-						
-						<!-- span12 : ends -->
 					</div><!-- row : ends -->
-					
-					
 					
 					<div class="row-fluid projects-wrap add-top">
 						<article class="span3 projects-block add-top">
-							 <?php /*<ul>
-								<!-- <li><img alt="glor" title="glor by designova" src="images/clients/03.png"/></li> -->
-								<?php /* <li><img alt="<?php echo $username;?>" title="<?php echo $username;?>" class=" media-object" src="<?php echo $this->baseUrl($avatar); ?>"></li> */ ?>
-								
-								<?php /*
-								<li><h1><?php echo $username;?></h1></li>
-								<li>Glass: <span class="text-success"><?php echo $glass; ?></span>
-									<br>Plastic: <span class="text-success"><?php echo $plastic; ?></span>
-									<br>Aluminium: <span class="text-success"><?php echo $aluminium; ?></span>
-								</li>
-								<li>Last recycled on:<br><?php echo date("F j, Y",strtotime($lastActive)); ?></li>
-								<li><a target="_blank" href="<?php echo $website;?>" class="btn btn-glor">Website</a></li>	
-								<li><a href="<?php echo $this->baseUrl('account/badges'); ?>" title='Badges'>Badges</a>
-								<br>
-								<?php
-									$counter = 0; 		
-									foreach ($userbadges as $badge) 
-									{?>
-										<img class="badges" title="<?php echo $badge->title; ?>" src="<?php echo $this->baseUrl($badgesPrefix.$badge->path); ?>"></img>
-										<?php
-										$counter++;
-									}
-									
-									if( $counter == 0 )
-									{?>
-										<span class="text-primary">No badges yet</span>
-									<?php }
-									?>
-								</li>
-								
-							</ul> */ ?>
-							
+							 							
 							<div class="row-fluid">
 								<article class="span12 text-right">
 									<span class="score-heading-green"><?php echo $aluminium; ?></span> <img class="img-materials-height-alum" src="<?php echo $this->baseUrl("/images/materials/alum.png");?>">
 								</article>
-							</div>
+							</div><!-- row : ends -->
 							
 							<div class="row-fluid">
 								<article class="span12 text-right">
 									 <span class="score-heading-green"><?php echo $plastic; ?></span> <img class="img-materials-height-plastic" src="<?php echo $this->baseUrl("/images/materials/plastic.png");?>">
 								</article>
-							</div>
+							</div><!-- row : ends -->
+							
 							<div class="row-fluid">
 								<article class="span12 text-right">
 									<span class="score-heading-green"><?php echo $glass; ?></span> <img class="img-materials-height-glass" src="<?php echo $this->baseUrl("/images/materials/glass.png");?>">
 								</article>
-							</div>
-							
+							</div><!-- row : ends -->
 							
 							<div class="row-fluid">
 								<article class="span12 cubicles rounded-bottomleft rounded-topleft text-right">
-									<span class="score-heading-white"><?php echo $leafs;?></span><br><span class="info-text">total leaves saved </span>
+									<span class="score-heading-white"><?php echo $leaves;?></span><br><span class="info-text">total leaves saved </span>
 								</article>
-							</div>
+							</div><!-- row : ends -->
+							
 						</article>
 						
 						<article class="span6 ">
@@ -281,7 +168,6 @@
 										<!-- About Content -->
 						            	<div class="tab-pane active" id="About">
 						            		
-								
 											<span class="promotional"><?php echo $description;?>
 											</span>
 						            			
@@ -289,12 +175,11 @@
 					              	
 										<!-- Activity Content -->
 										<div class="tab-pane" id="Activity">
-											
-										<!-- Activity Container -->
+										
 											<h4 class="col-high">Latest recycling!</h4>
 											
-											<?php /* <table class="table table-hover table-stripped">
-											<?php   foreach ( $allactivity as $activity) { ?>
+											 <table class="table table-hover table-stripped">
+											<?php   foreach ( $useractivity as $activity) { ?>
 											
 												<?php if ($activity->quantity>0) {?>
 												<tr>
@@ -304,18 +189,18 @@
 							                    		</a>
 													</td>
 													<td>
-														
 														<?php echo ucfirst($activity->username);  ?> saved <?php echo 1*$activity->glass+2*$activity->plastic+3*$activity->aluminium; ?> leafs on <?php echo date("d-M",strtotime($activity->date)) ?>! <span class="muted">
-														<br><img class="img-materials-width" src="<?php echo $this->baseUrl("/images/materials/alum.png");?>"> = <?php echo $activity->aluminium; ?>
-														<img class="img-materials-width" src="<?php echo $this->baseUrl("/images/materials/plastic.png");?>"> =<?php echo $activity->plastic; ?>
-														<img class="img-materials-width" src="<?php echo $this->baseUrl("/images/materials/glass.png");?>"> = <?php echo $activity->glass; ?></span>
+														<br><img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/alum.png");?>"> = <?php echo $activity->aluminium; ?>
+														<img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/plastic.png");?>"> =<?php echo $activity->plastic; ?>
+														<img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/glass.png");?>"> = <?php echo $activity->glass; ?></span>
 													</td>
 												</tr>
 											
 												<?php } ?>
 											<?php } ?>
 											</table>
-											<span class="pull-left"><?php echo $this->paginationControl($this->results, 'Sliding', 'pagination.phtml'); ?></span> */ ?>
+											<span class="pull-left"><?php //echo $this->paginationControl($this->results2, 'Sliding', 'pagination.phtml'); ?></span>
+											
 							
 										</div>
 										
@@ -327,7 +212,7 @@
 									</div>
 								</div>
 								</article>
-							</div>
+							</div><!-- row : ends -->
 						</article>
 						
 						<article class="span3 projects-block add-top">
@@ -341,8 +226,8 @@
 									<hr class="hr-infotable">
 									<div class="row-fluid ">
 										<div class="span12">
-											<a target="_blank" href="<?php echo $website;?>" ><i class="icon-globe icon-white"></i></a>
-											
+											<!-- <a target="_blank" href="<?php echo $website;?>" ><i class="icon-globe icon-white"></i></a> -->
+											<a target="_blank" href="<?php echo $website;?>" ><img class="" src="<?php echo $this->baseUrl("/images/icons/b07.png"); ?>"></a>
 										</div>
 									</div>
 									<hr class="hr-infotable">
@@ -424,5 +309,5 @@
 		</section> <!-- container-fluid : ends-->
 	</div> <!-- projects : ends -->
 
-	
+	<?php }?>
 	
