@@ -107,6 +107,9 @@ h3 {
 }
 /* User Profile 
 ---------------------------------------*/
+.nav-user-margin {
+	margin-top:10px;
+}
 .profile-photo {
 	/*position:relative;*/
 	/*box-shadow: 2px 2px 2px #65B524;/*#888888;*/
@@ -132,7 +135,6 @@ h3 {
 }
 
 img.smallProfileImage {
-	margin-top:10px;
 	display: inline-block;
 	height: 30px;
 }

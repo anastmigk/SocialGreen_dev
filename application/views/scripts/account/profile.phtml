@@ -3,6 +3,10 @@
 <?php  $accounts = $this->accounts; ?>
 <?php $userbadges = $this->userbadges;?>
 <?php  $useractivity = $this->results2; ?>
+
+<?php  $seriesColor = array("#FF9900", "#00F", "#BB0000"); ?>
+<?php  $usernamesTemp = $this->usernames; ?>
+
 <?php  //$auth = Zend_Auth::getInstance();
 		//$username = $auth->getIdentity()->username;?>
 <?php  $badges = $this->badges; ?>
@@ -60,8 +64,6 @@
 <header class="desktop-header navbar-fixed-top visible-desktop visible-tablet">
 		<img alt="Sociallgreen" title="Sociallgreen" id="logo" class="pull-right span2" src="<?php echo $this->baseUrl("images/logo.png"); ?>"/>
 		<?php echo $this->LoggedInAs(); ?>
-		
-		
 </header>
 
 <!-- Modal Badges -->
@@ -338,7 +340,7 @@
 
 	$count=1;
 	$lines = "[";
-	foreach ($useractivity as $act) {
+	foreach ($this->activity as $act) {
 		echo "var line".$count."=".str_replace('"', "", $act).";";
 		//echo "<br>";
 		$lines.= " line".$count.",";
@@ -350,7 +352,10 @@
 
 	$usernames = "[";
 	foreach ($usernamesTemp as $usr) {
-		$usernames.='"'.$usr.'",';
+		if($usr === $activeUser)
+		{
+			$usernames.='"'.$usr.'",';
+		}
 	}
 	$usernames = rtrim($usernames, ",");
 	$usernames.="]"; 
@@ -419,5 +424,4 @@ var plot1 = $.jqplot('chartdiv', <?php echo $lines ?>, {
     }
 	});
 
-</script>	
-	
+</script>

@@ -34,7 +34,7 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
             
             
            // <!-- POP UP menu for later.. -->
-            $dropdownMenu = '<ul class="nav pull-right" >
+            $dropdownMenu = '<ul class="nav pull-right nav-user-margin" >
             					<li class="dropdown">
             						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-rounded smallProfileImage" src="'.$this->view->baseUrl("images/avatars/thumb-".$avatar).'"></a>
             							<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
@@ -50,17 +50,7 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
             							</ul>
             					</li>
             				</ul>';
-           // <!-- -->
 
-            //return '<li><a href="'.$logoutUrl.'">Logout</a></li><li><a href="'.$editUrl.'">Profile</a></li>';
-            //return $edit;
-      
-           /* return '<li><a href='. $this->view->url(array('controller'=>'greenladder'), null, TRUE).' title="Check out the game">Game</a></li>
-    				<li><a href='. $this->view->url(array('controller'=>'account'), null, TRUE).' title="We have lots of users">Users</a></li>
-            		<li><a href='.$this->view->url(array('controller'=>'account','action'=>'profile', 'usr'=>$username)).' title="Find out more">More info</a></li>
-           			<li><a href='.$this->view->url(array('controller'=>'account','action'=>'edit')).' title="Change your info">Edit</a></li>
-           			<li><a href="'.$logoutUrl.'" title="Bye">Logout</a></li>
-					  </li>';*/
             return $dropdownMenu;
         } 
 		else

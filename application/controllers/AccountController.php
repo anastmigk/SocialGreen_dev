@@ -182,7 +182,7 @@ class AccountController extends Zend_Controller_Action
     	$param = $this->_getParam('user');
         
         $isxml = substr($param, -4);
-        if ($isxml === ".xml")
+        if ($isxml == ".xml")
         {
         	$this->view->isxml = TRUE;
         	$this->_helper->layout()->disableLayout();
@@ -228,7 +228,7 @@ class AccountController extends Zend_Controller_Action
         $this->view->badges = $badges->fetchAll($query2);
         $this->view->badgesPrefix = "/images/badges/";
         
-        /*Retrieve user's Activity*/
+        /*Retrieve ALL user's Activity*/
         $useractivity = new Application_Model_DbTable_Accounts();
         $query3 = $useractivity->select();
         $query3->from(array('acc' => 'accounts'), array('id', 'username','avatar', 'fullname'));
@@ -246,6 +246,12 @@ class AccountController extends Zend_Controller_Action
         
         //$this->view->paginator=$paginator;
         $this->view->results2 = $paginator2; 
+        
+        /*Retrieve LATEST user's Activity */
+        $Ladder = new Application_Model_DailyLadder();
+        $this->view->activity = $Ladder->getGraph();
+        $this->view->usernames = $Ladder->getUsernames();
+        $this->view->dates = $Ladder->getDates();
         
     }
 
