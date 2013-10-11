@@ -239,6 +239,7 @@ class AccountController extends Zend_Controller_Action
         $query3->setIntegrityCheck(false);
         
         $result2 = $useractivity->fetchAll($query3);
+        
         $page2 = $this->_getParam('page',1);
         $paginator2 = Zend_Paginator::factory($result2);
         $paginator2->setItemCountPerPage(5);
