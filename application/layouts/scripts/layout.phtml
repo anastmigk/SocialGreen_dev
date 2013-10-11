@@ -3,9 +3,11 @@ $Access = array();
 $Access = $this->Access($this);
 $homelink = $Access['homelink'];
 try {
-	if($Access['acl'] =="denied"){
-			header("Location: ".$this->baseUrl()."/");
-	} else {
+	if($Access['acl'] == "denied")
+	{
+		header("Location: ".$homelink."");
+	}else
+	{
 			//echo "Access allowed";
 	}
 } catch (Exception $e) {
@@ -76,7 +78,6 @@ try {
 	    <!-- REVOLUTION BANNER CSS SETTINGS -->
 	    <link rel="stylesheet" href="<?php echo $this->baseUrl("rs-plugin/css/fullwidth.css"); ?>" media="screen" />
 		<link rel="stylesheet" href="<?php echo $this->baseUrl("rs-plugin/css/settings.css"); ?>" media="screen" />
-    	
     	
     	
     	<!-- jPlot Pluggin - Charts -->

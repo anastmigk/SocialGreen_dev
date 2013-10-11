@@ -245,8 +245,7 @@ class AccountController extends Zend_Controller_Action
         $paginator2->setCurrentPageNumber($page2);
         
         //$this->view->paginator=$paginator;
-        $this->view->results2 = $paginator2;
-        
+        $this->view->results2 = $paginator2; 
         
     }
 

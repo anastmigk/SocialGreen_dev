@@ -1,3 +1,4 @@
+
 <?php  $accountsFriends = $this->accounts; ?>
 <?php  $accounts = $this->accounts; ?>
 <?php  $allactivity = $this->results; ?>
@@ -10,10 +11,12 @@
 	$sum = $sum +  (1*$activityTemp->glass)+(2*$activityTemp->plastic)+(3*$activityTemp->aluminium);
 }?>
 <header class="desktop-header navbar-fixed-top visible-desktop visible-tablet ">
-		<ul class="links desktop-nav span10">
-			
-		</ul>
-		<img alt="Sociallgreen" title="Sociallgreen" id="logo" class="pull-right span2" src="<?php echo $this->baseUrl("images/logo.png"); ?>"/>
+	<div class="container">
+	<img alt="Sociallgreen" title="Sociallgreen" id="logo" class="pull-left span2" src="<?php echo $this->baseUrl("images/logo.png"); ?>"/>
+		
+			<?php echo $this->LoggedInAs(); ?>
+		
+	</div>
 </header>
 
 
@@ -143,7 +146,6 @@
 										<?php } ?>
 										</table>
 										<span class="pull-left"><?php echo $this->paginationControl($this->results, 'Sliding', 'pagination.phtml'); ?></span>
-						
 									</div>
 									
 								</div>

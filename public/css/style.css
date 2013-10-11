@@ -131,6 +131,12 @@ h3 {
 	box-shadow:0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
+img.smallProfileImage {
+	margin-top:10px;
+	display: inline-block;
+	height: 30px;
+}
+
 .img-materials-width {
 	width:30px;
 	height:auto;
