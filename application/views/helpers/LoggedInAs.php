@@ -1,14 +1,15 @@
 <?php 
 class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract 
+
 {
 
     public function loggedInAs ()
+
     {
 
         $auth = Zend_Auth::getInstance();
 
-        if ($auth->hasIdentity()) 
-        {
+        if ($auth->hasIdentity()) {
 
             $username = $auth->getIdentity()->username;
             $avatar = $auth->getIdentity()->avatar;
@@ -34,10 +35,10 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
             
             
            // <!-- POP UP menu for later.. -->
-            $dropdownMenu = '<ul class="nav pull-right" >
+            $dropdownMenu = '<ul class="nav pull-right">
             					<li class="dropdown">
-            						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-rounded smallProfileImage" src="'.$this->view->baseUrl("images/avatars/thumb-".$avatar).'"></a>
-            							<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
+            						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-rounded smallProfileImage" src="'.$this->view->baseUrl("/images/avatars/".$avatar).'"></a>
+            							<ul class="dropdown-menu">
             								<li class="nav-header" ><i class="icon-user"></i>&nbsp;&nbsp;Hello '.$username.'!</li>
             								<li class="divider"></li>
 											<li><a href='. $this->view->url(array('controller'=>'account'), null, TRUE).'><i class="icon-home"></i>&nbsp;&nbsp;Home</a></li>
@@ -63,32 +64,35 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
 					  </li>';*/
             return $dropdownMenu;
         } 
-		else
-		{
-	        $request = Zend_Controller_Front::getInstance()->getRequest();
-	        $controller = $request->getControllerName();
-	        $action = $request->getActionName();
-			/*
-	        if($controller == 'auth' && $action == 'index') {
-	
-	            return '';
-	
-	        }
-			*/
-			/*$introLink='<li><a title="Learn more!">How It Works</a></li>
-						<li><a title="Participate!">Get Involved</a></li>';*/
-	        $loginUrl = '<li><a href="'.$this->view->url(array('controller'=>'auth', 'action'=>'index')).'" title="Get inside Social Green!">Login</a></li>';
-	        //$loginUrl = $this->view->url(array('controller'=>'auth', 'action'=>'index'));
-	        $registerUrl = "<li><a id='buttonModalRegister' href=".$this->view->url(array('controller'=>'account', 'action'=>'register'), null, TRUE)." title='Be a member!'>Join Community!</a></li>";
-	        //$registerUrl = "<li><a id='buttonModalRegister' href='#'>Register</a></li>";
-	        
-	        return $registerUrl.$loginUrl;
-	        //return $registerUrl;
-	        
-	        //return $introLink.$registerUrl.$loginUrl;
-	        //return '<li><a href="'.$loginUrl.'" title="Get inside Social Green!">Login</a></li>'.$registerUrl;
-	        //return '<li><a id="buttonModalLogin" href="#">Login</a></li>'.$registerUrl;
-		}
+
+        
+
+        $request = Zend_Controller_Front::getInstance()->getRequest();
+
+        $controller = $request->getControllerName();
+
+        $action = $request->getActionName();
+/*
+        if($controller == 'auth' && $action == 'index') {
+
+            return '';
+
+        }
+*/		/*$introLink='<li><a title="Learn more!">How It Works</a></li>
+					<li><a title="Participate!">Get Involved</a></li>';*/
+        $loginUrl = '<li><a href="'.$this->view->url(array('controller'=>'auth', 'action'=>'index')).'" title="Get inside Social Green!">Login</a></li>';
+        //$loginUrl = $this->view->url(array('controller'=>'auth', 'action'=>'index'));
+        $registerUrl = "<li><a id='buttonModalRegister' href=".$this->view->url(array('controller'=>'account', 'action'=>'register'), null, TRUE)." title='Be a member!'>Join Community!</a></li>";
+        //$registerUrl = "<li><a id='buttonModalRegister' href='#'>Register</a></li>";
+        
+        //return $registerUrl.$loginUrl;
+        return $registerUrl;
+        
+        //return $introLink.$registerUrl.$loginUrl;
+        //return '<li><a href="'.$loginUrl.'" title="Get inside Social Green!">Login</a></li>'.$registerUrl;
+        //return '<li><a id="buttonModalLogin" href="#">Login</a></li>'.$registerUrl;
+
     }
+
 }
 ?>

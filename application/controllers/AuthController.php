@@ -13,24 +13,17 @@ class AuthController extends Zend_Controller_Action
 
     public function indexAction()
     {
-    	if(Zend_Auth::getInstance()->hasIdentity())
-    	{
-    		$this->_helper->redirector('index', 'account');
-    	}
         // action body
     	$form = new Application_Model_FormLogin();
-    	
     	
     	$request = $this->getRequest();
     	
     	if ($request->isPost()) {
     	
-    		if ($form->isValid($request->getPost()))
-    		{
+    		if ($form->isValid($request->getPost())) {
     	
     			// do 	something here to log in+
-    			if ($this->_process($form->getValues()))
-    			{
+    			if ($this->_process($form->getValues())) {
     			
     				// We're authenticated! Redirect to the home page
     				//$rememberme = 60*15;
@@ -110,10 +103,8 @@ class AuthController extends Zend_Controller_Action
     	$select = $account->select();
     	$select->from($account)->where('username = ?', $username);
     	$row = $account->fetchRow($select);
-    	if (count($row)>0)
-    	{
-    		if ($row->confirmed == 1)
-    		{
+    	if (count($row)>0){
+    		if ($row->confirmed ==1){
     			return true;
     		}
     	}
