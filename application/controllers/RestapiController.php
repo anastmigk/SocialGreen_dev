@@ -30,7 +30,7 @@ class RestapiController extends Zend_Controller_Action
     	if ($request->isPost())
     	{
     		 
-    		if (userexist($user))
+    		if ($this->userExist($user))
     		{
     			/*Retrieve All user's badges
     			$userbadges = new Application_Model_DbTable_Accounts();
@@ -75,6 +75,8 @@ class RestapiController extends Zend_Controller_Action
 		    	$query3->group("acc.username");
 		    	$query3->setIntegrityCheck(false);
 		    	$this->view->userinfo = $userinfo->fetchRow($query3);
+		    	
+		    	$this->view->errors = NULL;
     			 
     		}
     		else
@@ -111,33 +113,33 @@ class RestapiController extends Zend_Controller_Action
     	
     	$this->view->userinfo = $userinfo->fetchRow($query3);*/
     	
-    	function userexist($user)
-    	{
-    		if($user != NULL)
-    		{
-    			$usr = new Application_Model_DbTable_Accounts();
-    			$query = $usr->select();
-    			$query->from(array('acc' => 'accounts'), array('username'));
-    			$query->where('acc.username = "'.$user.'"');
-    			$query->setIntegrityCheck(false);
-    			$username = $usr->fetchRow($query);
     	
-    			if($username->username !=NULL)
-    			{
-    				return true;
-    			}
-    			else
-    			{
-    				return false;
-    			}
+    }
+    
+    protected function userExist($user)
+    {
+    	if($user != NULL)
+    	{
+    		$usr = new Application_Model_DbTable_Accounts();
+    		$query = $usr->select();
+    		$query->from(array('acc' => 'accounts'), array('username'));
+    		$query->where('acc.username = "'.$user.'"');
+    		$query->setIntegrityCheck(false);
+    		$username = $usr->fetchRow($query);
+    		 
+    		if($username->username != NULL)
+    		{
+    			return true;
     		}
     		else
     		{
     			return false;
     		}
+    	}
+    	else
+    	{
     		return false;
     	}
-    	
     	
     }
 
