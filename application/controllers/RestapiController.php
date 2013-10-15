@@ -15,7 +15,34 @@ class RestapiController extends Zend_Controller_Action
         // action body
     	//$this->_helper->redirector('index', 'account');
     }
-
+    
+    public function userexist($user)
+    {
+    	if($user != NULL)
+    	{
+    		$usr = new Application_Model_DbTable_Accounts();
+    		$query = $usr->select();
+    		$query->from(array('acc' => 'accounts'), array('username'));
+    		$query->where('acc.username = "'.$user.'"');
+    		$query->setIntegrityCheck(false);
+    		$username = $usr->fetchRow($query);
+    		
+    		if($username->username !=NULL)
+    		{
+    			return true;
+    		}
+    		else
+    		{
+    			return false;
+    		}
+    	}
+    	else
+    	{
+    		return false;
+    	}
+    	return false;
+    }
+    
     public function userinfoAction()
     {
     	$request = $this->getRequest();
@@ -29,7 +56,7 @@ class RestapiController extends Zend_Controller_Action
     	if ($request->isPost())
     	{
     		 
-    		if ($user != NULL)
+    		if (userexist($user))
     		{
     			/*Retrieve All user's badges
     			$userbadges = new Application_Model_DbTable_Accounts();
@@ -79,17 +106,19 @@ class RestapiController extends Zend_Controller_Action
     		else
     		{
     			//$this->view->errors = array( array("Wrong username and password combination dude!"));
-    			$this->_response->clearBody();
-				$this->_response->clearHeaders();
-				$this->_response->setHttpResponseCode(404);
+    			//$this->_response->clearBody();
+				//$this->_response->clearHeaders();
+				//$this->_response->setHttpResponseCode(404);
+    			$this->view->errors = "User don't exist";
     		}
     		 
     	}
     	else
     	{
-    		$this->_response->clearBody();
-			$this->_response->clearHeaders();
-			$this->_response->setHttpResponseCode(404);
+    		//$this->_response->clearBody();
+			//$this->_response->clearHeaders();
+			//$this->_response->setHttpResponseCode(404);
+    		$this->view->errors = "No post data";
     	}
     	
     	/*
