@@ -16,33 +16,7 @@ class RestapiController extends Zend_Controller_Action
     	//$this->_helper->redirector('index', 'account');
     }
     
-    public function userexist($user)
-    {
-    	if($user != NULL)
-    	{
-    		$usr = new Application_Model_DbTable_Accounts();
-    		$query = $usr->select();
-    		$query->from(array('acc' => 'accounts'), array('username'));
-    		$query->where('acc.username = "'.$user.'"');
-    		$query->setIntegrityCheck(false);
-    		$username = $usr->fetchRow($query);
-    		
-    		if($username->username !=NULL)
-    		{
-    			return true;
-    		}
-    		else
-    		{
-    			return false;
-    		}
-    	}
-    	else
-    	{
-    		return false;
-    	}
-    	return false;
-    }
-    
+        
     public function userinfoAction()
     {
     	$request = $this->getRequest();
@@ -137,7 +111,32 @@ class RestapiController extends Zend_Controller_Action
     	
     	$this->view->userinfo = $userinfo->fetchRow($query3);*/
     	
+    	function userexist($user)
+    	{
+    		if($user != NULL)
+    		{
+    			$usr = new Application_Model_DbTable_Accounts();
+    			$query = $usr->select();
+    			$query->from(array('acc' => 'accounts'), array('username'));
+    			$query->where('acc.username = "'.$user.'"');
+    			$query->setIntegrityCheck(false);
+    			$username = $usr->fetchRow($query);
     	
+    			if($username->username !=NULL)
+    			{
+    				return true;
+    			}
+    			else
+    			{
+    				return false;
+    			}
+    		}
+    		else
+    		{
+    			return false;
+    		}
+    		return false;
+    	}
     	
     	
     }
