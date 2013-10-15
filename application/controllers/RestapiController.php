@@ -7,7 +7,7 @@ class RestapiController extends Zend_Controller_Action
     {
         /* Initialize action controller here */
     	$this->_helper->layout()->disableLayout();
-    	 
+    	
     }
 
     public function indexAction()
@@ -21,6 +21,8 @@ class RestapiController extends Zend_Controller_Action
     	$request = $this->getRequest();
     	$user = $request->getPost('user');
     	
+    	$this->view->badgesPrefix = "/images/badges/";
+    	$this->view->imgPrefix = "/images/avatars/";
     	$this->view->title = $user;
     	
     	

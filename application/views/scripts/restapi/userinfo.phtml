@@ -1,5 +1,7 @@
 <?php 
 	$userinfo = $this->userinfo;
+	$imgPrefix = $this->imgPrefix;
+	$badgesPrefix = $this->badgesPrefix;
 	
 	/*foreach ($userinfo as $account)
 	{
@@ -22,8 +24,9 @@
 	header("Content-type: text/xml;charset=utf-8");
 	echo '<USER>
 		<username>'.$userinfo->username.'</username>
+		<email>'.$userinfo->email.'</email>
 		<fullname>'.$userinfo->fullname.'</fullname>
-		<avatar>'.$this->baseUrl($userinfo->avatar).'</avatar>
+		<avatar>'.$this->baseUrl($imgPrefix.$userinfo->avatar).'</avatar>
 		<description>'.$userinfo->description.'</description>
 		<leaves>'.$userinfo->points.'</leaves>
     	<glass>'.$userinfo->glass.'</glass>
