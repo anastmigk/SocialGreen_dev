@@ -35,21 +35,21 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
             
            // <!-- POP UP menu for later.. -->
             $dropdownMenu = '<ul class="nav pull-right nav-user-margin" >
-            					<li class="dropdown">
-            						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-rounded smallProfileImage" src="'.$this->view->baseUrl("images/avatars/thumb-".$avatar).'"></a>
-            							<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
-            								<li class="nav-header" ><i class="icon-user"></i>&nbsp;&nbsp;Hello '.$username.'!</li>
-            								<li class="divider"></li>
-											<li><a href='. $this->view->url(array('controller'=>'account'), null, TRUE).'><i class="icon-home"></i>&nbsp;&nbsp;Home</a></li>
-            								<li><a href='. $this->view->url(array('controller'=>'account' , 'action'=>'profile'), null, TRUE).'?user='.$username.'><i class="icon-book"></i>&nbsp;&nbsp;Profile</a></li>';
-            										
-            								//'<li><a href='. $this->view->url(array('controller'=>'account'), null, TRUE).' title="We have lots of users">Users</a></li>
-            								//<li><a href='.$this->view->url(array('controller'=>'account','action'=>'profile', 'usr'=>$username)).' title="Find out more">More Info</a></li>
-            								$dropdownMenu.='<li><a href='.$this->view->url(array('controller'=>'account','action'=>'edit')).' title="Change your info"><i class="icon-edit"></i>&nbsp;&nbsp;Edit</a></li>
-            								<li><a href="'.$logoutUrl.'" title="Bye"><i class="icon-off"></i>&nbsp;&nbsp;Logout</a></li>
-            							</ul>
-            					</li>
-            				</ul>';
+	            					<li class="dropdown">
+	            						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-rounded smallProfileImage" src="'.$this->view->baseUrl("images/avatars/thumb-".$avatar).'"></a>
+	            							<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
+	            								<li class="nav-header" ><i class="icon-user"></i>&nbsp;&nbsp;Hello '.$username.'!</li>
+	            								<li class="divider"></li>
+												<li><a href='. $this->view->url(array('controller'=>'account'), null, TRUE).'><i class="icon-home"></i>&nbsp;&nbsp;Home</a></li>
+	            								<li><a href='. $this->view->url(array('controller'=>'account' , 'action'=>'profile'), null, TRUE).'?user='.$username.'><i class="icon-book"></i>&nbsp;&nbsp;Profile</a></li>';
+	            										
+	            								//'<li><a href='. $this->view->url(array('controller'=>'account'), null, TRUE).' title="We have lots of users">Users</a></li>
+	            								//<li><a href='.$this->view->url(array('controller'=>'account','action'=>'profile', 'usr'=>$username)).' title="Find out more">More Info</a></li>
+	            								$dropdownMenu.='<li><a href='.$this->view->url(array('controller'=>'account','action'=>'edit')).' title="Change your info"><i class="icon-edit"></i>&nbsp;&nbsp;Edit</a></li>
+	            								<li><a href="'.$logoutUrl.'" title="Bye"><i class="icon-off"></i>&nbsp;&nbsp;Logout</a></li>
+	            							</ul>
+	            					</li>
+	            				</ul>';
 
             return $dropdownMenu;
         } 

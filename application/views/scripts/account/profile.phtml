@@ -59,11 +59,11 @@
 	else
 	{?>
 
-
-
-<header class="desktop-header navbar-fixed-top visible-desktop visible-tablet">
-		<img alt="Sociallgreen" title="Sociallgreen" id="logo" class="pull-right span2" src="<?php echo $this->baseUrl("images/logo.png"); ?>"/>
-		<?php echo $this->LoggedInAs(); ?>
+<header class="desktop-header navbar-fixed-top ">
+	<div class="container">
+			<img alt="Sociallgreen" title="Sociallgreen" id="logo" class="pull-left span2" src="<?php echo $this->baseUrl("images/logo.png"); ?>"/>
+			<?php echo $this->LoggedInAs(); ?>
+	</div>
 </header>
 
 <!-- Modal Badges -->
@@ -160,15 +160,16 @@
 								<div class="tabbable">
 									<h1><?php echo $fullname;?></h1>
 									<ul class="nav nav-tabs">
-										    <li class="active"><a href="#About" data-toggle="tab" >About</a></li>
+										    <li class="active"><a href="#Performance" data-toggle="tab">Performance</a></li>
+										    <li><a href="#About" data-toggle="tab" >About</a></li>
 										    <li><a href="#Activity" data-toggle="tab">Activity</a></li>
-										    <li><a href="#Performance" data-toggle="tab">Performance</a></li>
+										    
 									</ul>
 									
 						            <div class="tab-content">
 										
 										<!-- About Content -->
-						            	<div class="tab-pane active" id="About">
+						            	<div class="tab-pane" id="About">
 						            		
 											<span class="promotional"><?php echo $description;?>
 											</span>

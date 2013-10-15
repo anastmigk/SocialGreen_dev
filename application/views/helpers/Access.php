@@ -87,6 +87,7 @@ class Zend_View_Helper_Access extends Zend_View_Helper_Abstract
 		$acl->add(new Zend_Acl_Resource('error'));
 		$acl->add(new Zend_Acl_Resource('account'));
 		$acl->add(new Zend_Acl_Resource("greenladder"));
+		$acl->add(new Zend_Acl_Resource("restapi"));
 		//$acl->add(new Zend_Acl_Resource('register'), 'account');
 		 
 		$acl->addRole(new Zend_Acl_Role('guest'))->addRole(new Zend_Acl_Role('member'))->addRole(new Zend_Acl_Role('admin'));
@@ -98,6 +99,7 @@ class Zend_View_Helper_Access extends Zend_View_Helper_Abstract
 		$acl->allow("guest","about");
 		$acl->allow("guest","auth");
 		$acl->allow("guest","greenladder", array("binupdate"));
+		$acl->allow("guest","restapi");
 		$acl->allow("guest","account", array('register','confirm','reset'));
 		$acl->deny("guest","about",array("team"));
 		$acl->deny("guest","about",array("index"));

@@ -49,6 +49,11 @@
           <actionMethod actionName="submitQuiz"/>
           <actionMethod actionName="terms"/>
         </controllerFile>
+        <controllerFile controllerName="Restapi">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="userinfo"/>
+          <actionMethod actionName="userlogin"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="RecoverAccount"/>
@@ -175,6 +180,15 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Account">
             <viewScriptFile forActionName="badges"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Restapi">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Restapi">
+            <viewScriptFile forActionName="userinfo"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Restapi">
+            <viewScriptFile forActionName="userlogin"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

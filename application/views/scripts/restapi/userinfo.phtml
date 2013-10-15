@@ -1,0 +1,36 @@
+<?php 
+	$userinfo = $this->userinfo;
+	
+	/*foreach ($userinfo as $account)
+	{
+		if($account->username == $user)
+		{
+			$leaves = $account->leafs;
+			$username = $account->username;
+			$fullname = $account->fullname;
+			//$avatar = $imgPrefix.$account->avatar;
+			$description = $account->description;
+			$glass = $account->glass;
+			$plastic = $account->plastic;
+			$aluminium = $account->aluminium;
+			$lastActive = $account->date;
+			$website = $account->url;
+		}
+	}*/
+	
+	
+	header("Content-type: text/xml;charset=utf-8");
+	echo '<USER>
+		<username>'.$userinfo->username.'</username>
+		<fullname>'.$userinfo->fullname.'</fullname>
+		<avatar>'.$this->baseUrl($userinfo->avatar).'</avatar>
+		<description>'.$userinfo->description.'</description>
+		<leaves>'.$userinfo->points.'</leaves>
+    	<glass>'.$userinfo->glass.'</glass>
+		<plastic>'.$userinfo->plastic.'</plastic>
+		<aluminium>'.$userinfo->aluminium.'</aluminium>
+		<lastActive>'.$userinfo->date.'</lastActive>
+		<website>'.$userinfo->url.'</website>
+	</USER>';
+
+?>
