@@ -5,15 +5,15 @@ class Zend_View_Helper_Errors extends Zend_View_Helper_Abstract
         if (count($errors)>0){
         	//echo '<div class="">';
             echo '<div  class="alert fade in"><button type="button" class="close" data-dismiss="alert">×</button>';
-           	echo "<p>Warning! Something went wrong during your registration!</p>";
-            echo "<ul>";
-            echo "<li>Check your mail and verify that it is correct.</li>";
-            echo "<li>Did you type the captcha word correctly?!</li>";
-            echo "<li>Maybe your are registered already!</li>";
+           	//echo "<p>Warning! Something went wrong during your registration!</p>";
+            //echo "<ul>";
+            //echo "<li>Check your mail and verify that it is correct.</li>";
+            //echo "<li>Did you type the captcha word correctly?!</li>";
+            //echo "<li>Maybe your are registered already!</li>";
            // var_dump($errors);
             foreach ($errors as $error) {
                 if ($error[0]!=""){
-//                    printf("<li>%s</li>", $error[0]);
+                    printf("<li>%s</li>", $error[0]);
                 }
             }
             echo "</ul>";
@@ -23,6 +23,5 @@ class Zend_View_Helper_Errors extends Zend_View_Helper_Abstract
 					});</script>';
         }
     }
-
 } 
 ?>

@@ -4,6 +4,7 @@
   }
 }
 body{
+	font-family:"bariol_regular";
 	text-shadow:none;
 }
 a{
@@ -259,12 +260,17 @@ img.smallProfileImage {
 	font-size: 18px !important;
 	line-height: 100%;
 	color: #fff;
-	
 }
-
+.info-titles-green {
+	font-family:"bariol_regular";
+	font-size: 18px !important;
+	line-height: 100%;
+	color: #65B524;
+}
 .info-text {
-	font-family:"Open_Sans_R";
-	font-size: 15px !important;
+	/*font-family:"Open_Sans_R";*/
+	font-family:"bariol_regular";
+	font-size: 18px !important;
 	line-height: 100%;
 	padding-bottom: 0px;
 	color: #fff;
@@ -846,6 +852,7 @@ p.promo > span{
 	background: #65B524 !important;
 }
 .nav-tabs {
+	font-family:"bariol_regular";
     /*--border-bottom: 1px solid #65B524;*/
 	border-bottom: 1px solid #65B524;
 }

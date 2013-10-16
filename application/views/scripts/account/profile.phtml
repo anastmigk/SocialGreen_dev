@@ -195,6 +195,14 @@
 														<!-- <a class="pull-left" href="<?php //echo $this->baseUrl('account/profile/').'?user='.$activity->username;?>">
 							                    			<img class="media-object thumbnail avatar" src="<?php //echo $this->baseUrl($imgPrefix."thumb-".$activity->avatar);?>">
 							                    		</a> -->
+							                    		
+							                    		<div>
+							                    			<span class="score-heading-green"><?php echo 1*$activity->glass+2*$activity->plastic+3*$activity->aluminium; ?></span><span class="info-titles-green">leafs</span>
+							                    		
+							                    		</div>
+							                    		
+							                    		
+							                    		
 													</td>
 													<td>
 														<?php echo ucfirst($activity->username);  ?> saved <?php echo 1*$activity->glass+2*$activity->plastic+3*$activity->aluminium; ?> leafs on <?php echo date("d-M",strtotime($activity->date)) ?>! <span class="muted">
@@ -202,6 +210,11 @@
 														<img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/plastic.png");?>"> =<?php echo $activity->plastic; ?>
 														<img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/glass.png");?>"> = <?php echo $activity->glass; ?></span>
 													</td>
+													<td>
+													
+													
+													</td>
+													
 												</tr>
 											
 												<?php } ?>

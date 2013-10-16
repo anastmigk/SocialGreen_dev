@@ -62,25 +62,17 @@
 <!-- Modal Sign In -->
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
     <h3 id="myModalLabel">Sign In to Sociallgreen</h3>
   </div>
   <div class="modal-body">
-    <form action="">
-    	
-            <p>
-        	<input class="span3" required  size="16" type="email" name="email" id="email" placeholder="Email Address">
-        	<br>
-        	<input class="span3" required  size="16" type="password" name="password" id="password" placeholder="Password">
-        	</p>
-      
-    	
-    </form>
+    <?php echo $this->Errors($this->errors); ?>
+				 		
+	<?php echo $this->loginform->setAction($this->url(array('controller'=>'auth', 'action'=>'index' ), null, TRUE)); ?>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-glor pull-left" data-dismiss="modal" aria-hidden="true">Close</button>
-    
-	<button type="submit" name="submit" id="submit" class="btn btn-glor pull-left">Sign In</button>
+    <!-- <button class="btn btn-glor pull-left" data-dismiss="modal" aria-hidden="true">Close</button> -->
+	
   </div>
 </div>
 
@@ -103,7 +95,7 @@
 						 data-speed="100" 
 						 data-start="1000" 
 						 data-easing="easeOutExpo"><span style="line-height: 25px;">Type your current location:</span><br>
-						 <form name="myform" id="locationForm" action="sendcontact.php" enctype="multipart/form-data" method="post"> 
+						 <form name="myform" id="locationForm" action="" enctype="multipart/form-data" method="post"> 
 							 <div id="flocal" class="alert alert-error  error">
                         			Location should not be empty
                         	</div>

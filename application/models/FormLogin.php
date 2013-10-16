@@ -29,7 +29,7 @@ class Application_Model_FormLogin extends Zend_Form
             'required' => false,
             'ignore'   => true,
             'label'    => 'Login',
-        		'class'=> 'btn btn-success'
+        	'class'=> 'btn btn-glor2'
         ));
 		
         // Add a captcha
@@ -49,8 +49,8 @@ class Application_Model_FormLogin extends Zend_Form
         	$element->removeDecorator('Errors');
         }
         
-        $this->getElement('username')->addErrorMessage('Username is empty dude!');
-        $this->getElement('password')->addErrorMessage('Gief a pass!');
+        $this->getElement('username')->addErrorMessage('Username is empty!');
+        $this->getElement('password')->addErrorMessage('Give a password!');
         $this->setDecorators( array( array('ViewScript', array('viewScript' => '_form_login.phtml'))));
     }
 
