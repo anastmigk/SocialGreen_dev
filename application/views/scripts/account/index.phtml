@@ -10,7 +10,7 @@
 	foreach ($this->allActivity as $activityTemp){
 	$sum = $sum +  (1*$activityTemp->glass)+(2*$activityTemp->plastic)+(3*$activityTemp->aluminium);
 }?>
-<header class="desktop-header navbar navbar-fixed-top ">
+<header class="desktop-header navbar-fixed-top ">
 	<div class="container">
 			<img alt="Sociallgreen" title="Sociallgreen" id="logo" class="pull-left span2" src="<?php echo $this->baseUrl("images/logo.png"); ?>"/>
 			<?php echo $this->LoggedInAs(); ?>

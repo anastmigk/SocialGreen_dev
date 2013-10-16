@@ -73,8 +73,6 @@
     <h6 id="ModalBadgesLabel" class="title-leaderboard">Sample Badges</h6>
   </div>
   <div class="modal-body">
-   
-		<h1 class="title-leaderboard">Sample Badges</h1>
 						
 		<?php 
 		$counter = 1; 
@@ -83,7 +81,13 @@
 		{ 
 			?>
 				<!-- Arxi siras -->
-				<hr>
+				<?php
+				
+				if ($counter > 1)
+				{ 
+					echo "<hr>";
+				
+				}?>
 				<div class="row-fluid">
 					<div class="span12">
 						<div class="row-fluid">
@@ -99,6 +103,7 @@
 				</div>
 				
 			<?php
+			$counter++;
 		}
 		?>	
 
@@ -187,9 +192,9 @@
 												<?php if ($activity->quantity>0) {?>
 												<tr>
 													<td>
-														<a class="pull-left" href="<?php echo $this->baseUrl('account/profile/').'?user='.$activity->username;?>">
-							                    			<img class="media-object thumbnail avatar" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$activity->avatar);?>">
-							                    		</a>
+														<!-- <a class="pull-left" href="<?php //echo $this->baseUrl('account/profile/').'?user='.$activity->username;?>">
+							                    			<img class="media-object thumbnail avatar" src="<?php //echo $this->baseUrl($imgPrefix."thumb-".$activity->avatar);?>">
+							                    		</a> -->
 													</td>
 													<td>
 														<?php echo ucfirst($activity->username);  ?> saved <?php echo 1*$activity->glass+2*$activity->plastic+3*$activity->aluminium; ?> leafs on <?php echo date("d-M",strtotime($activity->date)) ?>! <span class="muted">
