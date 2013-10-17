@@ -23,7 +23,7 @@
 	}*/
 	if($errors == NULL)
 	{
-		if($userinfo != NULL)
+		if($newuserinfo != NULL)
 		{
 			header("Content-type: text/xml;charset=utf-8");
 			echo '<USER>
@@ -47,7 +47,6 @@
 				<plastic>'.$userinfo->plastic.'</plastic>
 				<aluminium>'.$userinfo->aluminium.'</aluminium>
 				<lastActive>'.$userinfo->date.'</lastActive>
-				<website>'.$userinfo->url.'</website>
 			</USER>';
 		}
 	}
