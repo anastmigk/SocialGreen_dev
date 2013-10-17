@@ -194,7 +194,7 @@ class RestapiController extends Zend_Controller_Action
     {
         // action body
     	$request = $this->getRequest();
-    	$user = $request->getPost('user');
+    	$user = $request->getPost('username');
     	$email = $request->getPost('email');
     	$avatar = $request->getPost('avatar');
     	 
@@ -242,12 +242,11 @@ class RestapiController extends Zend_Controller_Action
     				$account->insert($data);
     				$this->view->newuserinfo = array('email'=>$email,'username'=>$user,'date'=>date('Y-m-d H:i:s'),'points'=>0,'glass'=>0,'plastic'=>0,'aluminium'=>0);
     				$this->view->errors = NULL;
-    			
     			}
     			catch (Zend_Db_Exception $e) 
     			{
     				//echo $e->getMessage();
-    				$this->view->errors = array( array("Database error"));
+    				$this->view->errors = "Database error";
     			}
     		}		 
     	}
