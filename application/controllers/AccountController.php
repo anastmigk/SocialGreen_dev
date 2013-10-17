@@ -100,7 +100,7 @@ class AccountController extends Zend_Controller_Action
 						 'recovery'=>$token,
   						 'password'=>$hashedPass,
 						 'salt'=> $salt
-                         );       
+                         );
 				TRY {
 					$account->insert($data);
 					//$this->_helper->flashMessenger->addMessage("You have successfully registered at Social Green Project!");
@@ -156,7 +156,7 @@ class AccountController extends Zend_Controller_Action
                 }
                 catch (Zend_Db_Exception $e) {
 					//echo $e->getMessage();	
-					$this->view->errors = array("Your are already registered");
+					$this->view->errors = array( array("Your are already registered"));
                 }
 			}
             else

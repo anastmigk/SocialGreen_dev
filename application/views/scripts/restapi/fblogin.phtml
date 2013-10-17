@@ -1,0 +1,61 @@
+<?php 
+	$userinfo = $this->userinfo;
+	$newuserinfo = $this->newuserinfo;
+	$imgPrefix = $this->imgPrefix;
+	$badgesPrefix = $this->badgesPrefix;
+	$errors = $this->errors;
+	
+	/*foreach ($userinfo as $account)
+	{
+		if($account->username == $user)
+		{
+			$leaves = $account->leafs;
+			$username = $account->username;
+			$fullname = $account->fullname;
+			//$avatar = $imgPrefix.$account->avatar;
+			$description = $account->description;
+			$glass = $account->glass;
+			$plastic = $account->plastic;
+			$aluminium = $account->aluminium;
+			$lastActive = $account->date;
+			$website = $account->url;
+		}
+	}*/
+	if($errors == NULL)
+	{
+		if($userinfo != NULL)
+		{
+			header("Content-type: text/xml;charset=utf-8");
+			echo '<USER>
+				<username>'.$newuserinfo->username.'</username>
+				<email>'.$newuserinfo->email.'</email>
+				<leaves>'.$newuserinfo->points.'</leaves>
+		    	<glass>'.$newuserinfo->glass.'</glass>
+				<plastic>'.$newuserinfo->plastic.'</plastic>
+				<aluminium>'.$newuserinfo->aluminium.'</aluminium>
+				<lastActive>'.$newuserinfo->date.'</lastActive>
+			</USER>';
+		}
+		else
+		{
+			header("Content-type: text/xml;charset=utf-8");
+			echo '<USER>
+				<username>'.$userinfo->username.'</username>
+				<email>'.$userinfo->email.'</email>
+				<leaves>'.$userinfo->points.'</leaves>
+		    	<glass>'.$userinfo->glass.'</glass>
+				<plastic>'.$userinfo->plastic.'</plastic>
+				<aluminium>'.$userinfo->aluminium.'</aluminium>
+				<lastActive>'.$userinfo->date.'</lastActive>
+				<website>'.$userinfo->url.'</website>
+			</USER>';
+		}
+	}
+	else
+	{
+		header("Content-type: text/xml;charset=utf-8");
+		echo '<error>
+			'.$errors.'
+		</error>';
+	}
+?>

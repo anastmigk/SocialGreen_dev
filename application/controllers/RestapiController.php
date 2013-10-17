@@ -15,8 +15,7 @@ class RestapiController extends Zend_Controller_Action
         // action body
     	//$this->_helper->redirector('index', 'account');
     }
-    
-        
+
     public function userinfoAction()
     {
     	$request = $this->getRequest();
@@ -66,7 +65,7 @@ class RestapiController extends Zend_Controller_Action
     			//echo (String)$query;
     			$this->view->accounts = $accounts->fetchAll($query);*/
     			
-    			/*Retrieve ALL user's Activity*/
+    			/*Retrieve user's info*/
 		    	$userinfo = new Application_Model_DbTable_Accounts();
 		    	$query3 = $userinfo->select();
 		    	$query3->from(array('acc' => 'accounts'), array('username','email','avatar', 'fullname','points','description', 'url'));
@@ -115,7 +114,7 @@ class RestapiController extends Zend_Controller_Action
     	
     	
     }
-    
+
     protected function userExist($user)
     {
     	if($user != NULL)
@@ -145,11 +144,122 @@ class RestapiController extends Zend_Controller_Action
 
     public function userloginAction()
     {
+    	$request = $this->getRequest();
+    	$user = $request->getPost('user');
+    	
+    	$this->view->badgesPrefix = "/images/badges/";
+    	$this->view->imgPrefix = "/images/avatars/";
+    	$this->view->title = $user;
+    	
+    	
+    	if ($request->isPost())
+    	{
+    		 
+    		if ($this->userExist($user))
+    		{
+    			    			
+    			/*Retrieve ALL user's Activity*/
+		    	$userinfo = new Application_Model_DbTable_Accounts();
+		    	$query3 = $userinfo->select();
+		    	$query3->from(array('acc' => 'accounts'), array('username','email','avatar', 'fullname','points','description', 'url'));
+		    	$query3->from(array('act' => 'activity'), array('SUM(act.aluminium) as aluminium','SUM(act.glass) as glass','SUM(act.plastic) as plastic','MAX(act.date) as date'));
+		    	$query3->where('acc.username = "'.$user.'" AND acc.id = act.userid');
+		    	$query3->group("acc.username");
+		    	$query3->setIntegrityCheck(false);
+		    	$this->view->userinfo = $userinfo->fetchRow($query3);
+		    	
+		    	$this->view->errors = NULL;
+    			 
+    		}
+    		else
+    		{
+    			//$this->view->errors = array( array("Wrong username and password combination dude!"));
+    			//$this->_response->clearBody();
+				//$this->_response->clearHeaders();
+				//$this->_response->setHttpResponseCode(404);
+    			$this->view->errors = "User don't exist";
+    		}
+    		 
+    	}
+    	else
+    	{
+    		//$this->_response->clearBody();
+			//$this->_response->clearHeaders();
+			//$this->_response->setHttpResponseCode(404);
+    		$this->view->errors = "No post data";
+    	}
+    }
+
+    public function fbloginAction()
+    {
         // action body
+    	$request = $this->getRequest();
+    	$user = $request->getPost('user');
+    	$email = $request->getPost('email');
+    	$avatar = $request->getPost('avatar');
+    	 
+    	$this->view->badgesPrefix = "/images/badges/";
+    	$this->view->imgPrefix = "/images/avatars/";
+    	$this->view->title = $user;
+    	 
+    	 
+    	if ($request->isPost())
+    	{
+    		 
+    		if ($this->userExist($user))
+    		{
+    	
+    			/*already facebook user retrieve users info*/
+    			$userinfo = new Application_Model_DbTable_Accounts();
+    			$query3 = $userinfo->select();
+    			$query3->from(array('acc' => 'accounts'), array('username','email','avatar', 'fullname','points','description', 'url'));
+    			$query3->from(array('act' => 'activity'), array('SUM(act.aluminium) as aluminium','SUM(act.glass) as glass','SUM(act.plastic) as plastic','MAX(act.date) as date'));
+    			$query3->where('acc.username = "'.$user.'" AND acc.id = act.userid');
+    			$query3->group("acc.username");
+    			$query3->setIntegrityCheck(false);
+    			$this->view->userinfo = $userinfo->fetchRow($query3);
+    			 
+    			$this->view->errors = NULL;
+    	
+    		}
+    		else
+    		{
+    			/*New facebook user Insert into Accounts table*/
+    			$account = new Application_Model_DbTable_Accounts();
+    			
+    			$data = array(
+    					'email'=>$email,
+    					//'description'=>$form->getValue('description'),
+    					'username'=>$user,
+    					//'password'=>$form->getValue('pswd'),
+    					'created'=>date('Y-m-d H:i:s'),
+    					'updated'=>date('Y-m-d H:i:s'),
+    					'typeid'=>'3'
+    			);
+    			TRY
+    			{
+    				$account->insert($data);
+    				$this->view->newuserinfo = array('email'=>$email,'username'=>$user,'date'=>date('Y-m-d H:i:s'),'points'=>0,'glass'=>0,'plastic'=>0,'aluminium'=>0);
+    				$this->view->errors = NULL;
+    			
+    			}
+    			catch (Zend_Db_Exception $e) 
+    			{
+    				//echo $e->getMessage();
+    				$this->view->errors = array( array("Database error"));
+    			}
+    		}		 
+    	}
+    	else
+    	{
+    		$this->view->errors = "No post data";
+    	}
     }
 
 
 }
+
+
 
 
 

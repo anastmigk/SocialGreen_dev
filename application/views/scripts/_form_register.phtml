@@ -1,3 +1,4 @@
+<?php /*
 <form id="register" action="<?= $this->baseUrl($this->element->getAction()); ?>" method="<?= $this->element->getMethod(); ?>">
 <p>
 Type in your e-mail address to stay connected!</p>
@@ -10,4 +11,28 @@ Type in your e-mail address to stay connected!</p>
 <p>
 <?= $this->element->submit; ?>
 </p>
+</form>
+*/ ?>
+
+<form class="form-horizontal" id="register" action="<?= $this->element->getAction(); ?>" method="<?= $this->element->getMethod(); ?>">
+<div class="control-group">
+	<?= $this->element->username; ?>
+</div>
+<div class="control-group">
+	<?= $this->element->email; ?>
+</div>
+<div class="control-group">
+	<?= $this->element->pswd; ?>
+</div>
+<div class="control-group">
+	<?= $this->element->pswd2; ?>
+</div>
+<div class="control-group">
+	<?= $this->element->captcha; ?>
+</div>
+
+<div class="control-group">
+	<?= $this->element->submit; ?>
+</div>
+<p>* fields are requeried</p>
 </form>
