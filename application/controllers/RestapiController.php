@@ -232,6 +232,7 @@ class RestapiController extends Zend_Controller_Action
     					'email'=>$email,
     					//'description'=>$form->getValue('description'),
     					'username'=>$user,
+    					'avatar'=>$avatar,
     					//'password'=>$form->getValue('pswd'),
     					'created'=>date('Y-m-d H:i:s'),
     					'updated'=>date('Y-m-d H:i:s'),
@@ -240,7 +241,17 @@ class RestapiController extends Zend_Controller_Action
     			TRY
     			{
     				$account->insert($data);
-    				$this->view->newuserinfo = array('email'=>$email,'username'=>$user,'date'=>date('Y-m-d H:i:s'),'points'=>0,'glass'=>0,'plastic'=>0,'aluminium'=>0);
+    				$tmp = array('email'=>$email,
+    							'username'=>$user,
+    							'avatar'=>$avatar,
+    							'date'=>date('Y-m-d H:i:s'),
+    							'points'=>'0',
+    				 			'glass'=>'0',
+    							'plastic'=>'0',
+    							'aluminium'=>'0');
+    				 
+    				$this->view->newuserinfo = $tmp;
+    				$this->view->userinfo = NULL;
     				$this->view->errors = NULL;
     			}
     			catch (Zend_Db_Exception $e) 
