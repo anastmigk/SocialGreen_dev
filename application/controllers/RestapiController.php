@@ -219,6 +219,7 @@ class RestapiController extends Zend_Controller_Action
     			$query3->setIntegrityCheck(false);
     			$this->view->userinfo = $userinfo->fetchRow($query3);
     			 
+    			$this->view->newuserinfo = NULL;
     			$this->view->errors = NULL;
     	
     		}
