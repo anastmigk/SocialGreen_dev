@@ -198,14 +198,13 @@ class RestapiController extends Zend_Controller_Action
     	$email = $request->getPost('email');
     	$avatar = $request->getPost('avatar');
     	 
-    	$this->view->badgesPrefix = "/images/badges/";
-    	$this->view->imgPrefix = "/images/avatars/";
+    	//$this->view->badgesPrefix = "/images/badges/";
+    	//$this->view->imgPrefix = "/images/avatars/";
     	$this->view->title = $user;
     	 
     	 
     	if ($request->isPost())
     	{
-    		 
     		if ($this->userExist($user))
     		{
     	
@@ -217,8 +216,27 @@ class RestapiController extends Zend_Controller_Action
     			$query3->where('acc.username = "'.$user.'" AND acc.id = act.userid');
     			$query3->group("acc.username");
     			$query3->setIntegrityCheck(false);
-    			$this->view->userinfo = $userinfo->fetchRow($query3);
-    			 
+    			$temp = $userinfo->fetchRow($query3);
+    			
+    			/*if user exist but doesn't have activity*/
+    			if($temp->username == "")
+    			{
+    				$userinfo2 = new Application_Model_DbTable_Accounts();
+	    			$query = $userinfo2->select();
+	    			$query->from(array('acc' => 'accounts'), array('username','email','avatar', 'fullname','points','updated AS date'));
+	    			//$query3->from(array('act' => 'activity'), array('SUM(act.aluminium) as aluminium','SUM(act.glass) as glass','SUM(act.plastic) as plastic','MAX(act.date) as date'));
+	    			$query->where('acc.username = "'.$user.'"');
+	    			//$query3->group("acc.username");
+	    			$query->setIntegrityCheck(false);
+	    			$temp2 = $userinfo2->fetchRow($query);
+    					
+    				$this->view->userinfo = $temp2;
+    			}
+    			else
+    			{
+    				$this->view->userinfo = $temp;
+    			}
+    			
     			$this->view->newuserinfo = NULL;
     			$this->view->errors = NULL;
     	
@@ -248,7 +266,7 @@ class RestapiController extends Zend_Controller_Action
     							'points'=>'0',
     				 			'glass'=>'0',
     							'plastic'=>'0',
-    							'aluminium'=>'0');
+    							'aluminium'=>'0',);
     				 
     				$this->view->newuserinfo = $tmp;
     				$this->view->userinfo = NULL;
