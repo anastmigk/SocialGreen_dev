@@ -198,8 +198,6 @@ class RestapiController extends Zend_Controller_Action
     	$email = $request->getPost('email');
     	$avatar = $request->getPost('avatar');
     	 
-    	//$this->view->badgesPrefix = "/images/badges/";
-    	//$this->view->imgPrefix = "/images/avatars/";
     	$this->view->title = $user;
     	 
     	 

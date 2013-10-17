@@ -1,8 +1,6 @@
 <?php 
 	$userinfo = $this->userinfo;
 	$newuserinfo = $this->newuserinfo;
-	//$imgPrefix = $this->imgPrefix;
-	//$badgesPrefix = $this->badgesPrefix;
 	$errors = $this->errors;
 	
 	/*foreach ($userinfo as $account)
@@ -60,14 +58,14 @@
 			 * giati etsi ginete ennow otan epistrefei apo erwtima stin vasi einai alliws opws panw */
 			header("Content-type: text/xml;charset=utf-8");
 			echo '<USER>
-				<username>'.$newuserinfo['username'].'</username>
+				<username>'.$newuserinfo["username"].'</username>
 				<email>'.$newuserinfo["email"].'</email>
-				<avatar>'.$userinfo['avatar'].'</avatar>
-				<leaves>'.$newuserinfo['points'].'</leaves>
-		    	<glass>'.$newuserinfo['glass'].'</glass>
-				<plastic>'.$newuserinfo['plastic'].'</plastic>
-				<aluminium>'.$newuserinfo['aluminium'].'</aluminium>
-				<lastActive>'.$newuserinfo['date'].'</lastActive>
+				<avatar>'.$newuserinfo["avatar"].'</avatar>
+				<leaves>'.$newuserinfo["points"].'</leaves>
+		    	<glass>'.$newuserinfo["glass"].'</glass>
+				<plastic>'.$newuserinfo["plastic"].'</plastic>
+				<aluminium>'.$newuserinfo["aluminium"].'</aluminium>
+				<lastActive>'.$newuserinfo["date"].'</lastActive>
 			</USER>';
 		}
 	}
