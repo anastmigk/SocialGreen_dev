@@ -62,6 +62,12 @@ class Application_Model_FormRegister extends Zend_Form {
         $pswd2->addErrorMessage("Password re-type is not correct");
         $pswd2->addValidator('Identical', false, array('token' => 'pswd'));
         
+        //TYPE OF USER
+        $type = new Zend_Form_Element_Select("type");
+        $type->setLabel("Type of user :");
+        $type->setMultiOptions(array('1'=>'User' ,'2'=>'Organization'));
+        //$type->setAttrib('size',1);
+        
         
         // Add a captcha
         $captcha = new Zend_Form_Element_Captcha("captcha",array(
@@ -103,8 +109,12 @@ class Application_Model_FormRegister extends Zend_Form {
         
         $this->setDecorators( array( array('ViewScript', array('viewScript' => '_form_register.phtml'))));
         
-        $this->addElements(array($username, $email, $pswd, $pswd2,$captcha, $submit));
+        $this->addElements(array($username, $email, $pswd, $pswd2, $type, $captcha, $submit));
         //$this->addElements(array($email,$captcha, $submit));
+        
+        $this->setDefaults(array(
+        		'type' => 1
+        ));
     }
 }
 

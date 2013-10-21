@@ -198,7 +198,7 @@ class RestapiController extends Zend_Controller_Action
     	$email = $request->getPost('email');
     	$avatar = $request->getPost('avatar');
     	 
-    	$this->view->title = $user;
+    	//$this->view->title = $user;
     	 
     	 
     	if ($request->isPost())
@@ -283,8 +283,136 @@ class RestapiController extends Zend_Controller_Action
     	}
     }
 
+    public function qrscanAction()
+    {
+    	// action body
+    	$request = $this->getRequest();
+    	$user = $request->getPost('username');
+    	$tranid = $request->getPost('tranid');
+    	$alum = $request->getPost('alum');
+    	$plastic = $request->getPost('plastic');
+    	$glass = $request->getPost('glass');
+    	
+    	$this->view->badgesPrefix = "/images/badges/";
+    	$this->view->imgPrefix = "/images/avatars/";
+    	
+    	if ($request->isPost())
+    	{
+    		if ($this->validTranid($tranid,$alum,$plastic,$glass))
+    		{
+    			$userid = $this->validUserid($user);
+    			if ($userid)
+    			{
+    				TRY 
+    				{
+	    				$activity = new Application_Model_DbTable_Activity();
+	    				$newRow = $activity->createRow();
+	    					
+	    				// Set column values as appropriate for your application
+	    				$newRow->userid = $userid;
+	    				$newRow->quantity = ($alum+$plastic+$glass);
+	    				$newRow->glass = $glass;
+	    				$newRow->aluminium = $alum;
+	    				$newRow->plastic = $plastic;
+	    				$newRow->date = date('Y-m-d');
+	    					
+	    				// INSERT the new row to the database
+	    				$newRow->save();
+	    				$activity->fetchAll();
+	    				
+	    				/*updated userinfo*/
+	    				$userinfo = new Application_Model_DbTable_Accounts();
+	    				$query3 = $userinfo->select();
+	    				$query3->from(array('acc' => 'accounts'), array('username','email','avatar', 'fullname','points','description', 'url'));
+	    				$query3->from(array('act' => 'activity'), array('SUM(act.aluminium) as aluminium','SUM(act.glass) as glass','SUM(act.plastic) as plastic','MAX(act.date) as date'));
+	    				$query3->where('acc.username = "'.$user.'" AND acc.id = act.userid');
+	    				$query3->group("acc.username");
+	    				$query3->setIntegrityCheck(false);
+	    				$this->view->userinfo = $userinfo->fetchRow($query3);
+	
+	    				$transaction = new Application_Model_DbTable_Transaction();
+	    				$where = $transaction->getAdapter()->quoteInto('tranid = ?', ($tranid.$alum.$plastic.$glass));
+	    				$transaction->delete($where);
+	    				$this->view->errors = NULL;
+    				}
+    				catch (Zend_Db_Exception $e)
+    				{
+						$this->view->errors = "Database error";
+                	}
+    			}
+    			else
+    			{
+    				$this->view->errors = "User not valid";
+    			}
+    		}
+    		else
+    		{
+    			$this->view->errors = "Transaction id not valid";
+    		}		 
+    	}
+    	else
+    	{
+    		$this->view->errors = "No post data";
+    	}
+    }
+	
+    protected function validTranid($tranid,$alum,$plastic,$glass)
+    {
+    	if($tranid != NULL)
+    	{
+    		$transaction = new Application_Model_DbTable_Transaction();
+    		$query = $transaction->select();
+    		$query->from(array('tra' => 'transaction'), array('tranid'));
+    		$query->where('tra.tranid = "'.$tranid.$alum.$plastic.$glass.'"');
+    		$query->setIntegrityCheck(false);
+    		$result = $transaction->fetchRow($query);
+    		 
+    		if($result->tranid != NULL)
+    		{
+    			return true;
+    		}
+    		else
+    		{
+    			return false;
+    		}
+    	}
+    	else
+    	{
+    		return false;
+    	}
+    	 
+    }
+    
+    protected function validUserid($user)
+    {
+    	if($user != NULL)
+    	{
+    		$usr = new Application_Model_DbTable_Accounts();
+    		$query = $usr->select();
+    		$query->from(array('acc' => 'accounts'), array('id'));
+    		$query->where('acc.username = "'.$user.'"');
+    		$query->setIntegrityCheck(false);
+    		$username = $usr->fetchRow($query);
+    		 
+    		if($username->id != NULL)
+    		{
+    			return $username->id;
+    		}
+    		else
+    		{
+    			return false;
+    		}
+    	}
+    	else
+    	{
+    		return false;
+    	}
+    	 
+    }
 
 }
+
+
 
 
 

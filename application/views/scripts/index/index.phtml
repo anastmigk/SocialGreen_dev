@@ -1,4 +1,4 @@
-<?php
+<?php /*
 		//	Retrieving the stored messages is similarly simple:
 		$messages = $this->messages;
 		//This will create an array of messages in your view object which you can then loop over in your view script:
@@ -10,7 +10,7 @@
     					$("div#customalert").delay(2000).animate({top:"70px"},"slow").delay(10000).fadeOut(2000);
 					});</script>';
  		}
-?>
+*/ ?>
 <?php  $accounts = $this->accounts; ?>
 <?php  $imgPrefix = $this->imgPrefix; ?>
 <?php  $allactivity = $this->results; ?>
@@ -61,9 +61,10 @@
 	
 <!-- Modal Sign In -->
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
-    <h3 id="myModalLabel">Sign In to Sociallgreen</h3>
+  <div class="modal-header lead-background">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove icon-white"></i></button>
+    <!-- <h3 id="myModalLabel">Sign In to Sociallgreen</h3> -->
+    <h6 id="ModalBadgesLabel" class="title-leaderboard"><span >Sign In to Sociallgreen</span></h6>
   </div>
   <div class="modal-body">
     <?php echo $this->Errors($this->errors); ?>
@@ -75,7 +76,8 @@
 
 <div id="intro">
 	<div class="fullwidthbanner-container">
-		<div class="fullwidthbanner">
+		<div class="fullwidthbanner"  >
+			
 			<ul>
 				<li  data-slotamount="1" data-masterspeed="300" >
 					<img alt="" title="" src="http://maps.googleapis.com/maps/api/staticmap?center=leukos+pirgos,thessaloniki,Greece&zoom=13&size=640x500&scale=2&format=png&key=AIzaSyDRid_JJj_wwGWz4Pi4xr17TO40JlkUSGQ&maptype=terrain&markers=color:blue%7CStratigou+Napoleontos+Zerva+10,Thessaloniki,Greece&sensor=false" />
@@ -102,10 +104,30 @@
 	                        </div>
 	                        <button type="submit" name="submit" id="submit" class="btn btn-glor2">Search</button>
                     	</form>
-					</div>		
+					</div>
+					
+						 <?php
+							//	Retrieving the stored messages is similarly simple:
+							$messages = $this->messages;
+							//This will create an array of messages in your view object which you can then loop over in your view script:
+							if (count($messages)){
+								foreach ($messages as $message) {
+					 				echo '
+ 										<div id="customalert" class="alert caption big_white_sub  lfl stl visible-tablet visible-desktop"  
+							 			data-x="700" 
+							 			data-y="50" 
+							 			data-speed="100" 
+							 			data-start="1000" 
+							 			data-easing="easeOutExpo"><button type="button" class="close" data-dismiss="alert">&times;</button>'.$message.'</div>'; 
+					 			}
+					 		}
+						?>
+						 
+					
 				</li>						
 			</ul>	
 		<div class="tp-bannertimer"></div>
+		
 		</div>
 	</div>
 </div> <!-- end intro -->
@@ -290,7 +312,6 @@
 		</section>
 	</section>
 </div>
-
 
 
 <div id="howItWorks" class="page">

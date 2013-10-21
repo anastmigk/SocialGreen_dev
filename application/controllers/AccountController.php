@@ -15,13 +15,13 @@ class AccountController extends Zend_Controller_Action
     	$accounts = new Application_Model_DbTable_Accounts();
     	$query = $accounts->select();
     	$query->from(array('act' => 'activity'), array('SUM(act.quantity) as quantity','SUM(act.plastic) as plastic','SUM(act.glass) as glass','SUM(act.aluminium) as aluminium', '(SUM(act.glass)*1+SUM(act.plastic)*2+SUM(act.aluminium)*3) as leafs','userid','MAX(act.date) as date'));
-    	$query->join(array('acc' => 'accounts'), 'act.userid = acc.id', array('fullname','username','avatar','description', 'url'));
+    	$query->join(array('acc' => 'accounts'), 'act.userid = acc.id', array('fullname','username','avatar','description', 'url','fb','tw'));
     	$query->order('leafs Desc');
     	$query->group(array("username"));
     	$query->setIntegrityCheck(false);
     	//echo (String)$query;
     	$this->view->accounts = $accounts->fetchAll($query);
-    	$this->view->imgPrefix = "/images/avatars/";  	
+    	$this->view->imgPrefix = "/images/avatars/";
     	
     	$activity = new Application_Model_DbTable_Activity();
     	
@@ -92,13 +92,14 @@ class AccountController extends Zend_Controller_Action
 				$token = uniqid();
 				$data = array(
                          'email'=>$form->getValue('email'),
-                         'description'=>$form->getValue('description'),
+                         //'description'=>$form->getValue('description'),
                          'username'=>$form->getValue('username'),
                          'password'=>$form->getValue('pswd'),
                          'created'=>date('Y-m-d H:i:s'),
                          'updated'=>date('Y-m-d H:i:s'),
 						 'recovery'=>$token,
   						 'password'=>$hashedPass,
+						'typeid'=>$form->getValue('type'),
 						 'salt'=> $salt
                          );
 				TRY {
@@ -109,7 +110,7 @@ class AccountController extends Zend_Controller_Action
 					
 					$smtpServer = 'mail.sociallgreen.com';
 					$username = 'info@sociallgreen.com';
-					$password = 'leac8r12!';
+					$password = '22wwSSDD';
 					 
 					$config = array(
 							'auth' => 'login',
@@ -136,7 +137,7 @@ class AccountController extends Zend_Controller_Action
 						</head>
 						<body>
 						<img style='max-width:400px' src='http://sociallgreen.com/images/socialllogo600.png'>
-						<h1>Welcome at SociallGreen community!</h1>
+						<h1>Welcome at Sociallgreen community!</h1>
 						<p>This is a confirmation mail for registering at our community. <br>
 							Click the following link to confirm your registration.</p>".
 //						<a href='http://socialgreenproject.com/account/confirm/token/".$token."/usr/".$form->getValue('username')."'>http://socialgreenproject.com/account/confirm/token/".$token."/usr/".$form->getValue('username')."</a>
@@ -145,7 +146,7 @@ class AccountController extends Zend_Controller_Action
 						</html>";
 					
 					$mail = new Zend_Mail();
-					$mail->setBodyHtml($htmlMail)->setFrom('no-reply@sociallgreen.com', 'Social Green Team')->addTo($form->getValue('email'))->setSubject('Confirmation Mail')->send($transport);
+					$mail->setBodyHtml($htmlMail)->setFrom('no-reply@sociallgreen.com', 'Sociallgreen Team')->addTo($form->getValue('email'))->setSubject('Confirmation Mail')->send($transport);
 					
 					//$this->_helper->_redirector("index", 'index', array("register","true"));
 					$flashMessenger = $this->_helper->getHelper('FlashMessenger');
@@ -179,22 +180,7 @@ class AccountController extends Zend_Controller_Action
         $this->view->account = $accounts->fetchRow($select);*/
     	
     	// action body
-    	$param = $this->_getParam('user');
-        
-        $isxml = substr($param, -4);
-        if ($isxml == ".xml")
-        {
-        	$this->view->isxml = TRUE;
-        	$this->_helper->layout()->disableLayout();
-        	$user = substr($param, 0, -4);
-        }
-        else
-        {
-        	$this->view->isxml = FALSE;
-        	$user = $param;
-        }
-        
-        
+    	$user = $this->_getParam('user'); 
         
         $this->view->title = $user;//->append($user);
         //        $accounts = new Application_Model_DbTable_Accounts();

@@ -36,28 +36,11 @@
 			$aluminium = $account->aluminium;
 			$lastActive = $account->date;
 			$website = $account->url;
+			$fb = $account->fb;
+			$tw = $account->tw;
 		}
 	}
-	
-	$isxml = $this->isxml;
-	if ($isxml)
-	{
-		header("Content-type: text/xml;charset=utf-8");
-		echo '<USER>
-				<username>'.$username.'</username>
-				<fullname>'.$fullname.'</fullname>
-				<avatar>'.$this->baseUrl($avatar).'</avatar>
-				<description>'.$description.'</description>
-				<leaves>'.$leaves.'</leaves>
-    			<glass>'.$glass.'</glass>
-				<plastic>'.$plastic.'</plastic>
-				<aluminium>'.$aluminium.'</aluminium>
-				<lastActive>'.$lastActive.'</lastActive>
-					
-			  </USER>';
-	}
-	else
-	{?>
+	?>
 
 <header class="desktop-header navbar-fixed-top ">
 	<div class="container">
@@ -108,9 +91,9 @@
 		?>	
 
   </div>
-  <div class="modal-footer">
+  <!-- <div class="modal-footer">
     <button class="btn btn-glor pull-left" data-dismiss="modal" aria-hidden="true">Close</button>
-  </div>
+  </div> -->
 </div>
 
 
@@ -198,31 +181,26 @@
 							                    		
 							                    		<div>
 							                    			<span class="score-heading-green"><?php echo 1*$activity->glass+2*$activity->plastic+3*$activity->aluminium; ?></span><span class="info-titles-green">leafs</span>
-							                    		
 							                    		</div>
-							                    		
-							                    		
-							                    		
 													</td>
 													<td>
-														<?php echo ucfirst($activity->username);  ?> saved <?php echo 1*$activity->glass+2*$activity->plastic+3*$activity->aluminium; ?> leafs on <?php echo date("d-M",strtotime($activity->date)) ?>! <span class="muted">
+														<!-- <?php echo ucfirst($activity->username);  ?> saved <?php echo 1*$activity->glass+2*$activity->plastic+3*$activity->aluminium; ?> leafs on <?php echo date("d-M",strtotime($activity->date)) ?>! <span class="muted"> -->
+														
+														<span class="muted">
 														<br><img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/alum.png");?>"> = <?php echo $activity->aluminium; ?>
 														<img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/plastic.png");?>"> =<?php echo $activity->plastic; ?>
-														<img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/glass.png");?>"> = <?php echo $activity->glass; ?></span>
+														<img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/glass.png");?>"> = <?php echo $activity->glass; ?>
+														</span>
 													</td>
 													<td>
-													
-													
+													saved on <?php echo date("d-M",strtotime($activity->date)) ?>!
 													</td>
-													
 												</tr>
 											
 												<?php } ?>
 											<?php } ?>
 											</table>
 											<span class="pull-left"><?php //echo $this->paginationControl($this->results2, 'Sliding', 'pagination.phtml'); ?></span>
-											
-							
 										</div>
 										
 										<!-- Performance Content -->
@@ -248,10 +226,8 @@
 											    		?>
 											    	</ul>
 											    	</div>
-											    </div>
-						            		
-						              	</div>
-										
+											  </div>
+						              	 </div>
 									</div>
 								</div>
 								</article>
@@ -269,8 +245,30 @@
 									<hr class="hr-infotable">
 									<div class="row-fluid ">
 										<div class="span12">
-											<!-- <a target="_blank" href="<?php echo $website;?>" ><i class="icon-globe icon-white"></i></a> -->
-											<a target="_blank" href="<?php echo $website;?>" ><img class="" src="<?php echo $this->baseUrl("/images/icons/a07.png"); ?>"></a>
+										
+											<?php 
+											if($website != NULL)
+											{?>
+												<a target="_blank" href="<?php echo $website;?>" ><img class="img-social" src="<?php echo $this->baseUrl("/images/icons/a18.png"); ?>"></a>
+											<?php 
+											}?>
+											
+											<?php 
+											if($fb != NULL)
+											{?>
+												<a target="_blank" href="<?php echo $fb;?>" ><img class="img-social" src="<?php echo $this->baseUrl("/images/icons/a11.png"); ?>"></a>
+											<?php 
+											}?>
+											
+											<?php 
+											if($tw != NULL)
+											{?>
+												<a target="_blank" href="<?php echo $tw;?>" ><img class="img-social" src="<?php echo $this->baseUrl("/images/icons/a17.png"); ?>"></a>
+											<?php 
+											}?>
+										
+											<!-- <a target="_blank" href="<?php echo $website;?>" ><i class="icon-globe icon-white"></i></a> 
+											<a target="_blank" href="<?php echo $website;?>" ><img class="" src="<?php echo $this->baseUrl("/images/icons/a07.png"); ?>"></a> -->
 										</div>
 									</div>
 									<hr class="hr-infotable">
@@ -352,7 +350,7 @@
 		</section> <!-- container-fluid : ends-->
 	</div> <!-- projects : ends -->
 
-	<?php }?>
+
 	
 <script>
 <?php 

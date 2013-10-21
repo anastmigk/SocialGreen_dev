@@ -53,7 +53,7 @@ class AboutController extends Zend_Controller_Action
         
         $laps = array(
         		"George Lapatas",
-        		"Web Developer",
+        		"Web <br>Developer",
         		"giwrgos.jpg",
         		"Born in thessaloniki, george is about to graduate from the dept computer science and technology, university of Peloponnese. At social-green he delivers cut-edge code and clear cut user interfaces . He loves travelling and swimming.",
         		'http://gr.linkedin.com/pub/giorgos-lapatas/3b/621/324/',
@@ -62,7 +62,7 @@ class AboutController extends Zend_Controller_Action
 		
 		$antonis = array(
 				"Antonis Karanaftis",
-				"Designer & Artist",
+				"Designer <br> & Artist",
 				"antw.jpg",
 				"He is the Art Director of Social Green where he handles every design related issue. His working experience contains printing and graphic design positions. In his free time, Antonis enjoys photo shooting and animation.",
 				'http://gr.linkedin.com/pub/antonis-karanaftis/65/3a1/19b',
@@ -71,7 +71,7 @@ class AboutController extends Zend_Controller_Action
 		
 		$andreas = array(
 				"Andreas Monastiriotis",
-				"Automation Engineer",
+				"Automation <br>Engineer",
 				"adre.jpg",
 				"",
 				'http://gr.linkedin.com/pub/andreas-monastiriotis/6b/354/390',
@@ -86,8 +86,17 @@ class AboutController extends Zend_Controller_Action
 				"http://gr.linkedin.com/pub/eva-kavaliotou/53/646/81a",
 				"aboutme",
 				"http://about.me/eva_kavaliotou");
+		
+		$vivian = array(
+				"Vivian Paraschou",
+				"Marketing <br>Intern",
+				"vivi.jpg",
+				'',
+				"http://gr.linkedin.com/pub/vivian-paraschou/58/730/4a",
+				"aboutme",
+				"http://about.me/vi.paraschou");
         
-        $team = array($ntempos,$kuze,$konos,$eva,$laps,$antonis,$andreas);
+        $team = array($ntempos,$kuze,$laps,$vivian,$antonis,$andreas);
         //var_dump($team);
         $this->view->team = $team;
     }
@@ -104,9 +113,9 @@ class AboutController extends Zend_Controller_Action
         if ($flag){
         	echo '<div class="alert alert-success">Your message has been sent! We will get back to you!</div>';
         	
-        	$smtpServer = 'socialgreenproject.com';
-        	$username = 'info@socialgreenproject.com';
-        	$password = 'sgadmin12!';
+        	$smtpServer = 'mail.sociallgreen.com';
+        	$username = 'info@sociallgreen.com';
+        	$password = '22wwSSDD';
         	
         	$config = array(
         			'auth' => 'login',
@@ -120,7 +129,7 @@ class AboutController extends Zend_Controller_Action
         	$mail = new Zend_Mail();
         	$mail->setBodyText($htmlMail)
         	->setFrom($f->getValue('email'), $f->getValue('name'))
-        	->addTo("info@socialgreenproject.com") //akoma den einai etoimo
+        	->addTo("info@sociallgreen.com") //akoma den einai etoimo
         	->setSubject('User Mail sent on '.date("F j, Y, g:i a").'!')
         	->send($transport);
         	

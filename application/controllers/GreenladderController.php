@@ -48,6 +48,7 @@ class GreenladderController extends Zend_Controller_Action
 				// INSERT the new row to the database
 				$newRow->save();
 				$activity->fetchAll();
+				
     		}
     	}
     	

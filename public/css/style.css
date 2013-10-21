@@ -71,6 +71,18 @@ h3 {
 
 /* extensions and custom bootstrap
 ---------------------------------------*/
+div#customalert {
+	padding: 8px 35px 8px 14px;
+	/*position:absolute;
+	width: 150px;
+	top:-300px;
+	right: 5%;
+	-moz-box-shadow: 3px 3px 4px #000;
+	-webkit-box-shadow: 3px 3px 4px #000;
+	box-shadow: 3px 3px 4px #000;
+	z-index: 9999 !important;*/
+}
+
 .remove-left { 
 	margin-left: -30px !important;
 }
@@ -171,6 +183,11 @@ h3 {
 img.smallProfileImage {
 	display: inline-block;
 	height: 30px;
+}
+
+.img-social {
+	width:24px;
+	height:24px;
 }
 
 .img-materials-width {

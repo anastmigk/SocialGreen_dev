@@ -141,9 +141,9 @@ class AuthController extends Zend_Controller_Action
     			$queue->insert($data);
     			try {
     				
-    				$smtpServer = 'socialgreenproject.com';
-    				$username = 'info@socialgreenproject.com';
-    				$password = 'sgadmin12!';
+    				$smtpServer = 'mail.sociallgreen.com';
+    				$username = 'info@sociallgreen.com';
+    				$password = '22wwSSDD';
     				 
     				$config = array(
     						'auth' => 'login',
@@ -171,17 +171,17 @@ class AuthController extends Zend_Controller_Action
 							</style>
 						</head>
 						<body>
-						<img style='max-width:400px' src='http://socialgreenproject.com/images/social.png'>
-						<h1>Social Green Project</h1>
+						<img style='max-width:400px' src='http://sociallgreen.com/images/social.png'>
+						<h1>Sociallgreen</h1>
 						<p>This is a recovery mail to get back your account. <br>
 							Click the following link to reset your password.</p>
-						<a href='http://socialgreenproject.com/account/reset/token/".$token."/'>http://socialgreenproject.com/account/reset/token/".$token."/</a>
+						<a href='http://sociallgreen.com/account/reset/token/".$token."/'>http://sociallgreen.com/account/reset/token/".$token."/</a>
 						</body>
 						</html>";
     				
     			$mail = new Zend_Mail();
     			$mail->setBodyHtml($htmlMail)
-    			->setFrom('no-reply@socialgreenproject.com', 'Social Green Project Team')
+    			->setFrom('no-reply@sociallgreen.com', 'Sociallgreen Team')
     			->addTo($form->getValue('email'))
     			->setSubject('Confirmation Mail')
     			->send($transport);
