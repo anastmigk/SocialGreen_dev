@@ -84,7 +84,7 @@ class RestapiController extends Zend_Controller_Action
     			//$this->_response->clearBody();
 				//$this->_response->clearHeaders();
 				//$this->_response->setHttpResponseCode(404);
-    			$this->view->errors = "User don't exist";
+    			$this->view->errors = "User don't exist".$user;
     		}
     		 
     	}
@@ -126,7 +126,7 @@ class RestapiController extends Zend_Controller_Action
     		$query->setIntegrityCheck(false);
     		$username = $usr->fetchRow($query);
     		 
-    		if($username->username != NULL)
+    		if($username->username != NULL )
     		{
     			return true;
     		}
@@ -145,12 +145,11 @@ class RestapiController extends Zend_Controller_Action
     public function userloginAction()
     {
     	$request = $this->getRequest();
-    	$user = $request->getPost('user');
+    	$user = $request->getPost('username');
+    	$password = $request->getPost('password');
     	
     	$this->view->badgesPrefix = "/images/badges/";
     	$this->view->imgPrefix = "/images/avatars/";
-    	$this->view->title = $user;
-    	
     	
     	if ($request->isPost())
     	{
@@ -190,10 +189,40 @@ class RestapiController extends Zend_Controller_Action
     	}
     }
 
+    
+    
+    
+    protected function fbuserExist($user)
+    {
+    	if($user != NULL)
+    	{
+    		$usr = new Application_Model_DbTable_Accounts();
+    		$query = $usr->select();
+    		$query->from(array('acc' => 'accounts'), array('username'));
+    		$query->where('acc.username = "'.$user.'" AND typeid = 3');
+    		$query->setIntegrityCheck(false);
+    		$username = $usr->fetchRow($query);
+    		 
+    		if($username->username != NULL )
+    		{
+    			return true;
+    		}
+    		else
+    		{
+    			return false;
+    		}
+    	}
+    	else
+    	{
+    		return false;
+    	}
+    	 
+    }
     public function fbloginAction()
     {
         // action body
     	$request = $this->getRequest();
+    	$fbid = $this->getPost('fbid');
     	$user = $request->getPost('username');
     	$email = $request->getPost('email');
     	$avatar = $request->getPost('avatar');
@@ -203,13 +232,13 @@ class RestapiController extends Zend_Controller_Action
     	 
     	if ($request->isPost())
     	{
-    		if ($this->userExist($user))
+    		if ($this->fbuserExist($user))
     		{
     	
     			/*already facebook user retrieve users info*/
     			$userinfo = new Application_Model_DbTable_Accounts();
     			$query3 = $userinfo->select();
-    			$query3->from(array('acc' => 'accounts'), array('username','email','avatar', 'fullname','points','description', 'url'));
+    			$query3->from(array('acc' => 'accounts'), array('username','email','avatar', 'fullname','points','description', 'url','fbid'));
     			$query3->from(array('act' => 'activity'), array('SUM(act.aluminium) as aluminium','SUM(act.glass) as glass','SUM(act.plastic) as plastic','MAX(act.date) as date'));
     			$query3->where('acc.username = "'.$user.'" AND acc.id = act.userid');
     			$query3->group("acc.username");
@@ -221,18 +250,19 @@ class RestapiController extends Zend_Controller_Action
     			{
     				$userinfo2 = new Application_Model_DbTable_Accounts();
 	    			$query = $userinfo2->select();
-	    			$query->from(array('acc' => 'accounts'), array('username','email','avatar', 'fullname','points','updated AS date'));
+	    			$query->from(array('acc' => 'accounts'), array('username','email','avatar', 'fullname','points','updated AS date','fbid'));
 	    			//$query3->from(array('act' => 'activity'), array('SUM(act.aluminium) as aluminium','SUM(act.glass) as glass','SUM(act.plastic) as plastic','MAX(act.date) as date'));
 	    			$query->where('acc.username = "'.$user.'"');
 	    			//$query3->group("acc.username");
 	    			$query->setIntegrityCheck(false);
 	    			$temp2 = $userinfo2->fetchRow($query);
-    					
-    				$this->view->userinfo = $temp2;
+    				$this->view->userinfo2 = $temp2;
+    				$this->view->userinfo = NULL;
     			}
     			else
     			{
     				$this->view->userinfo = $temp;
+    				$this->view->userinfo2 = NULL;
     			}
     			
     			$this->view->newuserinfo = NULL;
@@ -252,12 +282,14 @@ class RestapiController extends Zend_Controller_Action
     					//'password'=>$form->getValue('pswd'),
     					'created'=>date('Y-m-d H:i:s'),
     					'updated'=>date('Y-m-d H:i:s'),
-    					'typeid'=>'3'
+    					'typeid'=>'3',
+    					'fbid'=> $fbid
     			);
     			TRY
     			{
     				$account->insert($data);
-    				$tmp = array('email'=>$email,
+    				$tmp = array('fbid'=>$fbid,
+    							'email'=>$email,
     							'username'=>$user,
     							'avatar'=>$avatar,
     							'date'=>date('Y-m-d H:i:s'),
@@ -300,7 +332,7 @@ class RestapiController extends Zend_Controller_Action
     	{
     		if ($this->validTranid($tranid,$alum,$plastic,$glass))
     		{
-    			$userid = $this->validUserid($user);
+    			$userid = $this->fbvalidUserid($user);
     			if ($userid)
     			{
     				TRY 
@@ -323,16 +355,18 @@ class RestapiController extends Zend_Controller_Action
 	    				/*updated userinfo*/
 	    				$userinfo = new Application_Model_DbTable_Accounts();
 	    				$query3 = $userinfo->select();
-	    				$query3->from(array('acc' => 'accounts'), array('username','email','avatar', 'fullname','points','description', 'url'));
+	    				$query3->from(array('acc' => 'accounts'), array('username','email','avatar', 'fullname','points','description', 'url','fbid'));
 	    				$query3->from(array('act' => 'activity'), array('SUM(act.aluminium) as aluminium','SUM(act.glass) as glass','SUM(act.plastic) as plastic','MAX(act.date) as date'));
 	    				$query3->where('acc.username = "'.$user.'" AND acc.id = act.userid');
 	    				$query3->group("acc.username");
 	    				$query3->setIntegrityCheck(false);
 	    				$this->view->userinfo = $userinfo->fetchRow($query3);
-	
+						
+	    				/*delete transactions*/
 	    				$transaction = new Application_Model_DbTable_Transaction();
 	    				$where = $transaction->getAdapter()->quoteInto('tranid = ?', ($tranid.$alum.$plastic.$glass));
 	    				$transaction->delete($where);
+	    				
 	    				$this->view->errors = NULL;
     				}
     				catch (Zend_Db_Exception $e)
@@ -383,14 +417,14 @@ class RestapiController extends Zend_Controller_Action
     	 
     }
     
-    protected function validUserid($user)
+    protected function fbvalidUserid($user)
     {
     	if($user != NULL)
     	{
     		$usr = new Application_Model_DbTable_Accounts();
     		$query = $usr->select();
     		$query->from(array('acc' => 'accounts'), array('id'));
-    		$query->where('acc.username = "'.$user.'"');
+    		$query->where('acc.username = "'.$user.'" AND typeid = 3');
     		$query->setIntegrityCheck(false);
     		$username = $usr->fetchRow($query);
     		 

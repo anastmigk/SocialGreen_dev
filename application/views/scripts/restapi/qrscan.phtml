@@ -8,6 +8,7 @@
 	{
 		header("Content-type: text/xml;charset=utf-8");
 		echo '<USER>
+				<fbid>'.$userinfo->fbid.'</fbid>
 			<username>'.$userinfo->username.'</username>
 			<email>'.$userinfo->email.'</email>
 			<fullname>'.$userinfo->fullname.'</fullname>

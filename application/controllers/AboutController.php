@@ -110,7 +110,8 @@ class AboutController extends Zend_Controller_Action
         $f = new Application_Form_ContactForm();
         $flag = $f->isValid($this->_getAllParams());
         $json = $f->getMessages();
-        if ($flag){
+        if ($flag)
+        {
         	echo '<div class="alert alert-success">Your message has been sent! We will get back to you!</div>';
         	
         	$smtpServer = 'mail.sociallgreen.com';
