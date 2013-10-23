@@ -188,10 +188,7 @@ class RestapiController extends Zend_Controller_Action
     		$this->view->errors = "No post data";
     	}
     }
-
-    
-    
-    
+ 
     protected function fbuserExist($user)
     {
     	if($user != NULL)
@@ -199,7 +196,7 @@ class RestapiController extends Zend_Controller_Action
     		$usr = new Application_Model_DbTable_Accounts();
     		$query = $usr->select();
     		$query->from(array('acc' => 'accounts'), array('username'));
-    		$query->where('acc.username = "'.$user.'" AND typeid = 3');
+    		$query->where('acc.username = "'.$user.'" AND typeId = 3');
     		$query->setIntegrityCheck(false);
     		$username = $usr->fetchRow($query);
     		 
@@ -222,7 +219,7 @@ class RestapiController extends Zend_Controller_Action
     {
         // action body
     	$request = $this->getRequest();
-    	$fbid = $this->getPost('fbid');
+    	$fbid = $request->getPost('fbid');
     	$user = $request->getPost('username');
     	$email = $request->getPost('email');
     	$avatar = $request->getPost('avatar');
