@@ -188,7 +188,7 @@ class RestapiController extends Zend_Controller_Action
     		$this->view->errors = "No post data";
     	}
     }
- 
+
     protected function fbuserExist($user)
     {
     	if($user != NULL)
@@ -215,6 +215,7 @@ class RestapiController extends Zend_Controller_Action
     	}
     	 
     }
+
     public function fbloginAction()
     {
         // action body
@@ -386,8 +387,8 @@ class RestapiController extends Zend_Controller_Action
     		$this->view->errors = "No post data";
     	}
     }
-	
-    protected function validTranid($tranid,$alum,$plastic,$glass)
+
+    protected function validTranid($tranid, $alum, $plastic, $glass)
     {
     	if($tranid != NULL)
     	{
@@ -413,7 +414,7 @@ class RestapiController extends Zend_Controller_Action
     	}
     	 
     }
-    
+
     protected function fbvalidUserid($user)
     {
     	if($user != NULL)
@@ -441,7 +442,81 @@ class RestapiController extends Zend_Controller_Action
     	 
     }
 
+    public function binupdateAction()
+    {
+    	// action body
+    	$request = $this->getRequest();
+    	$binid = $request->getPost('binid');
+    	$tranid = $request->getPost('tranid');
+    	$alum = $request->getPost('alum');
+    	$plastic = $request->getPost('plastic');
+    	$glass = $request->getPost('glass');
+    	 
+    	//$this->view->badgesPrefix = "/images/badges/";
+    	//$this->view->imgPrefix = "/images/avatars/";
+    	 
+    	if ($request->isPost())
+    	{
+    		if ($this->validTranid($tranid,$alum,$plastic,$glass))
+    		{
+    				TRY
+    				{
+    					$binactivity = new Application_Model_DbTable_Binactivity();
+    					$newRow = $binactivity->createRow();
+    					$newRow->binid = $binid;
+    					$newRow->quantity = ($alum+$plastic+$glass);
+    					$newRow->glass = $glass;
+    					$newRow->aluminium = $alum;
+    					$newRow->plastic = $plastic;
+    					$newRow->date = date('Y-m-d');
+    					
+    					$newRow->save();
+    					$binactivity->fetchAll();
+    					
+    					/*$query = $transaction->select();
+    					$query->from(array('tra' => 'transaction'), array('tranid'));
+    					$query->where('tra.tranid = "'.$tranid.$alum.$plastic.$glass.'"');
+    					$query->setIntegrityCheck(false);
+    					$result = $transaction->fetchRow($query);*/
+    					
+    		    
+    					/*updated userinfo
+    					$userinfo = new Application_Model_DbTable_Accounts();
+    					$query3 = $userinfo->select();
+    					$query3->from(array('acc' => 'accounts'), array('username','email','avatar', 'fullname','points','description', 'url','fbid'));
+    					$query3->from(array('act' => 'activity'), array('SUM(act.aluminium) as aluminium','SUM(act.glass) as glass','SUM(act.plastic) as plastic','MAX(act.date) as date'));
+    					$query3->where('acc.username = "'.$user.'" AND acc.id = act.userid');
+    					$query3->group("acc.username");
+    					$query3->setIntegrityCheck(false);
+    					$this->view->userinfo = $userinfo->fetchRow($query3);*/
+    	
+    					/*delete transactions*/
+    					$transaction = new Application_Model_DbTable_Transaction();
+    					$where = $transaction->getAdapter()->quoteInto('tranid = ?', ($tranid.$alum.$plastic.$glass));
+    					$transaction->delete($where);
+    		    
+    					$this->view->errors = NULL;
+    				}
+    				catch (Zend_Db_Exception $e)
+    				{
+    					$this->view->errors = "Database error";
+    				}
+    		}
+    		else
+    		{
+    			$this->view->errors = "Transaction id not valid";
+    		}
+    	}
+    	else
+    	{
+    		$this->view->errors = "No post data";
+    	}
+    }
+
+
 }
+
+
 
 
 

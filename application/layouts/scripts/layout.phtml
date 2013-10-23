@@ -95,8 +95,8 @@ try {
 		<script src="<?php echo $this->baseUrl("jqplot/jqplot.highlighter.min.js"); ?>"></script>
 		<script src="<?php echo $this->baseUrl("jqplot/jqplot.cursor.min.js"); ?>"></script>
 		<script src="<?php echo $this->baseUrl("jqplot/jqplot.dateAxisRenderer.min.js"); ?>"></script>
-		<script type="text/javascript"	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
-		<link rel="stylesheet" type="text/css"	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/smoothness/jquery-ui.css" />
+		<!-- <script type="text/javascript"	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+		<link rel="stylesheet" type="text/css"	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/smoothness/jquery-ui.css" /> -->
 		
     	<?php echo $this->headLink(); ?>
     	
@@ -107,6 +107,28 @@ try {
     </head>
 <body >
 
+<!-- Navbar user (navbar for index is in the view of index)
+    ================================================== -->
+<?php  
+    $request = Zend_Controller_Front::getInstance()->getRequest();
+	$controller = $request->getControllerName();
+	$action = $request->getActionName();
+	$auth = Zend_Auth::getInstance();
+	
+	/*If the user has already loged in sho the proper navbar */
+	if ($auth->hasIdentity())
+	{?>
+			<header class="desktop-header navbar-fixed-top ">
+			<div class="container">
+			<img alt="Sociallgreen" title="Sociallgreen" id="logo" class="pull-left span2" src="<?php echo $this->baseUrl("images/logo.png"); ?>"/>
+						<?php echo $this->LoggedInAs(); ?>
+				</div>
+			</header>
+	<?php
+	}
+?>
+	
+	
 <!-- View Content
     ================================================== -->
 

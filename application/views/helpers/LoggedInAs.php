@@ -9,7 +9,6 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
 
         if ($auth->hasIdentity()) 
         {
-
             $username = $auth->getIdentity()->username;
             $avatar = $auth->getIdentity()->avatar;
             $accounts2 = new Application_Model_DbTable_Accounts();

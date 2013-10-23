@@ -109,6 +109,7 @@ class Zend_View_Helper_Access extends Zend_View_Helper_Abstract
 		$acl->deny("member","about",array("team"));
 		$acl->deny("member","about",array("index"));
 		$acl->deny("member","account",array("register"));
+		$acl->deny("member","index",array("index"));
 		
 		 /*
 		$acl->allow("guest");
