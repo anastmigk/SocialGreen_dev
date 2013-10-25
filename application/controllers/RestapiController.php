@@ -277,6 +277,7 @@ class RestapiController extends Zend_Controller_Action
     					//'description'=>$form->getValue('description'),
     					'username'=>$user,
     					'avatar'=>$avatar,
+    					'confirmed'=>'1',
     					//'password'=>$form->getValue('pswd'),
     					'created'=>date('Y-m-d H:i:s'),
     					'updated'=>date('Y-m-d H:i:s'),
@@ -473,15 +474,11 @@ class RestapiController extends Zend_Controller_Action
     					$newRow->plastic = $plastic;
     					$newRow->save();
     					$binactivity->fetchAll();
-    					
-    					
-    					
-    					
-    	
+
     					/*add transaction id */
     					$transaction = new Application_Model_DbTable_Transaction();
     					$newRow2 = $transaction->createRow();
-    					$newRow2->tranid = $tranid;
+    					$newRow2->tranid = $tranid.$alum.$plastic.$glass;
     						
     					$newRow2->save();
     					$transaction->fetchAll();

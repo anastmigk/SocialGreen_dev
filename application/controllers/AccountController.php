@@ -2,7 +2,6 @@
 
 class AccountController extends Zend_Controller_Action
 {
-
     public function init()
     {
         /* Initialize action controller here */
@@ -140,9 +139,9 @@ class AccountController extends Zend_Controller_Action
 						<h1>Welcome at Sociallgreen community!</h1>
 						<p>This is a confirmation mail for registering at our community. <br>
 							Click the following link to confirm your registration.</p>".
-//						<a href='http://socialgreenproject.com/account/confirm/token/".$token."/usr/".$form->getValue('username')."'>http://socialgreenproject.com/account/confirm/token/".$token."/usr/".$form->getValue('username')."</a>
-						"<a href=http://sociallgreen.com/account/confirm/token/".$token."'>http://sociallgreen.com/account/confirm/token/".$token."</a>
-						</body>
+				"<a href='http://sociallgreen.com/account/confirm/token/".$token."/usr/".$form->getValue('username')."'>http://sociallgreen.com/account/confirm/token/".$token."/usr/".$form->getValue('username')."</a>".
+				//"<a href=http://sociallgreen.com/account/confirm/token/".$token."'>http://sociallgreen.com/account/confirm/token/".$token."</a>
+						"</body>
 						</html>";
 					
 					$mail = new Zend_Mail();
@@ -171,13 +170,6 @@ class AccountController extends Zend_Controller_Action
 
     public function profileAction()
     {
-        /* action body
-    	$username = $this->_getParam('usr');
-    	$this->view->title = "Profile";
-        $accounts = new Application_Model_DbTable_Accounts();
-        $select = $accounts->select();
-        $select->where("username = ?", $username);
-        $this->view->account = $accounts->fetchRow($select);*/
     	
     	// action body
     	$user = $this->_getParam('user'); 
@@ -188,6 +180,7 @@ class AccountController extends Zend_Controller_Action
         //       $order->where("username = ?", $user);
         $this->view->activeAccount = $user;// $accounts->fetchAll($order);
         $this->view->badgesPrefix = "/images/badges/";
+		
         
         /*Retrieve All user's badges*/
         $userbadges = new Application_Model_DbTable_Accounts();
@@ -204,7 +197,6 @@ class AccountController extends Zend_Controller_Action
         $this->view->userbadges = $userbadges->fetchAll($query);
         
         /*Retrieve All badges*/
-        
         $badges = new Application_Model_DbTable_Badges();
         $query2 = $badges->select();
         $query2->from(array('bad' => 'badges'), array('id','title','description','path','class'));
@@ -212,7 +204,7 @@ class AccountController extends Zend_Controller_Action
         $query2->setIntegrityCheck(false);
          
         $this->view->badges = $badges->fetchAll($query2);
-        $this->view->badgesPrefix = "/images/badges/";
+        
         
         /*Retrieve ALL user's Activity*/
         $useractivity = new Application_Model_DbTable_Accounts();
@@ -401,7 +393,8 @@ class AccountController extends Zend_Controller_Action
     	$select = $userDB->select();
 		$select->from($userDB)->where('recovery = ?', $token);//->where('username = ?', $user);
 		$accountRowset = $userDB->fetchRow($select);
-		if (count($accountRowset) > 0) {
+		if (count($accountRowset) > 0)
+		{
 			$this->view->user = $user;			
 			$data = array(
 					'recovery'=>'',
@@ -409,7 +402,9 @@ class AccountController extends Zend_Controller_Action
 			);
 			$where = array('id = ?' => $accountRowset->id);
 			$userDB->update( $data, $where);
-		} else {
+		}
+		else
+		{
 			//$this->_helper->redirector("index","index");
 		}
     }
@@ -447,6 +442,10 @@ class AccountController extends Zend_Controller_Action
     	$this->view->badgesPrefix = "/images/badges/";
     	
     }
+
+    
+    
+    
 
 
 }

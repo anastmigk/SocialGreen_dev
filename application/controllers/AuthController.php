@@ -13,41 +13,40 @@ class AuthController extends Zend_Controller_Action
 
     public function indexAction()
     {
+    	// action body
     	if(Zend_Auth::getInstance()->hasIdentity())
     	{
     		$this->_helper->redirector('index', 'account');
     	}
-        // action body
+        
     	$form = new Application_Model_FormLogin();
-    	
     	
     	$request = $this->getRequest();
     	
-    	if ($request->isPost()) {
-    	
+    	if ($request->isPost())
+    	{
     		if ($form->isValid($request->getPost()))
     		{
-    	
     			// do 	something here to log in+
     			if ($this->_process($form->getValues()))
     			{
-    			
     				// We're authenticated! Redirect to the home page
     				//$rememberme = 60*15;
     				//Zend_Session::RememberMe($rememberme);
     				$this->_helper->redirector('index', 'account');
-    			} else {
-    				
+    			}
+    			else
+    			{
     				$this->view->errors = array( array("Wrong username and password combination dude!"));
     			}
     			
-    		} else {
+    		}
+    		else
+    		{
     			$this->view->errors = $form->getErrors();
     		}
-    	
     	}
     	$this->view->form = $form;
-    	 
     }
 
     protected function _process($values)
@@ -79,7 +78,6 @@ class AuthController extends Zend_Controller_Action
 
     protected function _getAuthAdapter()
     {
-    
     	$dbAdapter = Zend_Db_Table::getDefaultAdapter();
     
     	$authAdapter = new Zend_Auth_Adapter_DbTable($dbAdapter);
