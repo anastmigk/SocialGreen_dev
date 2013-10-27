@@ -27,6 +27,9 @@ class AccountController extends Zend_Controller_Action
     	$query2 = $activity->select();
     	$query2->from($activity);
     	$this->view->allActivity = $activity->fetchAll($query);
+    	
+    	/*so i can call the functions imagesfb and thumbimagesfb from the view*/
+    	$this->view->controller = $this;
     }
 
     public function indexAction()
@@ -405,7 +408,7 @@ class AccountController extends Zend_Controller_Action
 		}
 		else
 		{
-			//$this->_helper->redirector("index","index");
+			$this->_helper->redirector("index","index");
 		}
     }
 
@@ -442,11 +445,37 @@ class AccountController extends Zend_Controller_Action
     	$this->view->badgesPrefix = "/images/badges/";
     	
     }
-
-    
-    
-    
-
+	
+	public function imagesfb($avatar,$base)
+	{
+		$imgPrefix = "/images/avatars/";
+		$fb = strpos($avatar, "face");
+		 
+		if($fb === false)
+		{
+			return $base.$imgPrefix.$avatar;
+			
+		}
+		else
+		{
+			return $avatar;
+		}
+	}
+	public function thumbimagesfb($avatar,$base)
+	{
+		$imgPrefix = "/images/avatars/";
+		$fb = strpos($avatar, "face");
+			
+		if($fb === false)
+		{
+			return $base.$imgPrefix."thumb-".$avatar;
+				
+		}
+		else
+		{
+			return $avatar;
+		}
+	}
 
 }
 

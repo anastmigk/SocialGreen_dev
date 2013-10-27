@@ -75,7 +75,7 @@ class Application_Form_ContactForm extends Zend_Form
     	$submit = new Zend_Form_Element_Submit('submit');
     	$submit->setLabel("Send!");
     	$submit->removeDecorator('DtDdWrapper');
-    	$submit->setAttrib ( 'class', "btn btn-success");
+    	$submit->setAttrib ( 'class', "btn btn-glor2");
     	//$submit->setAttrib("data-loading-text","Sending...");
     	
     	$this->setDecorators( array( array('ViewScript', array('viewScript' => '_form_contact.phtml'))));

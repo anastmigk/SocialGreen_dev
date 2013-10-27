@@ -29,7 +29,7 @@
 			$leaves = $account->leafs;
 			$username = $account->username;
 			$fullname = $account->fullname;
-			$avatar = $imgPrefix.$account->avatar;
+			$avatar = $account->avatar;
 			$description = $account->description;
 			$glass = $account->glass;
 			$plastic = $account->plastic;
@@ -40,6 +40,8 @@
 			$tw = $account->tw;
 		}
 	}
+	
+	
 	?>
 
 <?php /* <header class="desktop-header navbar-fixed-top ">
@@ -107,7 +109,7 @@
 						<article class="span6 offset3">
 							<!-- <h1 class="main-heading"><?php echo $username;?></h1> -->
 							
-							<img alt="<?php echo $username;?>" title="<?php echo $username;?>" class="img-responsive" src="<?php echo $this->baseUrl($avatar); ?>">
+							<img alt="<?php echo $username;?>" title="<?php echo $username;?>" class="img-responsive" src="<?php echo $this->controller->imagesfb($avatar,$this->baseUrl()); ?>">
 							
 							<!-- <img class="profile-photo media-object" src="<?php //echo $this->baseUrl($avatar); ?>">  -->
 						</article>
@@ -175,25 +177,26 @@
 											
 												<?php if ($activity->quantity>0) {?>
 												<tr>
-													<td>
+													<td style="vertical-align: bottom;">
 														<!-- <a class="pull-left" href="<?php //echo $this->baseUrl('account/profile/').'?user='.$activity->username;?>">
 							                    			<img class="media-object thumbnail avatar" src="<?php //echo $this->baseUrl($imgPrefix."thumb-".$activity->avatar);?>">
 							                    		</a> -->
 							                    		
-							                    		<div>
+							                    		
 							                    			<span class="score-heading-green"><?php echo 1*$activity->glass+2*$activity->plastic+3*$activity->aluminium; ?></span><span class="info-titles-green">leafs</span>
-							                    		</div>
+							                    		
 													</td>
-													<td>
+													<td style="vertical-align: bottom;">
 														<!-- <?php echo ucfirst($activity->username);  ?> saved <?php echo 1*$activity->glass+2*$activity->plastic+3*$activity->aluminium; ?> leafs on <?php echo date("d-M",strtotime($activity->date)) ?>! <span class="muted"> -->
 														
 														<span class="muted">
-														<br><img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/alum.png");?>"> = <?php echo $activity->aluminium; ?>
+														<!-- <br> -->
+														<img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/alum.png");?>"> = <?php echo $activity->aluminium; ?>
 														<img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/plastic.png");?>"> =<?php echo $activity->plastic; ?>
 														<img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/glass.png");?>"> = <?php echo $activity->glass; ?>
 														</span>
 													</td>
-													<td>
+													<td style="vertical-align: bottom;">
 													saved on <?php echo date("d-M",strtotime($activity->date)) ?>!
 													</td>
 												</tr>
@@ -291,7 +294,10 @@
 												<div class="span2">
 													  <a class="thumbnail" title="<?php echo $account->username; ?>" href="<?php echo $this->baseUrl('account/profile/').'?user='.$account->username;?>">
 													    <span class="right visible-phone"><?php echo $account->username; ?></span>
-							  						    <img class="media-object" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$account->avatar); ?>">
+													    
+							  						    <img class="media-object" src="<?php echo $this->controller->thumbimagesfb($account->avatar,$this->baseUrl()); ?>">
+							  						    <!-- <img class="media-object" src="<?php //echo $this->baseUrl($imgPrefix."thumb-".$account->avatar); ?>"> -->
+							  						    
 													  </a>
 													<?php //if ($counter==0) { echo '<span class="left label label-info newMember">New!</span>'; }
 													//elseif ($account->quantity>0.8*$mostPoints) {  echo '<span class="left label label-success newMember"><i class="icon-leaf icon-white"></i></span>';}?>

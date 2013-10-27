@@ -232,7 +232,6 @@ class RestapiController extends Zend_Controller_Action
     	{
     		if ($this->fbuserExist($user))
     		{
-    	
     			/*already facebook user retrieve users info*/
     			$userinfo = new Application_Model_DbTable_Accounts();
     			$query3 = $userinfo->select();
@@ -282,7 +281,8 @@ class RestapiController extends Zend_Controller_Action
     					'created'=>date('Y-m-d H:i:s'),
     					'updated'=>date('Y-m-d H:i:s'),
     					'typeid'=>'3',
-    					'fbid'=> $fbid
+    					'fbid'=> $fbid,
+    					'fb'=>'https://www.facebook.com/'.$user
     			);
     			TRY
     			{
@@ -319,18 +319,18 @@ class RestapiController extends Zend_Controller_Action
     	// action body
     	$request = $this->getRequest();
     	$user = $request->getPost('username');
-    	$tranid = $request->getPost('tranid');
+    	//$tranid = $request->getPost('tranid');
     	$alum = $request->getPost('alum');
     	$plastic = $request->getPost('plastic');
     	$glass = $request->getPost('glass');
     	
-    	$this->view->badgesPrefix = "/images/badges/";
-    	$this->view->imgPrefix = "/images/avatars/";
+    	//$this->view->badgesPrefix = "/images/badges/";
+    	//$this->view->imgPrefix = "/images/avatars/";
     	
     	if ($request->isPost())
     	{
-    		if ($this->validTranid($tranid,$alum,$plastic,$glass))
-    		{
+    		/*if ($this->validTranid($tranid,$alum,$plastic,$glass))
+    		{*/
     			$userid = $this->fbvalidUserid($user);
     			if ($userid)
     			{
@@ -345,7 +345,8 @@ class RestapiController extends Zend_Controller_Action
 	    				$newRow->glass = $glass;
 	    				$newRow->aluminium = $alum;
 	    				$newRow->plastic = $plastic;
-	    				$newRow->date = date('Y-m-d');
+	    				$newRow->paper = "0";
+	    				$newRow->date = '';//date('Y-m-d');
 	    					
 	    				// INSERT the new row to the database
 	    				$newRow->save();
@@ -361,10 +362,10 @@ class RestapiController extends Zend_Controller_Action
 	    				$query3->setIntegrityCheck(false);
 	    				$this->view->userinfo = $userinfo->fetchRow($query3);
 						
-	    				/*delete transactions*/
+	    				/*delete transactions
 	    				$transaction = new Application_Model_DbTable_Transaction();
 	    				$where = $transaction->getAdapter()->quoteInto('tranid = ?', ($tranid.$alum.$plastic.$glass));
-	    				$transaction->delete($where);
+	    				$transaction->delete($where); */
 	    				
 	    				$this->view->errors = NULL;
     				}
@@ -377,11 +378,11 @@ class RestapiController extends Zend_Controller_Action
     			{
     				$this->view->errors = "User not valid";
     			}
-    		}
+    		/*}
     		else
     		{
     			$this->view->errors = "Transaction id not valid";
-    		}		 
+    		}*/		 
     	}
     	else
     	{

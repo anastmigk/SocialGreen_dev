@@ -35,7 +35,7 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
            // <!-- POP UP menu for later.. -->
             $dropdownMenu = '<ul class="nav pull-right nav-user-margin" >
 	            					<li class="dropdown">
-	            						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-rounded smallProfileImage" src="'.$this->view->baseUrl("images/avatars/thumb-".$avatar).'"></a>
+	            						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-rounded smallProfileImage" src="'.$this->thumbimagesfb($avatar,$this->view->baseUrl()).'"></a>
 	            							<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
 	            								<li class="nav-header" ><i class="icon-user"></i>&nbsp;&nbsp;Hello '.$username.'!</li>
 	            								<li class="divider"></li>
@@ -78,6 +78,22 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
 	        //return '<li><a href="'.$loginUrl.'" title="Get inside Social Green!">Login</a></li>'.$registerUrl;
 	        //return '<li><a id="buttonModalLogin" href="#">Login</a></li>'.$registerUrl;
 		}
+    }
+    
+    public function thumbimagesfb($avatar,$base)
+    {
+    	$imgPrefix = "/images/avatars/";
+    	$fb = strpos($avatar, "face");
+    		
+    	if($fb === false)
+    	{
+    		return $base.$imgPrefix."thumb-".$avatar;
+    
+    	}
+    	else
+    	{
+    		return $avatar;
+    	}
     }
 }
 ?>

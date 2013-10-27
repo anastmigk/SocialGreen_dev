@@ -17,6 +17,20 @@
 	</div>
 </header>
 
+<!-- Modal Badges -->
+<div id="Modalleaderboard" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="ModalBadgesLabel" aria-hidden="true">
+  <div class="modal-header lead-background">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove icon-white"></i></button>
+    <h6 id="ModalBadgesLabel" class="title-leaderboard">Leaderboard</h6>
+  </div>
+  <div class="modal-body">
+						
+
+  </div>
+  <!-- <div class="modal-footer">
+    <button class="btn btn-glor pull-left" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div> -->
+</div>
 
 <div id="projects" class="page">
 		<section class="container-fluid">
@@ -29,7 +43,9 @@
 							    <table class="table table-striped ">
 							    	<thead class="lead-background" >
 							    		<tr>
-	      									<th><span class="title-leaderboard">Leaderboard</span></th>
+							    			<!-- <a class="btn btn-glor2 btn-small" data-toggle="modal" data-target="#Modalleaderboard"><span class="title-leaderboard">Leaderboard</span></a> -->
+	      									<!-- <th><span class="title-leaderboard">Leaderboard</span></th> -->
+	      									<th><a class="" href="" data-toggle="modal" data-target="#Modalleaderboard"><span class="title-leaderboard">Leaderboard</span></a></th>
 	      								</tr>
 							    	</thead>
 							    	<tbody>
@@ -46,7 +62,8 @@
 						                    		<!-- <img style="width: 32px;height: auto; display: inline-table;" src='<?php echo $this->baseUrl("images/Leaderboard/".$place.".png"); ?>'> -->
 					                    		
 						                    		<a class="thumbnail" style="margin-left:5px;margin-top:2px;display: inline-table;" title="<?php echo $account->username; ?>" href="<?php echo $this->baseUrl('account/profile/').'?user='.$account->username;?>">
-						                    		<img class="media-object img-leaderboard" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$account->avatar); ?>"></a>
+						                    		<!-- <img class="media-object img-leaderboard" src="<?php //echo $this->baseUrl($imgPrefix."thumb-".$account->avatar); ?>"></a> -->
+					                    			 <img class="media-object img-leaderboard" src="<?php echo $this->controller->thumbimagesfb($account->avatar,$this->baseUrl()); ?>"></a>
 					                    		
 					                    			<p style="margin-bottom: 0px !important; margin-left:5px;color:black; display: inline-table;"><strong><a title="<?php echo $account->username; ?>" href="<?php echo $this->baseUrl('account/profile/').'?user='.$account->username;?>"><?php echo $account->username; ?></a></strong><br><i><?php echo $account->leafs;?> leaves</i>
 					                    		</td>
@@ -127,10 +144,11 @@
 											<tr>
 												<td>
 													<a class="pull-left" href="<?php echo $this->baseUrl('account/profile/').'?user='.$activity->username;?>">
-						                    			<img class="media-object thumbnail avatar" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$activity->avatar);?>">
+						                    			<!-- <img class="media-object thumbnail avatar" src="<?php //echo $this->baseUrl($imgPrefix."thumb-".$activity->avatar);?>"> -->
+						                    			<img class="media-object thumbnail avatar" src="<?php echo $this->controller->thumbimagesfb($activity->avatar,$this->baseUrl()); ?>">
 						                    		</a>
 												</td>
-												<td>
+												<td style="vertical-align: middle;">
 													<?php /* echo ucfirst($activity->username);  ?> saved <?php echo 1*$activity->glass+2*$activity->plastic+3*$activity->aluminium; ?> leafs on <?php echo date("d-M",strtotime($activity->date)) ?>! <span class="muted">(aluminium: <?php echo $activity->aluminium." * 3 leafs, plastic:".$activity->plastic." * 2 leafs, glass:".$activity->glass ?> * 1 leaf)</span> */ ?>
 													<?php echo ucfirst($activity->username);  ?> saved <?php echo 1*$activity->glass+2*$activity->plastic+3*$activity->aluminium; ?> leafs on <?php echo date("d-M",strtotime($activity->date)) ?>! <span class="muted">
 													<br><img class="img-materials-height" src="<?php echo $this->baseUrl("/images/materials/alum.png");?>"> = <?php echo $activity->aluminium; ?>

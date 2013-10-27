@@ -23,6 +23,8 @@ class IndexController extends Zend_Controller_Action
     	$this->view->accounts = $accounts->fetchAll($query);
     	$this->view->imgPrefix = "/images/avatars/";
     	
+    	/*so i can call the functions imagesfb and thumbimagesfb from the view*/
+    	$this->view->controller = $this;
     	
     }
 
@@ -75,6 +77,8 @@ class IndexController extends Zend_Controller_Action
 	 	shuffle($tempTweets);
 	 	$this->view->tweet = $tempTweets[0];
 	 	$this->view->messages = $this->_helper->flashMessenger->getMessages();
+	 	$form = new Application_Form_ContactForm();
+	 	$this->view->contactForm = $form;
     }
 
     public function submitContactFormAction()
@@ -95,6 +99,38 @@ class IndexController extends Zend_Controller_Action
     	$contactForm = new Application_Form_ContactForm();
     	$this->view->contactForm = $contactForm;
     }
+    
+    public function imagesfb($avatar,$base)
+    {
+    	$imgPrefix = "/images/avatars/";
+    	$fb = strpos($avatar, "face");
+    		
+    	if($fb === false)
+    	{
+    		return $base.$imgPrefix.$avatar;
+    			
+    	}
+    	else
+    	{
+    		return $avatar;
+    	}
+    }
+    public function thumbimagesfb($avatar,$base)
+    {
+    	$imgPrefix = "/images/avatars/";
+    	$fb = strpos($avatar, "face");
+    		
+    	if($fb === false)
+    	{
+    		return $base.$imgPrefix."thumb-".$avatar;
+    
+    	}
+    	else
+    	{
+    		return $avatar;
+    	}
+    }
+    
 }
 
 

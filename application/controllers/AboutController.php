@@ -103,6 +103,7 @@ class AboutController extends Zend_Controller_Action
 
     public function contactAction()
     {
+    	/*
         //Function to submit form and send mail
         $this->_helper->viewRenderer->setNoRender();
         $this->_helper->getHelper("layout")->disableLayout();
@@ -112,7 +113,7 @@ class AboutController extends Zend_Controller_Action
         $json = $f->getMessages();
         if ($flag)
         {
-        	echo '<div class="alert alert-success">Your message has been sent! We will get back to you!</div>';
+        	//echo '<div class="alert alert-success">Your message has been sent! We will get back to you!</div>';
         	
         	$smtpServer = 'mail.sociallgreen.com';
         	$username = 'info@sociallgreen.com';
@@ -130,12 +131,17 @@ class AboutController extends Zend_Controller_Action
         	$mail = new Zend_Mail();
         	$mail->setBodyText($htmlMail)
         	->setFrom($f->getValue('email'), $f->getValue('name'))
-        	->addTo("info@sociallgreen.com") //akoma den einai etoimo
+        	->addTo("info@sociallgreen.com") 
         	->setSubject('User Mail sent on '.date("F j, Y, g:i a").'!')
         	->send($transport);
         	
+        	$flashMessenger = $this->_helper->getHelper('FlashMessenger');
+        	$flashMessenger->addMessage("Thank you for your message!<br>We will get back to you soon!");
+        	$this->_helper->redirector("index", 'index');
         	
-        } else {
+        }
+        else
+        {
         	//echo '<div class="alert alert-error">'.Zend_Json::encode($json).'</div>'; 
         $arrMessages = $json;
         //$output = Zend_Json::encode($json);
@@ -146,6 +152,65 @@ class AboutController extends Zend_Controller_Action
 		$output.="</ol>";
         	echo '<div class="alert alert-error">'.$output.'</div>';
         }
+        
+        */
+    	$form = new Application_Form_ContactForm();
+    	
+    	 
+    	if ($this->getRequest()->isPost())
+    	{
+    		if ($form->isValid($this->_request->getPost()))
+    		{
+    			$smtpServer = 'mail.sociallgreen.com';
+    			$username = 'info@sociallgreen.com';
+    			$password = '22wwSSDD';
+    			 
+    			$config = array(
+    					'auth' => 'login',
+    					'username' => $username,
+    					'password' => $password);
+    			 
+    			$transport = new Zend_Mail_Transport_Smtp($smtpServer, $config);
+    			 
+    			$htmlMail = 'type :'.$this->type($form->getValue('category')).'\n'.$form->getValue('description');
+    			
+    			$mail = new Zend_Mail();
+    			$mail->setBodyText($htmlMail)
+    			->setFrom($form->getValue('email'), $form->getValue('name'))
+    			->addTo("info@sociallgreen.com")
+    			->setSubject('User Mail sent on '.date("F j, Y, g:i a").'!')
+    			->send($transport);
+    			 
+    			$flashMessenger = $this->_helper->getHelper('FlashMessenger');
+    			$flashMessenger->addMessage("Thank you for your message!<br>We will get back to you soon!");
+    			$this->_helper->redirector("index", 'index');
+    		
+    		}
+    		else
+    		{
+    			$this->view->errors = $form->getErrors();
+    		}
+    	}
+    }
+    
+    public function type($type)
+    {	
+    	if($type == 1)
+    	{
+    		return 'Organization';
+    	}
+    	if(type == 2 )
+    	{
+    		return 'Company';
+    	}
+    	if(type == 3 )
+    	{
+    		return 'Individual';
+    	}
+    	if(type == 4 )
+    	{
+    		return 'Other';
+    	}
     }
 
     public function teamAction()

@@ -37,10 +37,9 @@
 				<!-- End Dropmenu for mobile -->
 		</li>
 	</ul>
-
+	
 		
-		
-	<header class="desktop-header visible-desktop">
+	<header class="desktop-header visible-desktop visible-tablet">
 		<ul class="links desktop-nav span10">
 			<li><a id="intro-linker" href="#intro">Map</a></li>
 			<li><a id="leaderboard-linker" href="#leaderboard">Leaderboard</a></li>
@@ -52,6 +51,11 @@
 			<li>
 				<!-- <a  data-toggle="modal" href="#myModal" class="btn btn-success btn-small">Sign In</a> -->
 				<a class="btn btn-glor2 btn-small" data-toggle="modal" data-target="#myModal">Sign In</a>
+			</li>
+			
+			<li>
+				<!-- <a  data-toggle="modal" href="#myModal" class="btn btn-success btn-small">Sign In</a> -->
+				<a class="btn btn-glor2 btn-small" href="<?php echo $this->url(array('controller'=>'account', 'action'=>'register' ), null, TRUE); ?>">Sign Up</a>
 			</li>
 		</ul>
 		<img alt="Sociallgreen" title="Sociallgreen" id="logo" class="pull-right span2" src="<?php echo $this->baseUrl("images/logo.png"); ?>"/>
@@ -80,10 +84,11 @@
 			
 			<ul>
 				<li  data-slotamount="1" data-masterspeed="300" >
+					<!-- <img alt="" title="" src="http://maps.googleapis.com/maps/api/staticmap?center=leukos+pirgos,thessaloniki,Greece&zoom=13&size=640x500&scale=2&format=png&key=AIzaSyDRid_JJj_wwGWz4Pi4xr17TO40JlkUSGQ&maptype=terrain&markers=icon:http://sociallgreen.com/images/kadakimi.png%7CStratigou+Napoleontos+Zerva+10,Thessaloniki,Greece&sensor=false" />-->
 					<img alt="" title="" src="http://maps.googleapis.com/maps/api/staticmap?center=leukos+pirgos,thessaloniki,Greece&zoom=13&size=640x500&scale=2&format=png&key=AIzaSyDRid_JJj_wwGWz4Pi4xr17TO40JlkUSGQ&maptype=terrain&markers=color:blue%7CStratigou+Napoleontos+Zerva+10,Thessaloniki,Greece&sensor=false" />
 					<div class="caption very_big_white_main lfl stl visible-tablet visible-desktop"  
 						 data-x="1" 
-						 data-y="303" 
+						 data-y="303"
 						 data-speed="100" 
 						 data-start="1000" 
 						 data-easing="easeOutExpo" >Find a bin next to you
@@ -191,19 +196,22 @@
 						  { ?>
 						  	<tr>
 		                    <td>
-						      	<div class="numberbox-green"><?php echo $counter+1;?></div>
-						      	<div class="numberbox-white"><i class="icon-arrow-up icon-white"></i></div>
+						      	<div class="numberbox-green" ><?php echo $counter+1;?></div>
+						      	<div class="numberbox-white" ><i class="icon-arrow-up icon-white"></i></div>
 							</td>
 	                    	<td >
 	                    		<?php /* <a class="" title="<?php echo $account->username; ?>" href="<?php echo $this->baseUrl('account/profile/').'?user='.$account->username;?>"> */ ?> 
-					          	<img class="avatar  media-object" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$accounts[$counter][avatar]); ?>"> <!-- </a> -->    
+					          	
+					          	<img class="avatar  media-object" src="<?php echo $this->controller->thumbimagesfb($accounts[$counter][avatar],$this->baseUrl()); ?>"> 
+					          	<!-- <img class="avatar  media-object" src="<?php //echo $this->baseUrl($imgPrefix."thumb-".$accounts[$counter][avatar]); ?>"> --> 
+					          	    
 						       	
 							</td>
-							<td>
+							<td style="vertical-align: middle;">
 							<h5 class="remove-bottom col-high"><?php echo $accounts[$counter][fullname]; ?></h5>
 							</td>
-	                    	<td>+3</td>
-	                    	<td><?php echo $accounts[$counter][leafs];?></td>
+	                    	<td style="vertical-align: middle;">+3</td>
+	                    	<td style="vertical-align: middle;"><?php echo $accounts[$counter][leafs];?></td>
 	                    	
 							</tr>
 							<?php 
@@ -254,11 +262,14 @@
 						<?php if ($activity->quantity>0) {?>
 						<tr>
 							<td>
-								<a class="pull-left" href="<?php echo $this->baseUrl('account/profile/').'?user='.$activity->username;?>">
-	                    			<img class="avatar media-object thumbnail" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$activity->avatar);?>">
-	                    		</a>
+								<!-- <a class="pull-left" href="<?php echo $this->baseUrl('account/profile/').'?user='.$activity->username;?>"> -->
+								
+								
+	                    		<!-- <img class="avatar media-object thumbnail" src="<?php echo $this->baseUrl($imgPrefix."thumb-".$activity->avatar);?>"> -->
+	                    		<img class="avatar media-object" style="width:60px;height: 60px;" src="<?php echo $this->controller->thumbimagesfb($activity->avatar,$this->baseUrl());?>">
+	                    		
 							</td>
-							<td>
+							<td style="vertical-align: middle;">
 								<?php /* echo ucfirst($activity->username);  ?> saved <?php echo 1*$activity->glass+2*$activity->plastic+3*$activity->aluminium; ?> leafs on <?php echo date("d-M",strtotime($activity->date)) ?>! <span class="muted">(aluminium: <?php echo $activity->aluminium." * 3 leafs, plastic:".$activity->plastic." * 2 leafs, glass:".$activity->glass ?> * 1 leaf)</span> */?>
 								
 								<?php echo ucfirst($activity->username);  ?> saved <?php echo 1*$activity->glass+2*$activity->plastic+3*$activity->aluminium; ?> leafs on <?php echo date("d-M",strtotime($activity->date)) ?>! <span class="muted">
@@ -422,7 +433,7 @@
 				
 				<div class="row">
 					<article class="span12">
-						<h1 class="main-heading">The internet of recycling bins is here</h1>
+						<h1 class="main-heading">The internet of recycling is here</h1>
 					</article><!-- span12 : ends -->
 				</div><!-- row : ends -->
 
@@ -442,6 +453,7 @@
 								  <dd>Want to reach your recycling targets and store your green data? Let your people play for it using Sociallgreen.</dd>
 								</dl>
 								
+								<p><a id="contact-linker" class="btn btn-glor2 btn-small" href="#contact">Claim your bin!</a></p>
 															
 			                </div>
 			                
@@ -490,39 +502,45 @@
 
 				<div class="row">
             		<div class="span8 contact"><!--Begin page content column-->
-
-                    <div class="alert success">
-                        Well done! You successfully read this important alert message. 
-                    </div>
-                    
-					<h4 class="sub-heading">Send a message to us</h4>
-					
-                    <form name="myform" id="contactForm" action="sendcontact.php" enctype="multipart/form-data" method="post">  
-
-                        <div id="fname"  class="alert alert-error error">
-                        Name must not be empty
-                        </div>
-                        <div id="fmail" class="alert alert-error  error">
-                        Please provide a valid email
-                        </div>
-                        <div id="fmsg" class="alert alert-error  error">
-                        Message should not be empty
-                        </div>
-
-                        <div class="input-prepend">
-                            <span class="add-on"><i class="icon-user"></i></span>
-                            <input class="span3 offset1" required  size="16" type="text" name="name" id="name" placeholder="Name">
-                        </div>
-                        
-                        <div class="input-prepend">
-                            <span class="add-on"><i class="icon-envelope"></i></span>
-                            <input class="span4" required  size="16" type="email" name="email" id="email" placeholder="Email Address">
-                        </div>
-                        <textarea name="message" required  id="msg" class="span10" placeholder="Message"></textarea>
-                        <button type="submit" name="submit" id="submit" class="btn btn-glor">Send Message</button>
-                    </form>
-
-            </div> <!--span7 End-->
+						<?php /*
+	                    <div class="alert success">
+	                        Well done! You successfully read this important alert message. 
+	                    </div>
+	                    */ ?>
+						<h4 class="sub-heading">Send a message to us</h4>
+						<?php /*
+	                    <form name="myform" id="contactForm" action="sendcontact.php" enctype="multipart/form-data" method="post">  
+	
+	                        <div id="fname"  class="alert alert-error error">
+	                        Name must not be empty
+	                        </div>
+	                        <div id="fmail" class="alert alert-error  error">
+	                        Please provide a valid email
+	                        </div>
+	                        <div id="fmsg" class="alert alert-error  error">
+	                        Message should not be empty
+	                        </div>
+	
+	                        <div class="input-prepend">
+	                            <span class="add-on"><i class="icon-user"></i></span>
+	                            <input class="span3 offset1" required  size="16" type="text" name="name" id="name" placeholder="Name">
+	                        </div>
+	                        
+	                        <div class="input-prepend">
+	                            <span class="add-on"><i class="icon-envelope"></i></span>
+	                            <input class="span4" required  size="16" type="email" name="email" id="email" placeholder="Email Address">
+	                        </div>
+	                        <textarea name="message" required  id="msg" class="span10" placeholder="Message"></textarea>
+	                        <button type="submit" name="submit" id="submit" class="btn btn-glor">Send Message</button>
+	                    </form>
+	                    */ ?>
+	                    
+	                    <?= $this->Errors($this->errors); ?>
+	                    
+	                    <?php echo $this->contactForm->setAction($this->url(array('controller'=>'about', 'action'=>'contact' ), null, TRUE)); ?>
+	                    
+	                    
+            		</div> <!--span8 End-->
 
         <!-- Sidebar
         ================================================== --> 
