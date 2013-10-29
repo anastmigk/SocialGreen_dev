@@ -236,7 +236,8 @@ img.smallProfileImage {
 	padding-bottom: 3px;
 }
 
-.custom-margin-top-3 { /* increased so the tabs not fall into the previous content. look further down for responsive. */
+/* increased so the tabs not fall into the previous content. look further down for responsive. */
+.custom-margin-top-3 { 
 	margin-top: inherit;
 }
 .cubicles {
@@ -1161,7 +1162,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 }
 
 .links a:visited {
-	color: #000;
+	/*color: #000;*/
 }
 
 .links a:hover {

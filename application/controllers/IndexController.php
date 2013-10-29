@@ -13,10 +13,12 @@ class IndexController extends Zend_Controller_Action
     	$accounts = new Application_Model_DbTable_Accounts();
     	$query = $accounts->select();
     	$query->from(array('act' => 'activity'), array('SUM(act.quantity) as quantity','SUM(act.plastic) as plastic','SUM(act.glass) as glass','SUM(act.aluminium) as aluminium', '(SUM(act.glass)*1+SUM(act.plastic)*2+SUM(act.aluminium)*3) as leafs','userid','MAX(act.date) as date'));
-    	$query->join(array('acc' => 'accounts'), 'act.userid = acc.id', array('fullname','username','avatar','description', 'url'));
-    	$query->order('leafs Desc');
+    	//$query->from(array('acc' => 'accounts'), array('acc.id','acc.fullname','acc.username','acc.avatar','acc.description', 'acc.url','acc.typeid'));
+    	$query->join(array('acc' => 'accounts'), 'act.userid = acc.id', array('acc.fullname','acc.username','acc.avatar','acc.description', 'acc.url','acc.typeId'));
+    	//$query->where("(acc.typeid = 1 OR acc.typeid = 3)");
+    	$query->group("acc.username");
+    	$query->order('leafs DESC');
     	
-    	$query->group(array("username"));
     	$query->limit(3,0);
     	$query->setIntegrityCheck(false);
     	//echo (String)$query;
@@ -65,8 +67,8 @@ class IndexController extends Zend_Controller_Action
     	$query->from($activity);
     	$this->view->allActivity = $activity->fetchAll($query);
     	
-    	
-    	$tweetDB = new Application_Model_DbTable_Tweets();
+    	/*Tweets*/
+    	/*$tweetDB = new Application_Model_DbTable_Tweets();
     	$select = $tweetDB->select();
     	$select->from($tweetDB);
 	 	$tweetsResults = $tweetDB->fetchAll($select);
@@ -75,7 +77,8 @@ class IndexController extends Zend_Controller_Action
 	 		$tempTweets[] = $tweet['tweet'];
 	 	}
 	 	shuffle($tempTweets);
-	 	$this->view->tweet = $tempTweets[0];
+	 	$this->view->tweet = $tempTweets[0];*/
+    	
 	 	$this->view->messages = $this->_helper->flashMessenger->getMessages();
 	 	$form = new Application_Form_ContactForm();
 	 	$this->view->contactForm = $form;
