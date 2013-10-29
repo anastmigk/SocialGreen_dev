@@ -347,7 +347,7 @@ class RestapiController extends Zend_Controller_Action
 	    				$newRow->aluminium = $alum;
 	    				$newRow->plastic = $plastic;
 	    				$newRow->paper = "0";
-	    				$newRow->date = '';//date('Y-m-d');
+	    				$newRow->date = date('Y-m-d');
 	    					
 	    				// INSERT the new row to the database
 	    				$newRow->save();
