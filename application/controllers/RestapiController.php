@@ -275,6 +275,7 @@ class RestapiController extends Zend_Controller_Action
     					'email'=>$email,
     					//'description'=>$form->getValue('description'),
     					'username'=>$user,
+    					'fullname'=>$user,
     					'avatar'=>$avatar,
     					'confirmed'=>'1',
     					//'password'=>$form->getValue('pswd'),

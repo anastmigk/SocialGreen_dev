@@ -96,6 +96,7 @@ class AccountController extends Zend_Controller_Action
                          'email'=>$form->getValue('email'),
                          //'description'=>$form->getValue('description'),
                          'username'=>$form->getValue('username'),
+						'fullname'=>$form->getValue('username'),
                          'password'=>$form->getValue('pswd'),
                          'created'=>date('Y-m-d H:i:s'),
                          'updated'=>date('Y-m-d H:i:s'),

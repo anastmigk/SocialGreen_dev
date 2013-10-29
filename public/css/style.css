@@ -1161,7 +1161,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 }
 
 .links a:visited {
-	color: 000;
+	color: #000;
 }
 
 .links a:hover {
