@@ -154,7 +154,7 @@ class AccountController extends Zend_Controller_Action
 					$mail->setBodyHtml($htmlMail)->setFrom('no-reply@sociallgreen.com', 'Sociallgreen Team')->addTo($form->getValue('email'))->setSubject('Confirmation Mail')->send($transport);
 					
 					
-					/* vazoume sto kainourgio user mideniko activity gia na fenete stous pinakes */
+					/* vazoume sto kainourgio user mideniko activity gia na fenete stous pinakes 
 					$data2 = array(
 							'userid'=>$userid,
 							'quantity'=>'0',
@@ -167,7 +167,7 @@ class AccountController extends Zend_Controller_Action
 					
 					$activity = new Application_Model_DbTable_Activity();
 					$activity->insert($data2);
-					
+					*/
 					
 					//$this->_helper->_redirector("index", 'index', array("register","true"));
 					$flashMessenger = $this->_helper->getHelper('FlashMessenger');
