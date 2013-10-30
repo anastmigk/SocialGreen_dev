@@ -16,7 +16,8 @@ Type in your e-mail address to stay connected!</p>
 
 
 <?php 
-if($this->element->getAction() == "/account/register/")
+$url = $this->url(array('controller'=>'account', 'action'=>'register' ), null, TRUE);
+if($this->element->getAction() == $url)
 {?>
 	<form class="form-horizontal" id="register" action="<?= $this->element->getAction(); ?>" method="<?= $this->element->getMethod(); ?>">
 		<div class="control-group">

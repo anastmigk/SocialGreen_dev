@@ -68,7 +68,7 @@ class Application_Model_FormRegister extends Zend_Form
         	$type->setMultiOptions(array('1'=>'User' ,'2'=>'Organization'));
         	//$type->setAttrib('size',1);
         	
-        	//facebook
+        	//website
         	$website = new Zend_Form_Element_Text('url');
         	$website->setLabel('Website link :');
         	$website->setAttrib('size',100);
@@ -84,7 +84,7 @@ class Application_Model_FormRegister extends Zend_Form
         	//$facebook->addValidator('hostname');
         	$facebook->addErrorMessage("Please give a correct hostname!");
         	
-        	//facebook
+        	//twitter
         	$twitter = new Zend_Form_Element_Text('tw');
         	$twitter->setLabel('Twitter link :');
         	$twitter->setAttrib('size',100);
