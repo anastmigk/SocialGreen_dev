@@ -15,8 +15,9 @@ class AccountController extends Zend_Controller_Action
     	$query = $accounts->select();
     	$query->from(array('act' => 'activity'), array('SUM(act.quantity) as quantity','SUM(act.plastic) as plastic','SUM(act.glass) as glass','SUM(act.aluminium) as aluminium', '(SUM(act.glass)*1+SUM(act.plastic)*2+SUM(act.aluminium)*3) as leafs','userid','MAX(act.date) as date'));
     	$query->join(array('acc' => 'accounts'), 'act.userid = acc.id', array('fullname','username','avatar','description', 'url','fb','tw'));
-    	$query->order('leafs Desc');
     	$query->group(array("username"));
+    	$query->order('leafs Desc');
+    	
     	$query->setIntegrityCheck(false);
     	//echo (String)$query;
     	$this->view->accounts = $accounts->fetchAll($query);
@@ -105,8 +106,9 @@ class AccountController extends Zend_Controller_Action
 						'typeid'=>$form->getValue('type'),
 						 'salt'=> $salt
                          );
+				
 				TRY {
-					$account->insert($data);
+					$userid = $account->insert($data);
 					//$this->_helper->flashMessenger->addMessage("You have successfully registered at Social Green Project!");
 					//$this->_helper->redirector("index", 'index');
 					//$this->_helper->redirector("index","index",array("register"));// _redirector->gotoUrl('/my-controller/my-action/param1/test/param2/test2');
@@ -150,6 +152,22 @@ class AccountController extends Zend_Controller_Action
 					
 					$mail = new Zend_Mail();
 					$mail->setBodyHtml($htmlMail)->setFrom('no-reply@sociallgreen.com', 'Sociallgreen Team')->addTo($form->getValue('email'))->setSubject('Confirmation Mail')->send($transport);
+					
+					
+					/* vazoume sto kainourgio user mideniko activity gia na fenete stous pinakes */
+					$data2 = array(
+							'userid'=>$userid,
+							'quantity'=>'0',
+							'date'=>date('Y-m-d H:i:s'),
+							'aluminium'=>'0',
+							'glass'=>'0',
+							'paper'=>'0',
+							'plastic'=>'0'
+					);
+					
+					$activity = new Application_Model_DbTable_Activity();
+					$activity->insert($data2);
+					
 					
 					//$this->_helper->_redirector("index", 'index', array("register","true"));
 					$flashMessenger = $this->_helper->getHelper('FlashMessenger');
@@ -296,8 +314,11 @@ class AccountController extends Zend_Controller_Action
     						'username'=>$form->getValue('username'),
     						'password'=>$hashedPass,
     						'salt'=> $salt,
-    						'created'=>date('Y-m-d H:i:s'),
-    						'updated'=>date('Y-m-d H:i:s')//,
+    						//'created'=>date('Y-m-d H:i:s'),
+    						'updated'=>date('Y-m-d H:i:s'),
+    						'url'=> $form->getValue('url'),
+    						'fb'=> $form->getValue('fb'),
+    						'tw'=> $form->getValue('tw'),
     						//'avatar' => "/images/avatars/".$uploadedData['file']
     				);
     				
