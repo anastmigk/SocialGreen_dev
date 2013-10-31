@@ -82,6 +82,88 @@ class IndexController extends Zend_Controller_Action
 	 	$this->view->messages = $this->_helper->flashMessenger->getMessages();
 	 	$form = new Application_Form_ContactForm();
 	 	$this->view->contactForm = $form;
+	 	
+	 	
+	 			
+	 			$ntempos = array(
+	 					"Dimitrios Ntempos",
+	 					"CEO,<br> Co-founder",
+	 					"ntempos.jpg",
+	 					'Dimitrios has studied economy and the computer science at Aristotle university of thessaloniki. His working experience contains positions at public and the private sector. he strongly believes that starting up is the absolute next step after education.',
+	 					"http://gr.linkedin.com/pub/dimitrios-ntempos/33/407/4b1/",
+	 					"aboutme",
+	 					"http://about.me/di.ntempos"); 	        
+	 	        $kuze = array(
+	 	        		"Evangelos Almpanidis",
+	 	        		"Electronic Engineer,<br> Co-Founder",
+	 	        		"vaggel.jpg", 
+	 	        		"Born in Thessaloniki, vangelis deals with the hardware component of Social-Green. He has worked as an embeded system developer as well as academic assistante in A.T.E.I (digital labs I&II) lab. He is a paok fc fun and former graffiti artist.",
+	 	        		'http://gr.linkedin.com/pub/almpanidis-evangelos/5a/43b/194/',
+	 	        		"aboutme",
+	 	        		'http://about.me/evangelos.almpanidis');
+	 	        
+	 	        $konos = array(
+	 	        		"Konstantinos Papadopoulos",
+	 	        		"CTO,<br> Co-founder",
+	 	        		"esu.jpg",
+	 	        		"Konstantinos works as a jr. IT Auditor while the same time leads the technical part of Social-Green. At his free time he enjoys Web & iOS and studing about Information Security. He Holds an MSc degree in ICT Systems.",
+	 	        		'http://www.linkedin.com/in/papadopoulosk',
+	 	        		'aboutme',
+	 	        		'http://about.me/papadopoulospk');
+	 	        
+	 	        $laps = array(
+	 	        		"George Lapatas",
+	 	        		"Web <br>Developer",
+	 	        		"giwrgos.jpg",
+	 	        		"Born in thessaloniki, george is about to graduate from the dept computer science and technology, university of Peloponnese. At social-green he delivers cut-edge code and clear cut user interfaces . He loves travelling and swimming.",
+	 	        		'http://gr.linkedin.com/pub/giorgos-lapatas/3b/621/324/',
+	 	        		'aboutme',
+	 	        		'http://about.me/glapatas');
+	 			
+	 			$antonis = array(
+	 					"Antonis Karanaftis",
+	 					"Designer <br> & Artist",
+	 					"antw.jpg",
+	 					"He is the Art Director of Social Green where he handles every design related issue. His working experience contains printing and graphic design positions. In his free time, Antonis enjoys photo shooting and animation.",
+	 					'http://gr.linkedin.com/pub/antonis-karanaftis/65/3a1/19b',
+	 					'aboutme',
+	 					'http://about.me/antonis.k');
+	 			
+	 			$andreas = array(
+	 					"Andreas Monastiriotis",
+	 					"Automation <br>Engineer",
+	 					"adre.jpg",
+	 					"",
+	 					'http://gr.linkedin.com/pub/andreas-monastiriotis/6b/354/390',
+	 					'aboutme',
+	 					'http://about.me/andreas.monastiriotis');
+	 			
+	 			$eva = array(
+	 					"Eva Kavaliotou",
+	 					"Community<br> Manager",
+	 					"eva.jpg",
+	 					'Eva Kavaliotou Community Manager at Social Green. Her academic background is on Business Administration and Information Systems. Currently she is studying Management Science and Technology at Athens University of Economics and Business and emphasizes her studies on e-Commerce and how Digital marketing and Conversion Rate Optimization can boost online businesses. Gamification is also on her interests. Given the fact that she is still an undergraduate student, her only working experience is as a Conversion Rate Optimization Trainee at her University’s Research Center(ELTRUN) and as an e-Business Intern at "Be eBusiness".',
+	 					"http://gr.linkedin.com/pub/eva-kavaliotou/53/646/81a",
+	 					"aboutme",
+	 					"http://about.me/eva_kavaliotou");
+	 			
+	 			$vivian = array(
+	 					"Vivian Paraschou",
+	 					"Marketing <br>Intern",
+	 					"vivi.jpg",
+	 					'',
+	 					"http://gr.linkedin.com/pub/vivian-paraschou/58/730/4a",
+	 					"aboutme",
+	 					"http://about.me/vi.paraschou");
+	 	        
+	 	        $team = array($ntempos,$kuze,$laps,$vivian,$antonis,$andreas);
+	 	        
+	 	        $this->view->team = $team;
+	 	
+	 	
+	 	
+	 	
+	 	
     }
 
     public function submitContactFormAction()

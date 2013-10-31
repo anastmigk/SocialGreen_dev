@@ -20,6 +20,7 @@ class Application_Model_FormRegister extends Zend_Form
         	$username = new Zend_Form_Element_Text('username');
         	$username->setLabel('*Username :');
         	$username->setAttrib('size',35);
+        	$username->setAttrib('autofocus',"");
         	$username->setRequired(true);
         	$username->addValidator('alnum');
         	/*$username->addValidator('Db_NoRecordExists', false, array(
@@ -155,6 +156,7 @@ class Application_Model_FormRegister extends Zend_Form
         	$username = new Zend_Form_Element_Text('username');
         	$username->setLabel('*Username :');
         	$username->setAttrib('size',35);
+        	$username->setAttrib('autofocus',"");
         	$username->setRequired(true);
         	$username->addValidator('alnum');
         	/*$username->addValidator('Db_NoRecordExists', false, array(
